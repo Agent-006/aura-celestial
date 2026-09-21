@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+
+.topBar {
+    width: 100%;
+
+    font-family: $font-technical;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    @include glass-panel(0.05, $spacing-2xs, rgba($color-white, 0.05));
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    z-index: z('hud');
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    @include container;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: $spacing-xs $spacing-lg;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    min-width: 0;
+
+    >span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.separator {
+    flex-shrink: 0;
+    color: $color-text-tertiary;
+    opacity: 0.4;
+}

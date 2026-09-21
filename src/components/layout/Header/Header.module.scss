@@ -1,0 +1,21 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+
+.header {
+    position: fixed;
+    top: $spacing-xl; // Sits just below the 32px TopBar
+    left: 0;
+    width: 100%;
+    z-index: z('header');
+
+    // Liquid golden glass effect
+    @include liquid-glass-gold(0.08, 12px, rgba($color-gold-primary, 0.3));
+    border-left: none;
+    border-right: none;
+}
+
+.container {
+    @include container;
+    @include flex-between;
+    padding: $spacing-md $spacing-lg;
+}

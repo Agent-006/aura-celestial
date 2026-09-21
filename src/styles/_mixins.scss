@@ -1,1 +1,138 @@
-// Mixins
+@use '@/styles/variables' as *;
+@use 'sass:math';
+@use 'sass:map';
+
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+$breakpoints: (
+  'sm': 40rem,
+  // 640px
+  'md': 48rem,
+  // 768px
+  'lg': 64rem,
+  // 1024px
+  'xl': 80rem,
+  // 1280px
+  '2xl': 96rem // 1536px
+);
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map.keys($breakpoints)}.";
+  }
+}
+
+// ==========================================================================
+// Layout & Positioning
+// ==========================================================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin container($max-width: 90rem) {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// ==========================================================================
+// Aesthetics / Glassmorphism
+// ==========================================================================
+
+// Standard glass effect used for HUD, Header, and telemetry panels
+@mixin glass-panel($opacity: 0.8, $blur: $spacing-sm, $border-color: rgba($color-white, 0.08)) {
+  background: rgba(7, 11, 20, $opacity); // Deep cosmic blue-black
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border-color;
+}
+
+// Liquid Glass with Golden Tint
+@mixin liquid-glass-gold($opacity: 0.1, $blur: 16px, $border-color: rgba($color-gold-primary, 0.2), $base-bg: transparent) {
+  // If a base background is provided, stack it behind the gold gradient
+  background: linear-gradient(135deg, rgba($color-gold-primary, $opacity) 0%, rgba($color-gold-primary, 0.01) 100%), $base-bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border-color;
+  box-shadow: 0 4px 24px rgba($color-gold-primary, 0.1), inset 0 0 0 1px rgba($color-white, 0.05);
+}
+
+// Metallic / Gold text gradient 
+@mixin text-gradient($start: $color-gold-hover, $end: $color-gold-primary) {
+  background: linear-gradient(90deg, $start 0%, $end 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ==========================================================================
+// Interactions
+// ==========================================================================
+
+@mixin transition-standard($properties: all) {
+  transition: $properties 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@mixin hover-glow($color: $color-gold-primary, $spread: $spacing-md) {
+  &:hover {
+    box-shadow: 0 0 $spread rgba($color, 0.15);
+  }
+}
+
+// ==========================================================================
+// Typography Helpers
+// ==========================================================================
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ==========================================================================
+// Z-Index Management (SDE3 Principle: Predictable Stacking Contexts)
+// ==========================================================================
+$z-layers: (
+  'base': 1,
+  'hud': 10,
+  'header': 20,
+  'dropdown': 30,
+  'modal': 40,
+  'tooltip': 50
+);
+
+@function z($layer) {
+  @if not map.has-key($z-layers, $layer) {
+    @warn "No layer found for `#{$layer}` in $z-layers map.";
+  }
+
+  @return map.get($z-layers, $layer);
+}

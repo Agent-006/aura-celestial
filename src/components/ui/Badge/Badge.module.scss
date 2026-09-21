@@ -1,0 +1,47 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-md;
+
+    font-family: $font-technical;
+    font-size: $ui-md;
+    font-weight: $weight-medium;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.gold {
+    color: $color-gold-primary;
+    background: rgba($color-gold-primary, 0.05);
+    border: 1px solid rgba($color-gold-primary, 0.3);
+
+    @include transition-standard(border-color);
+
+    &:hover {
+        border-color: rgba($color-gold-primary, 0.6);
+    }
+}
+
+.default {
+    color: $color-text-secondary;
+    background: rgba($color-white, 0.05);
+    border: 1px solid rgba($color-white, 0.1);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 1.1em;
+        height: 1.1em;
+    }
+}

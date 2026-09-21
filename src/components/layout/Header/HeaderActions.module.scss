@@ -1,0 +1,58 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+}
+
+.iconGroup {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+}
+
+.iconBtn {
+    background: none;
+    border: 1px solid rgba($color-white, 0.1);
+    border-radius: $radius-lg;
+    width: 2rem;
+    height: 2rem;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: $ui-md;
+
+    @include transition-standard(all);
+
+    &:hover {
+        background: rgba($color-white, 0.05);
+        border-color: rgba($color-white, 0.2);
+    }
+}
+
+.userBtn {
+    background: linear-gradient(135deg, $color-gold-primary 0%, $color-gold-hover 100%);
+    border: none;
+    border-radius: $radius-lg;
+    width: 2rem;
+    height: 2rem;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: $ui-md;
+    font-weight: 700;
+
+    @include transition-standard(all);
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 0.75rem rgba($color-gold-primary, 0.4);
+    }
+}
