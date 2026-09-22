@@ -35,10 +35,20 @@ function getNeptuneTexture() {
 
 export function Neptune({ position }: { position: [number, number, number] }) {
     const meshRef = useRef<THREE.Mesh>(null);
+    const tritonRef = useRef<THREE.Mesh>(null);
     const tex = getNeptuneTexture();
 
-    useFrame(() => {
+    useFrame((state) => {
         if (meshRef.current) meshRef.current.rotation.y += 0.0026;
+        const t = state.clock.getElapsedTime();
+        if (tritonRef.current) {
+            // Triton has a retrograde orbit
+            tritonRef.current.position.set(
+                Math.cos(-t * 0.8) * 14,
+                0.4,
+                Math.sin(-t * 0.8) * 14
+            );
+        }
     });
 
     return (
@@ -49,6 +59,11 @@ export function Neptune({ position }: { position: [number, number, number] }) {
                     <meshStandardMaterial map={tex} roughness={0.65} metalness={0.1} />
                 </mesh>
             )}
+            {/* Triton */}
+            <mesh ref={tritonRef} position={[14, 0, 0]}>
+                <sphereGeometry args={[1.1, 12, 12]} />
+                <meshStandardMaterial color="#d4cfc4" roughness={0.75} />
+            </mesh>
         </group>
     );
 }

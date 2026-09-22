@@ -37,10 +37,20 @@ function getPlutoTexture() {
 
 export function Pluto({ position }: { position: [number, number, number] }) {
     const meshRef = useRef<THREE.Mesh>(null);
+    const charonRef = useRef<THREE.Mesh>(null);
     const tex = getPlutoTexture();
 
-    useFrame(() => {
+    useFrame((state) => {
         if (meshRef.current) meshRef.current.rotation.y += 0.0012;
+        const t = state.clock.getElapsedTime();
+        if (charonRef.current) {
+            // Charon orbits very close (binary system)
+            charonRef.current.position.set(
+                Math.cos(t * 0.6) * 5,
+                0.2,
+                Math.sin(t * 0.6) * 5
+            );
+        }
     });
 
     return (
@@ -51,6 +61,11 @@ export function Pluto({ position }: { position: [number, number, number] }) {
                     <meshStandardMaterial map={tex} roughness={0.65} metalness={0.1} />
                 </mesh>
             )}
+            {/* Charon */}
+            <mesh ref={charonRef} position={[5, 0, 0]}>
+                <sphereGeometry args={[1.2, 12, 12]} />
+                <meshStandardMaterial color="#8a8278" roughness={0.8} />
+            </mesh>
         </group>
     );
 }

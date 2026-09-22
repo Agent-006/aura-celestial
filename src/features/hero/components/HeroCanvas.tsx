@@ -15,25 +15,32 @@ import { Neptune } from './planets/Neptune';
 import { Pluto } from './planets/Pluto';
 import { StarField } from './StarField';
 import { EphemerisManifolds } from './EphemerisManifolds';
+import { AsteroidBelt } from './AsteroidBelt';
+import { KuiperBelt } from './KuiperBelt';
 
 // This is where our planets and lights will live later
 function SolarSystemScene() {
     return (
         <>
-            {/* Deep cosmic ambient lighting for the dark side of planets */}
-            <ambientLight color="#0d1424" intensity={1.85} />
+            {/* Deep cosmic ambient — very low to let the Sun dominate lighting */}
+            <ambientLight color="#0a0e18" intensity={1.5} />
 
-            {/* The Sun acts as the anchor on the far left (-200 on the X axis) */}
-            <Sun position={[-200, 0, 0]} />
-            <Earth position={[-62, 0, 0]} />
-            <Saturn position={[86, 0, 0]} />
-            <Mercury position={[-116, 0, 0]} />
-            <Venus position={[-92, 0, 0]} />
-            <Mars position={[-30, 0, 0]} />
-            <Jupiter position={[26, 0, 0]} />
-            <Uranus position={[138, 0, 0]} />
-            <Neptune position={[172, 0, 0]} />
-            <Pluto position={[202, 0, 0]} />
+            {/* Subtle hemisphere light: warm sky (sunlit), cool ground (deep space) */}
+            <hemisphereLight args={['#1a1408', '#050810', 1.2]} />
+
+            {/* The Sun sits far left — only its right half peeks into the viewport */}
+            <Sun position={[-240, 0, 0]} />
+            <Mercury position={[-130, 0, 0]} />
+            <Venus position={[-95, 0, 0]} />
+            <Earth position={[-55, 0, 0]} />
+            <Mars position={[-15, 0, 0]} />
+            <AsteroidBelt />
+            <Jupiter position={[85, 0, 0]} />
+            <Saturn position={[175, 0, 0]} />
+            <Uranus position={[240, 0, 0]} />
+            <Neptune position={[285, 0, 0]} />
+            <Pluto position={[315, 0, 0]} />
+            <KuiperBelt />
             <StarField />
             <EphemerisManifolds />
 
@@ -62,15 +69,13 @@ function CameraController() {
     }, []);
 
     // Smoothly damp the camera position every frame
-    // We pass 'state' to safely access the camera without capturing the outer scope
     useFrame((state) => {
         mouse.current.x += (target.current.x - mouse.current.x) * 0.045;
         mouse.current.y += (target.current.y - mouse.current.y) * 0.045;
-        state.camera.position.x = 16 + mouse.current.x * 1.15;
-        state.camera.position.y = 22 + mouse.current.y * 0.85;
-        state.camera.lookAt(16, -2, 0);
+        state.camera.position.x = 50 + mouse.current.x * 1.15;
+        state.camera.position.y = 45 + mouse.current.y * 0.85;
+        state.camera.lookAt(50, -8, 0);
     });
-
 
     return null;
 }
@@ -78,20 +83,20 @@ function CameraController() {
 export function HeroCanvas() {
     return (
         <Canvas
-            camera={{ position: [16, 22, 385], fov: 36, near: 0.1, far: 4500 }}
+            camera={{ position: [50, 45, 480], fov: 40, near: 0.1, far: 6000 }}
             gl={{
                 antialias: true,
                 powerPreference: 'high-performance',
                 toneMapping: THREE.ACESFilmicToneMapping,
-                toneMappingExposure: 1.35
+                toneMappingExposure: 1.2
             }}
             dpr={[1, 2]}
         >
-            <color attach="background" args={['#020408']} />
-            <fogExp2 attach='fog' args={['#020408', 0.00035]} />
+            <color attach="background" args={['#010204']} />
+            <fogExp2 attach='fog' args={['#010204', 0.00018]} />
 
             <CameraController />
             <SolarSystemScene />
-        </Canvas >
+        </Canvas>
     )
 }

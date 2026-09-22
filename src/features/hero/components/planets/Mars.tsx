@@ -38,10 +38,19 @@ function getMarsTexture() {
 
 export function Mars({ position }: { position: [number, number, number] }) {
     const meshRef = useRef<THREE.Mesh>(null);
+    const phobosRef = useRef<THREE.Mesh>(null);
+    const deimosRef = useRef<THREE.Mesh>(null);
     const tex = getMarsTexture();
 
-    useFrame(() => {
+    useFrame((state) => {
         if (meshRef.current) meshRef.current.rotation.y += 0.0032;
+        const t = state.clock.getElapsedTime();
+        if (phobosRef.current) {
+            phobosRef.current.position.set(Math.cos(t * 2.5) * 7.5, 0.3, Math.sin(t * 2.5) * 7.5);
+        }
+        if (deimosRef.current) {
+            deimosRef.current.position.set(Math.cos(t * 1.2) * 10, -0.2, Math.sin(t * 1.2) * 10);
+        }
     });
 
     return (
@@ -52,6 +61,16 @@ export function Mars({ position }: { position: [number, number, number] }) {
                     <meshStandardMaterial map={tex} roughness={0.65} metalness={0.1} />
                 </mesh>
             )}
+            {/* Phobos */}
+            <mesh ref={phobosRef}>
+                <icosahedronGeometry args={[0.55, 0]} />
+                <meshStandardMaterial color="#8a7d6b" roughness={0.9} flatShading />
+            </mesh>
+            {/* Deimos */}
+            <mesh ref={deimosRef}>
+                <icosahedronGeometry args={[0.35, 0]} />
+                <meshStandardMaterial color="#9a8e7e" roughness={0.9} flatShading />
+            </mesh>
         </group>
     );
 }

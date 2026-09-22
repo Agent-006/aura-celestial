@@ -12,26 +12,31 @@ function getSaturnTexture() {
     if (cachedSaturnTex) return cachedSaturnTex;
 
     const c = document.createElement('canvas');
-    c.width = 2048; c.height = 1024;
+    c.width = 1024; c.height = 1024;
     const ctx = c.getContext('2d')!;
 
-    ctx.fillStyle = '#e8d4a9';
-    ctx.fillRect(0, 0, 2048, 1024);
-
-    for (let y = 0; y < 1024; y += 4) {
-        const factor = Math.sin((y / 1024) * Math.PI * 14);
-        ctx.fillStyle = factor > 0.05 ? '#d9be8c' : '#faedd0';
-        ctx.fillRect(0, y, 2048, 3.5);
+    // Smooth, realistic pale gold/tan gradient for Saturn
+    const g = ctx.createLinearGradient(0, 0, 0, 1024);
+    g.addColorStop(0, '#8e8166');
+    g.addColorStop(0.1, '#c7b491');
+    g.addColorStop(0.2, '#d3c2a4');
+    g.addColorStop(0.3, '#bca981');
+    g.addColorStop(0.4, '#e4d3a8');
+    g.addColorStop(0.5, '#c3b189');
+    g.addColorStop(0.6, '#dcd0b1');
+    g.addColorStop(0.7, '#c7b491');
+    g.addColorStop(0.8, '#d3c2a4');
+    g.addColorStop(0.9, '#a69677');
+    g.addColorStop(1, '#8e8166');
+    
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 1024, 1024);
+    
+    // Add very subtle noise/banding
+    for(let y = 0; y < 1024; y += 2) {
+        ctx.fillStyle = `rgba(0, 0, 0, ${Math.random() * 0.035})`;
+        ctx.fillRect(0, y, 1024, 2);
     }
-
-    const pGrad = ctx.createLinearGradient(0, 0, 0, 1024);
-    pGrad.addColorStop(0, 'rgba(148, 122, 75, 0.45)');
-    pGrad.addColorStop(0.18, 'rgba(0, 0, 0, 0)');
-    pGrad.addColorStop(0.5, 'rgba(255, 245, 220, 0.15)');
-    pGrad.addColorStop(0.82, 'rgba(0, 0, 0, 0)');
-    pGrad.addColorStop(1, 'rgba(148, 122, 75, 0.45)');
-    ctx.fillStyle = pGrad;
-    ctx.fillRect(0, 0, 2048, 1024);
 
     cachedSaturnTex = new THREE.CanvasTexture(c);
     return cachedSaturnTex;
@@ -73,11 +78,19 @@ function getSaturnRingTexture() {
 
 export function Saturn({ position }: { position: [number, number, number] }) {
     const meshRef = useRef<THREE.Mesh>(null);
+    const moonsRef = useRef<THREE.Group>(null);
 
     const saturnTex = getSaturnTexture();
     const ringTex = getSaturnRingTexture();
 
     const radius = 15.0;
+
+    const moons = [
+        { name: 'Titan', r: radius * 3.2, size: 1.8, color: '#c8a84a', speed: 0.6 },
+        { name: 'Rhea', r: radius * 2.9, size: 1.0, color: '#b8b0a0', speed: 0.9 },
+        { name: 'Iapetus', r: radius * 3.6, size: 0.9, color: '#8a7d6b', speed: 0.4 },
+        { name: 'Dione', r: radius * 2.6, size: 0.8, color: '#d0c8b8', speed: 1.2 },
+    ];
 
     // We must manually map the UVs of the RingGeometry to match our gradient texture
     const ringGeometry = useMemo(() => {
@@ -98,41 +111,65 @@ export function Saturn({ position }: { position: [number, number, number] }) {
         return geo;
     }, [radius]);
 
-    useFrame(() => {
+    useFrame((state) => {
         if (meshRef.current) {
             meshRef.current.rotation.y += 0.0042;
+        }
+        const t = state.clock.getElapsedTime();
+        if (moonsRef.current) {
+            moonsRef.current.children.forEach((moon, i) => {
+                const m = moons[i];
+                moon.position.set(
+                    Math.cos(t * m.speed) * m.r,
+                    (i % 2 === 0 ? 0.8 : -0.5),
+                    Math.sin(t * m.speed) * m.r
+                );
+            });
         }
     });
 
     return (
         <group position={position}>
-            {/* The Gas Giant */}
-            {saturnTex && (
-                <mesh ref={meshRef}>
-                    <sphereGeometry args={[radius, 48, 48]} />
-                    <meshStandardMaterial
-                        map={saturnTex}
-                        roughness={0.52}
-                        metalness={0.1}
-                    />
-                </mesh>
-            )}
+            {/* The entire Saturn system is tilted by ~26 degrees (0.45 rad) */}
+            <group rotation={[0.45, 0, -0.2]}>
+                {/* The Gas Giant */}
+                {saturnTex && (
+                    <mesh ref={meshRef}>
+                        <sphereGeometry args={[radius, 48, 48]} />
+                        <meshStandardMaterial
+                            map={saturnTex}
+                            roughness={0.8}
+                            metalness={0.05}
+                        />
+                    </mesh>
+                )}
 
-            {/* The Continuous Ring System */}
-            {ringTex && (
-                <mesh
-                    geometry={ringGeometry}
-                    rotation={[Math.PI / 2.3, 0.22, 0]}
-                >
-                    <meshBasicMaterial
-                        map={ringTex}
-                        side={THREE.DoubleSide}
-                        transparent={true}
-                        opacity={0.95}
-                        depthWrite={false}
-                    />
-                </mesh>
-            )}
+                {/* The Continuous Ring System */}
+                {ringTex && (
+                    <mesh
+                        geometry={ringGeometry}
+                        rotation={[Math.PI / 2, 0, 0]}
+                    >
+                        <meshBasicMaterial
+                            map={ringTex}
+                            side={THREE.DoubleSide}
+                            transparent={true}
+                            opacity={0.95}
+                            depthWrite={false}
+                        />
+                    </mesh>
+                )}
+
+                {/* Saturn's Moons */}
+                <group ref={moonsRef}>
+                    {moons.map((m) => (
+                        <mesh key={m.name} position={[m.r, 0, 0]}>
+                            <sphereGeometry args={[m.size, 16, 16]} />
+                            <meshStandardMaterial color={m.color} roughness={0.7} />
+                        </mesh>
+                    ))}
+                </group>
+            </group>
         </group>
     );
 }
