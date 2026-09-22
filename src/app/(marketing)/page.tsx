@@ -1,3 +1,4 @@
+import { HeroOverlay } from '@/features/hero/components/HeroOverlay/HeroOverlay';
 import { HeroCanvas } from '@/features/hero/components/HeroCanvas';
 import styles from './page.module.scss';
 
@@ -14,7 +15,7 @@ export default function HomePage() {
 
         {/* Hero UI Overlay (Text, Buttons, etc. will go here) */}
         <div className={styles.heroOverlay}>
-          {/* We will add HTML UI here later */}
+          <HeroOverlay />
         </div>
       </section>
 

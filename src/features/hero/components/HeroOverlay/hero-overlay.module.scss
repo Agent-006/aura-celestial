@@ -1,0 +1,106 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+
+.overlayContainer {
+    @include absolute-fill;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: z('hud');
+
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%);
+}
+
+.container {
+    @include container;
+    width: 100%;
+    padding: 0 $spacing-xl;
+}
+
+.contentWrapper {
+    max-width: 800px;
+    pointer-events: auto;
+}
+
+.headline {
+    font-size: $heading-lg;
+    line-height: $leading-tight;
+    font-family: $font-display;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    font-weight: $weight-regular;
+
+    .highlight {
+        color: $color-gold-primary;
+        font-style: italic;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: $color-gold-primary;
+        }
+    }
+}
+
+.subheadWrapper {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    .accentLine {
+        width: 0.2rem;
+        background-color: $color-gold-primary;
+        flex-shrink: 0;
+    }
+
+    .subheadline {
+        font-family: $font-paragraphs;
+        font-size: $subheading-sm;
+        font-style: italic;
+        color: $color-text-secondary;
+        line-height: $leading-relaxed;
+        max-width: 650px;
+        margin: 0;
+    }
+}
+
+.ctaGroup {
+    display: flex;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+}
+
+.trustMarkers {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    font-family: $font-technical;
+    font-size: $ui-sm;
+    color: $color-text-tertiary;
+    letter-spacing: 0.05em;
+
+    .stars {
+        color: $color-gold-primary;
+        font-size: $ui-md;
+        letter-spacing: 0.2em;
+    }
+
+    .separator {
+        color: $color-text-tertiary;
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        color: $color-gold-primary;
+    }
+}
