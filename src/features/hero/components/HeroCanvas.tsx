@@ -22,14 +22,14 @@ import { KuiperBelt } from './KuiperBelt';
 function SolarSystemScene() {
     return (
         <>
-            {/* Deep cosmic ambient — very low to let the Sun dominate lighting */}
-            <ambientLight color="#0a0e18" intensity={1.5} />
+            {/* Deep cosmic ambient */}
+            <ambientLight color="#1a1c2a" intensity={3.5} />
 
             {/* Subtle hemisphere light: warm sky (sunlit), cool ground (deep space) */}
-            <hemisphereLight args={['#1a1408', '#050810', 1.2]} />
+            <hemisphereLight args={['#2a1f10', '#0a0d18', 2.8]} />
 
             {/* The Sun sits far left — only its right half peeks into the viewport */}
-            <Sun position={[-280, 0, 0]} />
+            <Sun position={[-390, 0, 0]} />
             <Mercury position={[-130, 0, 0]} />
             <Venus position={[-95, 0, 0]} />
             <Earth position={[-55, 0, 0]} />
@@ -92,8 +92,8 @@ export function HeroCanvas() {
             }}
             dpr={[1, 2]}
         >
-            <color attach="background" args={['#010204']} />
-            <fogExp2 attach='fog' args={['#010204', 0.00018]} />
+            <color attach="background" args={['#0a080c']} />
+            <fogExp2 attach='fog' args={['#0a080c', 0.00013]} />
 
             <CameraController />
             <SolarSystemScene />

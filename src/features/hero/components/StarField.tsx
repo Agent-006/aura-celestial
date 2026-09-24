@@ -54,10 +54,10 @@ function getMilkyWayData() {
     cachedMWGeo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
 
     cachedMWMat = new THREE.PointsMaterial({
-        size: 3.5,
+        size: 4.5,
         vertexColors: true,
         transparent: true,
-        opacity: 0.15,
+        opacity: 0.35,
         blending: THREE.AdditiveBlending,
         depthWrite: false
     });
@@ -68,7 +68,7 @@ function getMilkyWayData() {
 function getStarfieldData() {
     if (cachedGeo && cachedMat) return { geo: cachedGeo, mat: cachedMat };
 
-    const starCount = 3800;
+    const starCount = 6000;
     const pos = new Float32Array(starCount * 3);
     const cols = new Float32Array(starCount * 3);
     const palette = [
@@ -96,10 +96,10 @@ function getStarfieldData() {
     cachedGeo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
 
     cachedMat = new THREE.PointsMaterial({
-        size: 1.45,
+        size: 1.7,
         vertexColors: true,
         transparent: true,
-        opacity: 0.88
+        opacity: 0.95
     });
 
     return { geo: cachedGeo, mat: cachedMat };

@@ -1,5 +1,4 @@
-import { HeroOverlay } from '@/features/hero/components/HeroOverlay/HeroOverlay';
-import { HeroCanvas } from '@/features/hero/components/HeroCanvas';
+import { HeroOverlay, HeroCanvas } from '@/features/hero';
 import styles from './page.module.scss';
 
 export default function HomePage() {

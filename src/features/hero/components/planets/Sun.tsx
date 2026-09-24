@@ -346,11 +346,11 @@ export function Sun({ position }: { position: [number, number, number] }) {
     return (
         <group position={position} ref={groupRef}>
             {/* Core Sun Illumination cast into the solar system */}
-            <pointLight color="#fff6dd" intensity={12.5} distance={4000} decay={0.5} />
+            <pointLight color="#fff6dd" intensity={18.0} distance={4000} decay={0.5} />
 
             {/* Warmer orange inner glow light */}
-            <pointLight color="#ff8844" intensity={5.0} distance={2000} decay={0.7} />
-            <directionalLight color="#ffeed0" intensity={4.0} position={[0, 0, 20]} />
+            <pointLight color="#ff8844" intensity={8.0} distance={2000} decay={0.7} />
+            <directionalLight color="#ffeed0" intensity={6.0} position={[0, 0, 20]} />
 
             {/* The Photosphere Sphere — enlarged for dramatic half-crop */}
             {sunTex && (
