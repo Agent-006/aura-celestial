@@ -7,11 +7,19 @@
     left: 0;
     width: 100%;
     z-index: z('header');
+    
+    // Initial state at the top is completely transparent except for top/bottom borders
+    background: transparent;
+    border-top: 1px solid rgba($color-gold-primary, 0.3);
+    border-bottom: 1px solid rgba($color-gold-primary, 0.3);
+    @include transition-standard;
 
-    // Liquid golden glass effect
-    @include liquid-glass-gold(0.08, 12px, rgba($color-gold-primary, 0.3));
-    border-left: none;
-    border-right: none;
+    // When scrolled, we apply the glassmorphic liquid gold effect
+    &.scrolled {
+        @include liquid-glass-gold(0.08, 12px, rgba($color-gold-primary, 0.3));
+        border-left: none;
+        border-right: none;
+    }
 }
 
 .container {

@@ -29,7 +29,7 @@ function SolarSystemScene() {
             <hemisphereLight args={['#2a1f10', '#0a0d18', 2.8]} />
 
             {/* The Sun sits far left — only its right half peeks into the viewport */}
-            <Sun position={[-290, 0, 0]} />
+            <Sun position={[-355, 0, 0]} />
             <Mercury position={[-130, 0, 0]} />
             <Venus position={[-95, 0, 0]} />
             <Earth position={[-55, 0, 0]} />

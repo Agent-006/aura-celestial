@@ -27,7 +27,7 @@ function TrajectoryLoop({ cx, cy, rx, ry, tiltZ, opacity, color }: { cx: number,
 function SweepArc({ startY, midY, endX, opacity, color }: { startY: number, midY: number, endX: number, opacity: number, color: string }) {
     const lineObj = useMemo(() => {
         const curve = new THREE.CubicBezierCurve3(
-            new THREE.Vector3(-280, startY, 0),
+            new THREE.Vector3(-345, startY, 0),
             new THREE.Vector3(-80, midY, 15),
             new THREE.Vector3(60, midY * 0.5, -10),
             new THREE.Vector3(endX, 0, 0)
@@ -44,7 +44,7 @@ export function EphemerisManifolds() {
     // Linear center axis baseline
     const axisLine = useMemo(() => {
         const geo = new THREE.BufferGeometry().setFromPoints([
-            new THREE.Vector3(-280, 0, 0),
+            new THREE.Vector3(-345, 0, 0),
             new THREE.Vector3(380, 0, 0)
         ]);
         const mat = new THREE.LineBasicMaterial({ color: '#f5b942', transparent: true, opacity: 0.18 });
