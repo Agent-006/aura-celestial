@@ -44,38 +44,38 @@ export function HeroOverlay() {
             <div className={styles.container}>
                 <div className={styles.contentWrapper}>
 
-                <h1 className={`${styles.headline} animate-item`}>
-                    Discover What the<br />
-                    <span className={styles.highlight}>Stars</span> Reveal About<br />
-                    You
-                </h1>
+                    <h1 className={`${styles.headline} animate-item`}>
+                        Discover What the<br />
+                        <span className={styles.highlight}>Stars</span> Reveal About<br />
+                        You
+                    </h1>
 
-                <div className={`${styles.subheadWrapper} animate-item`}>
-                    <div className={`${styles.accentLine} animate-line`}></div>
-                    <p className={styles.subheadline}>
-                        Sidereal cosmic intelligence powered by sub-arcsecond NASA JPL mechanics.<br />
-                        Explore orbital manifolds, consult verified Vedic masters, and decode your karmic destiny.
-                    </p>
-                </div>
+                    <div className={`${styles.subheadWrapper} animate-item`}>
+                        <div className={`${styles.accentLine} animate-line`}></div>
+                        <p className={styles.subheadline}>
+                            Sidereal cosmic intelligence powered by sub-arcsecond NASA JPL mechanics.<br />
+                            Explore orbital manifolds, consult verified Vedic masters, and decode your karmic destiny.
+                        </p>
+                    </div>
 
-                <div className={`${styles.ctaGroup} animate-item`}>
-                    <Button variant="solid" size="lg" leftIcon={<Phone size={16} strokeWidth={2} />}>
-                        Talk To An Astrologer
-                    </Button>
-                    <Button variant="outline" size="lg" leftIcon={<Sparkles size={16} strokeWidth={2} />}>
-                        Generate Free Kundli
-                    </Button>
-                </div>
+                    <div className={`${styles.ctaGroup} animate-item`}>
+                        <Button variant="solid" size="lg" leftIcon={<Phone size={16} strokeWidth={2} />}>
+                            Talk To An Astrologer
+                        </Button>
+                        <Button variant="outline" size="lg" leftIcon={<Sparkles size={16} strokeWidth={2} />}>
+                            Generate Free Kundli
+                        </Button>
+                    </div>
 
-                <div className={`${styles.trustMarkers} animate-item`}>
-                    <span className={styles.stars}>★★★★★</span>
-                    <span>4.98/5 (350k+ Consultations)</span>
-                    <span className={styles.separator}>•</span>
-                    <span className={styles.feature}>
-                        <Globe size={14} />
-                        Interactive 3D Orbit View
-                    </span>
-                </div>
+                    <div className={`${styles.trustMarkers} animate-item`}>
+                        <span className={styles.stars}>★★★★★</span>
+                        <span>4.98/5 (350k+ Consultations)</span>
+                        <span className={styles.separator}>•</span>
+                        <span className={styles.feature}>
+                            <Globe size={14} />
+                            Interactive 3D Orbit View
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
