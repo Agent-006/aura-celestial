@@ -6,8 +6,8 @@ import * as THREE from 'three';
 
 // ==========================================================================
 // The asteroid belt orbits between Mars (x=-15) and Jupiter (x=85).
-// Sun is at x=-380. Mars distance from Sun = 365, Jupiter = 465.
-// Belt orbital radius: 380–440 units centered on the Sun.
+// Sun is at x=-290. Mars distance from Sun = 275, Jupiter = 375.
+// Belt orbital radius: 290–350 units centered on the Sun.
 // ==========================================================================
 
 let cachedMatrices: Float32Array | null = null;
@@ -19,8 +19,8 @@ const ASTEROID_COUNT = 5000;
 function getAsteroidData() {
     if (cachedGeo && cachedMat && cachedMatrices) return { geo: cachedGeo, mat: cachedMat, matrices: cachedMatrices };
 
-    const minRadius = 380;
-    const maxRadius = 440;
+    const minRadius = 290;
+    const maxRadius = 350;
 
     // Use SphereGeometry(detail 3) for smooth, natural-looking rocks
     // by distorting vertices for an organic irregular shape
@@ -91,7 +91,7 @@ export function AsteroidBelt() {
     });
 
     return (
-        <group position={[-380, 0, 0]} ref={groupRef}>
+        <group position={[-290, 0, 0]} ref={groupRef}>
             <instancedMesh args={[geo, mat, ASTEROID_COUNT]}>
                 <instancedBufferAttribute
                     attach="instanceMatrix"

@@ -1,4 +1,4 @@
-import { HeroOverlay, HeroCanvas } from '@/features/hero';
+import { HeroOverlay, HeroCanvas, EphemerisHUD } from '@/features/hero';
 import styles from './page.module.scss';
 
 export default function HomePage() {
@@ -15,6 +15,7 @@ export default function HomePage() {
         {/* Hero UI Overlay (Text, Buttons, etc. will go here) */}
         <div className={styles.heroOverlay}>
           <HeroOverlay />
+          <EphemerisHUD />
         </div>
       </section>
 

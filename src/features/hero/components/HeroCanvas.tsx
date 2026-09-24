@@ -29,7 +29,7 @@ function SolarSystemScene() {
             <hemisphereLight args={['#2a1f10', '#0a0d18', 2.8]} />
 
             {/* The Sun sits far left — only its right half peeks into the viewport */}
-            <Sun position={[-380, 0, 0]} />
+            <Sun position={[-290, 0, 0]} />
             <Mercury position={[-130, 0, 0]} />
             <Venus position={[-95, 0, 0]} />
             <Earth position={[-55, 0, 0]} />
@@ -72,9 +72,9 @@ function CameraController() {
     useFrame((state) => {
         mouse.current.x += (target.current.x - mouse.current.x) * 0.045;
         mouse.current.y += (target.current.y - mouse.current.y) * 0.045;
-        state.camera.position.x = 50 + mouse.current.x * 1.15;
+        state.camera.position.x = 75 + mouse.current.x * 1.15;
         state.camera.position.y = 45 + mouse.current.y * 0.85;
-        state.camera.lookAt(50, -8, 0);
+        state.camera.lookAt(75, -25, 0); // Shifted X to 75 to move planets left
     });
 
     return null;
@@ -83,7 +83,7 @@ function CameraController() {
 export function HeroCanvas() {
     return (
         <Canvas
-            camera={{ position: [50, 45, 480], fov: 32, near: 0.1, far: 6000 }}
+            camera={{ position: [75, 45, 480], fov: 40, near: 0.1, far: 6000 }} // Shifted X to 75
             gl={{
                 antialias: true,
                 powerPreference: 'high-performance',
