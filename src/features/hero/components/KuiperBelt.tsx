@@ -5,9 +5,9 @@ import { useRef } from 'react';
 import * as THREE from 'three';
 
 // ==========================================================================
-// The Kuiper Belt sits BEYOND Pluto (x=202). With the Sun at x=-255,
-// Pluto is 457 units from the Sun. The belt must start well beyond that.
-// minRadius = 500, maxRadius = 600 ensures it wraps outside all planets.
+// The Kuiper Belt sits BEYOND Pluto (x=315). With the Sun at x=-380,
+// Pluto is 695 units from the Sun. The belt must start well beyond that.
+// minRadius = 730, maxRadius = 850 ensures it wraps outside all planets.
 // ==========================================================================
 
 let cachedKBGeo: THREE.BufferGeometry | null = null;
@@ -17,8 +17,8 @@ function getKuiperBeltData() {
     if (cachedKBGeo && cachedKBMat) return { geo: cachedKBGeo, mat: cachedKBMat };
 
     const count = 20000;
-    const minRadius = 570;
-    const maxRadius = 700;
+    const minRadius = 730;
+    const maxRadius = 850;
 
     const pos = new Float32Array(count * 3);
     const cols = new Float32Array(count * 3);
@@ -76,7 +76,7 @@ export function KuiperBelt() {
     });
 
     return (
-        <group position={[-240, 0, 0]} ref={groupRef}>
+        <group position={[-380, 0, 0]} ref={groupRef}>
             <points geometry={geo} material={mat} />
         </group>
     );
