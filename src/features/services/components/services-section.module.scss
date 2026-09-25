@@ -1,0 +1,105 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+@use '@/styles/_typography' as *;
+
+.section {
+    position: relative;
+    width: 100%;
+    @include section-spacing;
+    // A bright, vibrant celestial aura that maintains dark-mode contrast
+    background: radial-gradient(120% 100% at 50% 0%, rgba($color-gold-primary, 0.2) 0%, rgba(45, 30, 15, 0.8) 40%, $color-background 100%);
+    z-index: 20; // Above the 3D canvas
+
+    // Tiling pure-CSS starfield to seamlessly blend with the Hero section above
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1; // Keep it behind the grid content
+        opacity: 0.6;
+        pointer-events: none;
+        background-image:
+            radial-gradient(0.0625rem 0.0625rem at 15% 15%, rgba(255, 255, 255, 0.9) 100%, transparent),
+            radial-gradient(0.09375rem 0.09375rem at 45% 85%, rgba($color-gold-primary, 0.8) 100%, transparent),
+            radial-gradient(0.0625rem 0.0625rem at 65% 25%, rgba(255, 255, 255, 0.6) 100%, transparent),
+            radial-gradient(0.125rem 0.125rem at 85% 65%, rgba(255, 255, 255, 0.4) 100%, transparent),
+            radial-gradient(0.0625rem 0.0625rem at 25% 65%, rgba($color-gold-primary, 0.5) 100%, transparent),
+            radial-gradient(0.09375rem 0.09375rem at 75% 15%, rgba(255, 255, 255, 0.7) 100%, transparent);
+        background-size: 21.875rem 21.875rem;
+    }
+}
+
+.container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xl;
+}
+
+// --- Top Header Area ---
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-2xl;
+
+    @media (max-width: 64rem) {
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-md;
+    }
+}
+
+.titleArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    .eyebrow {
+        font-family: $font-technical;
+        font-size: $ui-xs;
+        color: $color-gold-primary;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    h2 {
+        font-family: $font-headings;
+        font-size: $heading-xl;
+        font-weight: $weight-regular;
+        color: $color-text-primary;
+        line-height: $leading-tight;
+    }
+}
+
+.descArea {
+    flex: 0 1 28.125rem;
+
+    p {
+        font-family: $font-paragraphs;
+        font-size: $paragraph-md;
+        color: $color-text-secondary;
+        font-style: italic;
+        line-height: $leading-relaxed;
+    }
+}
+
+// --- Cards Grid ---
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: 80rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 48rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 30rem) {
+        grid-template-columns: 1fr;
+    }
+}

@@ -63,6 +63,19 @@ $breakpoints: (
   margin: 0 auto;
 }
 
+@mixin section-spacing {
+  padding: $spacing-2xl 0; // Default (Mobile)
+
+  @include respond-to('md') {
+    padding: $spacing-3xl 0; // Tablet
+  }
+
+  @include respond-to('lg') {
+    padding: $spacing-4xl 0; // Desktop
+  }
+}
+
+
 // ==========================================================================
 // Aesthetics / Glassmorphism
 // ==========================================================================
@@ -75,7 +88,25 @@ $breakpoints: (
   border: 1px solid $border-color;
 }
 
-// Liquid Glass with Golden Tint
+// Premium Dark Frosted Acrylic (Used by Cards)
+@mixin glass-card($opacity: 0.5, $blur: 1.5rem) {
+  // Smooth dark translucent gradient
+  background: linear-gradient(135deg, rgba(30, 30, 35, $opacity) 0%, rgba(10, 10, 12, $opacity * 1.5) 100%);
+  
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  
+  // Outer rim
+  border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  
+  // Acrylic 3D edge: top-left highlight, bottom-right shadow + drop shadow
+  box-shadow: 
+    inset 0.0625rem 0.0625rem 0.125rem rgba(255, 255, 255, 0.15),
+    inset -0.0625rem -0.0625rem 0.125rem rgba(0, 0, 0, 0.5),
+    0 0.75rem 2.5rem rgba(0, 0, 0, 0.4);
+}
+
+// Liquid Glass with Golden Tint (Used by Header)
 @mixin liquid-glass-gold($opacity: 0.1, $blur: 16px, $border-color: rgba($color-gold-primary, 0.2), $base-bg: transparent) {
   // If a base background is provided, stack it behind the gold gradient
   background: linear-gradient(135deg, rgba($color-gold-primary, $opacity) 0%, rgba($color-gold-primary, 0.01) 100%), $base-bg;
@@ -83,6 +114,26 @@ $breakpoints: (
   -webkit-backdrop-filter: blur($blur);
   border: 1px solid $border-color;
   box-shadow: 0 4px 24px rgba($color-gold-primary, 0.1), inset 0 0 0 1px rgba($color-white, 0.05);
+}
+
+// Ultra Glossy Liquid Glass Effect
+@mixin liquid-glass($opacity: 0.15, $blur: 16px, $color: $color-gold-primary) {
+  // Dual gradient: Specular highlight wash + base color wash
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0) 65%, rgba(255, 255, 255, 0.05) 100%),
+    linear-gradient(to bottom, rgba($color, $opacity) 0%, rgba($color, $opacity * 0.3) 100%);
+
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  // 3D Bevel: Top white highlight, bottom dark shadow, inner glow, outer shadow
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 24px 32px -12px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6),
+    inset 0 -12px 24px -12px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 // Metallic / Gold text gradient 

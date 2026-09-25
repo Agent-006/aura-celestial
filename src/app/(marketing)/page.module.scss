@@ -1,5 +1,5 @@
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
 
 .homeContainer {
     position: relative;
@@ -12,7 +12,7 @@
 .heroSection {
     position: relative;
     width: 100%;
-    height: 100vh; // Takes up exactly the first screen height
+    height: 85.5vh; // Takes up exactly the first screen height
     overflow: hidden; // Prevents the 3D canvas from bleeding out
 }
 
@@ -36,7 +36,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding-bottom: 7rem;
 
     // Creates a smooth gradient fade into the background at both top and bottom
     background: linear-gradient(to bottom,
@@ -52,5 +51,4 @@
     z-index: 10;
     min-height: 100vh;
     background-color: $color-background; // Solid background hides the hero as it scrolls up
-    padding: 5rem 2rem;
 }

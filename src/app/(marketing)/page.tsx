@@ -1,4 +1,5 @@
 import { HeroOverlay, HeroCanvas, EphemerisHUD } from '@/features/hero';
+import { ServicesSection } from '@/features/services';
 import styles from './page.module.scss';
 
 export default function HomePage() {
@@ -21,9 +22,7 @@ export default function HomePage() {
 
       {/* --- FUTURE SECTIONS (About, Services, etc) --- */}
       <main className={styles.contentSection}>
-        <h2 style={{ color: 'white', textAlign: 'center', marginTop: '10rem' }}>
-          Future sections will go here! The Hero section scrolls up normally.
-        </h2>
+        <ServicesSection />
       </main>
 
     </div>

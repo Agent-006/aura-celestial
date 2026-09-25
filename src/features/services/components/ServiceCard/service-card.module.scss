@@ -1,0 +1,111 @@
+@use '@/styles/_variables' as *;
+@use '@/styles/_mixins' as *;
+@use '@/styles/_typography' as *;
+
+.card {
+    position: relative;
+    overflow: hidden; // Keeps the shine inside the rounded corners
+    @include flex-column;
+    gap: $spacing-xs;
+    padding: $spacing-md;
+    @include glass-card(0.4, 1.5rem);
+    border-radius: $radius-lg;
+    @include transition-standard;
+    cursor: pointer;
+    height: 100%; // ensures they stretch evenly in the grid
+
+    &:hover {
+        @include glass-card(0.6, 1.5rem);
+        transform: translateY(-0.25rem);
+
+        .spotlight {
+            opacity: 1;
+        }
+    }
+}
+
+// Spotlight element that tracks mouse
+.spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0; // Default state
+    background: radial-gradient(25rem circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.08),
+            transparent 40%);
+    z-index: 0; // Behind content
+    transition: opacity 0.4s ease;
+}
+
+.cardHeader,
+.cardContent,
+.cardFooter {
+    position: relative; // Keeps them above the spotlight
+    z-index: 1;
+}
+
+.cardHeader {
+    @include flex-between;
+    align-items: flex-start;
+
+    .iconBox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 0.0625rem solid rgba($color-gold-primary, 0.3);
+        color: $color-gold-primary;
+        border-radius: $radius-sm;
+
+        svg {
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+    }
+
+    .badge {
+        font-family: $font-technical;
+        font-size: $ui-xs;
+        color: $color-gold-primary;
+        padding: $spacing-2xs $spacing-xs;
+        border: 0.0625rem solid rgba($color-gold-primary, 0.3);
+        border-radius: $radius-sm;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+}
+
+.cardContent {
+    @include flex-column;
+    gap: $spacing-xs;
+    flex-grow: 1;
+
+    h3 {
+        font-family: $font-headings;
+        font-size: $heading-sm;
+        font-style: italic;
+        color: $color-text-primary;
+        font-weight: $weight-regular;
+        margin: $spacing-md 0 0 0;
+    }
+
+    p {
+        font-family: $font-inter;
+        font-size: $ui-sm;
+        color: $color-text-secondary;
+        line-height: $leading-normal;
+    }
+}
+
+.cardFooter {
+    font-family: $font-technical;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    margin-top: auto;
+}
