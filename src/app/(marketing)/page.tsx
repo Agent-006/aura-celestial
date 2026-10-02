@@ -1,4 +1,5 @@
 import { HeroOverlay, HeroCanvas, EphemerisHUD } from "@/features/hero";
+import { AstrologersSection } from "@/features/astrologers";
 import { ServicesSection } from "@/features/services";
 import styles from "./page.module.scss";
 
@@ -22,6 +23,7 @@ export default function HomePage() {
       {/* --- FUTURE SECTIONS (About, Services, etc) --- */}
       <main className={styles.contentSection}>
         <ServicesSection />
+        <AstrologersSection />
       </main>
     </div>
   );

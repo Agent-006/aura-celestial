@@ -1,0 +1,92 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+  z-index: 2;
+}
+
+.container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+// --- Header Area ---
+.header {
+  @include flex-between;
+  align-items: flex-end; // Align bottom so the view link sits nicely aligned with the title
+  gap: $spacing-xl;
+
+  // On smaller screens, stack them
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .eyebrow {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-gold-muted;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-family: var(--font-cormorant-garamond);
+    font-size: $heading-lg;
+    font-weight: 400;
+    font-style: italic;
+    color: $color-text-primary;
+    margin: 0;
+    line-height: 1.1;
+  }
+}
+
+.viewAllLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-family: var(--font-space-mono);
+  font-size: 0.7rem;
+  color: $color-gold-primary;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// --- Grid ---
+.grid {
+  display: grid;
+  // 4 cards across on desktop to exactly match your screenshot
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 64rem) { // lg
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 48rem) { // md
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 40rem) { // sm
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,60 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.filtersWrapper {
+  width: 100%;
+  position: relative;
+
+  // A subtle fade on the right edge to indicate horizontal scrolling on mobile
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to right, transparent, $color-background);
+    pointer-events: none;
+
+    @include respond-to("lg") {
+      display: none; // Turn off the fade on desktop where it doesn't scroll
+    }
+  }
+}
+
+.scrollContainer {
+  display: flex;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  padding-bottom: $spacing-xs; // Small padding so focus rings don't get clipped
+
+  // Hide the ugly native scrollbar but keep the scrolling functionality
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+.tab {
+  white-space: nowrap; // Prevents the text from wrapping to a second line
+  background: transparent;
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  color: $color-text-secondary;
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  padding: $spacing-xs $spacing-md;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba($color-gold-primary, 0.5);
+    color: $color-gold-primary;
+  }
+
+  &.active {
+    background: $color-gold-primary;
+    color: $color-background; // Dark text on gold background
+    border-color: $color-gold-primary;
+    font-weight: bold;
+  }
+}

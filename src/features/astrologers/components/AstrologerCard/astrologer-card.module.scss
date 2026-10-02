@@ -1,0 +1,247 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.4, 1rem, rgba($color-gold-primary, 0.15));
+  border-radius: $radius-none; // Matches the boxy, sharp premium look
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba($color-gold-primary, 0.3);
+  }
+}
+
+// --- Image & Overlays ---
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; // Portrait aspect ratio
+  overflow: hidden;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.15);
+
+  .image {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+.card:hover .image {
+  transform: scale(1.05); // Slight zoom on hover
+}
+
+.topBadge {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  background: rgba($color-background, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid $color-gold-muted;
+  color: $color-gold-primary;
+  font-family: var(--font-space-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: $spacing-2xs $spacing-xs;
+  text-transform: uppercase;
+}
+
+.statusBadge {
+  position: absolute;
+  bottom: $spacing-md;
+  left: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: rgba($color-background, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba($color-white, 0.1);
+  padding: $spacing-2xs $spacing-sm;
+  font-family: var(--font-space-mono);
+  font-size: 0.6rem;
+  color: $color-text-primary;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  &.online .dot {
+    background-color: #4ade80; // Bright green
+    box-shadow: 0 0 8px rgba(#4ade80, 0.6);
+  }
+
+  &.busy .dot {
+    background-color: #facc15; // Warning yellow
+    box-shadow: 0 0 8px rgba(#facc15, 0.6);
+  }
+}
+
+// --- Info Area ---
+.infoArea {
+  padding: $spacing-md;
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.header {
+  @include flex-between;
+  align-items: flex-start;
+
+  h3 {
+    font-family: var(--font-cormorant-garamond);
+    font-size: $heading-xs;
+    font-weight: 500;
+    font-style: italic;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $color-gold-primary;
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+
+    .starIcon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.subtitle {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-secondary;
+  margin: 0;
+}
+
+.specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2xs;
+  margin-top: $spacing-xs;
+
+  .pill {
+    font-family: var(--font-space-mono);
+    font-size: 0.55rem;
+    color: $color-text-secondary;
+    border: 1px solid rgba($color-text-secondary, 0.3);
+    padding: 2px 6px;
+    letter-spacing: 0.05em;
+  }
+}
+
+.languages {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: $color-text-tertiary;
+  margin: $spacing-xs 0 0 0;
+}
+
+// --- Footer ---
+.footer {
+  @include flex-between;
+  padding: $spacing-md;
+  border-top: 1px solid rgba($color-gold-primary, 0.1);
+  margin-top: auto;
+}
+
+.priceInfo {
+  @include flex-column;
+  gap: 2px;
+
+  .label {
+    font-family: var(--font-space-mono);
+    font-size: 0.55rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.1em;
+  }
+
+  .price {
+    color: $color-gold-primary;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+
+    .currency {
+      font-size: 0.75rem;
+    }
+    .amount {
+      font-family: var(--font-space-mono);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .unit {
+      font-size: 0.65rem;
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-xs;
+
+  button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    height: 32px;
+    transition: all 0.2s ease;
+  }
+
+  .iconBtn {
+    width: 32px;
+    background: transparent;
+    border: 1px solid rgba($color-gold-primary, 0.3);
+    color: $color-gold-primary;
+
+    &:hover {
+      background: rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  .primaryBtn {
+    padding: 0 $spacing-md;
+    background: linear-gradient(
+      135deg,
+      $color-gold-primary 0%,
+      $color-gold-muted 100%
+    );
+    border: none;
+    color: $color-background;
+    font-weight: bold;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  .secondaryBtn {
+    padding: 0 $spacing-md;
+    background: transparent;
+    border: 1px solid rgba($color-white, 0.3);
+    color: $color-text-primary;
+
+    &:hover {
+      background: rgba($color-white, 0.05);
+      border-color: $color-white;
+    }
+  }
+}
