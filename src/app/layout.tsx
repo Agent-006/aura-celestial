@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Space_Mono, Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+import {
+  Playfair_Display,
+  Inter,
+  Space_Mono,
+  Cinzel_Decorative,
+  Cormorant_Garamond,
+} from "next/font/google";
 import "@/styles/globals.scss";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
@@ -41,17 +47,22 @@ export const metadata: Metadata = {
   description: "A premium, celestial web experience.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable}`}>
-      <body>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable}`}
+    >
+      <body suppressHydrationWarning>
         <TopBar />
         <Header />
 
         {/* The main content area where the 3D canvas will eventually go */}
-        <main className={styles.mainContent}>
-          {children}
-        </main>
+        <main className={styles.mainContent}>{children}</main>
       </body>
     </html>
   );

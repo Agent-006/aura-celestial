@@ -1,11 +1,10 @@
-import { HeroOverlay, HeroCanvas, EphemerisHUD } from '@/features/hero';
-import { ServicesSection } from '@/features/services';
-import styles from './page.module.scss';
+import { HeroOverlay, HeroCanvas, EphemerisHUD } from "@/features/hero";
+import { ServicesSection } from "@/features/services";
+import styles from "./page.module.scss";
 
 export default function HomePage() {
   return (
     <div className={styles.homeContainer}>
-
       {/* --- HERO SECTION --- */}
       <section className={styles.heroSection}>
         {/* 3D Engine wrapper */}
@@ -24,7 +23,6 @@ export default function HomePage() {
       <main className={styles.contentSection}>
         <ServicesSection />
       </main>
-
     </div>
-  )
+  );
 }

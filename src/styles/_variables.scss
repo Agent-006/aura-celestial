@@ -4,14 +4,14 @@ $color-surface: #12100d; // Slightly lighter for cards/panels
 $color-surface-hover: #1c1a17;
 
 // Text Colors
-$color-text-primary: #F0EEE9; // Off-white for high contrast
+$color-text-primary: #f0eee9; // Off-white for high contrast
 $color-text-secondary: #dddbd6; // Muted warm gray for descriptions
-$color-text-tertiary: #6E6A63; // De-emphasized text
+$color-text-tertiary: #6e6a63; // De-emphasized text
 
 // Brand / Accent (Gold)
-$color-gold-primary: #E6B553; // Bright golden
-$color-gold-hover: #F9D06A; // Even brighter for hover
-$color-gold-muted: #C6983A; // Used for borders or dimmed elements
+$color-gold-primary: #e6b553; // Bright golden
+$color-gold-hover: #f9d06a; // Even brighter for hover
+$color-gold-muted: #c6983a; // Used for borders or dimmed elements
 
 // UI Elements
 $color-white: #fff;
@@ -57,7 +57,7 @@ $paragraph-sm: clamp(0.875rem, 1vw + 0.25rem, 1rem);
 // UI / Technical
 $ui-lg: clamp(0.875rem, 1vw + 0.25rem, 1rem);
 $ui-md: clamp(0.75rem, 0.8vw + 0.25rem, 0.875rem);
-$ui-sm: clamp(0.65rem, 0.6vw + 0.20rem, 0.875rem);
+$ui-sm: clamp(0.65rem, 0.6vw + 0.2rem, 0.875rem);
 $ui-xs: clamp(0.65rem, 0.5vw + 0.25rem, 0.75rem);
 
 :root {
