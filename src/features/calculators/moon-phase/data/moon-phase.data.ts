@@ -1,4 +1,4 @@
-import { EphemerisRow, HarmonyProtocol } from "../types/moon-phase.types";
+import { EphemerisRow, HarmonyProtocol, IlluminationMetric } from "../types/moon-phase.types";
 
 export const SHUKLA_TITHIS_DATA: EphemerisRow[] = [
   {
@@ -161,4 +161,11 @@ export const LUNAR_HARMONY_PROTOCOLS_DATA: HarmonyProtocol[] = [
     desc: "This moon phase indicates high emotional resonance. Channel feelings into creative pursuits. Avoid impulsive financial decisions today.",
     link: "GENERATE KARMIC CHART →",
   },
+];
+
+export const ILLUMINATION_METRICS_DATA: IlluminationMetric[] = [
+  { label: "PHYSICAL VITALITY", score: 92, color: "#00e5ff" },
+  { label: "MENTAL CLARITY", score: 85, color: "#00e5ff" },
+  { label: "SPIRITUAL RECEPTIVITY", score: 78, color: "#e6b553" },
+  { label: "EMOTIONAL STABILITY", score: 88, color: "#00e5ff" },
 ];

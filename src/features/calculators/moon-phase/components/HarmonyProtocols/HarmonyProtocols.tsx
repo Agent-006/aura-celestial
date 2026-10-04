@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useHarmonyProtocols } from "../../hooks/useHarmonyProtocols";
 import styles from "./harmony-protocols.module.scss";

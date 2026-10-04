@@ -16,3 +16,9 @@ export interface HarmonyProtocol {
   desc: string;
   link: string;
 }
+
+export interface IlluminationMetric {
+  label: string;
+  score: number;
+  color: string;
+}

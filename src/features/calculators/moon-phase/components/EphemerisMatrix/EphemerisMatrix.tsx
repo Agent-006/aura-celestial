@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useEphemerisMatrix } from "../../hooks/useEphemerisMatrix";
 import styles from "./ephemeris-matrix.module.scss";

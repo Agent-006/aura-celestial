@@ -3,13 +3,13 @@ import { CalculatorItem } from "../types/calculators-section.types";
 
 export const CALCULATORS_DATA: CalculatorItem[] = [
   {
-    id: "calc-moon",
-    title: "Moon Sign (Chandra Rashi)",
+    id: "calc-moon-phase",
+    title: "Moon Phase & Tithi",
     description:
-      "Discover your emotional core through the exact celestial placement of the Moon at birth.",
-    ctaText: "CALCULATE MOON SIGN →",
+      "Compute precise lunar phases, illumination percentages, and traditional Tithi classifications.",
+    ctaText: "CALCULATE MOON PHASE →",
     icon: Moon,
-    href: "/calculators/moon-sign", // Future route
+    href: "/calculators/moon-phase",
   },
   {
     id: "calc-nakshatra",

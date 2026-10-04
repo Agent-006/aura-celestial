@@ -1,13 +1,15 @@
+"use client";
+
 import React from "react";
+import { useIlluminationMetrics } from "../../hooks/useIlluminationMetrics";
 import styles from "./illumination-card.module.scss";
 
 export function IlluminationCard() {
-  const bars = [
-    { label: "PHYSICAL VITALITY", score: 92, color: "#00e5ff" },
-    { label: "MENTAL CLARITY", score: 85, color: "#00e5ff" },
-    { label: "SPIRITUAL RECEPTIVITY", score: 78, color: "#e6b553" },
-    { label: "EMOTIONAL STABILITY", score: 88, color: "#00e5ff" },
-  ];
+  const { metrics, isLoading } = useIlluminationMetrics();
+
+  if (isLoading) {
+    return <div className={styles.card}>Loading illumination metrics...</div>;
+  }
 
   return (
     <div className={styles.card}>
@@ -41,7 +43,7 @@ export function IlluminationCard() {
         </div>
       </div>
       <div className={styles.barsContainer}>
-        {bars.map((bar, i) => (
+        {metrics.map((bar, i) => (
           <div key={i} className={styles.barRow}>
             <div className={styles.barHeader}>
               <span className={styles.barLabel}>{bar.label}</span>
