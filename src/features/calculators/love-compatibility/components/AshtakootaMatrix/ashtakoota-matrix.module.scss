@@ -1,0 +1,118 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  padding: $spacing-xl;
+  height: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.1);
+  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  h3 {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 1.5rem;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.badge {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.1em;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.1em;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+  }
+
+  td {
+    padding: $spacing-md 0;
+    border-bottom: 1px solid rgba($color-white, 0.05);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.kootaName {
+  display: block;
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: $color-text-primary;
+  margin-bottom: 2px;
+}
+
+.kootaDesc {
+  display: block;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  color: $color-text-tertiary;
+}
+
+.maxScore {
+  font-family: var(--font-space-mono);
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+}
+
+.obtainedScore {
+  font-family: var(--font-space-mono);
+  font-size: 0.9rem;
+  color: $color-gold-primary;
+  font-weight: 600;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  
+  &.auspicious {
+    background-color: rgba(#00e5ff, 0.1);
+    color: #00e5ff;
+  }
+  
+  &.good {
+    background-color: rgba(#00e5ff, 0.05);
+    color: rgba(#00e5ff, 0.8);
+  }
+
+  &.average {
+    background-color: rgba($color-gold-primary, 0.1);
+    color: $color-gold-primary;
+  }
+
+  &.inauspicious {
+    background-color: rgba(#ff4444, 0.1);
+    color: #ff4444;
+  }
+}

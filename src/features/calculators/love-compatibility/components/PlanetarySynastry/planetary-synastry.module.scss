@@ -1,0 +1,111 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  padding: $spacing-xl;
+  height: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.1);
+  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  h3 {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 1.5rem;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.badge {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.1em;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.1em;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+  }
+
+  td {
+    padding: $spacing-md 0;
+    border-bottom: 1px solid rgba($color-white, 0.05);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.planets {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+
+  .p1, .p2 {
+    color: $color-text-primary;
+  }
+
+  .aspectIcon {
+    color: $color-gold-primary;
+    font-size: 1.1rem;
+  }
+}
+
+.aspect {
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+}
+
+.orb {
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+  color: $color-text-tertiary;
+}
+
+.resonanceBar {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  .resonanceFill {
+    height: 6px;
+    border-radius: 4px;
+    flex-grow: 1;
+    max-width: 100px;
+    background-color: #00e5ff;
+  }
+
+  .resonanceValue {
+    font-family: var(--font-space-mono);
+    font-size: 0.8rem;
+    color: $color-text-primary;
+    min-width: 32px;
+  }
+}

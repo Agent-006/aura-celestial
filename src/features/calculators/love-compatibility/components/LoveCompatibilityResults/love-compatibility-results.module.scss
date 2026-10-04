@@ -1,0 +1,23 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.resultsContainer {
+  margin-top: $spacing-2xl;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leftColumn,
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}

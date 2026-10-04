@@ -1,0 +1,23 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.pageContainer {
+  @include container;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.concordanceBadge {
+  padding: $spacing-md;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  border-radius: 8px;
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+}
+
+.calibrationText {
+  color: $color-gold-primary;
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+}

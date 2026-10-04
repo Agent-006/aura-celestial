@@ -1,0 +1,53 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.mainContent {
+  @include flex-column;
+  gap: $spacing-sm;
+  max-width: 800px;
+}
+
+.eyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff; // Tech-teal accent
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-xs;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: $heading-xl;
+  color: $color-gold-primary;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.description {
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.badgeWrapper {
+  flex-shrink: 0;
+}

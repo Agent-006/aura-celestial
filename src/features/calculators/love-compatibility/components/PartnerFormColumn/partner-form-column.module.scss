@@ -1,0 +1,129 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.partnerColumn {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+  padding-bottom: $spacing-sm;
+}
+
+.partnerLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background-color: rgba(#00e5ff, 0.1);
+    color: #00e5ff;
+    font-family: var(--font-space-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 1.25rem;
+    color: $color-gold-primary;
+    margin: 0;
+    font-weight: 600;
+  }
+}
+
+.statusBadge {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  @include flex-column;
+  gap: $spacing-2xs;
+
+  label {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba($color-white, 0.1);
+    border-radius: 4px;
+    padding: $spacing-sm $spacing-md;
+    color: $color-text-primary;
+    font-family: var(--font-inter);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:focus {
+      border-color: rgba($color-gold-primary, 0.5);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    // Make native browser calendar icons white/dimmed
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1) opacity(0.5);
+    }
+  }
+}
+
+.dataPointsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: $spacing-xs;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.dataPoint {
+  @include flex-column;
+  gap: 2px;
+}
+
+.dataLabel {
+  font-family: var(--font-space-mono);
+  font-size: 0.6rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dataValue {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.05rem;
+  color: $color-text-secondary;
+  font-style: italic;
+
+  &:first-child {
+    color: $color-text-primary;
+  }
+}

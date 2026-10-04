@@ -1,0 +1,79 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.panel {
+  @include flex-column;
+  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  width: 100%;
+  overflow: hidden; // Ensures footer stays inside the border radius
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-lg $spacing-xl;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.icon {
+  color: $color-gold-primary;
+  display: flex;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.5rem;
+  color: $color-text-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.content {
+  padding: $spacing-xl;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  border-top: 1px solid rgba($color-gold-primary, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+}
