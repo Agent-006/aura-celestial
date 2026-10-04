@@ -10,6 +10,7 @@ import "@/styles/globals.scss";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import styles from "./layout.module.scss";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const cinzelDecorative = Cinzel_Decorative({
   variable: "--font-cinzel-decorative",
@@ -58,11 +59,13 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable}`}
     >
       <body suppressHydrationWarning>
-        <TopBar />
-        <Header />
+        <QueryProvider>
+          <TopBar />
+          <Header />
 
-        {/* The main content area where the 3D canvas will eventually go */}
-        <main className={styles.mainContent}>{children}</main>
+          {/* The main content area where the 3D canvas will eventually go */}
+          <main className={styles.mainContent}>{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );

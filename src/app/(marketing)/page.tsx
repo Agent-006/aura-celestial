@@ -1,7 +1,13 @@
 import { HeroOverlay, HeroCanvas, EphemerisHUD } from "@/features/hero";
+import { TelemetrySection } from "@/features/telemetry/components/TelemetrySection/TelemetrySection";
+import { HoroscopesSection } from "@/features/horoscope";
 import { AstrologersSection } from "@/features/astrologers";
+import { CalculatorsSection } from "@/features/calculators";
 import { ServicesSection } from "@/features/services";
+import { TrustSection } from "@/features/trust";
 import styles from "./page.module.scss";
+import { CTASection } from "@/features/cta";
+import { CopyrightSection } from "@/features/copyright";
 
 export default function HomePage() {
   return (
@@ -24,6 +30,12 @@ export default function HomePage() {
       <main className={styles.contentSection}>
         <ServicesSection />
         <AstrologersSection />
+        <TelemetrySection />
+        <CalculatorsSection />
+        <HoroscopesSection />
+        <TrustSection />
+        <CTASection />
+        <CopyrightSection />
       </main>
     </div>
   );

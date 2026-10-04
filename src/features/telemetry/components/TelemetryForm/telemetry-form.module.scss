@@ -1,0 +1,183 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+.fieldGroup {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba($color-gold-primary, 0.2);
+    color: $color-text-primary;
+    font-family: var(--font-cormorant-garamond);
+    font-size: 1.1rem;
+    padding: $spacing-sm $spacing-md;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: rgba($color-text-secondary, 0.5);
+      font-style: italic;
+    }
+
+    &:focus {
+      border-color: $color-gold-primary;
+      box-shadow: 0 0 12px rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  .errorInput {
+    border-color: #ef4444;
+  }
+
+  .icon {
+    position: absolute;
+    right: $spacing-md;
+    color: $color-text-tertiary;
+    pointer-events: none;
+  }
+}
+
+.errorMessage {
+  font-family: var(--font-space-mono);
+  font-size: 0.6rem;
+  color: #ef4444;
+}
+
+// --- Custom Radio Buttons ---
+.radioGroup {
+  display: flex;
+  gap: $spacing-xl;
+  margin-top: $spacing-xs;
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none; // Hide the native element
+  }
+
+  &:hover .customRadio {
+    border-color: $color-white;
+  }
+}
+
+.customRadio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-white, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  .radioDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #3b82f6; // The exact glowing blue from the mockup
+    box-shadow: 0 0 8px rgba(#3b82f6, 0.8);
+  }
+}
+
+input[type="radio"]:checked + .customRadio {
+  border-color: $color-white;
+}
+
+// --- The Glowing Submit Button ---
+.submitBtn {
+  margin-top: $spacing-md;
+  width: 100%;
+
+  // Base styling for the intense glowing gold
+  background: linear-gradient(
+    90deg,
+    rgba($color-gold-primary, 0.2) 0%,
+    rgba($color-gold-primary, 0.05) 100%
+  );
+  border: 1px solid $color-gold-primary;
+  box-shadow:
+    0 0 20px rgba($color-gold-primary, 0.25),
+    inset 0 0 10px rgba($color-gold-primary, 0.1);
+
+  padding: $spacing-md;
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $color-gold-primary;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-gold-primary, 0.15);
+    box-shadow:
+      0 0 30px rgba($color-gold-primary, 0.4),
+      inset 0 0 15px rgba($color-gold-primary, 0.2);
+    text-shadow: 0 0 8px rgba($color-gold-primary, 0.5);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btnPrefix {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.8;
+  }
+
+  .boxIcon {
+    font-size: 1rem;
+    line-height: 1;
+    transform: translateY(-1px);
+  }
+}

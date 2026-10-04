@@ -1,0 +1,88 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+
+  // Faint pink/magenta glow line to separate sections
+  border-top: 1px solid rgba(255, 105, 180, 0.1);
+  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
+  z-index: 2;
+}
+
+.container {
+  @include container;
+  @include flex-column;
+  gap: $spacing-2xl;
+}
+
+// --- Header Area ---
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.titleInfo {
+  @include flex-column;
+  gap: $spacing-sm;
+
+  .eyebrow {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: $color-gold-primary;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-family: var(--font-cormorant-garamond);
+    font-size: $heading-xl;
+    font-weight: 400;
+    font-style: italic;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.descriptionInfo {
+  max-width: 320px;
+
+  .description {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 1.1rem;
+    color: $color-text-secondary;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 64rem) {
+    max-width: 100%;
+  }
+}
+
+// --- Grid ---
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}

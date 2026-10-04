@@ -1,0 +1,117 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+}
+
+.ctaBox {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 1px solid rgba($color-gold-primary, 0.25);
+
+  // Subtle glow emanating from the center of the box
+  background: radial-gradient(
+    circle at center,
+    rgba($color-gold-primary, 0.05) 0%,
+    transparent 60%
+  );
+  gap: $spacing-2xl;
+
+  @media (max-width: 48rem) {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.content {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.eyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: $color-gold-primary;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: $heading-xl;
+  font-weight: 400;
+  color: $color-text-primary;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.description {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.25rem;
+  color: $color-text-secondary;
+  font-style: italic;
+  margin: 0;
+  max-width: 600px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; // Allows wrapping on small mobile screens
+}
+
+.primaryBtn {
+  font-family: var(--font-space-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-background;
+  background-color: $color-gold-primary;
+  padding: 1.25rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  // The signature glowing shadow
+  box-shadow: 0 0 24px rgba($color-gold-primary, 0.35);
+
+  &:hover {
+    background-color: $color-gold-hover;
+    box-shadow: 0 0 36px rgba($color-gold-primary, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.secondaryBtn {
+  font-family: var(--font-space-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-primary;
+  background-color: transparent;
+  padding: 1.25rem 2.5rem;
+  border: 1px solid rgba($color-gold-primary, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $color-gold-primary;
+    background-color: rgba($color-gold-primary, 0.05);
+  }
+}

@@ -1,0 +1,94 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+  max-width: 1400px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl; // <--- The gap between the independent cards
+
+  @media (max-width: 64rem) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trustCard {
+  @include flex-column;
+  position: relative;
+  padding: 3rem 2rem;
+  gap: $spacing-md;
+
+  // Outer frame
+  border: 1px solid rgba($color-gold-primary, 0.3);
+  background: rgba($color-gold-primary, 0.02);
+  transition: all 0.3s ease;
+
+  // Inner frame (creates the double-border effect)
+  &::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid rgba($color-gold-primary, 0.15);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: rgba($color-gold-primary, 0.04);
+    border-color: rgba($color-gold-primary, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+
+    &::after {
+      border-color: rgba($color-gold-primary, 0.3);
+    }
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: $spacing-xs;
+
+  .icon {
+    color: $color-gold-primary;
+  }
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.5rem; // Bumped up the size slightly to match the mockup
+  font-weight: 500;
+  color: $color-text-primary;
+  margin: 0;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.description {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.05rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
