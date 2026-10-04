@@ -1,0 +1,69 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.bannerContainer {
+  margin-top: $spacing-3xl;
+  @include flex-between;
+  @include glass-panel(0.01, 16px, rgba(#00e5ff, 0.2));
+  padding: $spacing-2xl;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 11, 20, 0.9),
+    rgba(#00e5ff, 0.05)
+  );
+
+  @media (max-width: 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xl;
+  }
+}
+
+.content {
+  @include flex-column;
+  max-width: 600px;
+}
+
+.eyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-sm;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 2rem;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-md 0;
+}
+
+.desc {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btnDownload {
+  background-color: $color-gold-primary;
+  color: $color-black;
+  border: none;
+  border-radius: 4px;
+  padding: 16px 24px;
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba($color-gold-primary, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $color-gold-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba($color-gold-primary, 0.5);
+  }
+}

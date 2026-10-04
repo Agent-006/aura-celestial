@@ -1,0 +1,18 @@
+@use "@/styles/_variables" as *;
+
+.resultsContainer {
+  margin-top: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}

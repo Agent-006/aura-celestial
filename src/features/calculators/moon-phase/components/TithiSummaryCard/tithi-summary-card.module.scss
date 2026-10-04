@@ -1,0 +1,92 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  padding: $spacing-xl;
+  height: 100%;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.eyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+}
+
+.badge {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 2rem;
+  color: $color-gold-primary;
+  margin: 0 0 $spacing-xl 0;
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: $color-text-secondary;
+    font-style: italic;
+  }
+}
+
+.metadataGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.metaItem {
+  @include flex-column;
+  gap: 4px;
+}
+
+.label {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.05em;
+}
+
+.value {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: $color-text-primary;
+}
+
+.valueHighlight {
+  @extend .value;
+  color: #00e5ff;
+}
+
+.quote {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 1.1rem;
+  color: rgba($color-white, 0.7);
+  font-style: italic;
+  line-height: 1.6;
+  border-left: 2px solid rgba($color-gold-primary, 0.3);
+  padding-left: $spacing-md;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba($color-white, 0.05);
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-gold-primary;
+  letter-spacing: 0.05em;
+}

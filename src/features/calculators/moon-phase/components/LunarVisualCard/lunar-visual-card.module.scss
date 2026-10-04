@@ -1,0 +1,104 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.01, 16px, rgba(#00e5ff, 0.1));
+  padding: $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: 64rem) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.moonGraphicContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: $spacing-2xl;
+
+  @media (min-width: 64rem) {
+    width: 35%;
+    margin-bottom: 0;
+  }
+}
+
+// Gorgeous CSS Moon
+.moonOrb {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-color: #f4f6f0;
+  box-shadow:
+    0 0 60px rgba(#00e5ff, 0.15),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba($color-white, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.moonTexture {
+  @include absolute-fill;
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(0, 0, 0, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.1) 0%, transparent 15%);
+  opacity: 0.8;
+}
+
+.moonShadow {
+  @include absolute-fill;
+  border-radius: 50%;
+  // Simulates Waxing Gibbous shadow
+  box-shadow: inset 40px 0px 40px rgba(0, 0, 0, 0.9);
+}
+
+.coordinatesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 64rem) {
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    border-left: 1px solid rgba($color-white, 0.1);
+    padding-left: $spacing-2xl;
+  }
+}
+
+.coordCol {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.coordItem {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+}
+
+.value {
+  font-family: var(--font-inter);
+  font-size: 1.1rem;
+  color: $color-text-primary;
+
+  .sub {
+    font-size: 0.85rem;
+    color: $color-text-tertiary;
+    margin-left: 4px;
+  }
+}

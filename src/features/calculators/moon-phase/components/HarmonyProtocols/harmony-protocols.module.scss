@@ -1,0 +1,91 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  margin-top: $spacing-3xl;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-xs;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 2.25rem;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-2xl 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include flex-column;
+  @include glass-panel(0.01, 12px, rgba($color-white, 0.1));
+  padding: $spacing-2xl;
+  border-top: 2px solid rgba($color-gold-primary, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-top-color: $color-gold-primary;
+    background: rgba($color-white, 0.03);
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.05);
+  @include flex-center;
+  color: $color-gold-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.cardEyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-sm;
+}
+
+.cardTitle {
+  font-family: var(--font-inter);
+  font-size: 1.1rem;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-md 0;
+}
+
+.cardDesc {
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin: 0 0 $spacing-xl 0;
+  flex-grow: 1;
+}
+
+.link {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
