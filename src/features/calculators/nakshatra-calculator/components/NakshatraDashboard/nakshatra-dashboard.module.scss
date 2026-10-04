@@ -1,0 +1,144 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.dashboardSplit {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: $spacing-xl;
+  margin-top: $spacing-2xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-panel(0.01, 16px, rgba(#00e5ff, 0.05));
+  border-radius: 8px;
+  padding: $spacing-xl;
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.eyebrow {
+  font-family: var(--font-space-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 2rem;
+  color: $color-gold-primary;
+  margin: 0;
+}
+
+.translation {
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  color: #00e5ff;
+  font-style: italic;
+}
+
+.description {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-white, 0.1);
+}
+
+.statItem {
+  @include flex-column;
+  gap: 4px;
+
+  .statLabel {
+    font-family: var(--font-space-mono);
+    font-size: 0.7rem;
+    color: $color-text-tertiary;
+  }
+
+  .statValue {
+    font-family: var(--font-inter);
+    font-size: 1.25rem;
+    color: $color-gold-primary;
+    font-weight: 500;
+  }
+
+  .statSub {
+    font-family: var(--font-inter);
+    font-size: 0.8rem;
+    color: $color-text-secondary;
+  }
+
+  .scoreBar {
+    width: 100%;
+    height: 2px;
+    background: rgba($color-white, 0.1);
+    margin-top: 4px;
+
+    .fill {
+      height: 100%;
+      background: #00e5ff;
+    }
+  }
+}
+
+.listItems {
+  @include flex-column;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+
+  .listItem {
+    padding: $spacing-md;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    border-left: 2px solid #00e5ff;
+
+    h4 {
+      margin: 0 0 4px 0;
+      color: $color-text-primary;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-secondary;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.bottomMetrics {
+  @include flex-between;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba($color-white, 0.1);
+
+  .metric {
+    @include flex-column;
+    gap: 4px;
+
+    .label {
+      font-family: var(--font-space-mono);
+      font-size: 0.7rem;
+      color: $color-text-tertiary;
+    }
+
+    .value {
+      font-family: var(--font-inter);
+      font-size: 0.95rem;
+      color: $color-text-primary;
+    }
+  }
+}

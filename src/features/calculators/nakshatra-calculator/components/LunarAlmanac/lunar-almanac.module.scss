@@ -1,0 +1,183 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  margin-top: $spacing-3xl;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.headerContent {
+  @include flex-column;
+  gap: 4px;
+
+  .eyebrow {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: #00e5ff;
+    letter-spacing: 0.1em;
+  }
+
+  .title {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 2rem;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+  }
+}
+
+.controls {
+  display: flex;
+  gap: $spacing-md;
+
+  .searchInput {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba($color-white, 0.1);
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: $color-text-primary;
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    width: 250px;
+
+    &:focus {
+      outline: none;
+      border-color: rgba(#00e5ff, 0.5);
+    }
+  }
+
+  .filterBtn {
+    background: transparent;
+    border: 1px solid rgba($color-white, 0.2);
+    color: $color-text-secondary;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $color-white;
+      color: $color-white;
+    }
+  }
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  @include glass-panel(0.01, 8px, rgba(#00e5ff, 0.1));
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 900px;
+
+  th {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.1em;
+    padding: $spacing-md $spacing-lg;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba($color-white, 0.1);
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid rgba($color-white, 0.03);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background-color: rgba(#00e5ff, 0.02);
+  }
+}
+
+.activeRow {
+  background: linear-gradient(
+    90deg,
+    rgba($color-gold-primary, 0.1) 0%,
+    transparent 100%
+  );
+  border-left: 2px solid $color-gold-primary;
+
+  .name {
+    color: $color-gold-primary;
+  }
+}
+
+.num {
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+}
+
+.name {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: $color-text-primary;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.translation {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  font-style: italic;
+}
+
+.cellText {
+  font-family: var(--font-inter);
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+}
+
+.actionBtn {
+  background: transparent;
+  border: 1px solid rgba(#00e5ff, 0.3);
+  color: #00e5ff;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-family: var(--font-space-mono);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(#00e5ff, 0.1);
+  }
+}
+
+.activeBadge {
+  background: rgba(#00e5ff, 0.15);
+  color: #00e5ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-family: var(--font-space-mono);
+  text-transform: uppercase;
+  margin-left: 8px;
+}
