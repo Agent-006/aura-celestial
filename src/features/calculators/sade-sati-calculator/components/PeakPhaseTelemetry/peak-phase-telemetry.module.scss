@@ -1,0 +1,170 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  margin-bottom: $spacing-3xl;
+}
+
+.header {
+  margin-bottom: $spacing-lg;
+
+  .eyebrow {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: $color-gold-muted;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .title {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 2.2rem;
+    font-style: italic;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leftColumn {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.slokaBox {
+  @include glass-panel(0.02, 8px, rgba($color-gold-primary, 0.05));
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  padding: $spacing-lg;
+  border-radius: 8px;
+
+  .slokaText {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: $color-white;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+    line-height: 1.6;
+  }
+
+  .translation {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    font-style: italic;
+  }
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.progressItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .svgRing {
+    width: 100px;
+    height: 100px;
+    transform: rotate(-90deg);
+    margin-bottom: $spacing-sm;
+
+    .bgCircle {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.1);
+      stroke-width: 4;
+    }
+
+    .progressCircle {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease-out;
+    }
+
+    .percentageText {
+      font-family: var(--font-inter);
+      font-size: 1.5rem;
+      fill: $color-white;
+      font-weight: 600;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      transform: rotate(90deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  .label {
+    font-family: var(--font-space-mono);
+    font-size: 0.7rem;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .subLabel {
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    color: $color-text-primary;
+  }
+}
+
+.rightColumn {
+  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-lg;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+
+  .cardTitle {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: $color-white;
+    margin-bottom: $spacing-md;
+  }
+
+  .imagePlaceholder {
+    height: 140px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 4px;
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-gold-muted;
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    border: 1px dashed rgba($color-gold-primary, 0.3);
+  }
+
+  .statRow {
+    @include flex-between;
+    margin-bottom: 8px;
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+
+    .statLabel {
+      color: $color-text-secondary;
+    }
+    .statValue {
+      color: #00e5ff;
+    }
+  }
+}

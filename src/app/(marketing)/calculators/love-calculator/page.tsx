@@ -6,7 +6,7 @@ import {
   LoveCompatibilityForm,
   LoveCompatibilityResults,
   LoveCompatibilityDataGrids,
-} from "@/features/calculators/love-compatibility";
+} from "@/features/calculators/love-calculator";
 import { Button } from "@/components/ui/Button";
 import styles from "./love-compatibility.module.scss";
 

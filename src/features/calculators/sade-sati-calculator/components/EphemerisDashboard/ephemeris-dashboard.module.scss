@@ -1,0 +1,148 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.dashboard {
+  @include glass-panel(0.01, 8px, rgba(0, 229, 255, 0.03));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  border-radius: 8px;
+}
+
+.headerRow {
+  @include flex-between;
+  border-bottom: 1px solid rgba($color-white, 0.08);
+  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-lg;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  .titleBlock {
+    .eyebrow {
+      font-family: var(--font-space-mono);
+      font-size: 0.7rem;
+      color: $color-text-tertiary;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .title {
+      font-family: var(--font-inter);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $color-text-primary;
+      margin: 0;
+    }
+  }
+
+  .statusIndicators {
+    display: flex;
+    gap: $spacing-md;
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+
+    .indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: $color-text-secondary;
+      
+      &.active {
+        color: #00e5ff;
+        .dot {
+          background-color: #00e5ff;
+          box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+        }
+      }
+      &.warning {
+        color: $color-gold-primary;
+        .dot {
+          background-color: $color-gold-primary;
+          box-shadow: 0 0 8px rgba($color-gold-primary, 0.5);
+        }
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xl;
+}
+
+.metricBlock {
+  .metricLabel {
+    font-family: var(--font-space-mono);
+    font-size: 0.7rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .metricValue {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $color-white;
+    margin-bottom: 4px;
+  }
+  .metricSub {
+    font-family: var(--font-space-mono);
+    font-size: 0.85rem;
+    color: $color-gold-muted;
+  }
+}
+
+.footerRow {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  .tags {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    .tag {
+      background: rgba(#00e5ff, 0.05);
+      border: 1px solid rgba(#00e5ff, 0.2);
+      color: #00e5ff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-family: var(--font-space-mono);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .recalcBtn {
+    background: transparent;
+    border: 1px solid $color-gold-primary;
+    color: $color-gold-primary;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background: rgba($color-gold-primary, 0.1);
+    }
+  }
+}

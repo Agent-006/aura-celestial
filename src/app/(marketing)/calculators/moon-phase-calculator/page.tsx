@@ -4,7 +4,7 @@ import {
   MoonPhaseResults,
   EphemerisMatrix,
   MoonPhaseForm,
-} from "@/features/calculators/moon-phase";
+} from "@/features/calculators/moon-phase-calculator";
 import {
   CalculatorHeader,
   IngressPanel,

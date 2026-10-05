@@ -1,0 +1,50 @@
+@use "@/styles/_variables" as *;
+
+.pageContainer {
+  min-height: 100vh;
+  padding: 120px 24px 64px 24px;
+  background-color: $color-background;
+  color: $color-text-primary;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formSection {
+  margin-top: 40px;
+}
+
+.resultsSection {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.backBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $color-text-secondary;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: var(--font-space-mono);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color-gold-primary;
+    border-color: rgba(230, 181, 83, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

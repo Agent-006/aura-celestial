@@ -1,0 +1,136 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  margin-bottom: $spacing-3xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  
+  .title {
+    font-family: var(--font-inter);
+    font-size: 1.5rem;
+    color: $color-white;
+    font-weight: 500;
+  }
+}
+
+.timelineBar {
+  height: 4px;
+  background: rgba($color-white, 0.1);
+  border-radius: 2px;
+  position: relative;
+  margin-bottom: $spacing-xl;
+  display: flex;
+  justify-content: space-between;
+
+  .activeProgress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%; // Hardcoded for visual
+    background: $color-gold-primary;
+    border-radius: 2px;
+  }
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.phaseCard {
+  @include glass-panel(0.01, 8px, rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-lg;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+  @include flex-column;
+  
+  &.active {
+    border-color: rgba($color-gold-primary, 0.5);
+    background: rgba($color-gold-primary, 0.03);
+    box-shadow: 0 4px 20px rgba($color-gold-primary, 0.1);
+
+    .cardHeader .badge {
+      background: $color-gold-primary;
+      color: #000;
+    }
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: 12px;
+
+    .phaseId {
+      font-family: var(--font-space-mono);
+      font-size: 0.75rem;
+      color: $color-text-tertiary;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      background: rgba($color-white, 0.1);
+      color: $color-text-secondary;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: var(--font-space-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .phaseTitle {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: $color-text-primary;
+    margin-bottom: 4px;
+  }
+
+  .duration {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-md;
+  }
+
+  .description {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin-bottom: $spacing-md;
+  }
+
+  .effectsBlock {
+    margin-top: auto;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 4px;
+
+    .effectLabel {
+      font-family: var(--font-space-mono);
+      font-size: 0.7rem;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    .effectText {
+      font-family: var(--font-inter);
+      font-size: 0.85rem;
+      color: $color-gold-muted;
+      line-height: 1.4;
+    }
+  }
+}

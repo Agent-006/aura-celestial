@@ -1,0 +1,112 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  margin-bottom: $spacing-3xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+
+  .title {
+    font-family: var(--font-cormorant-garamond);
+    font-size: 2rem;
+    color: $color-gold-primary;
+    margin: 0 0 8px 0;
+  }
+
+  .subtitle {
+    font-family: var(--font-inter);
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.protocolCard {
+  @include glass-panel(0.01, 8px, rgba($color-gold-primary, 0.02));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl $spacing-lg;
+  border-radius: 8px;
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-gold-primary, 0.3);
+    transform: translateY(-4px);
+
+    .iconWrapper {
+      color: $color-gold-primary;
+    }
+  }
+
+  .iconWrapper {
+    color: $color-text-secondary;
+    margin-bottom: $spacing-md;
+    transition: color 0.3s ease;
+  }
+
+  .title {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: $color-white;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-family: var(--font-space-mono);
+    font-size: 0.7rem;
+    color: #00e5ff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-md;
+  }
+
+  .desc {
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    color: $color-text-secondary;
+    line-height: 1.5;
+  }
+}
+
+.actionRow {
+  display: flex;
+  justify-content: flex-start;
+
+  .downloadBtn {
+    background: transparent;
+    border: 1px solid $color-gold-primary;
+    color: $color-gold-primary;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: var(--font-inter);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background: $color-gold-primary;
+      color: #000;
+    }
+  }
+}

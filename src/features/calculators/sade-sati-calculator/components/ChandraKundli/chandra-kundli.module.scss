@@ -1,0 +1,179 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  margin-bottom: $spacing-3xl;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+  padding-bottom: $spacing-sm;
+
+  .title {
+    font-family: var(--font-inter);
+    font-size: 1.5rem;
+    color: $color-white;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartColumn {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.chartContainer {
+  @include glass-panel(0.01, 8px, rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  padding: $spacing-xl;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  position: relative;
+}
+
+// SVG styling
+.kundliSvg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+
+  line,
+  rect,
+  polygon {
+    stroke: rgba($color-gold-primary, 0.4);
+    stroke-width: 0.5;
+    fill: none;
+  }
+
+  text {
+    font-family: var(--font-space-mono);
+    font-size: 4px;
+    fill: $color-text-secondary;
+    text-anchor: middle;
+    dominant-baseline: middle;
+
+    &.moon {
+      fill: #fff;
+      font-weight: bold;
+    }
+
+    &.shani {
+      fill: #00e5ff;
+      font-weight: bold;
+    }
+
+    &.drishti {
+      fill: rgba($color-gold-primary, 0.8);
+      font-size: 3px;
+    }
+  }
+}
+
+.drishtiRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.drishtiCard {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(#00e5ff, 0.2);
+  padding: $spacing-md;
+  border-radius: 4px;
+
+  .drishtiTitle {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: #00e5ff;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .drishtiDesc {
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    color: $color-text-secondary;
+    line-height: 1.4;
+  }
+}
+
+.rightColumn {
+  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-lg;
+  border-radius: 8px;
+
+  .cardTitle {
+    font-family: var(--font-inter);
+    font-size: 1.1rem;
+    color: $color-white;
+    margin-bottom: $spacing-sm;
+  }
+
+  .cardSubtitle {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.5;
+  }
+
+  .dhaiyaBlock {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba($color-white, 0.05);
+    padding: $spacing-md;
+    border-radius: 4px;
+    margin-bottom: $spacing-md;
+
+    .blockHeader {
+      @include flex-between;
+      margin-bottom: 8px;
+
+      .name {
+        font-family: var(--font-space-mono);
+        font-size: 0.8rem;
+        color: $color-white;
+      }
+      .badge {
+        font-family: var(--font-space-mono);
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        border-radius: 2px;
+        background: rgba($color-white, 0.1);
+        color: $color-text-tertiary;
+
+        &.active {
+          background: rgba($color-gold-primary, 0.2);
+          color: $color-gold-primary;
+        }
+      }
+    }
+
+    .desc {
+      font-family: var(--font-inter);
+      font-size: 0.8rem;
+      color: $color-text-secondary;
+      line-height: 1.4;
+    }
+  }
+}
