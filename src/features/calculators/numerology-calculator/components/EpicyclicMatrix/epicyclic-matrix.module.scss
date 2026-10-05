@@ -1,0 +1,150 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+
+  .title {
+    font-family: var(--font-playfair);
+    font-size: 1.3rem;
+    color: $color-gold-primary;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-family: var(--font-space-mono);
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+  }
+}
+
+.timelineWrapper {
+  position: relative;
+  padding: $spacing-md 0;
+  overflow-x: auto;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-cyan-primary, 0.3);
+    border-radius: 4px;
+  }
+}
+
+.timelineLine {
+  position: absolute;
+  top: 52px; // aligns with the center dots
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba($color-cyan-primary, 0.2);
+  z-index: 0;
+}
+
+.timelineGrid {
+  display: flex;
+  min-width: max-content;
+  gap: $spacing-3xl;
+  position: relative;
+  z-index: 1;
+}
+
+.node {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-md;
+  width: 100px;
+
+  &.activeNode {
+    .year {
+      color: $color-gold-primary;
+      font-weight: 600;
+    }
+
+    .point {
+      border-color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.1);
+      transform: scale(1.2);
+      box-shadow: 0 0 15px rgba($color-gold-primary, 0.4);
+
+      .innerPoint {
+        background: $color-gold-primary;
+      }
+    }
+
+    .content {
+      border-color: rgba($color-gold-primary, 0.3);
+      background: rgba($color-gold-primary, 0.05);
+
+      .number {
+        color: $color-gold-primary;
+      }
+    }
+  }
+}
+
+.year {
+  font-family: var(--font-space-mono);
+  font-size: 0.8rem;
+  color: $color-text-secondary;
+  transition: all 0.3s ease;
+}
+
+.point {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid $color-cyan-primary;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  .innerPoint {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-cyan-primary;
+    transition: all 0.3s ease;
+  }
+}
+
+.content {
+  @include flex-column;
+  align-items: center;
+  gap: 4px;
+  padding: $spacing-sm;
+  border: 1px solid rgba($color-white, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  .number {
+    font-family: var(--font-playfair);
+    font-size: 1rem;
+    color: $color-cyan-primary;
+  }
+
+  .label {
+    font-family: var(--font-inter);
+    font-size: 0.7rem;
+    color: $color-white;
+  }
+}

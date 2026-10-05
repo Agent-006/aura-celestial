@@ -1,0 +1,60 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.calculatorWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl 0;
+}
+
+.resultsWrapper {
+  margin-top: $spacing-3xl;
+  animation: fadeIn 1s ease-out;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+
+  @media (max-width: 76rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.decorativeDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  margin: $spacing-3xl 0;
+
+  .star {
+    color: $color-gold-primary;
+    font-size: 1.2rem;
+  }
+
+  .line {
+    height: 1px;
+    width: 200px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($color-gold-primary, 0.5),
+      transparent
+    );
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

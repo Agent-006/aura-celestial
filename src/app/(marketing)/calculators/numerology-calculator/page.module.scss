@@ -1,0 +1,16 @@
+@use "@/styles/_variables" as *;
+
+.pageMain {
+  min-height: 100vh;
+  padding: 120px 5% 60px;
+  background-color: $color-bg-primary; // Fallback if no global bg
+}
+
+.pageTitle {
+  font-family: var(--font-playfair);
+  color: $color-gold-primary;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: $spacing-xl;
+  font-weight: 400;
+}

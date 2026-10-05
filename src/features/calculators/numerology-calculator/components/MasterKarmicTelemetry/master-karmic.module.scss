@@ -1,0 +1,182 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  height: 100%;
+}
+
+.panel {
+  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  flex: 1;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.1);
+  padding-bottom: $spacing-sm;
+
+  .title {
+    font-family: var(--font-playfair);
+    font-size: 1.2rem;
+    color: $color-gold-primary;
+  }
+
+  .badge {
+    font-family: var(--font-space-mono);
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    background: rgba($color-gold-primary, 0.1);
+    color: $color-gold-primary;
+    border-radius: 4px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.item {
+  @include flex-between;
+  padding: $spacing-md;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba($color-white, 0.05);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
+  &.active {
+    border-color: rgba($color-cyan-primary, 0.3);
+    background: rgba($color-cyan-primary, 0.05);
+
+    .number {
+      color: $color-cyan-primary;
+    }
+
+    .status {
+      color: $color-cyan-primary;
+      background: rgba($color-cyan-primary, 0.1);
+    }
+  }
+
+  .itemMain {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .number {
+    font-family: var(--font-playfair);
+    font-size: 1.5rem;
+    color: $color-text-secondary;
+    width: 32px;
+  }
+
+  .details {
+    @include flex-column;
+    gap: 4px;
+  }
+
+  .name {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-white;
+  }
+
+  .source {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+  }
+
+  .status {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+}
+
+.debtCard {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-md;
+  border-radius: 6px;
+
+  &.active {
+    border-color: rgba(#ef4444, 0.3);
+    background: rgba(#ef4444, 0.05);
+
+    .status {
+      color: #ef4444;
+      background: rgba(#ef4444, 0.1);
+    }
+
+    .number {
+      color: $color-white;
+    }
+  }
+
+  .debtHeader {
+    @include flex-between;
+    margin-bottom: 8px;
+  }
+
+  .number {
+    font-family: var(--font-inter);
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    font-weight: 500;
+  }
+
+  .status {
+    font-family: var(--font-space-mono);
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .desc {
+    display: block;
+    font-family: var(--font-inter);
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+  }
+}
+
+.disclaimer {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: rgba($color-cyan-primary, 0.05);
+  border-radius: 6px;
+  border-left: 2px solid $color-cyan-primary;
+
+  .icon {
+    color: $color-cyan-primary;
+  }
+
+  p {
+    font-family: var(--font-inter);
+    font-size: 0.8rem;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
