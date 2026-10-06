@@ -1,0 +1,130 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.matrixContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.2);
+  background: rgba(#000000, 0.4);
+
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: $heading-sm;
+    color: $color-gold-primary;
+    font-family: $font-playfair;
+  }
+
+  .subtitle {
+    font-size: 9px;
+    color: $color-text-secondary;
+    font-family: $font-mono;
+    letter-spacing: 1px;
+  }
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  padding: $spacing-md;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-cyan-primary, 0.3);
+    border-radius: 4px;
+  }
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-inter;
+  font-size: 11px;
+  text-align: left;
+  min-width: 900px;
+
+  th {
+    padding: $spacing-sm;
+    font-family: $font-mono;
+    font-size: 9px;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba($color-cyan-primary, 0.2);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: $spacing-md $spacing-sm;
+    border-bottom: 1px solid rgba(#ffffff, 0.05);
+    color: $color-text-primary;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba($color-cyan-primary, 0.05);
+  }
+
+  .highlightGraha {
+    color: $color-gold-primary;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: $color-gold-primary;
+      border-radius: 50%;
+    }
+  }
+
+  .cyanText {
+    color: $color-cyan-primary;
+    font-family: $font-mono;
+  }
+
+  .alertText {
+    color: $color-error;
+    font-family: $font-mono;
+  }
+
+  .goldText {
+    color: $color-gold-primary;
+    font-family: $font-mono;
+  }
+
+  .descCell {
+    color: $color-text-secondary;
+    max-width: 200px;
+    line-height: 1.4;
+  }
+
+  .boldText {
+    font-weight: bold;
+    font-family: $font-mono;
+  }
+
+  .timeCell {
+    color: $color-text-secondary;
+    font-family: $font-mono;
+  }
+}
