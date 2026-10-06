@@ -10,7 +10,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Sun Sign Calculator
 - [x] Rising Sign Calculator / Ascendant Calculator
 - [x] Rashi Calculator
-- [ ] Dasha Calculator
+- [x] Dasha Calculator
 - [x] Nakshatra Calculator
 - [ ] Mangal Dosha Calculator
 - [x] Shani Sade Sati Calculator

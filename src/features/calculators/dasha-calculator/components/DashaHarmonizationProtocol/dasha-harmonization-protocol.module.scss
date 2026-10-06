@@ -1,0 +1,267 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.protocolSection {
+  @include glass-card;
+  margin-top: $spacing-3xl;
+  padding: $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, $color-gold-primary, transparent);
+  }
+}
+
+.headerRow {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .titleBlock {
+    max-width: 600px;
+
+    .sectionLabel {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-gold-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-xs;
+    }
+
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-sm 0;
+    }
+
+    .subtitle {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    .btnPrimary {
+      @include flex-center;
+      gap: $spacing-xs;
+      background: rgba($color-surface, 0.5);
+      color: $color-text-primary;
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      padding: $spacing-sm $spacing-md;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba($color-surface, 0.8);
+      }
+    }
+
+    .btnGold {
+      @include flex-center;
+      gap: $spacing-xs;
+      background: rgba($color-gold-primary, 0.1);
+      color: $color-gold-primary;
+      border: 1px solid $color-gold-primary;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $color-gold-primary;
+        color: $color-background;
+      }
+    }
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mantraPanel {
+  background: rgba($color-background, 0.4);
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+
+  .panelTitle {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-md;
+  }
+
+  .mantraBox {
+    background: linear-gradient(
+      180deg,
+      rgba($color-background, 0.8) 0%,
+      rgba($color-background, 0.4) 100%
+    );
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+    border-radius: $radius-sm;
+    padding: $spacing-xl $spacing-md;
+    text-align: center;
+    margin-bottom: $spacing-md;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $color-cyan-primary,
+        transparent
+      );
+    }
+
+    .mantraHeading {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-gold-primary;
+      margin-bottom: $spacing-sm;
+    }
+
+    .mantraText {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-cyan-primary;
+      font-weight: 600;
+    }
+  }
+
+  .mantraDesc {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+  }
+}
+
+.detailsPanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  .focusCard,
+  .actionsCard {
+    background: rgba($color-surface, 0.3);
+    border: 1px solid rgba($color-text-tertiary, 0.2);
+    border-radius: $radius-sm;
+    padding: $spacing-lg;
+
+    .cardTitle {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-md;
+
+      svg {
+        color: $color-cyan-primary;
+      }
+    }
+  }
+
+  .focusCard {
+    .tagsList {
+      display: flex;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-md;
+
+      span {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-cyan-primary;
+        background: rgba($color-cyan-primary, 0.1);
+        padding: 4px 8px;
+        border-radius: $radius-sm;
+      }
+    }
+
+    .desc {
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      color: $color-text-secondary;
+      line-height: 1.6;
+    }
+  }
+
+  .actionsCard {
+    .actionsList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-sm;
+        font-family: $font-inter;
+        font-size: $ui-sm;
+        color: $color-text-secondary;
+        line-height: 1.5;
+
+        &::before {
+          content: "•";
+          color: $color-cyan-primary;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

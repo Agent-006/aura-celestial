@@ -1,0 +1,54 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.calculatorContainer {
+  @include container;
+  padding: $spacing-xl 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.topSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba($color-background, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid rgba($color-gold-primary, 0.3);
+    border-top-color: $color-gold-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .loadingText {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-gold-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
