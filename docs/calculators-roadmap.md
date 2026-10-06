@@ -21,7 +21,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Friendship Calculator
 - [x] Kaal Sarp Dosh Calculator
 - [ ] Ishta Devata Calculator
-- [ ] Lo Shu Grid Calculator
+- [x] Lo Shu Grid Calculator
 - [ ] Transit Chart Calculator
 - [ ] Name Compatibility Calculator
 - [ ] Age Calculator

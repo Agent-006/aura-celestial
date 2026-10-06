@@ -1,0 +1,141 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.formWrapper {
+  @include glass-card;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.1);
+  padding-bottom: $spacing-sm;
+  margin-bottom: $spacing-md;
+
+  .titleBox {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $color-cyan-primary;
+    font-size: $ui-sm;
+    font-family: $font-mono;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+  align-items: end;
+
+  // Make Place of Birth span 2 columns in the second row
+  > div:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    > div:nth-child(5) {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: 10px;
+    color: $color-text-secondary;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input, select {
+    background: rgba(#000000, 0.4);
+    border: 1px solid rgba($color-cyan-primary, 0.2);
+    color: $color-text-primary;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:focus, &:hover {
+      border-color: rgba($color-cyan-primary, 0.6);
+      background: rgba(#000000, 0.6);
+    }
+  }
+
+  .inputWithIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      position: absolute;
+      left: $spacing-sm;
+      color: $color-cyan-primary;
+    }
+
+    input {
+      width: 100%;
+      padding-left: calc(#{$spacing-sm} * 2 + 16px);
+    }
+  }
+
+  .error {
+    color: $color-error;
+    font-size: 11px;
+    font-family: $font-mono;
+  }
+}
+
+.submitWrapper {
+  margin-top: $spacing-md;
+  
+  .submitBtn {
+    background: rgba($color-gold-primary, 0.1);
+    color: $color-gold-primary;
+    border: 1px solid rgba($color-gold-primary, 0.3);
+    padding: $spacing-sm $spacing-xl;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: rgba($color-gold-primary, 0.2);
+      border-color: $color-gold-primary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

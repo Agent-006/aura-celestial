@@ -1,0 +1,295 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.matrixContainer {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridSection {
+  @include glass-card;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.resonanceSection {
+  @include glass-card;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.1);
+  padding-bottom: $spacing-sm;
+
+  .titleBox {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    h3 {
+      font-size: $heading-sm;
+      color: $color-gold-primary;
+      font-family: $font-playfair;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 10px;
+      color: $color-text-secondary;
+      font-family: $font-mono;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .expandBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: $color-cyan-primary;
+    border: none;
+    font-family: $font-mono;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $color-gold-primary;
+    }
+  }
+}
+
+.loShuGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xs;
+  margin: $spacing-md 0;
+  background: rgba(#000000, 0.5);
+  border-radius: $radius-sm;
+  padding: $spacing-xs;
+}
+
+.cell {
+  background: rgba(#ffffff, 0.02);
+  border: 1px solid rgba($color-cyan-primary, 0.1);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  min-height: 140px;
+  position: relative;
+  transition: all 0.3s;
+
+  &.present {
+    background: rgba($color-cyan-primary, 0.05);
+    border-color: rgba($color-cyan-primary, 0.3);
+
+    .cellValues {
+      color: $color-gold-primary;
+    }
+  }
+
+  &.missing {
+    opacity: 0.5;
+  }
+}
+
+.cellHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: $font-mono;
+  font-size: 9px;
+  letter-spacing: 1px;
+
+  .cellNumber {
+    color: $color-text-secondary;
+  }
+
+  .voidTag {
+    color: $color-error;
+  }
+
+  .activeTag {
+    color: $color-cyan-primary;
+  }
+}
+
+.cellBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  .emptyLines {
+    font-size: 24px;
+    color: $color-text-secondary;
+    opacity: 0.3;
+    letter-spacing: 2px;
+  }
+
+  .cellValues {
+    font-size: 32px;
+    font-family: $font-playfair;
+    font-weight: bold;
+    letter-spacing: 4px;
+  }
+}
+
+.cellFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: $font-inter;
+  font-size: 10px;
+
+  .element {
+    color: $color-cyan-primary;
+  }
+
+  .description {
+    color: $color-text-secondary;
+  }
+}
+
+.gridFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  border-top: 1px solid rgba($color-cyan-primary, 0.1);
+  padding-top: $spacing-sm;
+
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .activeDot, .voidDot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .activeDot {
+      background: $color-cyan-primary;
+    }
+
+    .voidDot {
+      background: $color-text-secondary;
+      opacity: 0.5;
+    }
+  }
+}
+
+.resonancesList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin: $spacing-sm 0;
+}
+
+.resonanceCard {
+  background: rgba(#000000, 0.3);
+  border: 1px solid rgba($color-cyan-primary, 0.15);
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+
+  .iconBox {
+    width: 32px;
+    height: 32px;
+    background: rgba($color-cyan-primary, 0.1);
+    color: $color-cyan-primary;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .resContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .resHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h4 {
+        margin: 0;
+        font-size: 12px;
+        color: $color-text-primary;
+        font-family: $font-inter;
+      }
+
+      .occurrences {
+        font-size: 10px;
+        color: $color-gold-primary;
+        font-family: $font-mono;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 11px;
+      color: $color-text-secondary;
+      font-family: $font-inter;
+    }
+  }
+}
+
+.summaryStats {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-top: auto;
+  border-top: 1px solid rgba($color-cyan-primary, 0.1);
+  padding-top: $spacing-md;
+
+  .summaryRow {
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-text-secondary;
+
+    .valNeutral {
+      color: $color-text-primary;
+    }
+
+    .valWarning {
+      color: $color-gold-primary;
+    }
+
+    .valCritical {
+      color: $color-error;
+    }
+  }
+}
