@@ -1,23 +1,22 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
-  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  @include glass-panel(0.02, $spacing-sm, rgba($color-gold-primary, 0.15));
   padding: $spacing-xl;
   height: 100%;
 }
 
 .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-between;
   border-bottom: 1px solid rgba($color-gold-primary, 0.1);
   padding-bottom: $spacing-md;
   margin-bottom: $spacing-lg;
 
   h3 {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: 1.5rem;
     color: $color-text-primary;
     margin: 0;
@@ -25,7 +24,7 @@
 }
 
 .badge {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: $color-text-tertiary;
   letter-spacing: 0.1em;
@@ -41,7 +40,7 @@
   text-align: left;
 
   th {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.65rem;
     color: $color-text-tertiary;
     letter-spacing: 0.1em;
@@ -62,7 +61,7 @@
 
 .kootaName {
   display: block;
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-primary;
   margin-bottom: 2px;
@@ -70,19 +69,19 @@
 
 .kootaDesc {
   display: block;
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.75rem;
   color: $color-text-tertiary;
 }
 
 .maxScore {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.9rem;
   color: $color-text-secondary;
 }
 
 .obtainedScore {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.9rem;
   color: $color-gold-primary;
   font-weight: 600;
@@ -90,9 +89,9 @@
 
 .statusBadge {
   display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-family: var(--font-inter);
+  padding: $spacing-2xs $spacing-xs;
+  border-radius: $spacing-2xs;
+  font-family: $font-inter;
   font-size: 0.75rem;
   font-weight: 500;
   

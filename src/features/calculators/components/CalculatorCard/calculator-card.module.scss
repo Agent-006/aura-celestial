@@ -1,9 +1,10 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
-  @include glass-panel(0.01, 8px, rgba($color-gold-primary, 0.2));
+  @include glass-panel(0.01, $spacing-xs, rgba($color-gold-primary, 0.2));
   padding: $spacing-2xl $spacing-xl;
   gap: $spacing-md;
   text-decoration: none;
@@ -15,28 +16,26 @@
     border-color: rgba($color-gold-primary, 0.5);
     transform: translateY(-4px);
     box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 $spacing-sm 40px rgba(0, 0, 0, 0.4),
       inset 0 0 20px rgba($color-gold-primary, 0.05);
 
     .iconBox {
       border-color: $color-gold-hover;
-      box-shadow: 0 0 16px rgba($color-gold-primary, 0.2);
+      box-shadow: 0 0 $spacing-md rgba($color-gold-primary, 0.2);
     }
 
     .cta {
       color: $color-gold-hover;
-      text-shadow: 0 0 8px rgba($color-gold-primary, 0.4);
+      text-shadow: 0 0 $spacing-xs rgba($color-gold-primary, 0.4);
     }
   }
 }
 
 .iconBox {
-  width: 48px;
-  height: 48px;
+  width: $spacing-2xl;
+  height: $spacing-2xl;
   border: 1px solid rgba($color-gold-primary, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   margin-bottom: $spacing-md;
   transition: all 0.3s ease;
 
@@ -46,7 +45,7 @@
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 1.5rem;
   font-weight: 500;
   color: $color-text-primary;
@@ -56,7 +55,7 @@
 }
 
 .description {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 1.1rem;
   color: $color-text-secondary;
   line-height: 1.6;
@@ -65,7 +64,7 @@
 }
 
 .cta {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   font-weight: 700;
   color: $color-gold-primary;

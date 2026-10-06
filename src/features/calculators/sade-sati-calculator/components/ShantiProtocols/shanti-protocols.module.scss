@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   margin-bottom: $spacing-3xl;
@@ -9,14 +10,14 @@
   margin-bottom: $spacing-xl;
 
   .title {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: 2rem;
     color: $color-gold-primary;
-    margin: 0 0 8px 0;
+    margin: 0 0 $spacing-xs 0;
   }
 
   .subtitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.95rem;
     color: $color-text-secondary;
   }
@@ -37,10 +38,10 @@
 }
 
 .protocolCard {
-  @include glass-panel(0.01, 8px, rgba($color-gold-primary, 0.02));
+  @include glass-panel(0.01, $spacing-xs, rgba($color-gold-primary, 0.02));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-xl $spacing-lg;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   @include flex-column;
   align-items: center;
   text-align: center;
@@ -62,14 +63,14 @@
   }
 
   .title {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.1rem;
     color: $color-white;
-    margin-bottom: 4px;
+    margin-bottom: $spacing-2xs;
   }
 
   .subtitle {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.7rem;
     color: #00e5ff;
     letter-spacing: 0.1em;
@@ -78,7 +79,7 @@
   }
 
   .desc {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.85rem;
     color: $color-text-secondary;
     line-height: 1.5;
@@ -93,16 +94,16 @@
     background: transparent;
     border: 1px solid $color-gold-primary;
     color: $color-gold-primary;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-family: var(--font-inter);
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $spacing-xs;
+    font-family: $font-inter;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: $spacing-xs;
 
     &:hover {
       background: $color-gold-primary;

@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   margin-bottom: $spacing-3xl;
@@ -12,7 +13,7 @@
   padding-bottom: $spacing-sm;
 
   .title {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.5rem;
     color: $color-white;
     font-weight: 500;
@@ -36,10 +37,10 @@
 }
 
 .chartContainer {
-  @include glass-panel(0.01, 8px, rgba(0, 0, 0, 0.3));
+  @include glass-panel(0.01, $spacing-xs, rgba(0, 0, 0, 0.3));
   border: 1px solid rgba($color-gold-primary, 0.2);
   padding: $spacing-xl;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,8 +63,8 @@
   }
 
   text {
-    font-family: var(--font-space-mono);
-    font-size: 4px;
+    font-family: $font-mono;
+    font-size: $spacing-2xs;
     fill: $color-text-secondary;
     text-anchor: middle;
     dominant-baseline: middle;
@@ -99,18 +100,18 @@
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(#00e5ff, 0.2);
   padding: $spacing-md;
-  border-radius: 4px;
+  border-radius: $spacing-2xs;
 
   .drishtiTitle {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: #00e5ff;
-    margin-bottom: 4px;
+    margin-bottom: $spacing-2xs;
     display: block;
   }
 
   .drishtiDesc {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.85rem;
     color: $color-text-secondary;
     line-height: 1.4;
@@ -118,20 +119,20 @@
 }
 
 .rightColumn {
-  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.02));
+  @include glass-panel(0.02, $spacing-xs, rgba($color-white, 0.02));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-lg;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
 
   .cardTitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.1rem;
     color: $color-white;
     margin-bottom: $spacing-sm;
   }
 
   .cardSubtitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.9rem;
     color: $color-text-secondary;
     margin-bottom: $spacing-lg;
@@ -142,20 +143,20 @@
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba($color-white, 0.05);
     padding: $spacing-md;
-    border-radius: 4px;
+    border-radius: $spacing-2xs;
     margin-bottom: $spacing-md;
 
     .blockHeader {
       @include flex-between;
-      margin-bottom: 8px;
+      margin-bottom: $spacing-xs;
 
       .name {
-        font-family: var(--font-space-mono);
+        font-family: $font-mono;
         font-size: 0.8rem;
         color: $color-white;
       }
       .badge {
-        font-family: var(--font-space-mono);
+        font-family: $font-mono;
         font-size: 0.65rem;
         padding: 2px 6px;
         border-radius: 2px;
@@ -170,7 +171,7 @@
     }
 
     .desc {
-      font-family: var(--font-inter);
+      font-family: $font-inter;
       font-size: 0.8rem;
       color: $color-text-secondary;
       line-height: 1.4;

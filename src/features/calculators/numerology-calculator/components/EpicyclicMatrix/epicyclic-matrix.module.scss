@@ -1,8 +1,9 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
-  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  @include glass-panel(0.02, $spacing-xs, rgba($color-white, 0.03));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-xl;
   margin-bottom: $spacing-xl;
@@ -12,14 +13,14 @@
   margin-bottom: $spacing-2xl;
 
   .title {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1.3rem;
     color: $color-gold-primary;
-    margin-bottom: 4px;
+    margin-bottom: $spacing-2xs;
   }
 
   .subtitle {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: $color-text-secondary;
     text-transform: uppercase;
@@ -36,12 +37,12 @@
     height: 6px;
   }
   &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+    background: rgba($color-white, 0.05);
+    border-radius: $spacing-2xs;
   }
   &::-webkit-scrollbar-thumb {
     background: rgba($color-cyan-primary, 0.3);
-    border-radius: 4px;
+    border-radius: $spacing-2xs;
   }
 }
 
@@ -98,21 +99,19 @@
 }
 
 .year {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.8rem;
   color: $color-text-secondary;
   transition: all 0.3s ease;
 }
 
 .point {
-  width: 16px;
-  height: 16px;
+  width: $spacing-md;
+  height: $spacing-md;
   border-radius: 50%;
   border: 2px solid $color-cyan-primary;
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   transition: all 0.3s ease;
 
   .innerPoint {
@@ -127,7 +126,7 @@
 .content {
   @include flex-column;
   align-items: center;
-  gap: 4px;
+  gap: $spacing-2xs;
   padding: $spacing-sm;
   border: 1px solid rgba($color-white, 0.05);
   background: rgba(0, 0, 0, 0.2);
@@ -137,13 +136,13 @@
   transition: all 0.3s ease;
 
   .number {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1rem;
     color: $color-cyan-primary;
   }
 
   .label {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.7rem;
     color: $color-white;
   }

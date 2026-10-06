@@ -1,0 +1,93 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.container {
+  @include glass-panel(0.02, $spacing-sm, rgba($color-white, 0.02));
+  border: 1px solid rgba($color-cyan-primary, 0.2);
+  padding: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  text-align: center;
+
+  .title {
+    font-family: $font-playfair;
+    font-size: 1.5rem;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: 1rem;
+    color: $color-text-secondary;
+  }
+}
+
+.listContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.coreUpaya, .gemstone, .austerities {
+  background: rgba($color-white, 0.02);
+  padding: $spacing-xl;
+  border-radius: $spacing-xs;
+  border: 1px solid rgba($color-cyan-primary, 0.1);
+
+  p {
+    font-family: $font-inter;
+    font-size: 1rem;
+    color: $color-white;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.sectionTitle {
+  font-family: $font-playfair;
+  font-size: 1.2rem;
+  color: $color-gold-primary;
+  margin-bottom: $spacing-md;
+}
+
+.protocolList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.protocolItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  background: rgba($color-white, 0.03);
+  padding: $spacing-lg;
+  border-radius: $spacing-xs;
+  border-left: 2px solid rgba($color-cyan-primary, 0.5);
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba($color-white, 0.05);
+  }
+
+  .bullet {
+    color: $color-gold-primary;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .text {
+    font-family: $font-inter;
+    font-size: 1rem;
+    color: $color-white;
+    line-height: 1.6;
+  }
+}

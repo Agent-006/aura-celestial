@@ -1,9 +1,9 @@
+@use "@/styles/_mixins" as *;
 @use "@/styles/_variables" as *;
 
 .resultsContainer {
   margin-top: $spacing-2xl;
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   gap: $spacing-xl;
 }
 

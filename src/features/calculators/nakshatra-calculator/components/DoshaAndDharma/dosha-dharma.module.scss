@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   display: grid;
@@ -14,29 +15,29 @@
 }
 
 .card {
-  @include glass-panel(0.01, 8px, rgba(#00e5ff, 0.05));
+  @include glass-panel(0.01, $spacing-xs, rgba(#00e5ff, 0.05));
   padding: $spacing-xl;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   @include flex-column;
   gap: $spacing-md;
 }
 
 .header {
   @include flex-column;
-  gap: 4px;
+  gap: $spacing-2xs;
 
   .title {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: 1.75rem;
     color: $color-gold-primary;
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: $spacing-xs;
   }
 
   .subtitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.9rem;
     color: $color-text-secondary;
   }
@@ -51,12 +52,12 @@
   gap: $spacing-sm;
 
   li {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.9rem;
     color: #00e5ff;
     display: flex;
     align-items: flex-start;
-    gap: 8px;
+    gap: $spacing-xs;
 
     &::before {
       content: "✦";
@@ -70,21 +71,21 @@
 .warningBox {
   margin-top: $spacing-md;
   padding: $spacing-md;
-  border-radius: 4px;
+  border-radius: $spacing-2xs;
   background: rgba(#ff4444, 0.05);
   border-left: 2px solid #ff4444;
 
   .statusLine {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.8rem;
     color: #ff4444;
-    margin-bottom: 8px;
+    margin-bottom: $spacing-xs;
     font-weight: 600;
   }
 
   p {
     margin: 0;
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.85rem;
     color: $color-text-secondary;
     line-height: 1.5;
@@ -97,7 +98,7 @@
   background: transparent;
   border: none;
   color: $color-gold-primary;
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   padding: 0;
@@ -124,24 +125,24 @@
 
 .dharmaItem {
   @include flex-column;
-  gap: 4px;
+  gap: $spacing-2xs;
 
   .label {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.7rem;
     color: #00e5ff;
     letter-spacing: 0.05em;
   }
 
   .value {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.1rem;
     color: $color-text-primary;
     font-weight: 500;
   }
 
   .desc {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.75rem;
     color: $color-text-secondary;
   }
@@ -151,12 +152,12 @@
   @include flex-between;
   background: rgba(0, 0, 0, 0.4);
   padding: $spacing-md $spacing-lg;
-  border-radius: 4px;
+  border-radius: $spacing-2xs;
   border: 1px solid rgba($color-gold-primary, 0.2);
   margin-top: auto;
 
   .actionTitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.95rem;
     color: $color-gold-primary;
     font-weight: 500;
@@ -166,9 +167,9 @@
     background-color: $color-gold-primary;
     color: #000;
     border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-family: var(--font-inter);
+    border-radius: $spacing-2xs;
+    padding: $spacing-xs $spacing-md;
+    font-family: $font-inter;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;

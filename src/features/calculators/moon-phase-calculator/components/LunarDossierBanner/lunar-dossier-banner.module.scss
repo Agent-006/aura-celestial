@@ -1,12 +1,13 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .bannerContainer {
   margin-top: $spacing-3xl;
   @include flex-between;
-  @include glass-panel(0.01, 16px, rgba(#00e5ff, 0.2));
+  @include glass-panel(0.01, $spacing-md, rgba(#00e5ff, 0.2));
   padding: $spacing-2xl;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   background: linear-gradient(
     135deg,
     rgba(7, 11, 20, 0.9),
@@ -26,7 +27,7 @@
 }
 
 .eyebrow {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   letter-spacing: 0.1em;
@@ -34,14 +35,14 @@
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 2rem;
   color: $color-text-primary;
   margin: 0 0 $spacing-md 0;
 }
 
 .desc {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-secondary;
   line-height: 1.6;
@@ -52,9 +53,9 @@
   background-color: $color-gold-primary;
   color: #000;
   border: none;
-  border-radius: 4px;
-  padding: 16px 24px;
-  font-family: var(--font-inter);
+  border-radius: $spacing-2xs;
+  padding: $spacing-md $spacing-lg;
+  font-family: $font-inter;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;

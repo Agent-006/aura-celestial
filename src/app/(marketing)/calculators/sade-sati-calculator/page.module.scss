@@ -1,8 +1,9 @@
 @use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
 
 .pageContainer {
   min-height: 100vh;
-  padding: 120px 24px 64px 24px;
+  padding: 120px $spacing-lg $spacing-3xl $spacing-lg;
   background-color: $color-background;
   color: $color-text-primary;
 }
@@ -22,14 +23,14 @@
 
 .backBtn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba($color-white, 0.1);
   color: $color-text-secondary;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-family: var(--font-space-mono);
+  padding: $spacing-xs $spacing-md;
+  border-radius: $spacing-2xs;
+  font-family: $font-mono;
   font-size: 0.85rem;
   cursor: pointer;
-  margin-bottom: 24px;
+  margin-bottom: $spacing-lg;
   transition: all 0.2s ease;
 
   &:hover {

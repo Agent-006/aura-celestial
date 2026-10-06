@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
   margin-top: $spacing-3xl;
@@ -7,7 +8,7 @@
 
 .eyebrow {
   display: block;
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   letter-spacing: 0.1em;
@@ -15,7 +16,7 @@
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 2.25rem;
   color: $color-text-primary;
   margin: 0 0 $spacing-2xl 0;
@@ -33,7 +34,7 @@
 
 .card {
   @include flex-column;
-  @include glass-panel(0.01, 12px, rgba($color-white, 0.1));
+  @include glass-panel(0.01, $spacing-sm, rgba($color-white, 0.1));
   padding: $spacing-2xl;
   border-top: 2px solid rgba($color-gold-primary, 0.3);
   transition: all 0.3s ease;
@@ -55,7 +56,7 @@
 }
 
 .cardEyebrow {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: $color-text-tertiary;
   letter-spacing: 0.1em;
@@ -63,14 +64,14 @@
 }
 
 .cardTitle {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 1.1rem;
   color: $color-text-primary;
   margin: 0 0 $spacing-md 0;
 }
 
 .cardDesc {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.9rem;
   color: $color-text-secondary;
   line-height: 1.6;
@@ -79,7 +80,7 @@
 }
 
 .link {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   text-decoration: none;

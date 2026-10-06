@@ -1,0 +1,122 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.tableContainer {
+  @include glass-panel(0.02, $spacing-sm, rgba($color-white, 0.03));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+
+  .title {
+    font-family: $font-playfair;
+    font-size: 1.5rem;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+  }
+}
+
+.tableWrapper {
+  overflow-x: auto;
+
+  // Custom scrollbar for horizontal scrolling on mobile
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba($color-white, 0.05);
+    border-radius: $spacing-2xs;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-cyan-primary, 0.3);
+    border-radius: $spacing-2xs;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  text-align: left;
+
+  th {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    font-family: $font-inter;
+    font-size: 0.95rem;
+    color: $color-white;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-white, 0.05);
+  }
+
+  tr {
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: rgba($color-white, 0.03);
+    }
+  }
+}
+
+.roleCol {
+  font-family: $font-mono;
+  font-weight: 600;
+  color: $color-text-secondary;
+}
+
+.titleCol {
+  color: $color-text-secondary;
+}
+
+.planetCol {
+  font-weight: 600;
+}
+
+.degreeCol {
+  font-family: $font-mono;
+}
+
+.rowAk {
+  background: linear-gradient(
+    90deg,
+    rgba($color-gold-primary, 0.1) 0%,
+    transparent 100%
+  );
+
+  .roleCol,
+  .planetCol {
+    color: $color-gold-primary;
+  }
+}
+
+.rowDk {
+  background: linear-gradient(
+    90deg,
+    rgba($color-cyan-primary, 0.1) 0%,
+    transparent 100%
+  );
+
+  .roleCol,
+  .planetCol {
+    color: $color-cyan-primary;
+  }
+}

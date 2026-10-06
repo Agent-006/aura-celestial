@@ -1,13 +1,14 @@
 @use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
 
 .pageMain {
   min-height: 100vh;
   padding: 120px 5% 60px;
-  background-color: $color-bg-primary; // Fallback if no global bg
+  background-color: $color-background; // Fallback if no global bg
 }
 
 .pageTitle {
-  font-family: var(--font-playfair);
+  font-family: $font-playfair;
   color: $color-gold-primary;
   text-align: center;
   font-size: 2.5rem;

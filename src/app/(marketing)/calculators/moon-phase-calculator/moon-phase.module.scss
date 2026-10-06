@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .pageContainer {
   @include container;
@@ -11,13 +12,13 @@
   padding: 0.5rem 1rem;
   border: 1px solid #00e5ff;
   color: #00e5ff;
-  border-radius: 8px;
-  font-family: var(--font-space-mono);
+  border-radius: $spacing-xs;
+  font-family: $font-mono;
   font-size: 0.85rem;
 }
 
 .calibrationTag {
-  color: #e6b553;
-  font-family: var(--font-space-mono);
+  color: $color-gold-primary;
+  font-family: $font-mono;
   font-size: 0.85rem;
 }

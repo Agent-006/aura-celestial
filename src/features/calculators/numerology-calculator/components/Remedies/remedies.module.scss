@@ -1,14 +1,15 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
-  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  @include glass-panel(0.02, $spacing-xs, rgba($color-white, 0.03));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-xl;
 }
 
 .title {
-  font-family: var(--font-playfair);
+  font-family: $font-playfair;
   font-size: 1.3rem;
   color: $color-gold-primary;
   margin-bottom: $spacing-xl;
@@ -30,7 +31,7 @@
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-lg;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   text-align: center;
   transition: all 0.3s ease;
 
@@ -45,7 +46,7 @@
   }
 
   .cardTitle {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: $color-cyan-primary;
     text-transform: uppercase;
@@ -53,7 +54,7 @@
   }
 
   .cardText {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.9rem;
     color: $color-white;
   }
@@ -66,19 +67,17 @@
     rgba(0, 0, 0, 0)
   );
   border: 1px solid rgba($color-gold-primary, 0.2);
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   padding: $spacing-xl;
 }
 
 .correctionHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   gap: $spacing-sm;
   margin-bottom: $spacing-lg;
 
   h4 {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1.2rem;
     color: $color-gold-primary;
     margin: 0;
@@ -86,11 +85,9 @@
 }
 
 .comparison {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-between;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   padding: $spacing-lg;
   margin-bottom: $spacing-md;
 
@@ -103,24 +100,24 @@
 .side {
   @include flex-column;
   align-items: center;
-  gap: 4px;
+  gap: $spacing-2xs;
   flex: 1;
 
   .label {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.65rem;
     color: $color-text-secondary;
     text-transform: uppercase;
   }
 
   .name {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1.3rem;
     color: $color-white;
   }
 
   .value {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.8rem;
     color: $color-text-secondary;
   }
@@ -147,7 +144,7 @@
 
 .reason {
   text-align: center;
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.9rem;
   color: $color-text-secondary;
   font-style: italic;

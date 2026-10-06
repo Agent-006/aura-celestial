@@ -6,11 +6,8 @@ export const numerologyFormSchema = z.object({
     .string()
     .min(2, "Name must be at least 2 characters")
     .regex(/^[a-zA-Z\s]+$/, "Please enter the name in English alphabets only"),
-  dateOfBirth: z.date({
-    required_error: "Date of Birth is required",
-    invalid_type_error: "Invalid date format",
+  dateOfBirth: z.date().nullable().refine((val) => val !== null, {
+    message: "Date of Birth is required",
   }),
-  system: z.enum(["Chaldean", "Pythagorean", "Sepharial", "Modern"] as const, {
-    required_error: "Please select a Numerology System",
-  }),
+  system: z.enum(["Chaldean", "Pythagorean", "Sepharial", "Modern"]),
 });

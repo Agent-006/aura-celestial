@@ -25,9 +25,7 @@
 }
 
 .decorativeDivider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   gap: $spacing-md;
   margin: $spacing-3xl 0;
 

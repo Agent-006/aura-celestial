@@ -1,0 +1,205 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.remediesContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-xl;
+  margin-top: $spacing-2xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.remediesCard {
+  @include glass-card;
+  padding: $spacing-xl;
+  border-top: 1px solid rgba($color-gold-primary, 0.3);
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  
+  .sectionLabel {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    letter-spacing: 0.1em;
+    color: $color-text-tertiary;
+  }
+
+  .accent {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-gold-primary;
+  }
+}
+
+.title {
+  font-family: $font-playfair;
+  font-size: $heading-xs;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.remediesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.remedyItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .itemLabel {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+  }
+
+  .itemValue {
+    font-family: $font-inter;
+    font-size: $ui-lg;
+    color: $color-text-primary;
+    font-weight: 500;
+  }
+  
+  .itemDesc {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    line-height: 1.5;
+  }
+}
+
+.elementsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .elementRow {
+    display: flex;
+    gap: $spacing-sm;
+    font-size: $ui-md;
+
+    .elementLabel {
+      font-family: $font-mono;
+      color: $color-gold-primary;
+      width: 60px;
+    }
+    
+    .elementValue {
+      font-family: $font-inter;
+      color: $color-text-primary;
+    }
+  }
+}
+
+.footerNote {
+  font-family: $font-inter;
+  font-size: $ui-md;
+  color: $color-text-tertiary;
+  line-height: 1.5;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.actionsCard {
+  @include glass-card;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.actionDesc {
+  font-family: $font-inter;
+  font-size: $ui-lg;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}
+
+.actionPoints {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  
+  .point {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    
+    .pointIcon {
+      color: $color-gold-primary;
+      margin-top: 2px;
+    }
+    
+    .pointText {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+      
+      strong {
+        color: $color-text-primary;
+        display: block;
+        margin-bottom: $spacing-2xs;
+      }
+    }
+  }
+}
+
+.btnPrimary {
+  @include flex-center;
+  gap: $spacing-sm;
+  background: linear-gradient(135deg, $color-gold-hover, $color-gold-primary);
+  color: $color-background;
+  border: none;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  font-family: $font-mono;
+  font-weight: 600;
+  font-size: $ui-md;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba($color-gold-primary, 0.3);
+  }
+}
+
+.btnSecondary {
+  @include flex-center;
+  gap: $spacing-sm;
+  background: transparent;
+  color: $color-gold-primary;
+  border: 1px solid $color-gold-primary;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  font-family: $font-mono;
+  font-weight: 600;
+  font-size: $ui-md;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($color-gold-primary, 0.1);
+  }
+}

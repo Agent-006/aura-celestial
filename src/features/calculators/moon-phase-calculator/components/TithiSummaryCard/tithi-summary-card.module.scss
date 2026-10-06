@@ -1,9 +1,10 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
-  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  @include glass-panel(0.02, $spacing-sm, rgba($color-gold-primary, 0.15));
   padding: $spacing-xl;
   height: 100%;
 }
@@ -14,21 +15,21 @@
 }
 
 .eyebrow {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   letter-spacing: 0.1em;
 }
 
 .badge {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: $color-text-tertiary;
   letter-spacing: 0.05em;
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 2rem;
   color: $color-gold-primary;
   margin: 0 0 $spacing-xl 0;
@@ -49,18 +50,18 @@
 
 .metaItem {
   @include flex-column;
-  gap: 4px;
+  gap: $spacing-2xs;
 }
 
 .label {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: $color-text-tertiary;
   letter-spacing: 0.05em;
 }
 
 .value {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-primary;
 }
@@ -71,7 +72,7 @@
 }
 
 .quote {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 1.1rem;
   color: rgba($color-white, 0.7);
   font-style: italic;
@@ -85,7 +86,7 @@
   margin-top: auto;
   padding-top: $spacing-md;
   border-top: 1px solid rgba($color-white, 0.05);
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: $color-gold-primary;
   letter-spacing: 0.05em;

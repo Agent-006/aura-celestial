@@ -1,23 +1,22 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
-  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  @include glass-panel(0.02, $spacing-sm, rgba($color-gold-primary, 0.15));
   padding: $spacing-xl;
   height: 100%; // ensures they stretch if needed
 }
 
 .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-between;
   border-bottom: 1px solid rgba($color-gold-primary, 0.1);
   padding-bottom: $spacing-md;
   margin-bottom: $spacing-lg;
 
   h3 {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: 1.5rem;
     color: $color-text-primary;
     margin: 0;
@@ -25,7 +24,7 @@
 }
 
 .paragraph {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-secondary;
   line-height: 1.7;

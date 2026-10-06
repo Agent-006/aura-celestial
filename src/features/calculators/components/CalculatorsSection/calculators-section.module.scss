@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   position: relative;
@@ -38,7 +39,7 @@
   gap: $spacing-sm;
 
   .eyebrow {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: $color-gold-primary;
     letter-spacing: 0.15em;
@@ -46,7 +47,7 @@
   }
 
   .title {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: $heading-xl;
     font-weight: 400;
     font-style: italic;
@@ -59,7 +60,7 @@
   max-width: 320px;
 
   .description {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-cormorant;
     font-size: 1.1rem;
     color: $color-text-secondary;
     font-style: italic;

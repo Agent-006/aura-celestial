@@ -5,27 +5,27 @@ This document tracks the progress of the 25 calculators listed in our platform a
 ## Status
 
 - [x] Love Calculator
+- [x] Atmakaraka and Darakaraka Calculator
 - [x] Numerology Calculator
-- [ ] Rising Sign Calculator
-- [ ] Dasha Calculator
-- [ ] Mangal Dosha Calculator
-- [x] Moon Phase Calculator
-- [ ] Flames Calculator
-- [ ] Friendship Calculator
-- [ ] Ishta Devata Calculator
-- [ ] Transit Chart Calculator
-- [ ] Atmakaraka & Darakaraka Calculator
-- [ ] Sun Sign Calculator
+- [x] Sun Sign Calculator
+- [ ] Rising Sign Calculator / Ascendant Calculator
 - [ ] Rashi Calculator
+- [ ] Dasha Calculator
 - [x] Nakshatra Calculator
+- [ ] Mangal Dosha Calculator
 - [x] Shani Sade Sati Calculator
-- [ ] Birth/Natal Chart Calculator
+- [x] Moon Phase Calculator
+- [ ] Birth Chart Calculator / Natal Chart Calculator
+- [ ] Flames Calculator
 - [ ] Lucky Vehicle Number Calculator
+- [ ] Friendship Calculator
 - [ ] Kaal Sarp Dosh Calculator
+- [ ] Ishta Devata Calculator
 - [ ] Lo Shu Grid Calculator
+- [ ] Transit Chart Calculator
 - [ ] Name Compatibility Calculator
-- [ ] Mulank Calculator
-- [ ] Destiny Number Calculator
 - [ ] Age Calculator
+- [ ] Mulank Calculator
 - [ ] Mobile Number Numerology Calculator
+- [ ] Destiny Number Calculator
 - [ ] Lucky Name Numerology Calculator

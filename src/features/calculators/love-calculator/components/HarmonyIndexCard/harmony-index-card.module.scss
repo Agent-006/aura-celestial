@@ -1,15 +1,16 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
-  @include glass-panel(0.02, 12px, rgba($color-gold-primary, 0.15));
+  @include glass-panel(0.02, $spacing-sm, rgba($color-gold-primary, 0.15));
   padding: $spacing-xl;
   height: 100%; // ensures they stretch if needed
 }
 
 .eyebrow {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   letter-spacing: 0.1em;
@@ -28,7 +29,7 @@
   width: 100%;
   height: 100%;
   // Pulsing glow effect behind the dial
-  filter: drop-shadow(0 0 16px rgba($color-gold-primary, 0.2));
+  filter: drop-shadow(0 0 $spacing-md rgba($color-gold-primary, 0.2));
 }
 
 .dialTrack {
@@ -53,18 +54,18 @@
   transform: translate(-50%, -50%);
   @include flex-column;
   align-items: center;
-  gap: 4px;
+  gap: $spacing-2xs;
 }
 
 .dialScore {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 4rem;
   color: $color-text-primary;
   line-height: 1;
 }
 
 .dialLabel {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: #00e5ff;
   text-transform: uppercase;
@@ -77,13 +78,13 @@
 }
 
 .harmonyTitle {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 1.75rem;
   color: $color-gold-primary;
   margin-bottom: $spacing-sm;
 
   .bars {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 1rem;
     color: rgba($color-gold-primary, 0.3);
     letter-spacing: 2px;
@@ -91,7 +92,7 @@
 }
 
 .harmonyDesc {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-secondary;
   line-height: 1.6;
@@ -103,7 +104,7 @@
   align-items: center;
   justify-content: center;
   gap: $spacing-xs;
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.65rem;
   color: #00e5ff;
   letter-spacing: 0.05em;

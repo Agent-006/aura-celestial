@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
   margin-top: $spacing-3xl;
@@ -18,18 +19,18 @@
 
 .headerContent {
   @include flex-column;
-  gap: 4px;
+  gap: $spacing-2xs;
 }
 
 .eyebrow {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.75rem;
   color: #00e5ff;
   letter-spacing: 0.1em;
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-cormorant;
   font-size: 2rem;
   color: $color-gold-primary;
   margin: 0;
@@ -44,9 +45,9 @@
   background-color: $color-gold-primary;
   color: #000;
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-family: var(--font-inter);
+  border-radius: $spacing-2xs;
+  padding: $spacing-xs $spacing-md;
+  font-family: $font-inter;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
@@ -62,9 +63,9 @@
   background-color: transparent;
   color: $color-text-secondary;
   border: 1px solid rgba($color-white, 0.2);
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-family: var(--font-inter);
+  border-radius: $spacing-2xs;
+  padding: $spacing-xs $spacing-md;
+  font-family: $font-inter;
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -78,8 +79,8 @@
 .tableWrapper {
   width: 100%;
   overflow-x: auto;
-  @include glass-panel(0.01, 16px, rgba(#00e5ff, 0.1));
-  border-radius: 8px;
+  @include glass-panel(0.01, $spacing-md, rgba(#00e5ff, 0.1));
+  border-radius: $spacing-xs;
 }
 
 .matrixTable {
@@ -89,7 +90,7 @@
   min-width: 1000px;
 
   th {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.65rem;
     color: $color-text-tertiary;
     letter-spacing: 0.1em;
@@ -123,13 +124,13 @@
 }
 
 .num {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.85rem;
   color: $color-text-secondary;
 }
 
 .name {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.95rem;
   color: $color-text-primary;
   font-weight: 500;
@@ -137,9 +138,9 @@
 
 .badge {
   display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-family: var(--font-space-mono);
+  padding: $spacing-2xs $spacing-xs;
+  border-radius: $spacing-2xs;
+  font-family: $font-mono;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
 
@@ -155,25 +156,25 @@
 }
 
 .time {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.85rem;
   color: $color-text-tertiary;
 }
 
 .deity {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.9rem;
   color: $color-text-secondary;
 }
 
 .effect {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.85rem;
   color: rgba($color-white, 0.6);
 }
 
 .status {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.85rem;
   font-weight: 500;
 }

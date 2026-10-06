@@ -13,6 +13,15 @@ $color-gold-primary: #e6b553; // Bright golden
 $color-gold-hover: #f9d06a; // Even brighter for hover
 $color-gold-muted: #c6983a; // Used for borders or dimmed elements
 
+// Secondary Accent (Cyan - Calculators)
+$color-cyan-primary: #48e5c2;
+$color-cyan-hover: #6df0d5;
+$color-cyan-muted: #2f9d84;
+
+// Semantic / Status
+$color-error: #ff4a4a;
+$color-success: #4ade80;
+
 // UI Elements
 $color-white: #fff;
 $color-border: rgba($color-white, 0.08); // Subtle orbit/grid lines
@@ -73,6 +82,13 @@ $ui-xs: clamp(0.65rem, 0.5vw + 0.25rem, 0.75rem);
   --color-gold-primary: #{$color-gold-primary};
   --color-gold-hover: #{$color-gold-hover};
   --color-gold-muted: #{$color-gold-muted};
+
+  --color-cyan-primary: #{$color-cyan-primary};
+  --color-cyan-hover: #{$color-cyan-hover};
+  --color-cyan-muted: #{$color-cyan-muted};
+
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
 
   --color-border: #{$color-border};
   --color-overlay: #{$color-overlay};

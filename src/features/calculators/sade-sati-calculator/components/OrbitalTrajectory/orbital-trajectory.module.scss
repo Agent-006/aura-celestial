@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   margin-bottom: $spacing-3xl;
@@ -9,7 +10,7 @@
   margin-bottom: $spacing-xl;
   
   .title {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.5rem;
     color: $color-white;
     font-weight: 500;
@@ -17,7 +18,7 @@
 }
 
 .timelineBar {
-  height: 4px;
+  height: $spacing-2xs;
   background: rgba($color-white, 0.1);
   border-radius: 2px;
   position: relative;
@@ -47,10 +48,10 @@
 }
 
 .phaseCard {
-  @include glass-panel(0.01, 8px, rgba(255, 255, 255, 0.02));
+  @include glass-panel(0.01, $spacing-xs, rgba($color-white, 0.02));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-lg;
-  border-radius: 8px;
+  border-radius: $spacing-xs;
   position: relative;
   transition: all 0.3s ease;
   @include flex-column;
@@ -58,7 +59,7 @@
   &.active {
     border-color: rgba($color-gold-primary, 0.5);
     background: rgba($color-gold-primary, 0.03);
-    box-shadow: 0 4px 20px rgba($color-gold-primary, 0.1);
+    box-shadow: 0 $spacing-2xs 20px rgba($color-gold-primary, 0.1);
 
     .cardHeader .badge {
       background: $color-gold-primary;
@@ -68,10 +69,10 @@
 
   .cardHeader {
     @include flex-between;
-    margin-bottom: 12px;
+    margin-bottom: $spacing-sm;
 
     .phaseId {
-      font-family: var(--font-space-mono);
+      font-family: $font-mono;
       font-size: 0.75rem;
       color: $color-text-tertiary;
       letter-spacing: 0.05em;
@@ -81,30 +82,30 @@
     .badge {
       background: rgba($color-white, 0.1);
       color: $color-text-secondary;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-family: var(--font-space-mono);
+      padding: $spacing-2xs $spacing-xs;
+      border-radius: $spacing-2xs;
+      font-family: $font-mono;
       font-size: 0.65rem;
       text-transform: uppercase;
     }
   }
 
   .phaseTitle {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.1rem;
     color: $color-text-primary;
-    margin-bottom: 4px;
+    margin-bottom: $spacing-2xs;
   }
 
   .duration {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: $color-text-secondary;
     margin-bottom: $spacing-md;
   }
 
   .description {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 0.9rem;
     color: $color-text-secondary;
     line-height: 1.5;
@@ -114,20 +115,20 @@
   .effectsBlock {
     margin-top: auto;
     background: rgba(0, 0, 0, 0.3);
-    padding: 12px;
-    border-radius: 4px;
+    padding: $spacing-sm;
+    border-radius: $spacing-2xs;
 
     .effectLabel {
-      font-family: var(--font-space-mono);
+      font-family: $font-mono;
       font-size: 0.7rem;
       color: $color-text-tertiary;
       text-transform: uppercase;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: $spacing-2xs;
     }
     
     .effectText {
-      font-family: var(--font-inter);
+      font-family: $font-inter;
       font-size: 0.85rem;
       color: $color-gold-muted;
       line-height: 1.4;

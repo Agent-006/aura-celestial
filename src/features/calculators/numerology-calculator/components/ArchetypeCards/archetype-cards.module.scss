@@ -1,12 +1,13 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   margin-bottom: $spacing-3xl;
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair);
+  font-family: $font-playfair;
   font-size: 1.5rem;
   color: $color-gold-primary;
   margin-bottom: $spacing-xl;
@@ -29,7 +30,7 @@
 }
 
 .card {
-  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  @include glass-panel(0.02, $spacing-xs, rgba($color-white, 0.03));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-lg;
   @include flex-column;
@@ -59,19 +60,19 @@
   margin-bottom: $spacing-md;
 
   .label {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.7rem;
     color: $color-text-secondary;
     letter-spacing: 0.05em;
   }
 
   .badge {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.6rem;
     padding: 2px 6px;
     background: rgba($color-cyan-primary, 0.1);
     color: $color-cyan-primary;
-    border-radius: 4px;
+    border-radius: $spacing-2xs;
     text-transform: uppercase;
   }
 }
@@ -79,24 +80,24 @@
 .numberRow {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: $spacing-xs;
   margin-bottom: $spacing-sm;
 
   .bigNumber {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 3rem;
     color: $color-gold-primary;
     line-height: 1;
   }
 
   .subNumber {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.5rem;
     color: $color-text-secondary;
   }
 
   .sanskritName {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1.1rem;
     color: $color-white;
     margin-left: auto;
@@ -104,7 +105,7 @@
 }
 
 .archetypeLabel {
-  font-family: var(--font-space-mono);
+  font-family: $font-mono;
   font-size: 0.8rem;
   color: $color-cyan-primary;
   margin-bottom: $spacing-sm;
@@ -121,7 +122,7 @@
 }
 
 .description {
-  font-family: var(--font-inter);
+  font-family: $font-inter;
   font-size: 0.85rem;
   color: $color-text-secondary;
   line-height: 1.5;
@@ -138,16 +139,16 @@
 
   .footerItem {
     @include flex-column;
-    gap: 4px;
+    gap: $spacing-2xs;
 
     span:first-child {
-      font-family: var(--font-space-mono);
+      font-family: $font-mono;
       font-size: 0.65rem;
       color: $color-text-tertiary;
     }
 
     .highlight {
-      font-family: var(--font-inter);
+      font-family: $font-inter;
       font-size: 0.8rem;
       color: $color-cyan-primary;
     }
@@ -199,7 +200,7 @@
     transform: translate(-50%, -50%);
 
     .percent {
-      font-family: var(--font-playfair);
+      font-family: $font-playfair;
       font-size: 1.8rem;
       color: $color-white;
     }

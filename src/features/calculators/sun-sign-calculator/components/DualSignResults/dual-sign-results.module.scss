@@ -1,0 +1,171 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  margin-top: $spacing-2xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resultCard {
+  @include glass-card;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-xl;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  &.tropical {
+    &::before {
+      background: $color-gold-primary;
+    }
+    border-top: 1px solid rgba($color-gold-primary, 0.3);
+  }
+
+  &.sidereal {
+    &::before {
+      background: $color-cyan-primary;
+    }
+    border-top: 1px solid rgba($color-cyan-primary, 0.3);
+  }
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  .cardType {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    letter-spacing: 0.1em;
+    color: $color-text-tertiary;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-sm;
+    @include flex-center;
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.2);
+
+    &.tropicalIcon {
+      color: $color-gold-primary;
+    }
+    &.siderealIcon {
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.signDisplay {
+  margin-bottom: $spacing-xl;
+
+  .signTitle {
+    font-family: $font-playfair;
+    font-size: $heading-md;
+    margin: 0 0 $spacing-2xs 0;
+
+    &.tropicalTitle {
+      color: $color-gold-primary;
+    }
+    &.siderealTitle {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .signDegrees {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    .elementBadge {
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-sm;
+      font-size: $ui-sm;
+      letter-spacing: 0.05em;
+
+      &.tropicalBadge {
+        background: rgba($color-gold-primary, 0.1);
+        color: $color-gold-primary;
+        border: 1px solid rgba($color-gold-primary, 0.2);
+      }
+
+      &.siderealBadge {
+        background: rgba($color-cyan-primary, 0.1);
+        color: $color-cyan-primary;
+        border: 1px solid rgba($color-cyan-primary, 0.2);
+      }
+    }
+  }
+}
+
+.attributesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+
+  .attribute {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+
+    .attrLabel {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      color: $color-text-tertiary;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .attrValue {
+      font-family: $font-inter;
+      font-size: $ui-lg;
+      color: $color-text-primary;
+      font-weight: 500;
+    }
+
+    .attrSub {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.profileSection {
+  .profileLabel {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    color: $color-text-tertiary;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-sm;
+    display: block;
+  }
+
+  .profileText {
+    font-family: $font-inter;
+    font-size: $paragraph-md;
+    line-height: 1.6;
+    color: $color-text-secondary;
+  }
+}

@@ -1,27 +1,27 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
-  @include glass-panel(0.02, 8px, rgba(255, 255, 255, 0.03));
+  @include glass-panel(0.02, $spacing-xs, rgba($color-white, 0.03));
   border: 1px solid rgba($color-white, 0.05);
   padding: $spacing-xl;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 }
 
 .header {
   margin-bottom: $spacing-lg;
 
   .title {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1.3rem;
     color: $color-gold-primary;
-    margin-bottom: 4px;
+    margin-bottom: $spacing-2xs;
   }
 
   .subtitle {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.75rem;
     color: $color-text-secondary;
     text-transform: uppercase;
@@ -39,7 +39,7 @@
   text-align: left;
 
   th {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.65rem;
     color: $color-text-tertiary;
     text-transform: uppercase;
@@ -58,13 +58,13 @@
   }
 
   .index {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.8rem;
     color: $color-cyan-primary;
   }
 
   .letter {
-    font-family: var(--font-inter);
+    font-family: $font-inter;
     font-size: 1rem;
     color: $color-white;
     font-weight: 500;
@@ -72,7 +72,7 @@
 
   .dots {
     display: flex;
-    gap: 4px;
+    gap: $spacing-2xs;
     align-items: center;
     height: 100%;
 
@@ -87,7 +87,7 @@
   }
 
   .value {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 1rem;
     color: $color-cyan-primary;
   }
@@ -102,14 +102,14 @@
   align-items: center;
 
   .footerLabel {
-    font-family: var(--font-space-mono);
+    font-family: $font-mono;
     font-size: 0.8rem;
     color: $color-text-secondary;
     text-transform: uppercase;
   }
 
   .footerValue {
-    font-family: var(--font-playfair);
+    font-family: $font-playfair;
     font-size: 1.5rem;
     color: $color-gold-primary;
   }

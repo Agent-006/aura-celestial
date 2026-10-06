@@ -1,0 +1,229 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.formWrapper {
+  @include glass-card;
+  padding: $spacing-xl;
+  border-top: 2px solid $color-gold-muted;
+}
+
+.formHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  font-family: $font-mono;
+  font-size: $ui-md;
+  letter-spacing: 0.1em;
+  color: $color-text-tertiary;
+
+  .accentText {
+    color: $color-gold-primary;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xs;
+
+  .titleIcon {
+    color: $color-gold-primary;
+  }
+
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+}
+
+.subtitle {
+  color: $color-text-secondary;
+  font-size: $paragraph-md;
+  margin-bottom: $spacing-2xl;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    letter-spacing: 0.05em;
+    color: $color-text-secondary;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .inputIcon {
+    position: absolute;
+    left: $spacing-md;
+    color: $color-cyan-primary;
+    pointer-events: none;
+  }
+
+  .selectIcon {
+    position: absolute;
+    right: $spacing-md;
+    color: $color-text-tertiary;
+    pointer-events: none;
+  }
+
+  input,
+  select {
+    width: 100%;
+    background: rgba($color-background, 0.4);
+    border: 1px solid rgba($color-gold-muted, 0.2);
+    border-radius: $radius-md;
+    padding: $spacing-md $spacing-md $spacing-md 2.75rem;
+    color: $color-text-primary;
+    font-family: $font-inter;
+    font-size: $ui-lg;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-gold-primary;
+      box-shadow: 0 0 15px rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  select {
+    appearance: none;
+  }
+}
+
+.coordinatesHint {
+  font-family: $font-mono;
+  font-size: $ui-sm;
+  color: $color-text-tertiary;
+  margin-top: $spacing-2xs;
+
+  .accentText {
+    color: $color-cyan-primary;
+  }
+}
+
+.errorText {
+  color: $color-error;
+  font-size: $ui-sm;
+  margin-top: $spacing-2xs;
+}
+
+.submitBtn {
+  @include flex-center;
+  gap: $spacing-sm;
+  background: linear-gradient(135deg, $color-gold-hover, $color-gold-primary);
+  color: $color-background;
+  border: none;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  font-family: $font-mono;
+  font-weight: 600;
+  font-size: $ui-lg;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: $spacing-md;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($color-gold-primary, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.telemetryFooter {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid rgba($color-gold-muted, 0.1);
+}
+
+.footerHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $font-mono;
+  font-size: $ui-md;
+  color: $color-cyan-primary;
+  letter-spacing: 0.1em;
+  margin-bottom: $spacing-lg;
+
+  .pulseDot {
+    width: 6px;
+    height: 6px;
+    background: $color-cyan-primary;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+}
+
+.telemetryMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+
+    .metricLabel {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      color: $color-text-tertiary;
+      letter-spacing: 0.05em;
+    }
+
+    .metricValue {
+      font-family: $font-inter;
+      font-weight: 500;
+      color: $color-text-secondary;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

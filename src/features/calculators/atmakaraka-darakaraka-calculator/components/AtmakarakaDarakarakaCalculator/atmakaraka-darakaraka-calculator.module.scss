@@ -1,0 +1,66 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.calculatorContainer {
+  width: 100%;
+}
+
+.loadingState,
+.errorState {
+  text-align: center;
+  padding: $spacing-3xl;
+  font-family: $font-inter;
+  color: $color-white;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba($color-gold-primary, 0.3);
+  border-top-color: $color-gold-primary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto $spacing-md;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.resultsContainer {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultsHeader {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+
+  .resultsTitle {
+    font-family: $font-playfair;
+    font-size: 2.2rem;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .resultsSubtitle {
+    font-family: $font-inter;
+    font-size: 1.1rem;
+    color: $color-text-secondary;
+  }
+}
