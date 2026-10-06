@@ -1,0 +1,129 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+  max-width: 800px;
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1em;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-gold-primary;
+    margin: 0 0 $spacing-md;
+  }
+  
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.tableContainer {
+  @include glass-card;
+  overflow-x: auto;
+  border: 1px solid rgba($color-gold-primary, 0.2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  
+  th {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-text-tertiary;
+    padding: $spacing-md $spacing-xl;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  td {
+    padding: $spacing-md $spacing-xl;
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+  }
+  
+  .rowActive {
+    background: rgba($color-cyan-primary, 0.05);
+    
+    td {
+      color: $color-text-primary;
+    }
+    
+    .conditionType {
+      color: $color-cyan-primary;
+    }
+    
+    .exception {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .idCell {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    white-space: nowrap;
+  }
+
+  .activeRowId {
+    color: $color-cyan-primary;
+  }
+  
+  .badgeCell {
+    text-align: right;
+  }
+
+  .statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: 10px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    
+    &.inactive {
+      background: rgba($color-text-tertiary, 0.1);
+      color: $color-text-tertiary;
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+    }
+    
+    &.active {
+      background: rgba($color-cyan-primary, 0.1);
+      color: $color-cyan-primary;
+      border: 1px solid rgba($color-cyan-primary, 0.5);
+    }
+
+    &.partial {
+      background: rgba($color-gold-primary, 0.1);
+      color: $color-gold-primary;
+      border: 1px solid rgba($color-gold-primary, 0.5);
+    }
+  }
+}

@@ -12,7 +12,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Rashi Calculator
 - [x] Dasha Calculator
 - [x] Nakshatra Calculator
-- [ ] Mangal Dosha Calculator
+- [x] Mangal Dosha Calculator
 - [x] Shani Sade Sati Calculator
 - [x] Moon Phase Calculator
 - [ ] Birth Chart Calculator / Natal Chart Calculator
