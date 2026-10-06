@@ -1,0 +1,165 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.matrixContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.header {
+  .titleGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-gold-primary;
+
+    h3 {
+      margin: 0;
+      font-size: $heading-md;
+      font-family: $font-playfair;
+      color: $color-text-primary;
+    }
+  }
+
+  .subtitle {
+    margin: 8px 0 0 0;
+    font-size: 11px;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+  }
+}
+
+.tablesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-top: $spacing-md;
+}
+
+.tableWrapper {
+  @include glass-card;
+  padding: 0;
+  overflow: hidden;
+
+  .tableHeader {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    background: rgba(#000000, 0.4);
+
+    .titleBadge {
+      font-size: 10px;
+      font-family: $font-mono;
+      padding: 4px 8px;
+      border-radius: 2px;
+      font-weight: 600;
+
+      &[data-color="gold"] {
+        background: $color-gold-primary;
+        color: #000;
+      }
+
+      &[data-color="cyan"] {
+        background: $color-cyan-primary;
+        color: #000;
+      }
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 14px;
+      color: $color-text-primary;
+      font-family: $font-playfair;
+    }
+  }
+
+  .glyphTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: $spacing-md;
+      text-align: left;
+      border-bottom: 1px solid rgba(#ffffff, 0.05);
+    }
+
+    th {
+      font-family: $font-mono;
+      font-size: 9px;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    td {
+      font-family: $font-inter;
+      font-size: 13px;
+      color: $color-text-primary;
+    }
+
+    tr:hover {
+      background: rgba(#ffffff, 0.02);
+    }
+
+    .phoneme {
+      font-family: $font-mono;
+      font-size: 14px;
+    }
+
+    .glyph {
+      color: $color-text-secondary;
+    }
+
+    .valueGold {
+      color: $color-gold-primary;
+      font-family: $font-mono;
+      font-weight: 600;
+    }
+
+    .valueCyan {
+      color: $color-cyan-primary;
+      font-family: $font-mono;
+      font-weight: 600;
+    }
+
+    .planet {
+      color: rgba($color-cyan-primary, 0.8);
+      font-size: 12px;
+    }
+  }
+}
+
+.infoBox {
+  @include glass-card;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: rgba($color-gold-primary, 0.05);
+  border: 1px solid rgba($color-gold-primary, 0.2);
+
+  .iconWrap {
+    color: $color-gold-primary;
+    margin-top: 2px;
+  }
+
+  .infoContent {
+    h5 {
+      margin: 0 0 4px 0;
+      font-size: 13px;
+      color: $color-text-primary;
+      font-family: $font-inter;
+    }
+
+    p {
+      margin: 0;
+      font-size: 11px;
+      color: $color-text-secondary;
+      font-family: $font-inter;
+    }
+  }
+}

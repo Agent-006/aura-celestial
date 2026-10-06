@@ -1,0 +1,95 @@
+@use "@/styles/_variables" as *;
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-cyan-primary, 0.15);
+}
+
+.topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-text-primary;
+    letter-spacing: 0.5px;
+
+    .iconGold {
+      color: $color-gold-primary;
+    }
+  }
+
+  .right {
+    .dateText {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.7);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: $spacing-sm $spacing-xl;
+    font-size: 12px;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .exportBtn {
+    background: transparent;
+    color: $color-cyan-primary;
+    border: 1px solid rgba($color-cyan-primary, 0.4);
+
+    &:hover {
+      background: rgba($color-cyan-primary, 0.1);
+      border-color: $color-cyan-primary;
+    }
+  }
+
+  .shareBtn {
+    background: $color-gold-primary;
+    color: #000000;
+    border: 1px solid $color-gold-primary;
+    font-weight: 600;
+
+    &:hover {
+      background: lighten($color-gold-primary, 10%);
+    }
+  }
+}

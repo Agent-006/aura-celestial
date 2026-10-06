@@ -1,0 +1,256 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.waveformContainer {
+  @include glass-card;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(#000, 0.4);
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.15);
+
+  .titleWithIcon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: $color-cyan-primary;
+    font-family: $font-mono;
+    letter-spacing: 0.5px;
+  }
+
+  .badge {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.7);
+    letter-spacing: 1px;
+  }
+}
+
+.visualsGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartSection {
+  padding: $spacing-lg;
+  border-right: 1px solid rgba(#ffffff, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+  }
+}
+
+.svgWrapper {
+  width: 100%;
+  height: 120px;
+  background: rgba(#000000, 0.6);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  .svgChart {
+    width: 100%;
+    height: 100%;
+
+    .waveA {
+      animation: shiftWave 10s linear infinite;
+    }
+
+    .waveB {
+      animation: shiftWave 12s linear infinite reverse;
+    }
+  }
+}
+
+@keyframes shiftWave {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 800;
+  }
+  100% {
+    stroke-dashoffset: 800;
+    stroke-dasharray: 800;
+  }
+}
+
+.chartLegend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-family: $font-mono;
+  color: $color-text-secondary;
+
+  span:nth-child(1) {
+    color: $color-gold-primary;
+  }
+  span:nth-child(3) {
+    color: $color-cyan-primary;
+  }
+}
+
+.metricsRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-family: $font-mono;
+    font-size: 10px;
+
+    .label {
+      width: 180px;
+      color: $color-text-secondary;
+    }
+
+    .barWrap {
+      flex: 1;
+      height: 4px;
+      background: rgba(#ffffff, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+
+      div {
+        height: 100%;
+        border-radius: 2px;
+        transition: width 1s ease-out;
+      }
+
+      .barGold {
+        background: $color-gold-primary;
+      }
+      .barRed {
+        background: #ff4d4f;
+      }
+      .barCyan {
+        background: $color-cyan-primary;
+      }
+    }
+
+    .valGold {
+      color: $color-gold-primary;
+      width: 40px;
+      text-align: right;
+    }
+    .valRed {
+      color: #ff4d4f;
+      width: 40px;
+      text-align: right;
+    }
+    .valCyan {
+      color: $color-cyan-primary;
+      width: 40px;
+      text-align: right;
+    }
+  }
+}
+
+.totalSection {
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .totalTitle {
+    font-size: 14px;
+    color: $color-cyan-primary;
+    font-family: $font-playfair;
+  }
+
+  .totalDesc {
+    font-size: 11px;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    font-family: $font-inter;
+    margin: 0;
+  }
+
+  .giantBarWrap {
+    margin-top: auto;
+    width: 100%;
+    height: 16px;
+    background: rgba(#000000, 0.5);
+    border: 1px solid rgba($color-cyan-primary, 0.2);
+    border-radius: $radius-sm;
+    position: relative;
+
+    .giantBarFill {
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba($color-cyan-primary, 0.2) 0%,
+        $color-cyan-primary 100%
+      );
+      transition: width 1s ease-out;
+    }
+
+    .barMarkers {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      color: rgba($color-text-secondary, 0.6);
+      font-family: $font-mono;
+      padding-top: 4px;
+    }
+  }
+
+  .totalBox {
+    margin-top: $spacing-md;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      span:first-child {
+        font-size: 9px;
+        color: $color-text-secondary;
+        font-family: $font-mono;
+      }
+      span:last-child {
+        font-size: 11px;
+        color: $color-text-primary;
+        font-family: $font-inter;
+      }
+    }
+
+    .right {
+      font-size: 32px;
+      color: $color-cyan-primary;
+      font-family: $font-playfair;
+
+      .unit {
+        font-size: 14px;
+        color: $color-text-secondary;
+        font-family: $font-mono;
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@use "@/styles/_variables" as *;
+
+.pillarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.header {
+  .titleGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-cyan-primary;
+
+    h3 {
+      margin: 0;
+      font-size: $heading-md;
+      font-family: $font-playfair;
+      color: $color-text-primary;
+    }
+  }
+
+  .subtitle {
+    margin: 8px 0 0 0;
+    font-size: 11px;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+  }
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-cyan-primary, 0.3);
+    background: rgba(#000000, 0.6);
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: flex-end;
+
+    .statusBadge {
+      font-size: 9px;
+      font-family: $font-mono;
+      padding: 4px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+
+      &[data-status="OPTIMAL SYNERGY"] {
+        background: rgba($color-gold-primary, 0.1);
+        color: $color-gold-primary;
+        border: 1px solid rgba($color-gold-primary, 0.3);
+      }
+
+      &[data-status="DYNAMIC GROWTH"] {
+        background: rgba($color-cyan-primary, 0.1);
+        color: $color-cyan-primary;
+        border: 1px solid rgba($color-cyan-primary, 0.3);
+      }
+
+      &[data-status="KARMIC TENSION"] {
+        background: rgba(#ff4d4f, 0.1);
+        color: #ff4d4f;
+        border: 1px solid rgba(#ff4d4f, 0.3);
+      }
+
+      &[data-status="NEUTRAL GROUND"] {
+        background: rgba(#ffffff, 0.1);
+        color: $color-text-secondary;
+        border: 1px solid rgba(#ffffff, 0.3);
+      }
+    }
+  }
+
+  .scoresRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    padding-bottom: $spacing-md;
+
+    .scoreBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+
+      .label {
+        font-size: 9px;
+        color: $color-text-secondary;
+        font-family: $font-mono;
+        letter-spacing: 0.5px;
+      }
+
+      .valueGold {
+        font-size: 28px;
+        color: $color-gold-primary;
+        font-family: $font-playfair;
+      }
+
+      .valueCyan {
+        font-size: 28px;
+        color: $color-cyan-primary;
+        font-family: $font-playfair;
+      }
+    }
+
+    .vsDivider {
+      font-size: 11px;
+      color: rgba($color-text-secondary, 0.5);
+      font-family: $font-mono;
+      padding: 4px 8px;
+      border: 1px solid rgba(#ffffff, 0.1);
+      border-radius: 4px;
+    }
+  }
+
+  .pillarTitle {
+    margin: 0;
+    font-size: 14px;
+    color: $color-text-primary;
+    font-family: $font-playfair;
+  }
+
+  .pillarDesc {
+    margin: 0;
+    font-size: 12px;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+    line-height: 1.6;
+  }
+}

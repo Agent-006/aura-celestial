@@ -23,7 +23,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Ishta Devata Calculator
 - [x] Lo Shu Grid Calculator
 - [x] Transit Chart Calculator
-- [ ] Name Compatibility Calculator
+- [x] Name Compatibility Calculator
 - [ ] Age Calculator
 - [ ] Mulank Calculator
 - [ ] Mobile Number Numerology Calculator
