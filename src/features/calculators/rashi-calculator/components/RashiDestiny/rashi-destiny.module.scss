@@ -1,0 +1,100 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.destinySection {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-2xl;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.sectionHeader {
+  margin-bottom: $spacing-xl;
+
+  .sectionLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    letter-spacing: 0.1em;
+    color: $color-gold-primary;
+    text-transform: uppercase;
+    margin-bottom: $spacing-xs;
+    display: block;
+  }
+
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-sm;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    max-width: 800px;
+  }
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.destinyCard {
+  @include glass-card;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.2);
+    @include flex-center;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+    
+    &.cyan {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .cardTitle {
+    font-family: $font-playfair;
+    font-size: $heading-xs;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  .cardDesc {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .cardLink {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    margin-top: $spacing-md;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

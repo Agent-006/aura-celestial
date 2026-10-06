@@ -1,0 +1,7 @@
+@use "@/styles/_variables" as *;
+
+.pageMain {
+  min-height: 100vh;
+  padding: 120px 5% 60px;
+  background-color: $color-background;
+}

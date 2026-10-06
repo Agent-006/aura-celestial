@@ -1,0 +1,174 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.vectorContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.radarWrapper {
+  position: relative;
+  height: 180px;
+  background: rgba($color-surface, 0.8);
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .radarBg {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px dashed rgba($color-cyan-primary, 0.2);
+    @include flex-center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba($color-cyan-primary, 0.3);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: rgba($color-cyan-primary, 0.3);
+    }
+  }
+}
+
+.radarLabel {
+  position: absolute;
+  font-family: $font-mono;
+  font-size: $ui-xs;
+  color: $color-cyan-primary;
+  background: rgba($color-background, 0.8);
+  padding: $spacing-2xs $spacing-sm;
+  border: 1px solid $color-cyan-primary;
+  border-radius: $radius-sm;
+  z-index: 2;
+
+  &.top {
+    top: $spacing-sm;
+    left: $spacing-sm;
+  }
+
+  &.bottomRight {
+    bottom: $spacing-sm;
+    right: $spacing-sm;
+  }
+
+  &.bottomLeft {
+    bottom: $spacing-sm;
+    left: $spacing-sm;
+  }
+}
+
+.metricsGrid {
+  padding: $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.metricBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xs;
+
+  .metricLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .metricValue {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-primary;
+    font-weight: 500;
+  }
+
+  .metricSub {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+  }
+
+  .cyan {
+    color: $color-cyan-primary;
+  }
+}
+
+.durationSection {
+  padding: $spacing-lg;
+
+  .durationHeader {
+    @include flex-between;
+    margin-bottom: $spacing-sm;
+
+    .durationLabel {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .durationTimes {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-gold-primary;
+    }
+  }
+
+  .progressBar {
+    width: 100%;
+    height: 4px;
+    background: rgba($color-text-tertiary, 0.2);
+    border-radius: $radius-sm;
+    overflow: hidden;
+    margin-bottom: $spacing-sm;
+
+    .progressFill {
+      height: 100%;
+      background: $color-cyan-primary;
+      border-radius: $radius-sm;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -2px;
+        width: 8px;
+        height: 8px;
+        background: $color-white;
+        border-radius: 50%;
+        box-shadow: 0 0 5px $color-cyan-primary;
+      }
+    }
+  }
+
+  .durationFooter {
+    @include flex-between;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+
+    .nextLagna {
+      color: $color-cyan-primary;
+    }
+  }
+}

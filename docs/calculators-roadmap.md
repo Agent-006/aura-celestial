@@ -8,8 +8,8 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Atmakaraka and Darakaraka Calculator
 - [x] Numerology Calculator
 - [x] Sun Sign Calculator
-- [ ] Rising Sign Calculator / Ascendant Calculator
-- [ ] Rashi Calculator
+- [x] Rising Sign Calculator / Ascendant Calculator
+- [x] Rashi Calculator
 - [ ] Dasha Calculator
 - [x] Nakshatra Calculator
 - [ ] Mangal Dosha Calculator
