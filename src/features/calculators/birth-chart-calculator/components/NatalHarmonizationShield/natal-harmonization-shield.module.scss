@@ -1,0 +1,114 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  max-width: 800px;
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1em;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-lg;
+    
+    .eyebrow {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-cyan-primary;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .icon {
+      color: $color-gold-primary;
+    }
+  }
+
+  .cardTitle {
+    font-family: $font-playfair;
+    font-size: $heading-xs;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-sm;
+  }
+
+  .primaryText {
+    font-family: $font-playfair;
+    font-size: $heading-sm;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    padding: $spacing-sm 0;
+  }
+
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin: 0 0 $spacing-xl;
+    flex: 1;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba($color-text-tertiary, 0.2);
+    padding-top: $spacing-md;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    
+    .footerHighlight {
+      color: $color-cyan-primary;
+    }
+  }
+}

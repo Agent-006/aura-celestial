@@ -1,0 +1,142 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  max-width: 800px;
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1em;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-lg;
+  border: 1px solid rgba($color-text-tertiary, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($color-gold-primary, 0.3);
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+    
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-xs;
+      color: $color-text-primary;
+    }
+    
+    .badge {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+      background: rgba($color-surface, 0.5);
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      padding: 2px 6px;
+      border-radius: $radius-sm;
+      
+      &.highlight {
+        color: $color-gold-primary;
+        border-color: rgba($color-gold-primary, 0.4);
+        background: rgba($color-gold-primary, 0.1);
+      }
+    }
+  }
+
+  .subtitle {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    margin: 0 0 $spacing-md;
+    letter-spacing: 0.05em;
+  }
+
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    padding: $spacing-sm 0;
+    border-top: 1px solid rgba($color-text-tertiary, 0.1);
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+    
+    .detailItem {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      
+      &.fullWidth {
+        grid-column: span 2;
+      }
+      
+      .label {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-text-secondary;
+      }
+      
+      .value {
+        font-family: $font-inter;
+        font-size: $ui-sm;
+        color: $color-cyan-primary;
+      }
+    }
+  }
+
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-xs;
+    
+    .icon {
+      color: $color-gold-primary;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+}

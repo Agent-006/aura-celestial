@@ -1,0 +1,241 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  padding: $spacing-xl;
+  border-top: 1px solid rgba($color-gold-primary, 0.3);
+  height: 100%;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  .title {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-gold-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    letter-spacing: 0.1em;
+    
+    .indicatorGold {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-gold-primary;
+    }
+  }
+
+  .step {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.inputRow {
+  display: flex;
+  gap: $spacing-sm;
+
+  input {
+    flex: 1;
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.3);
+    color: $color-text-primary;
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+    font-family: $font-inter;
+    font-size: $ui-sm;
+
+    &:focus {
+      outline: none;
+      border-color: $color-gold-primary;
+    }
+  }
+
+  select {
+    width: 200px;
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.3);
+    color: $color-text-secondary;
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+
+    &:focus {
+      outline: none;
+      border-color: $color-gold-primary;
+    }
+  }
+}
+
+.error {
+  color: $color-error;
+  font-size: $ui-xs;
+  font-family: $font-mono;
+  margin-top: 4px;
+}
+
+.protocolSection {
+  margin-top: $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .protocolLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .radioGroup {
+    display: flex;
+    gap: $spacing-xl;
+
+    .radioItem {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      cursor: pointer;
+
+      input[type="radio"] {
+        accent-color: $color-gold-primary;
+      }
+
+      .radioLabel {
+        font-family: $font-inter;
+        font-size: $ui-sm;
+        color: $color-text-primary;
+      }
+      
+      .radioDesc {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-text-tertiary;
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.toggles {
+  @include flex-between;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1px solid rgba($color-text-tertiary, 0.1);
+
+  .toggleItem {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      accent-color: $color-cyan-primary;
+    }
+
+    span {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      
+      &.shieldText {
+        color: $color-cyan-primary;
+      }
+    }
+  }
+}
+
+.submitBtn {
+  margin-top: $spacing-xl;
+  background: $color-gold-primary;
+  color: $color-background;
+  border: none;
+  padding: $spacing-md;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $ui-sm;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-gold-hover;
+    box-shadow: 0 4px 15px rgba($color-gold-primary, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+
+  .statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    .label {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .value {
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      color: $color-cyan-primary;
+      font-weight: 500;
+      
+      &.highlight {
+        color: $color-gold-primary;
+      }
+    }
+  }
+}

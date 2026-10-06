@@ -1,0 +1,180 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-md $spacing-xl;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+  
+  .title {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    letter-spacing: 0.1em;
+  }
+  
+  .controls {
+    display: flex;
+    gap: $spacing-xs;
+    
+    button {
+      background: rgba($color-surface, 0.5);
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      color: $color-text-secondary;
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      
+      &:hover, &.active {
+        background: rgba($color-cyan-primary, 0.1);
+        color: $color-cyan-primary;
+        border-color: rgba($color-cyan-primary, 0.3);
+      }
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.chartVisualArea {
+  flex: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  border-right: 1px solid rgba($color-text-tertiary, 0.2);
+  min-height: 350px;
+  background: radial-gradient(circle at center, rgba($color-surface, 0.5) 0%, transparent 70%);
+  
+  @media (max-width: 900px) {
+    border-right: none;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+  }
+  
+  .chartSVG {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    
+    line {
+      stroke: $color-gold-primary;
+      stroke-width: 1.5;
+      opacity: 0.8;
+    }
+    
+    .planetText {
+      font-family: $font-inter;
+      font-size: $ui-xs;
+      fill: $color-text-primary;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      
+      &.lagna {
+        fill: $color-cyan-primary;
+        font-weight: bold;
+      }
+      
+      &.malefic {
+        fill: $color-error;
+      }
+    }
+    
+    .signNumber {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      fill: $color-text-tertiary;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+  }
+}
+
+.sidePanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-md;
+  gap: $spacing-sm;
+  background: rgba($color-surface, 0.2);
+}
+
+.dataRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xs;
+  padding: $spacing-sm;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .label {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .value {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-primary;
+    
+    &.highlight {
+      color: $color-gold-primary;
+      font-weight: 500;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-xl;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  font-family: $font-mono;
+  font-size: $ui-xs;
+  color: $color-text-secondary;
+  
+  .status {
+    color: $color-cyan-primary;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-cyan-primary;
+      box-shadow: 0 0 8px $color-cyan-primary;
+    }
+  }
+}

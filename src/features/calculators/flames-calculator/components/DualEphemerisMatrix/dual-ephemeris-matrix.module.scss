@@ -1,0 +1,93 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  
+  .eyebrow {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.tableContainer {
+  @include glass-card;
+  overflow-x: auto;
+  border: 1px solid rgba($color-gold-primary, 0.2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  
+  th {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  
+  td {
+    padding: $spacing-md;
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-primary;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+  }
+  
+  tr {
+    transition: background 0.2s ease;
+    
+    &:hover {
+      background: rgba($color-surface, 0.5);
+    }
+    
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+
+  .rightAlign {
+    text-align: right;
+  }
+
+  .metricCell {
+    font-family: $font-mono;
+    color: $color-text-secondary;
+  }
+
+  .subjectCell {
+    color: $color-text-primary;
+  }
+
+  .concordanceCell {
+    color: $color-cyan-primary;
+  }
+
+  .vectorCell {
+    font-family: $font-mono;
+    color: $color-gold-muted;
+    text-align: right;
+  }
+}

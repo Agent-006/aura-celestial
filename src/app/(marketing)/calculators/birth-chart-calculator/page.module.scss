@@ -1,0 +1,43 @@
+@use "@/styles/_variables" as *;
+
+.pageContainer {
+  min-height: 100vh;
+  background: $color-background;
+}
+
+.actionsGroup {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $ui-xs;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.generateBtn {
+    background: transparent;
+    border: 1px solid rgba($color-gold-primary, 0.3);
+    color: $color-gold-primary;
+
+    &:hover {
+      background: rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  &.downloadBtn {
+    background: rgba($color-cyan-primary, 0.1);
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+    color: $color-cyan-primary;
+
+    &:hover {
+      background: rgba($color-cyan-primary, 0.2);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use "@/styles/_variables" as *;
+
+.pageContainer {
+  min-height: 100vh;
+  background: $color-background;
+}
+
+.badgeContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  
+  .badgeLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+  }
+  
+  .badgeValue {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba($color-cyan-primary, 0.1);
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+    color: $color-cyan-primary;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+  }
+}

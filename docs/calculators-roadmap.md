@@ -15,8 +15,8 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Mangal Dosha Calculator
 - [x] Shani Sade Sati Calculator
 - [x] Moon Phase Calculator
-- [ ] Birth Chart Calculator / Natal Chart Calculator
-- [ ] Flames Calculator
+- [x] Birth Chart Calculator / Natal Chart Calculator
+- [x] Flames Calculator
 - [ ] Lucky Vehicle Number Calculator
 - [ ] Friendship Calculator
 - [ ] Kaal Sarp Dosh Calculator

@@ -1,0 +1,44 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.calculatorContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+}
+
+.topSection {
+  display: flex;
+  gap: $spacing-xl;
+  
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+}
+
+.formArea {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.visualizerArea {
+  flex: 1.2;
+  min-width: 0;
+}
+
+.awaitingTelemetry {
+  height: 100%;
+  background: rgba($color-background, 0.5);
+  border: 1px dashed rgba($color-gold-primary, 0.2);
+  border-radius: $radius-lg;
+  @include flex-center;
+  color: rgba($color-text-primary, 0.3);
+  font-family: $font-mono;
+  padding: $spacing-xl;
+  text-align: center;
+  min-height: 400px;
+}

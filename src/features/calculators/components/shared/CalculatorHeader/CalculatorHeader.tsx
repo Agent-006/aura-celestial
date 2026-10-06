@@ -3,7 +3,7 @@ import styles from "./calculator-header.module.scss";
 
 interface CalculatorHeaderProps {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   badge?: React.ReactNode;
 }

@@ -1,0 +1,138 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  max-width: 800px;
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1em;
+  }
+  
+  .subtitle {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    margin: $spacing-xs 0 0;
+    text-transform: none;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-lg;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($color-cyan-primary, 0.4);
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+    
+    .code {
+      font-family: $font-mono;
+      font-size: $ui-md;
+      font-weight: bold;
+      color: $color-cyan-primary;
+    }
+    
+    .viewBtn {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+      background: transparent;
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      padding: 2px 6px;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      
+      &:hover {
+        background: rgba($color-text-tertiary, 0.1);
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  .cardTitle {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin: 0 0 $spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .visualArea {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-xl 0;
+    
+    svg {
+      width: 48px;
+      height: 48px;
+      stroke: $color-gold-primary;
+      stroke-width: 1.5;
+      fill: none;
+      opacity: 0.8;
+      
+      &.cyanStroke {
+        stroke: $color-cyan-primary;
+      }
+    }
+  }
+
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin: 0;
+    border-top: 1px dashed rgba($color-text-tertiary, 0.2);
+    padding-top: $spacing-md;
+  }
+}

@@ -1,0 +1,254 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  padding: $spacing-xl;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+  padding-bottom: $spacing-sm;
+
+  .title {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    letter-spacing: 0.1em;
+    
+    .indicatorCyan {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-cyan-primary;
+    }
+  }
+
+  .step {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.cancellationArea {
+  margin-bottom: $spacing-xl;
+  
+  .cancellationLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-sm;
+    display: flex;
+    justify-content: space-between;
+    
+    .stats {
+      color: $color-text-tertiary;
+    }
+  }
+
+  .entityRow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+
+    .entityName {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-cyan-primary;
+      width: 120px;
+      text-transform: uppercase;
+    }
+
+    .letterBoxes {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+
+      .letterBox {
+        width: 24px;
+        height: 28px;
+        @include flex-center;
+        background: rgba($color-surface, 0.5);
+        border: 1px solid rgba($color-text-tertiary, 0.3);
+        border-radius: 2px;
+        font-family: $font-inter;
+        font-size: $ui-sm;
+        color: $color-text-primary;
+        position: relative;
+        
+        &.cancelled {
+          color: $color-text-tertiary;
+          background: rgba($color-surface, 0.2);
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 2px;
+            right: 2px;
+            height: 1px;
+            background: $color-error;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.flamesOperation {
+  margin-bottom: $spacing-xl;
+
+  .opLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-md;
+  }
+
+  .flamesRow {
+    display: flex;
+    justify-content: space-between;
+
+    .flameItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-xs;
+
+      .letter {
+        font-family: $font-playfair;
+        font-size: $heading-md;
+        color: $color-text-tertiary;
+        transition: all 0.3s ease;
+      }
+
+      .word {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-text-tertiary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      &.active {
+        .letter {
+          color: $color-gold-primary;
+          text-shadow: 0 0 10px rgba($color-gold-primary, 0.5);
+        }
+        .word {
+          color: $color-gold-primary;
+          background: rgba($color-gold-primary, 0.1);
+          padding: 2px 6px;
+          border-radius: $radius-sm;
+        }
+      }
+    }
+  }
+}
+
+.finalVerdict {
+  background: rgba($color-surface, 0.5);
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: $color-gold-primary;
+  }
+
+  .verdictHeader {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+    
+    .label {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .affinity {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-cyan-primary;
+      background: rgba($color-cyan-primary, 0.1);
+      padding: 2px 8px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-md;
+    color: $color-gold-primary;
+    margin: 0 0 $spacing-sm;
+  }
+  
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.bottomStats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  padding-top: $spacing-md;
+  margin-top: auto;
+  
+  .statCol {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    .label {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .value {
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      color: $color-cyan-primary;
+      
+      &.cyanText {
+        color: $color-cyan-primary; // Just to be explicit, but it inherits already. In case it needs specific override.
+      }
+    }
+  }
+}
