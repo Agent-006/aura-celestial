@@ -1,0 +1,288 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.orbitalContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header {
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba(#ffffff, 0.1);
+
+  .titleGroup {
+    .cyanText {
+      margin: 0;
+      font-size: $heading-md;
+      font-family: $font-playfair;
+      color: $color-cyan-primary;
+    }
+  }
+
+  .badges {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-sm;
+    flex-wrap: wrap;
+
+    span {
+      font-size: 9px;
+      font-family: $font-mono;
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+
+    .badge {
+      background: rgba(#ffffff, 0.1);
+      color: $color-text-secondary;
+      border: 1px solid rgba(#ffffff, 0.2);
+    }
+
+    .badgeCyan {
+      background: rgba($color-cyan-primary, 0.1);
+      color: $color-cyan-primary;
+      border: 1px solid rgba($color-cyan-primary, 0.3);
+    }
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: $spacing-lg;
+  gap: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .arcChart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    .svgCircle {
+      width: 250px;
+      height: 250px;
+
+      .arcText {
+        font-family: $font-mono;
+        font-size: 14px;
+        fill: $color-text-secondary;
+      }
+
+      .arcValue {
+        font-family: $font-playfair;
+        font-size: 28px;
+        fill: $color-gold-primary;
+      }
+    }
+
+    .arcLabels {
+      display: flex;
+      gap: $spacing-md;
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-text-secondary;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .dotGold {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-gold-primary;
+      }
+      .dotCyan {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-cyan-primary;
+      }
+    }
+  }
+}
+
+.statsArea {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.statsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .blockTitle {
+    font-size: 12px;
+    font-family: $font-mono;
+    color: $color-text-primary;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    padding-bottom: $spacing-sm;
+  }
+
+  .blockGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $spacing-md;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .dataPoint {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .label {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: $color-text-secondary;
+      }
+
+      .valueGold {
+        font-size: 20px;
+        font-family: $font-playfair;
+        color: $color-gold-primary;
+      }
+
+      .valueCyan {
+        font-size: 20px;
+        font-family: $font-playfair;
+        color: $color-cyan-primary;
+      }
+
+      .subtext {
+        font-size: 9px;
+        font-family: $font-inter;
+        color: rgba($color-text-secondary, 0.6);
+      }
+    }
+  }
+
+  .highlightDataPoint {
+    background: rgba($color-cyan-primary, 0.05);
+    border: 1px solid rgba($color-cyan-primary, 0.2);
+    border-radius: $radius-sm;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      font-family: $font-mono;
+
+      .labelCyan {
+        color: $color-cyan-primary;
+      }
+      .labelRight {
+        color: $color-text-secondary;
+      }
+    }
+
+    .bottom {
+      .leftBox {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .valLabel {
+          font-size: 11px;
+          font-family: $font-inter;
+          color: $color-text-secondary;
+        }
+
+        .valHugeGold {
+          font-size: 28px;
+          font-family: $font-playfair;
+          color: $color-gold-primary;
+        }
+
+        .valSub {
+          font-size: 10px;
+          font-family: $font-inter;
+          color: rgba($color-text-secondary, 0.6);
+        }
+      }
+    }
+  }
+}
+
+.cyclesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .blockTitleLine {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-text-secondary;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    padding-bottom: $spacing-sm;
+    text-transform: uppercase;
+  }
+
+  .cyclesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $spacing-sm;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cycleCard {
+      background: rgba(#000000, 0.3);
+      border: 1px solid rgba(#ffffff, 0.05);
+      border-radius: $radius-sm;
+      padding: $spacing-sm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+
+      .cLabel {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: $color-text-secondary;
+      }
+      .cValue {
+        font-size: 18px;
+        font-family: $font-playfair;
+        color: $color-cyan-primary;
+      }
+      .cSub {
+        font-size: 9px;
+        font-family: $font-inter;
+        color: rgba($color-text-secondary, 0.5);
+      }
+    }
+  }
+}

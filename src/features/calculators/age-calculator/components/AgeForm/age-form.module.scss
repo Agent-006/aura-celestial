@@ -1,0 +1,248 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.formContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(#000000, 0.6);
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.15);
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  letter-spacing: 1px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-gold-primary;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .activeDot {
+      width: 6px;
+      height: 6px;
+      background-color: $color-cyan-primary;
+      border-radius: 50%;
+      box-shadow: 0 0 5px $color-cyan-primary;
+    }
+
+    .cyanText {
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.formContent {
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.inputsRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: 9px;
+    color: $color-text-secondary;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      background: rgba(#000000, 0.4);
+      border: 1px solid rgba($color-cyan-primary, 0.2);
+      color: $color-text-primary;
+      padding: $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: $font-inter;
+      font-size: 12px;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &:focus,
+      &:hover {
+        border-color: rgba($color-cyan-primary, 0.6);
+        background: rgba(#000000, 0.6);
+      }
+
+      &.withIcon {
+        padding-left: 32px;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      left: 10px;
+      color: $color-text-secondary;
+    }
+  }
+
+  .error {
+    color: $color-error;
+    font-size: 10px;
+    font-family: $font-mono;
+  }
+}
+
+.middleSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(#000000, 0.3);
+  padding: $spacing-md;
+  border-radius: $radius-sm;
+  border: 1px solid rgba(#ffffff, 0.05);
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  .toggles {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    .toggleLabel {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: $color-gold-primary;
+      letter-spacing: 1px;
+    }
+
+    .checkboxLabel {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: $font-inter;
+      color: $color-text-secondary;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        accent-color: $color-cyan-primary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .targetInfo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    .label {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.7);
+      letter-spacing: 1px;
+    }
+
+    .value {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+      line-height: 1.4;
+    }
+  }
+}
+
+.submitSection {
+  display: flex;
+  justify-content: center;
+
+  .submitBtn {
+    width: 100%;
+    background: rgba($color-gold-primary, 0.15);
+    color: $color-gold-primary;
+    border: 1px solid rgba($color-gold-primary, 0.4);
+    padding: $spacing-md;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+
+    &:hover:not(:disabled) {
+      background: rgba($color-gold-primary, 0.25);
+      border-color: $color-gold-primary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .badgeHighlight {
+      background: rgba($color-gold-primary, 0.2);
+      padding: 2px 6px;
+      border-radius: 2px;
+      font-size: 9px;
+      border: 1px solid rgba($color-gold-primary, 0.5);
+    }
+  }
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-lg;
+  background: rgba(#000000, 0.3);
+  border-top: 1px solid rgba($color-cyan-primary, 0.1);
+  font-family: $font-mono;
+  font-size: 9px;
+  color: $color-text-secondary;
+  letter-spacing: 1px;
+
+  .cyanText {
+    color: $color-cyan-primary;
+  }
+}

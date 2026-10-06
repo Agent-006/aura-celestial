@@ -1,0 +1,129 @@
+@use "@/styles/_variables" as *;
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba(#ffffff, 0.1);
+  background: rgba($color-cyan-primary, 0.05);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    h3 {
+      margin: 0;
+      font-size: 14px;
+      font-family: $font-playfair;
+      color: $color-gold-primary;
+    }
+
+    .iconCyan {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .right {
+    .badge {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: $color-text-secondary;
+      padding: 4px 8px;
+      border: 1px solid rgba(#ffffff, 0.2);
+      border-radius: 2px;
+    }
+  }
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $spacing-md $spacing-lg;
+    text-align: left;
+    border-bottom: 1px solid rgba(#ffffff, 0.05);
+    white-space: nowrap;
+  }
+
+  th {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(#000000, 0.2);
+  }
+
+  td {
+    font-size: 11px;
+    font-family: $font-inter;
+    color: $color-text-primary;
+  }
+
+  .rowHighlight {
+    background: rgba(#ff4d4f, 0.05);
+  }
+
+  .grahaCell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .iconGold {
+      color: $color-gold-primary;
+    }
+    .iconCyan {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .monoText {
+    font-family: $font-mono;
+    color: rgba($color-text-primary, 0.8);
+  }
+
+  .cyanText {
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+  }
+
+  .statusBadge {
+    font-size: 9px;
+    font-family: $font-mono;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background: rgba(#ffffff, 0.05);
+    border: 1px solid rgba(#ffffff, 0.2);
+    color: $color-text-secondary;
+
+    &[data-status="active"] {
+      background: rgba(#ff4d4f, 0.1);
+      border-color: #ff4d4f;
+      color: #ff4d4f;
+    }
+  }
+}
