@@ -18,7 +18,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Birth Chart Calculator / Natal Chart Calculator
 - [x] Flames Calculator
 - [x] Lucky Vehicle Number Calculator
-- [ ] Friendship Calculator
+- [x] Friendship Calculator
 - [ ] Kaal Sarp Dosh Calculator
 - [ ] Ishta Devata Calculator
 - [ ] Lo Shu Grid Calculator

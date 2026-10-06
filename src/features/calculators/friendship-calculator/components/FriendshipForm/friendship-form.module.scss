@@ -1,0 +1,175 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  padding: $spacing-xl;
+  border-top: 1px solid rgba($color-gold-primary, 0.3);
+  margin-bottom: $spacing-xl;
+}
+
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-xl;
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+}
+
+.subjectPanel {
+  .panelHeader {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-lg;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+    padding-bottom: $spacing-xs;
+    
+    .indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-cyan-primary;
+    }
+    
+    .right {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+  }
+
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input, select {
+      background: rgba($color-surface, 0.5);
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      color: $color-text-primary;
+      padding: $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-color: $color-gold-primary;
+      }
+    }
+  }
+}
+
+.contextRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-xl;
+  margin-top: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    input, select {
+      background: rgba($color-surface, 0.5);
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      color: $color-text-primary;
+      padding: $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-color: $color-gold-primary;
+      }
+    }
+  }
+}
+
+.submitWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-2xl;
+  
+  .submitBtn {
+    background: $color-gold-primary;
+    color: $color-background;
+    border: none;
+    padding: $spacing-md $spacing-2xl;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+
+    &:hover:not(:disabled) {
+      background: $color-gold-hover;
+      box-shadow: 0 4px 15px rgba($color-gold-primary, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.error {
+  color: $color-error;
+  font-size: $ui-xs;
+  font-family: $font-mono;
+  margin-top: 2px;
+}

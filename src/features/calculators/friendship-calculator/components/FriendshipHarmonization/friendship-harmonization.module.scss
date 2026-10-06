@@ -1,0 +1,217 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+
+  .eyebrow {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-sm;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-xl;
+  border: 1px solid rgba($color-text-tertiary, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-gold-primary, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-lg;
+
+    .type {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .icon {
+      color: $color-gold-primary;
+
+      &.cyan {
+        color: $color-cyan-primary;
+      }
+    }
+  }
+
+  .cardTitle {
+    font-family: $font-playfair;
+    font-size: $heading-sm;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-sm;
+  }
+
+  .cardDesc {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin-bottom: $spacing-xl;
+    flex: 1;
+  }
+
+  .instructionBox {
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.3);
+    padding: $spacing-md;
+    border-radius: $radius-sm;
+    margin-bottom: $spacing-md;
+
+    .instructionText {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-cyan-primary;
+      margin: 0;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+  }
+
+  .footerRow {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-top: $spacing-md;
+    border-top: 1px dashed rgba($color-text-tertiary, 0.2);
+
+    .link {
+      color: $color-cyan-primary;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: $spacing-sm;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.actionFooter {
+  margin-top: $spacing-2xl;
+  padding: $spacing-xl;
+  background: rgba($color-surface, 0.4);
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  border-radius: $radius-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: $spacing-xl;
+    align-items: flex-start;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+
+    .iconBox {
+      width: 50px;
+      height: 50px;
+      border-radius: $radius-sm;
+      background: rgba($color-gold-primary, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-gold-primary;
+    }
+
+    .mainTitle {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-xs;
+    }
+    .subDesc {
+      font-family: $font-inter;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: $spacing-md;
+
+    .btnSecondary,
+    .btnPrimary {
+      padding: $spacing-sm $spacing-lg;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      transition: all 0.3s ease;
+    }
+
+    .btnSecondary {
+      background: rgba($color-surface, 0.8);
+      color: $color-text-primary;
+      border: 1px solid rgba($color-text-tertiary, 0.5);
+
+      &:hover {
+        background: rgba($color-surface, 1);
+      }
+    }
+
+    .btnPrimary {
+      background: $color-gold-primary;
+      color: $color-background;
+      border: none;
+
+      &:hover {
+        background: $color-gold-hover;
+        box-shadow: 0 4px 15px rgba($color-gold-primary, 0.3);
+      }
+    }
+  }
+}

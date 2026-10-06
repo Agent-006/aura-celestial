@@ -1,0 +1,11 @@
+@use "@/styles/_variables" as *;
+
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-xl;
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl $spacing-md;
+  }
+}
