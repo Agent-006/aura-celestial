@@ -20,7 +20,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Lucky Vehicle Number Calculator
 - [x] Friendship Calculator
 - [x] Kaal Sarp Dosh Calculator
-- [ ] Ishta Devata Calculator
+- [x] Ishta Devata Calculator
 - [x] Lo Shu Grid Calculator
 - [x] Transit Chart Calculator
 - [ ] Name Compatibility Calculator

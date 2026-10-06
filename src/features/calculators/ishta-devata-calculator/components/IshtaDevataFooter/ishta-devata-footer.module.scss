@@ -1,0 +1,100 @@
+@use "@/styles/_variables" as *;
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba($color-cyan-primary, 0.2);
+  background: rgba(#000000, 0.4);
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-sm;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.footerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-family: $font-mono;
+    color: $color-text-secondary;
+    letter-spacing: 0.5px;
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-cyan-primary;
+    }
+  }
+
+  .right {
+    .dateText {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  button {
+    font-family: $font-mono;
+    font-size: 11px;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .exportBtn {
+    background: transparent;
+    color: $color-cyan-primary;
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+
+    &:hover {
+      background: rgba($color-cyan-primary, 0.1);
+      border-color: $color-cyan-primary;
+    }
+  }
+
+  .consultBtn {
+    background: $color-gold-primary;
+    color: #000;
+    border: 1px solid $color-gold-primary;
+    font-weight: bold;
+
+    &:hover {
+      background: darken($color-gold-primary, 10%);
+      border-color: darken($color-gold-primary, 10%);
+    }
+  }
+}

@@ -1,0 +1,142 @@
+@use "@/styles/_variables" as *;
+
+.tutelaryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: $heading-md;
+    color: $color-text-primary;
+    font-family: $font-playfair;
+  }
+
+  .subtitle {
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+    margin: 0;
+    max-width: 800px;
+  }
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.deityCard {
+  background: rgba(#000000, 0.3);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-gold-primary, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .typeLabel {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.1);
+      padding: 2px 6px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .icon {
+      color: $color-text-secondary;
+    }
+  }
+
+  .title {
+    margin: $spacing-xs 0 0 0;
+    font-size: 18px;
+    color: $color-text-primary;
+    font-family: $font-playfair;
+  }
+
+  .planetInfo {
+    font-size: 11px;
+    color: rgba($color-text-secondary, 0.8);
+    font-family: $font-mono;
+  }
+
+  .description {
+    margin: $spacing-xs 0;
+    font-size: 12px;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .cardFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+    border-top: 1px solid rgba(#ffffff, 0.1);
+    padding-top: $spacing-sm;
+    margin-top: $spacing-sm;
+
+    .footerCol {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .label {
+        font-size: 8px;
+        color: $color-text-secondary;
+        font-family: $font-mono;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+      }
+
+      .valCyan {
+        font-size: 11px;
+        color: $color-cyan-primary;
+        font-family: $font-inter;
+        font-weight: 500;
+      }
+
+      .valGold {
+        font-size: 11px;
+        color: $color-gold-primary;
+        font-family: $font-inter;
+        font-weight: 500;
+      }
+
+      .subtext {
+        font-size: 9px;
+        color: rgba($color-text-secondary, 0.6);
+        font-family: $font-inter;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@use "@/styles/_variables" as *;
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background: rgba(#000000, 0.3);
+  border: 1px solid rgba($color-cyan-primary, 0.15);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9px;
+    color: $color-text-secondary;
+    font-family: $font-mono;
+    letter-spacing: 0.5px;
+
+    .iconCyan {
+      color: $color-cyan-primary;
+    }
+    .iconGold {
+      color: $color-gold-primary;
+    }
+  }
+
+  .mainValue {
+    font-size: 20px;
+    color: $color-text-primary;
+    font-family: $font-playfair;
+  }
+
+  .subValue {
+    font-size: 10px;
+    color: $color-text-secondary;
+    font-family: $font-inter;
+    margin-top: auto;
+
+    .label {
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+      font-family: $font-mono;
+      letter-spacing: 0.5px;
+      margin-right: 4px;
+    }
+  }
+}
