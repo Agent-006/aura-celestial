@@ -1,0 +1,121 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  
+  .left {
+    .eyebrow {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-gold-primary;
+      margin-bottom: $spacing-xs;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-lg;
+      color: $color-text-primary;
+      margin: 0;
+    }
+  }
+
+  .rightText {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    max-width: 400px;
+    text-align: right;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: $spacing-sm;
+  
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-md;
+  border: 1px solid rgba($color-text-tertiary, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  min-height: 250px;
+
+  &:hover {
+    border-color: rgba($color-gold-primary, 0.3);
+  }
+
+  &.active {
+    border-color: $color-gold-primary;
+    box-shadow: 0 0 20px rgba($color-gold-primary, 0.1);
+    background: rgba($color-surface, 0.8);
+    
+    .number {
+      color: $color-gold-primary;
+    }
+    
+    .planet {
+      color: $color-gold-primary;
+    }
+  }
+
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+    align-items: center;
+
+    .number {
+      font-family: $font-playfair;
+      font-size: $heading-lg;
+      color: $color-text-secondary;
+      font-weight: 700;
+    }
+
+    .planet {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md;
+    flex: 1;
+    white-space: pre-line;
+  }
+
+  .colors {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}

@@ -1,0 +1,9 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.calculatorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  width: 100%;
+}

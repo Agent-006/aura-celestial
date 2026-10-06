@@ -1,0 +1,199 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+  padding-bottom: $spacing-sm;
+
+  .title {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    letter-spacing: 0.1em;
+    
+    .indicatorCyan {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-cyan-primary;
+    }
+  }
+
+  .step {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.plateDisplay {
+  background: rgba($color-surface, 0.5);
+  border: 1px solid rgba($color-gold-primary, 0.3);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+  
+  .plateBox {
+    background: #1A1A1A; // Plate background
+    border: 2px solid $color-gold-primary;
+    border-radius: $radius-md;
+    padding: $spacing-md $spacing-xl;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    .indBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding-right: $spacing-lg;
+      border-right: 1px solid rgba($color-gold-primary, 0.3);
+      
+      .chakra {
+        color: $color-cyan-primary;
+      }
+      span {
+        font-family: $font-mono;
+        font-size: 10px;
+        color: $color-gold-primary;
+      }
+    }
+    
+    .plateSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      
+      .value {
+        font-family: $font-mono;
+        font-size: $heading-lg;
+        color: $color-gold-primary;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        
+        &.highlight {
+          color: $color-cyan-primary;
+        }
+      }
+      
+      .label {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-text-tertiary;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    .dot {
+      color: $color-gold-primary;
+      font-size: $heading-lg;
+      margin-top: -20px;
+    }
+  }
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $spacing-2xl;
+  
+  .summaryCol {
+    .label {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .value {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+  
+  .statCard {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    
+    .statHeader {
+      @include flex-between;
+      
+      .label {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        color: $color-text-secondary;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      
+      .icon {
+        color: $color-gold-primary;
+      }
+    }
+    
+    .statValue {
+      font-family: $font-playfair;
+      font-size: $heading-md;
+      color: $color-gold-primary;
+    }
+    
+    .progressBar {
+      height: 4px;
+      background: rgba($color-surface, 0.5);
+      border-radius: 2px;
+      overflow: hidden;
+      
+      .progressFill {
+        height: 100%;
+        background: $color-gold-primary;
+      }
+      
+      &.cyan .progressFill {
+        background: $color-cyan-primary;
+      }
+    }
+    
+    .statDesc {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+    }
+  }
+}

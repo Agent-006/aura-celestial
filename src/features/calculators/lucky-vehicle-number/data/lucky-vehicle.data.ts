@@ -1,0 +1,156 @@
+import { LuckyVehicleTelemetryData } from "../types/lucky-vehicle.types";
+
+export const MOCK_LUCKY_VEHICLE_DATA: LuckyVehicleTelemetryData = {
+  breakdown: {
+    state: "MH",
+    rto: "02",
+    series: "EK",
+    coreNumber: "9999",
+    totalSum: 36,
+    reducedSum: 9,
+  },
+  stats: {
+    vehicleVibration: 94,
+    concordanceRate: "98.2%",
+    karmicShield: "91.5%",
+    spatialVelocity: "STABLE",
+  },
+  vibrations: [
+    {
+      number: 1,
+      planet: "Surya",
+      description: "Royal / Sovereign\nState authority, leadership and governmental dignities.",
+      colors: "Ruby, Orange, Gold",
+      isActive: false,
+    },
+    {
+      number: 2,
+      planet: "Chandra",
+      description: "Mood / Velocity\nErratic journeys, water crossings, and fluid motion.",
+      colors: "Silvery, Pearl, White",
+      isActive: false,
+    },
+    {
+      number: 3,
+      planet: "Guru",
+      description: "Jupiter / Wisdom\nWealth, long distance touring, and coach expanses.",
+      colors: "Yellow, Gold, Saffron",
+      isActive: false,
+    },
+    {
+      number: 4,
+      planet: "Rahu",
+      description: "Rebel / Irregularity\nHigh tech, unpredictable agility, sudden maneuvers.",
+      colors: "Magenta, Blue, Electric Gray",
+      isActive: false,
+    },
+    {
+      number: 5,
+      planet: "Budha",
+      description: "Memory / Velocity\nRapid agility, commercial media and trade routes.",
+      colors: "Teal, Emerald, Green",
+      isActive: false,
+    },
+    {
+      number: 6,
+      planet: "Shukra",
+      description: "Venus / Supreme return\nSupreme luxury, elegance, comforts. Exceptional rides.",
+      colors: "Turquoise, Pearl, Diamond",
+      isActive: false,
+    },
+    {
+      number: 7,
+      planet: "Ketu",
+      description: "Ketu / Solitude\nSolitary touring, spiritual pilgrimage, hidden trails.",
+      colors: "Phantom, Pastel, Ashes",
+      isActive: false,
+    },
+    {
+      number: 8,
+      planet: "Shani",
+      description: "Saturn / Accolade\nHeavy endurance, ironclad machinery, long haul resilience.",
+      colors: "Navy, Dark Iron, Sapphire",
+      isActive: false,
+    },
+    {
+      number: 9,
+      planet: "Mangala",
+      description: "Mars / Dynamic\nExtreme power, rapid acceleration, protective edge, invincibility.",
+      colors: "Crimson, Copper, Red",
+      isActive: true,
+    },
+  ],
+  concordances: [
+    {
+      vector: "Planetary Base Numerology (Mulank)",
+      yantra: "Number 9 // Mars (Mangala)",
+      consequence: "High Energy Stationary Resonance, Servo Critical Limit",
+      status: "Perfect (100.0%)",
+      percentage: "99.4% Perfect",
+    },
+    {
+      vector: "Matrix Condition of Vivaha/Arogyam",
+      yantra: "Number 7 // Ketu (Destiny 7)",
+      consequence: "Non-Frictional Sub Conjugation in structural road transits",
+      status: "Harmonious Mapping",
+      percentage: "96.2% High",
+    },
+    {
+      vector: "Planetary Lord of Machinery (Shani Effect)",
+      yantra: "Venus (Shukra) // Digbali",
+      consequence: "Resilience Response of Iron and Base Page Color (Motor Engine)",
+      status: "Exalted // Digbali",
+      percentage: "99.8% Supreme",
+    },
+    {
+      vector: "Planetary Lord of Vehicles (Shukra Effect)",
+      yantra: "SHUKRA (VENUS) OVERRIDE",
+      consequence: "4th House Ultra Resonance (Sublime Comfort & Cabin Luxury)",
+      status: "Sovereignty",
+      percentage: "99.4% Supreme",
+    },
+    {
+      vector: "Vehicle Exterior Color Concordance",
+      yantra: "Tamas // Saturn / Deep Ocean",
+      consequence: "Deflects The Evil Eye (Nazar) and Dampens Over-Heated Mars Effect",
+      status: "Tactical Neutralized",
+      percentage: "88.2% Favorable",
+    },
+    {
+      vector: "Steering Dynamics / Delivery Muhurta",
+      yantra: "Tactical // Transit",
+      consequence: "Mars + Ketu + Venus (Danger Shielded over Long Distances)",
+      status: "Luck Matrix (Yog)",
+      percentage: "100% Auspicious",
+    },
+  ],
+  protocols: [
+    {
+      id: "mantra",
+      type: "AUDIO PROTECTION // 432HZ",
+      title: "Sonic Vehicle Protection Beej Mantra",
+      description:
+        "To alleviate structural danger and negate sudden road transitions, listen to or chant inside your cabin:",
+      instructions: "ॐ भ्रां भ्रीं भ्रौं सः राहवे नमः",
+      frequency: "108 Recitations / Post Sunset Transit",
+    },
+    {
+      id: "yantra",
+      type: "PHYSICAL ANCHOR",
+      title: "Consecrated Yantra & Mineral Shield",
+      description:
+        "Place a neutral vibration crystal on the dashboard to intercept chaotic surrounding psycho-astral forces.",
+      instructions: "Dashboard Matrix Yantra: Vahan Raksha\nRear Block Tourmaline Cone: 15-20mm\nBoot Carnelian Sphere: Ground Defense",
+      frequency: "Installation: Shubh Hora",
+    },
+    {
+      id: "puja",
+      type: "DAANA // OFFERINGS",
+      title: "Vahan Puja & Karmic Daana",
+      description:
+        "Perform this protocol upon specific fuel document registration keys or travel across 7th lord danger axis.",
+      instructions: "Consecrate with Kumkum on 7 places (Pillars, bonnet, trunk) over every 12 months.\nDonate items representing the dark graha (Shani/Rahu) to homeless before cross-city travel.",
+      frequency: "Officiate: Saturday (Shani Vara)",
+    },
+  ],
+};

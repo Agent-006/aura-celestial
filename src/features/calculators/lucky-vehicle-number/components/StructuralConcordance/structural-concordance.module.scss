@@ -1,0 +1,115 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  
+  .eyebrow {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.tableContainer {
+  @include glass-card;
+  overflow-x: auto;
+  border: 1px solid rgba($color-text-tertiary, 0.2);
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    
+    th, td {
+      padding: $spacing-md $spacing-lg;
+      border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+    }
+    
+    th {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    
+    td {
+      font-family: $font-inter;
+      font-size: $ui-sm;
+      color: $color-text-secondary;
+      
+      &.vector {
+        color: $color-text-primary;
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        
+        .indicator {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: $color-gold-primary;
+        }
+      }
+      
+      &.yantra {
+        color: $color-cyan-primary;
+        font-family: $font-mono;
+        font-size: $ui-xs;
+      }
+      
+      &.status {
+        .badge {
+          display: inline-block;
+          padding: 4px 8px;
+          border-radius: $radius-sm;
+          font-family: $font-mono;
+          font-size: 10px;
+          text-transform: uppercase;
+          background: rgba($color-gold-primary, 0.1);
+          color: $color-gold-primary;
+          border: 1px solid rgba($color-gold-primary, 0.3);
+          white-space: nowrap;
+          
+          &.cyan {
+            background: rgba($color-cyan-primary, 0.1);
+            color: $color-cyan-primary;
+            border: 1px solid rgba($color-cyan-primary, 0.3);
+          }
+        }
+      }
+      
+      &.percentage {
+        font-family: $font-mono;
+        color: $color-gold-primary;
+        text-align: right;
+        font-weight: 600;
+      }
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    tr:hover td {
+      background: rgba($color-surface, 0.3);
+    }
+  }
+}

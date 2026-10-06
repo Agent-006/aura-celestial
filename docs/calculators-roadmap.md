@@ -17,7 +17,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Moon Phase Calculator
 - [x] Birth Chart Calculator / Natal Chart Calculator
 - [x] Flames Calculator
-- [ ] Lucky Vehicle Number Calculator
+- [x] Lucky Vehicle Number Calculator
 - [ ] Friendship Calculator
 - [ ] Kaal Sarp Dosh Calculator
 - [ ] Ishta Devata Calculator
