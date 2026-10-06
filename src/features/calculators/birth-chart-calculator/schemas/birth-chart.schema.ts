@@ -5,11 +5,11 @@ export const birthChartSchema = z.object({
   gender: z.enum(["Male", "Female", "Other", "Unknown"]),
   dateOfBirth: z.string().min(1, "Date of birth is required"),
   timeOfBirth: z.string().min(1, "Time of birth is required"),
-  timePrecision: z.enum(["Exact", "Approximate"]).default("Exact"),
+  timePrecision: z.enum(["Exact", "Approximate"]),
   placeOfBirth: z.string().min(2, "Place of birth is required"),
-  ayanamsa: z.enum(["Lahiri", "Raman", "KP"]).default("Lahiri"),
-  houseSystem: z.enum(["Placidus", "Koch", "Equal", "Whole Sign"]).default("Whole Sign"),
-  chartStyle: z.enum(["North Indian", "South Indian", "East Indian"]).default("North Indian"),
+  ayanamsa: z.enum(["Lahiri", "Raman", "KP"]),
+  houseSystem: z.enum(["Placidus", "Koch", "Equal", "Whole Sign"]),
+  chartStyle: z.enum(["North Indian", "South Indian", "East Indian"]),
 });
 
 export type BirthChartFormValues = z.infer<typeof birthChartSchema>;

@@ -1,0 +1,116 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include glass-card;
+  padding: $spacing-xl;
+  border-top: 1px solid rgba($color-gold-primary, 0.3);
+  margin-bottom: $spacing-xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .titleBox {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  input,
+  select {
+    background: rgba($color-surface, 0.5);
+    border: 1px solid rgba($color-text-tertiary, 0.3);
+    color: $color-text-primary;
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      border-color: $color-gold-primary;
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+}
+
+.submitWrapper {
+  margin-top: $spacing-xl;
+  display: flex;
+  justify-content: center;
+
+  .submitBtn {
+    background: $color-gold-primary;
+    color: $color-background;
+    border: none;
+    padding: $spacing-md $spacing-2xl;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    &:hover:not(:disabled) {
+      background: $color-gold-hover;
+      box-shadow: 0 4px 15px rgba($color-gold-primary, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.error {
+  color: $color-error;
+  font-size: $ui-xs;
+  font-family: $font-mono;
+  margin-top: 2px;
+}
