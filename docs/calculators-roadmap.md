@@ -25,7 +25,7 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Transit Chart Calculator
 - [x] Name Compatibility Calculator
 - [x] Age Calculator
-- [ ] Mulank Calculator
+- [x] Mulank Calculator
 - [ ] Mobile Number Numerology Calculator
 - [ ] Destiny Number Calculator
 - [ ] Lucky Name Numerology Calculator

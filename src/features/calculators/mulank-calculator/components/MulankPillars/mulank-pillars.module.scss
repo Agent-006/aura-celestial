@@ -1,0 +1,140 @@
+@use "@/styles/_variables" as *;
+
+.pillarsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  border-bottom: 1px solid rgba(#ffffff, 0.1);
+  padding-bottom: $spacing-sm;
+
+  .eyebrow {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+    letter-spacing: 1px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 20px;
+    font-family: $font-playfair;
+    color: $color-gold-primary;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 13px;
+    font-family: $font-inter;
+    color: $color-text-secondary;
+  }
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .subtitleRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .pSubtitle {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: rgba($color-text-secondary, 0.8);
+        letter-spacing: 0.5px;
+      }
+
+      .iconCyan {
+        color: $color-cyan-primary;
+      }
+    }
+
+    .pTitle {
+      margin: 0;
+      font-size: 14px;
+      font-family: $font-inter;
+      color: $color-text-primary;
+    }
+  }
+
+  .pContent {
+    margin: 0;
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.9);
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  .badgeRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: $spacing-sm;
+
+    span {
+      font-size: 9px;
+      font-family: $font-mono;
+      padding: 4px 8px;
+      border-radius: 2px;
+      background: rgba(#ffffff, 0.05);
+      border: 1px solid rgba(#ffffff, 0.2);
+      color: $color-text-secondary;
+    }
+  }
+
+  .matrixRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(#ffffff, 0.05);
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+    margin-top: $spacing-sm;
+
+    .left {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-text-secondary;
+    }
+
+    .right {
+      display: flex;
+      gap: 4px;
+
+      .dotGreen {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #48e5c2;
+      }
+    }
+  }
+}
