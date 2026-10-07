@@ -1,0 +1,204 @@
+@use "@/styles/_variables" as *;
+
+.pillarsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  padding-top: $spacing-xl;
+  border-top: 1px dashed rgba($color-gold-primary, 0.2);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.8);
+    margin: 0;
+  }
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba($color-cyan-primary, 0.5);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .eyebrowText {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .iconGold {
+    color: $color-gold-primary;
+  }
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-family: $font-playfair;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  .primaryValue {
+    font-size: 32px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+    font-weight: 500;
+  }
+
+  .arrow {
+    font-size: 14px;
+    color: rgba($color-text-secondary, 0.5);
+  }
+
+  .rootGroup {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+
+    .rootValue {
+      font-size: 32px;
+      font-family: $font-playfair;
+      color: $color-cyan-primary;
+      font-weight: 500;
+    }
+
+    .rootLabel {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  font-size: 12px;
+  font-family: $font-inter;
+  color: rgba($color-text-secondary, 0.8);
+  line-height: 1.5;
+
+  p {
+    margin: 0;
+  }
+
+  .statRow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: $spacing-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: $color-text-secondary;
+    }
+
+    .valueCyan {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+    }
+
+    .valueRed {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: #ff4d4f;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba(#ffffff, 0.05);
+
+  span {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .statusCyan {
+    color: $color-cyan-primary;
+  }
+}

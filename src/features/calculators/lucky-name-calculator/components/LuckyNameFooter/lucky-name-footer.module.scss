@@ -1,0 +1,76 @@
+@use "@/styles/_variables" as *;
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba(#ffffff, 0.05);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .indicator {
+    width: 6px;
+    height: 6px;
+    background: $color-cyan-primary;
+    border-radius: 50%;
+  }
+
+  .text {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.right {
+  display: flex;
+  gap: $spacing-md;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .downloadBtn {
+    background: rgba(#ffffff, 0.05);
+    color: $color-text-primary;
+    border: 1px solid rgba(#ffffff, 0.1);
+
+    &:hover {
+      background: rgba(#ffffff, 0.1);
+    }
+  }
+
+  .consultBtn {
+    background: $color-gold-primary;
+    color: #000;
+    border: 1px solid $color-gold-primary;
+    font-weight: 600;
+
+    &:hover {
+      background: darken($color-gold-primary, 10%);
+    }
+  }
+}

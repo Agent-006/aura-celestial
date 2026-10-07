@@ -1,0 +1,216 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.formContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.15);
+  background: rgba(#000000, 0.2);
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .iconGold {
+      color: $color-gold-primary;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-gold-primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  .right {
+    .cyanText {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  padding: $spacing-xl $spacing-lg;
+}
+
+.inputsRowTop,
+.inputsRowDate,
+.inputsRowBottom {
+  display: flex;
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    background: rgba(#000000, 0.4);
+    border: 1px solid rgba(#ffffff, 0.1);
+    border-radius: $radius-sm;
+    padding: 12px 16px;
+    color: $color-text-primary;
+    font-family: $font-inter;
+    font-size: 14px;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-cyan-primary;
+      background: rgba(#000000, 0.6);
+    }
+  }
+  
+  .inputWithIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      padding-right: 40px;
+    }
+
+    .inputIcon {
+      position: absolute;
+      right: 16px;
+      color: $color-gold-primary;
+    }
+  }
+  
+  .dateInputs {
+    display: flex;
+    gap: 8px;
+    
+    input {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  .selectWrapper {
+    position: relative;
+
+    select {
+      appearance: none;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .selectIcon {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-text-secondary;
+      pointer-events: none;
+    }
+  }
+
+  .error {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: #ff4d4f;
+    margin-top: 4px;
+  }
+  
+  .helpText {
+    font-size: 10px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.5);
+  }
+}
+
+.submitBtn {
+  margin-top: $spacing-md;
+  background: rgba($color-gold-primary, 0.1);
+  border: 1px solid $color-gold-primary;
+  color: $color-gold-primary;
+  padding: 16px;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-gold-primary;
+    color: #000;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-top: 1px solid rgba($color-gold-primary, 0.15);
+  background: rgba(#000000, 0.2);
+
+  span {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .goldText {
+    color: $color-gold-primary;
+  }
+
+  .cyanText {
+    color: $color-cyan-primary;
+    animation: blink 1.5s infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

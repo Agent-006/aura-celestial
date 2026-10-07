@@ -1,0 +1,156 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.telemetryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .iconCyan {
+      color: $color-cyan-primary;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  .recalibrateBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(#ffffff, 0.05);
+    border: 1px solid rgba(#ffffff, 0.1);
+    color: rgba($color-text-secondary, 0.8);
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    font-size: 9px;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(#ffffff, 0.1);
+      color: $color-text-primary;
+    }
+  }
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .title {
+    font-size: 28px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.8);
+    margin: 0;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: $spacing-lg;
+  border-top: 2px solid rgba($color-gold-primary, 0.3);
+
+  .statLabel {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: $color-gold-primary;
+      border-radius: 50%;
+    }
+  }
+
+  .statValue,
+  .statValueCyan,
+  .statValueGold {
+    font-size: 32px;
+    font-family: $font-playfair;
+    font-weight: 500;
+    line-height: 1;
+
+    .unit {
+      font-size: 14px;
+      font-family: $font-inter;
+      color: rgba($color-text-secondary, 0.5);
+      font-weight: 400;
+    }
+  }
+
+  .statValue {
+    color: $color-text-primary;
+  }
+
+  .statValueCyan {
+    color: $color-cyan-primary;
+    font-size: 24px;
+  }
+
+  .statValueGold {
+    color: $color-gold-primary;
+  }
+
+  .statDesc {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.7);
+    line-height: 1.5;
+    margin: 0;
+    padding-top: $spacing-sm;
+    border-top: 1px solid rgba(#ffffff, 0.05);
+  }
+}

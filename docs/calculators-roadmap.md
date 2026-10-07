@@ -28,4 +28,4 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Mulank Calculator
 - [x] Mobile Number Numerology Calculator
 - [x] Destiny Number Calculator
-- [ ] Lucky Name Numerology Calculator
+- [x] Lucky Name Numerology Calculator

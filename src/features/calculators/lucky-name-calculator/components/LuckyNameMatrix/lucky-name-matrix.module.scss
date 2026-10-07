@@ -1,0 +1,161 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.matrixContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.15);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .iconGold {
+      color: $color-gold-primary;
+    }
+
+    .title {
+      font-size: 14px;
+      font-family: $font-playfair;
+      color: $color-text-primary;
+      margin: 0;
+    }
+  }
+
+  .rightGroup {
+    .subtitle {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(#000000, 0.2);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-gold-primary, 0.2);
+    border-radius: 3px;
+  }
+}
+
+.matrixTable {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.8);
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid rgba(#ffffff, 0.05);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .activeRow {
+    background: rgba($color-gold-primary, 0.05);
+    border-left: 2px solid $color-gold-primary;
+
+    td {
+      color: $color-text-primary;
+    }
+  }
+
+  .highlightText {
+    color: $color-gold-primary !important;
+  }
+
+  .alliesText {
+    color: $color-cyan-primary;
+    font-family: $font-mono;
+  }
+
+  .opponentsText {
+    color: rgba($color-text-secondary, 0.6);
+    font-family: $font-mono;
+  }
+
+  .statusBadgeActive {
+    font-family: $font-mono;
+    font-size: 9px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background: $color-gold-primary;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .statusBadge_success {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: #48e5c2;
+  }
+
+  .statusBadge_info {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: $color-text-secondary;
+  }
+
+  .statusBadge_warning {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: #ffb347;
+  }
+
+  .statusBadge_danger {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: #ff4d4f;
+  }
+  
+  .statusBadge_neutral {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: rgba($color-text-secondary, 0.5);
+  }
+}

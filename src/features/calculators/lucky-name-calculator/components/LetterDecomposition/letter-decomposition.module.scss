@@ -1,0 +1,114 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.decompositionContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .title {
+    font-size: 14px;
+    font-family: $font-playfair;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.6);
+    margin: 0;
+  }
+}
+
+.gridWrapper {
+  overflow-x: auto;
+  padding-bottom: $spacing-md;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(#000000, 0.2);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-gold-primary, 0.3);
+    border-radius: 2px;
+  }
+}
+
+.gridLetters {
+  display: flex;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.letterBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.1);
+  border-radius: $radius-sm;
+  width: 56px;
+  height: 72px;
+  gap: 8px;
+
+  .letter {
+    font-size: 24px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+  }
+
+  .value {
+    font-size: 12px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+  }
+}
+
+.summary {
+  display: flex;
+  gap: $spacing-2xl;
+  padding-top: $spacing-md;
+  border-top: 1px dashed rgba(#ffffff, 0.1);
+  justify-content: flex-end;
+
+  .summaryItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .label {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .value {
+      font-size: 24px;
+      font-family: $font-playfair;
+      color: $color-text-primary;
+    }
+
+    .valueGold {
+      font-size: 24px;
+      font-family: $font-playfair;
+      color: $color-gold-primary;
+      font-weight: 500;
+    }
+  }
+}
