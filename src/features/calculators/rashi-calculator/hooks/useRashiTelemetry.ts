@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { RashiTelemetryData } from "../types/rashi.types";
 import { RashiFormValues } from "../schemas/rashi.schema";

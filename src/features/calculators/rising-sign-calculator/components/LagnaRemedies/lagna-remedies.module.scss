@@ -88,7 +88,8 @@
 }
 
 .actionFooter {
-  @include flex-end;
+  display: flex;
+  justify-content: flex-end;
   gap: $spacing-md;
   margin-top: $spacing-xl;
   padding-top: $spacing-lg;

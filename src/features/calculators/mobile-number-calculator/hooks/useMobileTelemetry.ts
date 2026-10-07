@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { MobileTelemetryData } from "../types/mobile-number-calculator.types";
 import { MOCK_MOBILE_DATA } from "../data/mobile-number-calculator.data";

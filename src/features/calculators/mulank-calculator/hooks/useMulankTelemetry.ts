@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { MulankTelemetryData } from "../types/mulank-calculator.types";
 import { MOCK_MULANK_DATA } from "../data/mulank-calculator.data";

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useNameCompatibilityTelemetry } from "../../hooks/useNameCompatibilityTelemetry";
 import { NameCompatibilityForm } from "../NameCompatibilityForm/NameCompatibilityForm";

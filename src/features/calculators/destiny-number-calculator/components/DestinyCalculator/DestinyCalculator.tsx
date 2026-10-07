@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useDestinyTelemetry } from "../../hooks/useDestinyTelemetry";
 import { DestinyForm } from "../DestinyForm/DestinyForm";

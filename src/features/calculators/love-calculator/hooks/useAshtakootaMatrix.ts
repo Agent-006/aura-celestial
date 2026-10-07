@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { ASHTAKOOTA_DATA } from "../data/love-compatibility.data";
 import { KootaRow } from "../types/love-compatibility.types";

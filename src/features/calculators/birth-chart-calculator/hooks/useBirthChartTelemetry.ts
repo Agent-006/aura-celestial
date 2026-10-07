@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { BirthChartTelemetryData } from "../types/birth-chart.types";
 import { BirthChartFormValues } from "../schemas/birth-chart.schema";

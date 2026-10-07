@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useAgeTelemetry } from "../../hooks/useAgeTelemetry";
 import { AgeForm } from "../AgeForm/AgeForm";

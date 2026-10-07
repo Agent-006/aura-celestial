@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { SunSignTelemetryData } from "../types/sun-sign.types";
 import { SunSignFormValues } from "../schemas/sun-sign.schema";

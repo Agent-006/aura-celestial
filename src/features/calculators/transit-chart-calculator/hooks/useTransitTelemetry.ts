@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { TransitTelemetryData } from "../types/transit.types";
 import { MOCK_TRANSIT_DATA } from "../data/transit.data";

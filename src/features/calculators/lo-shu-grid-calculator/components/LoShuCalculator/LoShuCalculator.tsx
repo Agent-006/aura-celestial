@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useLoShuTelemetry } from "../../hooks/useLoShuTelemetry";
 import { LoShuForm } from "../LoShuForm/LoShuForm";

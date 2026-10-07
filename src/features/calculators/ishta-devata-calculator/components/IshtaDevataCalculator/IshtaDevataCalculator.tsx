@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useIshtaDevataTelemetry } from "../../hooks/useIshtaDevataTelemetry";
 import { IshtaDevataForm } from "../IshtaDevataForm/IshtaDevataForm";

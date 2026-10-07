@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { DashaTelemetryData } from "../types/dasha.types";
 import { DashaFormValues } from "../schemas/dasha.schema";

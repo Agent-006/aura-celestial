@@ -1,3 +1,5 @@
+"use client";
+
 // hook removed unused react imports
 import { ILLUMINATION_METRICS_DATA } from "../data/moon-phase.data";
 import { IlluminationMetric } from "../types/moon-phase.types";

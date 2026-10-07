@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { DestinyTelemetryData } from "../types/destiny-number-calculator.types";
 import { MOCK_DESTINY_DATA } from "../data/destiny-number-calculator.data";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { IshtaDevataTelemetryData } from "../types/ishta-devata.types";
 import { MOCK_ISHTA_DEVATA_DATA } from "../data/ishta-devata.data";

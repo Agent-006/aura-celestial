@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { LUNAR_ALMANAC_DATA } from "../data/nakshatra.data";
 import { AlmanacRow } from "../types/nakshatra.types";

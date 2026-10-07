@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { SHUKLA_TITHIS_DATA } from "../data/moon-phase.data";
 import { EphemerisRow } from "../types/moon-phase.types";

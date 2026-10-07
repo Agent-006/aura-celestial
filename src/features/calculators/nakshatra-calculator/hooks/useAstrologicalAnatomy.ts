@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { ANATOMY_METRICS_DATA } from "../data/nakshatra.data";
 import { AnatomyMetric } from "../types/nakshatra.types";

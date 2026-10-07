@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { KaalSarpFormValues } from "../schemas/kaal-sarp.schema";
 import { KaalSarpTelemetryData } from "../types/kaal-sarp.types";

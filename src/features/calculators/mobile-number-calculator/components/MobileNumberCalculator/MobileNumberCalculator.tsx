@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useMobileTelemetry } from "../../hooks/useMobileTelemetry";
 import { MobileForm } from "../MobileForm/MobileForm";

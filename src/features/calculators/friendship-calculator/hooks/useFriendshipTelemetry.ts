@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { FriendshipFormValues } from "../schemas/friendship.schema";
 import { FriendshipTelemetryData } from "../types/friendship.types";

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,7 +37,7 @@ export const LoShuForm: React.FC<LoShuFormProps> = ({ onSubmit, isLoading }) => 
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.formElement} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formGrid}>
           {/* Row 1 */}
           <div className={styles.inputGroup}>

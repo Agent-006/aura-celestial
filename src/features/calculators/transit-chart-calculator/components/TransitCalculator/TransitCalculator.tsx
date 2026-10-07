@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useTransitTelemetry } from "../../hooks/useTransitTelemetry";
 import { TransitForm } from "../TransitForm/TransitForm";

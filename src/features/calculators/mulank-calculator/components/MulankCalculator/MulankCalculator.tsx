@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useMulankTelemetry } from "../../hooks/useMulankTelemetry";
 import { MulankForm } from "../MulankForm/MulankForm";

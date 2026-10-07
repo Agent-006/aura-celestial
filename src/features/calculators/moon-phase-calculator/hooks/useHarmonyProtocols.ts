@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { LUNAR_HARMONY_PROTOCOLS_DATA } from "../data/moon-phase.data";
 import { HarmonyProtocol } from "../types/moon-phase.types";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { LoShuTelemetryData } from "../types/lo-shu.types";
 import { MOCK_LO_SHU_DATA } from "../data/lo-shu.data";

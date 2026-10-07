@@ -1,6 +1,7 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 @use '@/styles/typography' as *;
+@use "@/styles/_typography" as *;
 
 .topBar {
     width: 100%;

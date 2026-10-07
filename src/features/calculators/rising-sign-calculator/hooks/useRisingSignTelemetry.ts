@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { RisingSignTelemetryData } from "../types/rising-sign.types";
 import { RisingSignFormValues } from "../schemas/rising-sign.schema";

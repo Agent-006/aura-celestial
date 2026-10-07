@@ -1,3 +1,5 @@
+"use client";
+
 import { useQuery } from "@tanstack/react-query";
 import { ANURADHA_DETAILS, PADA_TWO_DETAILS } from "../data/nakshatra.data";
 import { NakshatraDetails, PadaDetails } from "../types/nakshatra.types";

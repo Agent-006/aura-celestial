@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { AgeTelemetryData } from "../types/age-calculator.types";
 import { MOCK_AGE_DATA } from "../data/age-calculator.data";

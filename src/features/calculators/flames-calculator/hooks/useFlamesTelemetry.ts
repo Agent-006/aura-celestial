@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { FlamesFormValues } from "../schemas/flames.schema";
 import { FlamesTelemetryData } from "../types/flames.types";

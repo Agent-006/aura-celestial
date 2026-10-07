@@ -1,3 +1,5 @@
+"use client";
+
 import { useMutation } from "@tanstack/react-query";
 import { NameCompatibilityTelemetryData } from "../types/name-compatibility.types";
 import { MOCK_NAME_COMPATIBILITY_DATA } from "../data/name-compatibility.data";
