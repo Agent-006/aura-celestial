@@ -1,0 +1,111 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.phaseContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .title {
+    font-size: 16px;
+    font-family: $font-playfair;
+    color: $color-gold-primary;
+  }
+}
+
+.barsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .phaseRow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    .pLabel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.8);
+
+      .val {
+        color: $color-gold-primary;
+      }
+    }
+
+    .barWrap {
+      width: 100%;
+      height: 4px;
+      background: rgba(#ffffff, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+
+      .barFill {
+        height: 100%;
+        border-radius: 2px;
+      }
+
+      .cyanFill {
+        background: $color-cyan-primary;
+      }
+      .goldFill {
+        background: $color-gold-primary;
+      }
+      .redFill {
+        background: #ff4d4f;
+      }
+    }
+  }
+}
+
+.listContainer {
+  background: rgba(#000000, 0.3);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+
+  .lHeader {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    li {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: rgba($color-text-primary, 0.7);
+
+      &::before {
+        content: "•";
+        color: $color-cyan-primary;
+        margin-right: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@use "@/styles/_variables" as *;
+
+.footerContainer {
+  margin-top: $spacing-lg;
+}
+
+.exportSection {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba($color-gold-primary, 0.2);
+  border-radius: $radius-sm;
+  padding: $spacing-md $spacing-lg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .iconBox {
+      width: 40px;
+      height: 40px;
+      background: rgba($color-gold-primary, 0.1);
+      border: 1px solid rgba($color-gold-primary, 0.3);
+      border-radius: $radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .iconGold {
+        color: $color-gold-primary;
+      }
+    }
+
+    .textWrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .mainText {
+        font-size: 14px;
+        font-family: $font-inter;
+        color: $color-gold-primary;
+        font-weight: 500;
+      }
+
+      .subText {
+        font-size: 11px;
+        font-family: $font-inter;
+        color: rgba($color-text-secondary, 0.8);
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: $spacing-md;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .downloadBtn {
+      background: rgba($color-gold-primary, 0.15);
+      color: $color-gold-primary;
+      border: 1px solid $color-gold-primary;
+
+      &:hover {
+        background: rgba($color-gold-primary, 0.25);
+      }
+    }
+
+    .consultBtn {
+      background: $color-gold-primary;
+      color: #000000;
+      border: 1px solid $color-gold-primary;
+      font-weight: 600;
+
+      &:hover {
+        background: darken($color-gold-primary, 10%);
+      }
+    }
+  }
+}

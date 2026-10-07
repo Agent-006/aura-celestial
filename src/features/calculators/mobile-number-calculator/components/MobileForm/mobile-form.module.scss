@@ -1,0 +1,229 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.formContainer {
+  @include glass-card;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  background: rgba(#000000, 0.6);
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.15);
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  letter-spacing: 1px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-gold-primary;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .cyanText {
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.formContent {
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.inputsRowTop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputsRowBottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  label {
+    font-size: 9px;
+    color: $color-text-secondary;
+    font-family: $font-mono;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input {
+    width: 100%;
+    background: rgba(#000000, 0.4);
+    border: 1px solid rgba(#ffffff, 0.1);
+    color: $color-text-primary;
+    padding: $spacing-sm;
+    border-radius: $radius-sm;
+    font-family: $font-inter;
+    font-size: 12px;
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:focus,
+    &:hover {
+      border-color: rgba($color-cyan-primary, 0.4);
+      background: rgba(#000000, 0.6);
+    }
+  }
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      position: absolute;
+      left: 10px;
+      color: $color-text-secondary;
+    }
+
+    .withIcon {
+      padding-left: 32px;
+    }
+  }
+
+  .selectWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    select {
+      width: 100%;
+      background: rgba(#000000, 0.4);
+      border: 1px solid rgba(#ffffff, 0.1);
+      color: rgba($color-text-primary, 0.8);
+      padding: $spacing-sm;
+      padding-right: 30px;
+      border-radius: $radius-sm;
+      font-family: $font-inter;
+      font-size: 12px;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+
+      &:focus,
+      &:hover {
+        border-color: rgba($color-cyan-primary, 0.4);
+      }
+    }
+
+    .selectIcon {
+      position: absolute;
+      right: 10px;
+      color: $color-text-secondary;
+      pointer-events: none;
+    }
+  }
+
+  .error {
+    color: $color-error;
+    font-size: 10px;
+    font-family: $font-mono;
+  }
+}
+
+.submitSection {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-sm;
+
+  .submitBtn {
+    width: 100%;
+    background: rgba($color-gold-primary, 0.15);
+    color: $color-gold-primary;
+    border: 1px solid rgba($color-gold-primary, 0.4);
+    padding: $spacing-md;
+    border-radius: $radius-sm;
+    font-family: $font-mono;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover:not(:disabled) {
+      background: rgba($color-gold-primary, 0.25);
+      border-color: $color-gold-primary;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-sm $spacing-lg;
+  background: rgba(#000000, 0.3);
+  border-top: 1px solid rgba($color-cyan-primary, 0.1);
+  font-family: $font-mono;
+  font-size: 9px;
+  color: $color-text-secondary;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .cyanText {
+    color: $color-cyan-primary;
+  }
+
+  .iconCyan {
+    color: $color-cyan-primary;
+  }
+}

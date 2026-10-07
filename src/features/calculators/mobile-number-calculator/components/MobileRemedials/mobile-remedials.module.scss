@@ -1,0 +1,101 @@
+@use "@/styles/_variables" as *;
+
+.remedialsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-family: $font-playfair;
+    color: $color-gold-primary;
+  }
+}
+
+.remedialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.remedialCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  position: relative;
+  overflow: hidden;
+
+  &[data-type="success"] {
+    border-top: 2px solid $color-gold-primary;
+    .iconWrap {
+      color: $color-gold-primary;
+    }
+  }
+
+  &[data-type="warning"] {
+    border-top: 2px solid $color-cyan-primary;
+    .iconWrap {
+      color: $color-cyan-primary;
+    }
+  }
+
+  &[data-type="info"] {
+    border-top: 2px solid rgba(#ffffff, 0.5);
+    .iconWrap {
+      color: rgba(#ffffff, 0.7);
+    }
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .cardTitle {
+      font-size: 14px;
+      font-family: $font-inter;
+      color: $color-text-primary;
+      font-weight: 500;
+    }
+  }
+
+  .cardContent {
+    flex: 1;
+
+    .rBox {
+      p {
+        font-size: 12px;
+        font-family: $font-inter;
+        color: rgba($color-text-secondary, 0.9);
+        line-height: 1.5;
+
+        strong {
+          color: $color-gold-primary;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

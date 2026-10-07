@@ -1,0 +1,135 @@
+@use "@/styles/_variables" as *;
+
+.pillarsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-family: $font-playfair;
+    color: $color-gold-primary;
+  }
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    .titleRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .pIcon {
+        color: $color-gold-primary;
+      }
+
+      .pEyebrow {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: rgba($color-text-secondary, 0.6);
+        text-transform: uppercase;
+      }
+    }
+
+    .pTitle {
+      font-size: 14px;
+      font-family: $font-inter;
+      color: $color-text-primary;
+      font-weight: 500;
+    }
+  }
+
+  .pContent {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.9);
+    line-height: 1.5;
+  }
+
+  .badgeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba($color-gold-primary, 0.1);
+    border: 1px solid rgba($color-gold-primary, 0.3);
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-gold-primary;
+    margin-top: auto;
+  }
+
+  .matrixRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $spacing-xs;
+    border-top: 1px dashed rgba(#ffffff, 0.1);
+    margin-top: auto;
+
+    .left {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.8);
+    }
+
+    .right {
+      display: flex;
+      gap: 4px;
+
+      .dotGold {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-gold-primary;
+      }
+
+      .scoreText {
+        font-size: 10px;
+        font-family: $font-mono;
+        color: $color-cyan-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.matrixContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .leftGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    .eyebrow {
+      font-size: 10px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-family: $font-playfair;
+      color: $color-gold-primary;
+    }
+  }
+
+  .rightGroup {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.8);
+
+    .goldText {
+      color: $color-gold-primary;
+    }
+  }
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(#000000, 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-gold-primary, 0.3);
+    border-radius: 4px;
+  }
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+
+  th {
+    text-align: left;
+    padding: $spacing-sm $spacing-md;
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    border-bottom: 1px solid rgba(#ffffff, 0.1);
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: $spacing-sm $spacing-md;
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-primary, 0.8);
+    border-bottom: 1px solid rgba(#ffffff, 0.05);
+    vertical-align: middle;
+  }
+
+  .activeRow {
+    background: rgba($color-gold-primary, 0.05);
+    border-left: 2px solid $color-gold-primary;
+
+    td {
+      color: $color-text-primary;
+    }
+  }
+
+  .badgeIndicator {
+    font-size: 8px;
+    font-family: $font-mono;
+    background: rgba($color-gold-primary, 0.2);
+    color: $color-gold-primary;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-right: 8px;
+  }
+
+  .highlightText {
+    color: $color-gold-primary !important;
+  }
+  .highlightCyan {
+    color: $color-cyan-primary !important;
+  }
+
+  .statusBadgeActive {
+    font-family: $font-mono;
+    font-size: 9px;
+    background: rgba($color-gold-primary, 0.15);
+    color: $color-gold-primary;
+    padding: 2px 6px;
+    border-radius: 2px;
+    border: 1px solid rgba($color-gold-primary, 0.3);
+  }
+
+  .statusBadge_success {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: #48e5c2;
+  }
+
+  .statusBadge_info {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: rgba(#ffffff, 0.6);
+  }
+
+  .statusBadge_warning {
+    font-family: $font-mono;
+    font-size: 9px;
+    color: #ff4d4f;
+  }
+}
