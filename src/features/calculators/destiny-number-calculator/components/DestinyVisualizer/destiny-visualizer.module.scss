@@ -1,0 +1,244 @@
+@use "@/styles/_variables" as *;
+
+.visualizerContainer {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-md;
+  display: flex;
+  min-height: 400px;
+  overflow: hidden;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.leftPane {
+  flex: 1;
+  border-right: 1px solid rgba(#ffffff, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  background: radial-gradient(
+    circle at center,
+    rgba($color-gold-primary, 0.05) 0%,
+    transparent 70%
+  );
+
+  @media (max-width: 900px) {
+    border-right: none;
+    border-bottom: 1px solid rgba(#ffffff, 0.05);
+  }
+
+  .svgWrapper {
+    width: 250px;
+    height: 250px;
+    margin-bottom: $spacing-lg;
+
+    .yantraSvg {
+      width: 100%;
+      height: 100%;
+      animation: rotateSlow 60s linear infinite;
+
+      .outerCircle {
+        fill: none;
+        stroke: rgba($color-gold-primary, 0.2);
+        stroke-width: 1;
+        stroke-dasharray: 4 4;
+      }
+      .innerCircle {
+        fill: none;
+        stroke: rgba($color-gold-primary, 0.1);
+        stroke-width: 1;
+      }
+      .triangleUp {
+        fill: none;
+        stroke: $color-gold-primary;
+        stroke-width: 1.5;
+        opacity: 0.8;
+      }
+      .triangleDown {
+        fill: none;
+        stroke: $color-cyan-primary;
+        stroke-width: 1.5;
+        opacity: 0.8;
+      }
+      .coreCircle {
+        fill: rgba($color-gold-primary, 0.1);
+        stroke: $color-gold-primary;
+        stroke-width: 2;
+      }
+      .coreText {
+        fill: $color-gold-primary;
+        font-family: $font-playfair;
+        font-size: 24px;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        animation: counterRotate 60s linear infinite;
+      }
+      .nodeGold {
+        fill: $color-gold-primary;
+      }
+      .nodeCyan {
+        fill: $color-cyan-primary;
+      }
+    }
+  }
+
+  .label {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.rightPane {
+  flex: 1.5;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  justify-content: center;
+
+  .headerBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .eyebrow {
+      font-size: 12px;
+      font-family: $font-mono;
+      color: $color-text-secondary;
+      letter-spacing: 1px;
+    }
+
+    .subtext {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: rgba($color-text-secondary, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .iconGold {
+        color: $color-gold-primary;
+      }
+    }
+  }
+
+  .cyclesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cycleCard {
+    background: rgba(#000000, 0.3);
+    border: 1px solid rgba(#ffffff, 0.05);
+    border-radius: $radius-sm;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .cTitle {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cCalc {
+      font-size: 20px;
+      font-family: $font-playfair;
+      color: $color-gold-primary;
+    }
+
+    .cDesc {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: rgba($color-text-secondary, 0.8);
+      line-height: 1.5;
+    }
+  }
+
+  .keywordsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
+    .kBadge,
+    .kBadgeActive {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 10px;
+      border-radius: $radius-sm;
+      text-align: center;
+
+      .kLabel {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: rgba($color-text-secondary, 0.6);
+        text-transform: uppercase;
+      }
+
+      .kValue {
+        font-size: 11px;
+        font-family: $font-inter;
+      }
+    }
+
+    .kBadge {
+      background: rgba(#000000, 0.2);
+      border: 1px dashed rgba(#ffffff, 0.1);
+
+      .kValue {
+        color: $color-text-secondary;
+      }
+    }
+
+    .kBadgeActive {
+      background: rgba($color-cyan-primary, 0.1);
+      border: 1px solid rgba($color-cyan-primary, 0.3);
+
+      .kValue {
+        color: $color-cyan-primary;
+        font-weight: 500;
+      }
+    }
+  }
+}

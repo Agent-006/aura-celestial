@@ -1,0 +1,107 @@
+@use "@/styles/_variables" as *;
+
+.remedialsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  border-top: 1px dashed rgba($color-gold-primary, 0.2);
+  padding-top: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-gold-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: rgba($color-gold-primary, 0.1);
+      border: 1px solid rgba($color-gold-primary, 0.4);
+      border-radius: 50%;
+      display: inline-block;
+    }
+  }
+
+  .title {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.6);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.remedialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.remedialCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  &:hover {
+    border-color: rgba($color-cyan-primary, 0.3);
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .subtitle {
+        font-size: 9px;
+        font-family: $font-mono;
+        color: $color-cyan-primary;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .cardTitle {
+        font-size: 14px;
+        font-family: $font-playfair;
+        color: $color-text-primary;
+        font-weight: 500;
+      }
+    }
+
+    .iconWrap {
+      color: rgba($color-text-secondary, 0.6);
+    }
+  }
+
+  .cardContent {
+    font-size: 12px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.9);
+    line-height: 1.5;
+  }
+}

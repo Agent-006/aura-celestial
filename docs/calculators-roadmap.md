@@ -27,5 +27,5 @@ This document tracks the progress of the 25 calculators listed in our platform a
 - [x] Age Calculator
 - [x] Mulank Calculator
 - [x] Mobile Number Numerology Calculator
-- [ ] Destiny Number Calculator
+- [x] Destiny Number Calculator
 - [ ] Lucky Name Numerology Calculator

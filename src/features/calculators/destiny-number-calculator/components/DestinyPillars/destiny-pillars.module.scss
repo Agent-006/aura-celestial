@@ -1,0 +1,249 @@
+@use "@/styles/_variables" as *;
+
+.pillarsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .eyebrow {
+    font-size: 10px;
+    font-family: $font-mono;
+    color: $color-gold-primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      content: "A";
+      font-family: $font-playfair;
+      font-size: 14px;
+      color: $color-gold-primary;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba($color-gold-primary, 0.4);
+      background: rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+    margin-top: 4px;
+  }
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCardFull {
+  grid-column: 1 / -1;
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.pillarCard {
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba(#ffffff, 0.05);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .pLabel {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: rgba($color-text-secondary, 0.6);
+    letter-spacing: 0.5px;
+  }
+
+  .pTitle {
+    font-size: 16px;
+    font-family: $font-playfair;
+    color: $color-text-primary;
+  }
+}
+
+.pContent {
+  font-size: 13px;
+  font-family: $font-inter;
+  color: rgba($color-text-secondary, 0.9);
+  line-height: 1.6;
+}
+
+.coreLesson {
+  margin-top: 8px;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($color-cyan-primary, 0.05);
+  border-left: 2px solid $color-cyan-primary;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  .clLabel {
+    font-size: 9px;
+    font-family: $font-mono;
+    color: $color-cyan-primary;
+    white-space: nowrap;
+  }
+
+  .clText {
+    font-size: 11px;
+    font-family: $font-inter;
+    color: rgba($color-text-secondary, 0.8);
+  }
+}
+
+.listRows {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  background: rgba(#000000, 0.2);
+  padding: $spacing-md;
+  border: 1px solid rgba(#ffffff, 0.05);
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px dashed rgba(#ffffff, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rLabel {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: $color-text-secondary;
+    }
+
+    .rValueGold {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: $color-gold-primary;
+    }
+
+    .rValueCyan {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+    }
+
+    .rValueRed {
+      font-size: 11px;
+      font-family: $font-mono;
+      color: #ff4d4f;
+    }
+  }
+}
+
+.grid2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(#ffffff, 0.05);
+  border: 1px solid rgba(#ffffff, 0.05);
+
+  .cell {
+    background: #000;
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+
+    .cLabel {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+    }
+
+    .cValue {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: rgba($color-text-secondary, 0.9);
+      white-space: pre-line;
+    }
+
+    .cValueGold {
+      @extend .cValue;
+      color: $color-gold-primary;
+    }
+
+    .cValueCyan {
+      @extend .cValue;
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.timelineRows {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  .tRow,
+  .tRowActive {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: $spacing-sm $spacing-md;
+    border-left: 2px solid rgba(#ffffff, 0.1);
+
+    .tLabel {
+      font-size: 9px;
+      font-family: $font-mono;
+      color: rgba($color-text-secondary, 0.6);
+      text-transform: uppercase;
+    }
+
+    .tContent {
+      font-size: 11px;
+      font-family: $font-inter;
+      color: rgba($color-text-secondary, 0.9);
+    }
+  }
+
+  .tRowActive {
+    background: rgba($color-cyan-primary, 0.05);
+    border-left-color: $color-cyan-primary;
+
+    .tLabel {
+      color: $color-cyan-primary;
+    }
+  }
+}
