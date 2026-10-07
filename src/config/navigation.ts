@@ -180,6 +180,6 @@ export const NAV_LINKS: NavItem[] = [
   },
   {
     label: "BLOG",
-    href: "#"
+    href: "/blog"
   },
 ];

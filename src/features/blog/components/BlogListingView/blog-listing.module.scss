@@ -1,0 +1,134 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.2);
+  padding-bottom: $spacing-lg;
+}
+
+.titleSection {
+  .breadcrumbs {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-cyan-primary;
+    letter-spacing: 2px;
+    margin-bottom: $spacing-sm;
+    display: flex;
+    gap: $spacing-xs;
+    align-items: center;
+  }
+
+  .title {
+    font-family: $font-cinzel;
+    font-size: 3rem;
+    font-weight: 300;
+    color: $color-gold-primary;
+    margin: 0 0 $spacing-xs 0;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: $ui-lg;
+    color: $color-text-secondary;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.headerStats {
+  text-align: right;
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  strong {
+    color: $color-cyan-primary;
+    font-weight: normal;
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: $spacing-sm;
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.1);
+  padding-bottom: $spacing-sm;
+
+  h2 {
+    font-family: $font-cinzel;
+    font-size: 2rem;
+    font-weight: 300;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+
+  .sectionMeta {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-cyan-primary;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.sectionDesc {
+  font-family: $font-inter;
+  font-size: $ui-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xl;
+  max-width: 800px;
+}
+
+.sectionTitleWithBadge {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .badge {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-cyan-primary;
+    letter-spacing: 2px;
+  }
+}
+
+.newsletterSection {
+  margin-top: $spacing-3xl;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  .headerStats {
+    text-align: left;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}

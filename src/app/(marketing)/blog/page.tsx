@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import { Metadata } from "next";
+import { BlogListingView } from "@/features/blog/components/BlogListingView/BlogListingView";
 
-type Props = Record<string, never>
+export const metadata: Metadata = {
+  title: "The Sidereal Journal - Aura Celestial",
+  description:
+    "Where High Science Meets Vedic Wisdom. Read our latest peer-reviewed field monographs and observations.",
+};
 
-export default function page({}: Props) {
+export default function BlogListingPage() {
   return (
-    <div>page</div>
-  )
+    <main>
+      <BlogListingView />
+    </main>
+  );
 }

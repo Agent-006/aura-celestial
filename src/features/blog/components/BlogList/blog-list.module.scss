@@ -1,0 +1,188 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md $spacing-xl;
+  background: rgba(#000000, 0.3);
+  border: 1px solid rgba($color-cyan-primary, 0.1);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  gap: $spacing-lg;
+
+  &:hover {
+    background: rgba($color-cyan-primary, 0.05);
+    border-color: rgba($color-gold-primary, 0.3);
+
+    .iconBox {
+      color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.1);
+    }
+  }
+}
+
+.iconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba($color-text-secondary, 0.1);
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta {
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  .category {
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+  }
+
+  .separator {
+    color: rgba($color-cyan-primary, 0.3);
+  }
+
+  .tag {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.title {
+  font-family: $font-inter;
+  font-size: $ui-md;
+  color: $color-text-primary;
+  margin: 0;
+  font-weight: 400;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  white-space: nowrap;
+
+  .author {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .actionIcon {
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+    padding: 4px;
+    border-radius: 2px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 9px;
+  color: $color-text-secondary;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-cyan-primary, 0.1);
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+  }
+
+  .pages {
+    display: flex;
+    gap: $spacing-xs;
+  }
+
+  .pageBtn {
+    background: none;
+    border: none;
+    color: $color-cyan-primary;
+    font-family: $font-mono;
+    font-size: 10px;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-gold-primary;
+    }
+  }
+
+  .pageNumber {
+    background: rgba(#000, 0.5);
+    border: 1px solid rgba($color-cyan-primary, 0.2);
+    color: $color-text-secondary;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $color-cyan-primary;
+      color: $color-text-primary;
+    }
+
+    &.active {
+      background: $color-gold-primary;
+      color: #000;
+      border-color: $color-gold-primary;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .listItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}

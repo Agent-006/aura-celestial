@@ -1,0 +1,336 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.heroCard {
+  @include glass-card;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-2xl;
+  padding: $spacing-2xl;
+  background: linear-gradient(
+    135deg,
+    rgba($color-cyan-primary, 0.03) 0%,
+    rgba(#000000, 0.6) 100%
+  );
+  border: 1px solid rgba($color-cyan-primary, 0.15);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meta {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: $spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  .category {
+    color: $color-gold-primary;
+    border: 1px solid rgba($color-gold-primary, 0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba($color-gold-primary, 0.05);
+  }
+
+  .separator {
+    color: rgba($color-cyan-primary, 0.4);
+  }
+
+  .tag {
+    color: $color-cyan-primary;
+    text-transform: uppercase;
+  }
+}
+
+.title {
+  font-family: $font-cinzel;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: $color-text-primary;
+  line-height: 1.2;
+  margin: 0 0 $spacing-lg 0;
+}
+
+.excerpt {
+  font-family: $font-inter;
+  font-size: $ui-md;
+  line-height: 1.6;
+  color: $color-text-secondary;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-cyan-primary, 0.1);
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba($color-cyan-primary, 0.1);
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-cyan-primary;
+  }
+
+  .authorInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .authorName {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-primary;
+    }
+
+    .authorRole {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-text-secondary;
+    }
+  }
+
+  .dateMeta {
+    margin-left: auto;
+    display: flex;
+    gap: $spacing-lg;
+
+    .iconText {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: $font-mono;
+      font-size: 11px;
+      color: $color-cyan-primary;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+
+  button {
+    font-family: $font-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  .primaryBtn {
+    background: $color-gold-primary;
+    color: #000;
+    border: none;
+    font-weight: 600;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba($color-gold-primary, 0.4);
+    }
+  }
+
+  .secondaryBtn {
+    background: transparent;
+    color: $color-cyan-primary;
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+
+    &:hover {
+      background: rgba($color-cyan-primary, 0.05);
+      border-color: $color-cyan-primary;
+    }
+  }
+}
+
+.visualizer {
+  position: relative;
+  background: rgba(#000000, 0.4);
+  border: 1px solid rgba($color-cyan-primary, 0.1);
+  border-radius: $radius-md;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hudTop {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-secondary;
+  letter-spacing: 1px;
+  z-index: 2;
+
+  .highlight {
+    color: $color-cyan-primary;
+    background: rgba($color-cyan-primary, 0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+}
+
+.orbitContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  .sun {
+    width: 20px;
+    height: 20px;
+    background: $color-gold-primary;
+    border-radius: 50%;
+    box-shadow: 0 0 30px $color-gold-primary;
+    position: absolute;
+  }
+
+  .orbit1,
+  .orbit2 {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba($color-cyan-primary, 0.2);
+  }
+
+  .orbit1 {
+    width: 200px;
+    height: 100px;
+    transform: rotate(15deg);
+  }
+
+  .orbit2 {
+    width: 350px;
+    height: 150px;
+    transform: rotate(-10deg);
+    border: 1px solid rgba($color-gold-primary, 0.3);
+
+    .planet {
+      width: 12px;
+      height: 12px;
+      background: $color-cyan-primary;
+      border-radius: 50%;
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      box-shadow: 0 0 10px $color-cyan-primary;
+    }
+  }
+
+  .axis {
+    position: absolute;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($color-cyan-primary, 0.3),
+      transparent
+    );
+    transform: rotate(15deg);
+  }
+}
+
+.hudBottom {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 2;
+  margin-top: 250px; // push to bottom
+
+  .hudLeft div {
+    margin-bottom: 4px;
+  }
+
+  .hudRight {
+    text-align: right;
+
+    div {
+      margin-bottom: 4px;
+      color: $color-text-primary;
+    }
+  }
+}
+
+.footerRef {
+  display: flex;
+  align-items: center;
+  font-family: $font-mono;
+  font-size: 9px;
+  color: rgba($color-text-secondary, 0.5);
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 2;
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: $color-cyan-primary;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 5px $color-cyan-primary;
+  }
+
+  .refId {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroCard {
+    grid-template-columns: 1fr;
+  }
+
+  .visualizer {
+    min-height: 400px;
+  }
+
+  .hudBottom {
+    margin-top: auto;
+    padding-top: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .authorMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+
+    .dateMeta {
+      margin-left: 0;
+    }
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
