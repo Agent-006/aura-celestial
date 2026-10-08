@@ -6,112 +6,86 @@
   width: 100%;
   @include section-spacing;
   background-color: $color-background;
+  overflow: hidden;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   @include container;
 }
 
+/* Background Elements */
+.nebulaLeft,
+.nebulaRight {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nebulaLeft {
+  top: -20%;
+  left: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(230, 181, 83, 0.2),
+    // explicitly using the gold hex RGB for safety
+    transparent 60%
+  );
+}
+
+.nebulaRight {
+  bottom: -20%;
+  right: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(72, 229, 194, 0.1),
+    // using cyan primary for a nice cosmic contrast
+    transparent 60%
+  );
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(230, 181, 83, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 181, 83, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.8;
+}
+
 .ctaBox {
+  position: relative;
+  width: 100%;
+  @include glass-morphism-surface(0.2, 16px);
+
+  // Subtle glow emanating from the center of the box overlaid on the glass
+  background: radial-gradient(
+    circle at center,
+    rgba(230, 181, 83, 0.08) 0%,
+    rgba(15, 17, 21, 0.2) 60%
+  );
+  border: 1px solid rgba(230, 181, 83, 0.15);
+}
+
+.innerContent {
   @include flex-column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 2rem;
-  border: 1px solid rgba($color-gold-primary, 0.25);
-
-  // Subtle glow emanating from the center of the box
-  background: radial-gradient(
-    circle at center,
-    rgba($color-gold-primary, 0.05) 0%,
-    transparent 60%
-  );
   gap: $spacing-2xl;
+  padding: 2rem 1rem;
 
   @media (max-width: 48rem) {
-    padding: 4rem 1.5rem;
-  }
-}
-
-.content {
-  @include flex-column;
-  align-items: center;
-  gap: $spacing-md;
-}
-
-.eyebrow {
-  font-family: var(--font-space-mono);
-  font-size: 0.75rem;
-  color: $color-gold-primary;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.title {
-  font-family: var(--font-cormorant-garamond);
-  font-size: $heading-xl;
-  font-weight: 400;
-  color: $color-text-primary;
-  font-style: italic;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.description {
-  font-family: var(--font-cormorant-garamond);
-  font-size: 1.25rem;
-  color: $color-text-secondary;
-  font-style: italic;
-  margin: 0;
-  max-width: 600px;
-}
-
-.buttonGroup {
-  display: flex;
-  gap: $spacing-lg;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; // Allows wrapping on small mobile screens
-}
-
-.primaryBtn {
-  font-family: var(--font-space-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $color-background;
-  background-color: $color-gold-primary;
-  padding: 1.25rem 2.5rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  // The signature glowing shadow
-  box-shadow: 0 0 24px rgba($color-gold-primary, 0.35);
-
-  &:hover {
-    background-color: $color-gold-hover;
-    box-shadow: 0 0 36px rgba($color-gold-primary, 0.5);
-    transform: translateY(-2px);
-  }
-}
-
-.secondaryBtn {
-  font-family: var(--font-space-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $color-text-primary;
-  background-color: transparent;
-  padding: 1.25rem 2.5rem;
-  border: 1px solid rgba($color-gold-primary, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    border-color: $color-gold-primary;
-    background-color: rgba($color-gold-primary, 0.05);
+    padding: 2rem 0;
   }
 }

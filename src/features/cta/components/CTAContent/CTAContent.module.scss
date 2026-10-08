@@ -1,0 +1,36 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.content {
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.eyebrow {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $color-gold-primary;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: $font-headings;
+  font-size: $heading-xl;
+  font-weight: $weight-regular;
+  color: $color-text-primary;
+  font-style: italic;
+  margin: 0;
+  line-height: $leading-tight;
+}
+
+.description {
+  font-family: $font-paragraphs;
+  font-size: 1.25rem;
+  color: $color-text-secondary;
+  font-style: italic;
+  margin: 0;
+  max-width: 600px;
+}
