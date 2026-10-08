@@ -1,0 +1,63 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.telemetryBar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: center;
+  font-family: $font-technical;
+  font-size: $ui-md;
+  color: $color-text-tertiary;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $color-border;
+
+  @include respond-to("lg") {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .telemetryData {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .dotGreen {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-success;
+      box-shadow: 0 0 8px rgba($color-success, 0.5);
+    }
+
+    .textGreen {
+      color: $color-success;
+    }
+
+    .divider {
+      color: rgba($color-white, 0.1);
+    }
+  }
+
+  .sslBadge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba($color-success, 0.3);
+    padding: $spacing-2xs $spacing-sm;
+    border-radius: $radius-lg;
+    color: $color-success;
+    background: rgba($color-success, 0.05);
+
+    .sslIcon {
+      color: $color-success;
+    }
+
+    .lockIcon {
+      color: rgba($color-success, 0.6);
+    }
+  }
+}

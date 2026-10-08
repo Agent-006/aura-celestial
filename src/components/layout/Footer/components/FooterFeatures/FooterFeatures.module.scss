@@ -1,0 +1,52 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+
+  @include respond-to("md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-to("lg") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.featureCard {
+  @include glass-morphism-surface(0.4);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: flex-start;
+
+  .featIconBox {
+    color: $color-gold-primary;
+    background: rgba($color-gold-primary, 0.05);
+    padding: $spacing-xs;
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .featTitle {
+    font-family: $font-inter;
+    font-weight: $weight-semibold;
+    font-size: $subheading-sm;
+    color: $color-white;
+    margin-bottom: $spacing-2xs;
+  }
+
+  .featDesc {
+    font-size: $paragraph-sm;
+    color: $color-text-tertiary;
+    line-height: 1.5;
+  }
+}

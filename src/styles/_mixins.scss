@@ -97,6 +97,14 @@ $breakpoints: (
   border: 1px solid $border-color;
 }
 
+// Translucent Glassmorphism (Ideal for dashboard panels and cards)
+@mixin glass-morphism-surface($opacity: 0.6, $blur: 12px) {
+  background: rgba(15, 17, 21, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 // Premium Dark Frosted Acrylic (Used by Cards)
 @mixin glass-card($opacity: 0.5, $blur: 1.5rem) {
   // Smooth dark translucent gradient
@@ -117,6 +125,32 @@ $breakpoints: (
     inset 0.0625rem 0.0625rem 0.125rem rgba(255, 255, 255, 0.15),
     inset -0.0625rem -0.0625rem 0.125rem rgba(0, 0, 0, 0.5),
     0 0.75rem 2.5rem rgba(0, 0, 0, 0.4);
+}
+
+// Glassmorphism - Dark translucent effect (Astrotalk style)
+// High opacity dark background with blur, no bright white rims
+@mixin glass-morphism-dark($blur: 24px, $opacity: 0.85) {
+  // Depth shadow applied to the parent
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.5);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1; // Sit behind the content
+    pointer-events: none;
+
+    // Dark tint
+    background: rgba(10, 10, 12, $opacity);
+
+    // Strong blur
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    will-change: transform, backdrop-filter;
+
+    // Very subtle bottom border to define the edge
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
 // Liquid Glass with Golden Tint (Used by Header)

@@ -1,0 +1,111 @@
+@use "@/styles/_mixins" as *;
+@use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
+
+.brandSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .logoHeader {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .logoBox {
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-lg;
+      border: 1px solid rgba($color-gold-primary, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.05);
+    }
+
+    .brandTitle {
+      font-family: $font-display;
+      font-size: $heading-sm;
+      color: $color-gold-primary;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      .badgeSidereal {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        padding: 2px 6px;
+        background: rgba($color-success, 0.1);
+        color: $color-success;
+        border: 1px solid rgba($color-success, 0.3);
+        border-radius: $radius-md;
+        letter-spacing: 1px;
+      }
+    }
+
+    .brandSub {
+      font-family: $font-mono;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+      opacity: 0.7;
+
+      a {
+        color: $color-gold-primary;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-gold-hover;
+        }
+      }
+    }
+  }
+
+  .brandDesc {
+    font-family: $font-inter;
+    font-size: $paragraph-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    max-width: 90%;
+
+    .highlight {
+      color: $color-success;
+      font-weight: 500;
+    }
+  }
+
+  .statusBadges {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-xs;
+
+    .statusTag {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-md;
+      display: flex;
+      align-items: center;
+      gap: $spacing-2xs;
+      color: $color-text-secondary;
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-success;
+        box-shadow: 0 0 8px rgba($color-success, 0.5);
+      }
+
+      .tagValue {
+        color: $color-gold-primary;
+      }
+      .tagValueGreen {
+        color: $color-success;
+      }
+    }
+  }
+}

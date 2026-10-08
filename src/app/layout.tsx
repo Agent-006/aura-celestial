@@ -9,6 +9,7 @@ import {
 import "@/styles/globals.scss";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import styles from "./layout.module.scss";
 import { QueryProvider } from "@/providers/QueryProvider";
 
@@ -65,6 +66,7 @@ export default function RootLayout({
 
           {/* The main content area where the 3D canvas will eventually go */}
           <main className={styles.mainContent}>{children}</main>
+          <Footer />
         </QueryProvider>
       </body>
     </html>
