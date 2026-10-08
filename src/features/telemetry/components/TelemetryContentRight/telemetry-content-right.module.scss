@@ -1,0 +1,12 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.container {
+  @include flex-column;
+  gap: $spacing-xl;
+  width: 100%;
+}
+
+.actionButton {
+  margin-top: $spacing-sm;
+}

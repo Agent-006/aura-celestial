@@ -1,0 +1,41 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.leftColumn {
+  @include flex-column;
+  gap: $spacing-2xl;
+}
+
+.textContent {
+  @include flex-column;
+  gap: $spacing-md;
+
+  .eyebrow {
+    font-family: $font-technical;
+    font-size: $ui-md;
+    color: $color-gold-primary;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-family: $font-headings;
+    font-size: $heading-lg;
+    font-weight: $weight-regular;
+    font-style: italic;
+    color: $color-text-primary;
+    line-height: $leading-tight;
+    margin: 0;
+  }
+
+  .description {
+    font-family: $font-headings;
+    font-size: $paragraph-lg;
+    color: $color-text-secondary;
+    font-style: italic;
+    line-height: $leading-relaxed;
+    max-width: 90%;
+    margin: 0;
+  }
+}

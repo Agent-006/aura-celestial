@@ -1,9 +1,9 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .container {
-  @include glass-panel(0.02, 12px); // Very subtle dark background
-  border: 1px solid rgba($color-gold-primary, 0.15);
+  @include glass-card(0.1, 16px);
   padding: $spacing-xl;
   @include flex-column;
   gap: $spacing-2xl;
@@ -12,13 +12,9 @@
 
 // --- Header ---
 .header {
-  @include flex-between;
+  @include flex-column;
   align-items: flex-start;
-  gap: $spacing-md;
-
-  @media (max-width: 48rem) {
-    flex-direction: column;
-  }
+  gap: $spacing-lg;
 }
 
 .titleInfo {
@@ -27,32 +23,37 @@
 }
 
 .eyebrow {
-  font-family: var(--font-space-mono);
-  font-size: 0.65rem;
+  font-family: $font-technical;
+  font-size: $ui-xs;
   color: $color-gold-primary;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
 .title {
-  font-family: var(--font-cormorant-garamond);
+  font-family: $font-headings;
   font-size: $heading-md;
   color: $color-text-primary;
-  font-weight: 500;
+  font-weight: $weight-medium;
   margin: 0;
   font-style: italic;
 }
 
 .badges {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: $spacing-sm;
 
   .badge {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
     background: rgba($color-gold-primary, 0.1);
     border: 1px solid rgba($color-gold-primary, 0.2);
-    padding: 4px $spacing-sm;
-    font-family: var(--font-space-mono);
-    font-size: 0.65rem;
+    padding: $spacing-xs $spacing-sm;
+    font-family: $font-technical;
+    font-size: $ui-xs;
     color: $color-gold-primary;
     letter-spacing: 0.05em;
   }
@@ -75,65 +76,4 @@
   }
 }
 
-// --- Timeline ---
-.timeline {
-  @include flex-column;
-  gap: $spacing-md;
-}
 
-.timelineCard {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: $spacing-md;
-  @include flex-column;
-  gap: $spacing-sm;
-
-  .cardHeader {
-    @include flex-between;
-
-    h4 {
-      margin: 0;
-      font-family: var(--font-space-mono);
-      font-size: 0.8rem;
-      color: $color-gold-primary;
-      font-weight: 700;
-    }
-
-    .date {
-      font-family: var(--font-space-mono);
-      font-size: 0.7rem;
-      color: $color-text-secondary;
-    }
-  }
-
-  .description {
-    margin: 0;
-    font-size: 0.85rem;
-    color: $color-text-secondary;
-    font-style: italic;
-    line-height: 1.5;
-  }
-}
-
-.timelineRow {
-  @include flex-between;
-  padding-bottom: $spacing-sm;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-  .rowLabel {
-    font-family: var(--font-space-mono);
-    font-size: 0.7rem;
-    color: $color-text-tertiary;
-  }
-
-  .rowValueHighlight {
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
-    color: $color-gold-primary;
-  }
-
-  .rowValueWarning {
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
-    color: #f59e0b; // Amber color for warning/cancellation status
-  }
-}

@@ -24,7 +24,8 @@ export function EphemerisProfile() {
             width="380"
             height="380"
             fill="none"
-            stroke="rgba(212, 175, 55, 0.4)"
+            stroke="var(--color-gold-primary)"
+            strokeOpacity="0.4"
             strokeWidth="2"
           />
 
@@ -34,7 +35,8 @@ export function EphemerisProfile() {
             y1="10"
             x2="390"
             y2="390"
-            stroke="rgba(212, 175, 55, 0.4)"
+            stroke="var(--color-gold-primary)"
+            strokeOpacity="0.4"
             strokeWidth="1"
           />
           <line
@@ -42,7 +44,8 @@ export function EphemerisProfile() {
             y1="10"
             x2="10"
             y2="390"
-            stroke="rgba(212, 175, 55, 0.4)"
+            stroke="var(--color-gold-primary)"
+            strokeOpacity="0.4"
             strokeWidth="1"
           />
 
@@ -50,7 +53,8 @@ export function EphemerisProfile() {
           <polygon
             points="200,10 390,200 200,390 10,200"
             fill="none"
-            stroke="rgba(212, 175, 55, 0.4)"
+            stroke="var(--color-gold-primary)"
+            strokeOpacity="0.4"
             strokeWidth="1"
           />
           {/* Hardcoded data for the mockup UI */}
@@ -59,7 +63,7 @@ export function EphemerisProfile() {
             x="200"
             y="180"
             textAnchor="middle"
-            fill="#d4af37"
+            fill="var(--color-gold-primary)"
             fontSize="16"
             fontWeight="bold"
           >
@@ -69,7 +73,7 @@ export function EphemerisProfile() {
             x="200"
             y="200"
             textAnchor="middle"
-            fill="#fff"
+            fill="var(--color-text-primary)"
             fontSize="12"
             letterSpacing="1"
           >
@@ -77,49 +81,23 @@ export function EphemerisProfile() {
           </text>
 
           {/* 4th House */}
-          <text x="105" y="265" textAnchor="middle" fill="#aaa" fontSize="12">
+          <text x="105" y="265" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12">
             Jup 11
           </text>
 
           {/* 10th House */}
-          <text x="295" y="265" textAnchor="middle" fill="#aaa" fontSize="12">
+          <text x="295" y="265" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12">
             5 Moon
           </text>
 
           {/* 7th House */}
-          <text x="200" y="340" textAnchor="middle" fill="#aaa" fontSize="12">
+          <text x="200" y="340" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12">
             Mar
           </text>
-          <text x="200" y="360" textAnchor="middle" fill="#aaa" fontSize="12">
+          <text x="200" y="360" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12">
             2
           </text>
         </svg>
-      </div>
-      {/* --- Timeline Section --- */}
-      <div className={styles.timeline}>
-        <span className={styles.eyebrow}>ACTIVE MAHADASHA TIMELINE</span>
-
-        <div className={styles.timelineCard}>
-          <div className={styles.cardHeader}>
-            <h4>Guru (Jupiter) - Shani (Saturn)</h4>
-            <span className={styles.date}>Until Oct 2026</span>
-          </div>
-          <p className={styles.description}>
-            Period of career stabilization, restructuring of assets, and
-            profound spiritual clarity.
-          </p>
-        </div>
-        <div className={styles.timelineRow}>
-          <span className={styles.rowLabel}>Gaja Kesari Yoga</span>
-          <span className={styles.rowValueHighlight}>Active in 4th Kendra</span>
-        </div>
-
-        <div className={styles.timelineRow}>
-          <span className={styles.rowLabel}>Manglik Status</span>
-          <span className={styles.rowValueWarning}>
-            Low (Cancelled via Jupiter)
-          </span>
-        </div>
       </div>
     </div>
   );

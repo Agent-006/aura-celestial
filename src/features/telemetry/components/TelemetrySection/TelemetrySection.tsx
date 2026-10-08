@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { TelemetryForm } from "../TelemetryForm/TelemetryForm";
 import { TelemetryFormValues } from "../../schemas/telemetry.schema";
-import { EphemerisProfile } from "../EphemerisProfile/EphemerisProfile";
+import { TelemetryBackground } from "../TelemetryBackground/TelemetryBackground";
+import { TelemetryContentLeft } from "../TelemetryContentLeft/TelemetryContentLeft";
+import { TelemetryContentRight } from "../TelemetryContentRight/TelemetryContentRight";
 import styles from "./telemetry-section.module.scss";
 
 export function TelemetrySection() {
@@ -19,27 +20,10 @@ export function TelemetrySection() {
 
   return (
     <section className={styles.section}>
+      <TelemetryBackground />
       <div className={styles.container}>
-        {/* --- Left Column: Context & Form --- */}
-        <div className={styles.leftColumn}>
-          <div className={styles.textContent}>
-            <span className={styles.eyebrow}>
-              — AUTOMATED TELEMETRY COMPUTATION
-            </span>
-            <h2 className={styles.title}>Astrology, Personalized Around You</h2>
-            <p className={styles.description}>
-              Enter your coordinate points. Aura executes NASA JPL algorithms to
-              render your sidereal Vedic Lagna (D1) chart with live Mahadasha
-              timers.
-            </p>
-          </div>
-
-          <TelemetryForm onSubmit={handleCompute} isLoading={isComputing} />
-        </div>
-        {/* --- Right Column: The Chart Result --- */}
-        <div className={styles.rightColumn}>
-          <EphemerisProfile />
-        </div>
+        <TelemetryContentLeft onSubmit={handleCompute} isLoading={isComputing} />
+        <TelemetryContentRight />
       </div>
     </section>
   );

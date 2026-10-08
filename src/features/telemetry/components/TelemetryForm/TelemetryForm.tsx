@@ -3,6 +3,7 @@
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { User, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/Button/Button";
 import {
   telemetryFormSchema,
   type TelemetryFormValues,
@@ -126,12 +127,19 @@ export function TelemetryForm({ onSubmit, isLoading }: TelemetryFormProps) {
         </label>
       </div>
       {/* --- Submit Button --- */}
-      <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-        <span className={styles.btnPrefix}>
-          ASTRO<span className={styles.boxIcon}>▣</span>GRAPHY_ /
-        </span>
+      <Button 
+        type="submit" 
+        variant="solid" 
+        fullWidth 
+        disabled={isLoading}
+        leftIcon={
+          <span className={styles.btnPrefix}>
+            ASTRO<span className={styles.boxIcon}>▣</span>GRAPHY_ /
+          </span>
+        }
+      >
         {isLoading ? "COMPUTING..." : "CREATE YOUR FREE BIRTH CHART"}
-      </button>
+      </Button>
     </form>
   );
 }
