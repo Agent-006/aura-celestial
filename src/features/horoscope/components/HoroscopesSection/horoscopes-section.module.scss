@@ -1,20 +1,19 @@
-@use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
 
 .section {
+  @include section-spacing;
   position: relative;
   width: 100%;
-  @include section-spacing;
   background-color: $color-background;
-
-  border-top: 1px solid rgba(255, 105, 180, 0.1);
-  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
-  z-index: 2;
 }
 
 .container {
   @include container;
   @include flex-column;
+  position: relative;
+  z-index: 10;
   gap: $spacing-2xl;
   max-width: 1400px; // Slightly wider to accommodate 6 columns elegantly
 }
@@ -23,7 +22,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: $spacing-xl;
 
   @media (max-width: 64rem) {
@@ -38,17 +37,17 @@
   gap: $spacing-sm;
 
   .eyebrow {
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
+    font-size: $ui-md;
+    font-family: $font-technical;
     color: $color-gold-primary;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
 
   .title {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-headings;
     font-size: $heading-xl;
-    font-weight: 400;
+    font-weight: $weight-regular;
     font-style: italic;
     color: $color-text-primary;
     margin: 0;
@@ -63,27 +62,20 @@
   opacity: 0.8;
 
   .epochText {
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
+    font-size: $ui-md;
     letter-spacing: 0.1em;
+    font-family: $font-technical;
   }
 }
 
-// --- Grid ---
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: $spacing-md; // Slightly tighter gap for 6 columns
+.horoscopes-carousel-wrapper {
+  :global(.swiper) {
+    padding: 2rem 0; // Increased to 2rem to give plenty of room for hover translation and shadow
+    margin: -2rem 0; // Offset the padding so the visual layout doesn't shift
+    cursor: grab;
 
-  @media (max-width: 80rem) {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); // Falls back to 3 columns on medium screens
-    gap: $spacing-lg;
-  }
-
-  @media (max-width: 48rem) {
-    grid-template-columns: 1fr; // Single column on mobile
+    &:active {
+      cursor: grabbing;
+    }
   }
 }

@@ -24,7 +24,10 @@ export function RashiCard({ rashi }: RashiCardProps) {
       <p className={styles.description}>{rashi.description}</p>
       {/* Footer: Lucky Number and Alignment */}
       <div className={styles.footer}>
-        <span className={styles.lucky}>Lucky: {rashi.luckyNumber}</span>
+        <div className={styles.luckyWrapper}>
+          <span className={styles.luckyLabel}>Lucky: </span>
+          <span className={styles.luckyValue}>{rashi.luckyNumber}</span>
+        </div>
         <span className={styles.alignment}>{rashi.alignment}% Align</span>
       </div>
     </div>
