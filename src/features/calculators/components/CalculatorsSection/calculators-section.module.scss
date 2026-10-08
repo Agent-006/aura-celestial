@@ -7,16 +7,13 @@
   width: 100%;
   @include section-spacing;
   background-color: $color-background;
-
-  // Faint pink/magenta glow line to separate sections
-  border-top: 1px solid rgba(255, 105, 180, 0.1);
-  border-bottom: 1px solid rgba(255, 105, 180, 0.1);
-  z-index: 2;
 }
 
 .container {
   @include container;
   @include flex-column;
+  position: relative;
+  z-index: 10;
   gap: $spacing-2xl;
 }
 
@@ -24,7 +21,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: $spacing-xl;
 
   @media (max-width: 64rem) {
@@ -39,17 +36,17 @@
   gap: $spacing-sm;
 
   .eyebrow {
-    font-family: $font-mono;
-    font-size: 0.75rem;
+    font-family: $font-technical;
+    font-size: $ui-md;
     color: $color-gold-primary;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
 
   .title {
-    font-family: $font-cormorant;
+    font-family: $font-headings;
     font-size: $heading-xl;
-    font-weight: 400;
+    font-weight: $weight-regular;
     font-style: italic;
     color: $color-text-primary;
     margin: 0;
@@ -60,11 +57,11 @@
   max-width: 320px;
 
   .description {
-    font-family: $font-cormorant;
-    font-size: 1.1rem;
+    font-family: $font-headings;
+    font-size: $paragraph-md;
     color: $color-text-secondary;
     font-style: italic;
-    line-height: 1.5;
+    line-height: $leading-normal;
     margin: 0;
   }
 

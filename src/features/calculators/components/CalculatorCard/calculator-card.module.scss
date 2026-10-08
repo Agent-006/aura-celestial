@@ -45,9 +45,9 @@
 }
 
 .title {
-  font-family: $font-cormorant;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-family: $font-headings;
+  font-size: $heading-sm;
+  font-weight: $weight-medium;
   color: $color-text-primary;
   margin: 0;
   font-style: italic; // Matches the mockup's italic headers
@@ -55,18 +55,18 @@
 }
 
 .description {
-  font-family: $font-cormorant;
-  font-size: 1.1rem;
+  font-family: $font-headings;
+  font-size: $paragraph-md;
   color: $color-text-secondary;
-  line-height: 1.6;
+  line-height: $leading-relaxed;
   margin: 0;
   flex-grow: 1; // Pushes the CTA to the bottom so all buttons align
 }
 
 .cta {
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-family: $font-technical;
+  font-size: $ui-md;
+  font-weight: $weight-bold;
   color: $color-gold-primary;
   letter-spacing: 0.15em;
   text-transform: uppercase;
