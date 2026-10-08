@@ -7,8 +7,6 @@ import { ServicesSection } from "@/features/services";
 import { TrustSection } from "@/features/trust";
 import styles from "./page.module.scss";
 import { CTASection } from "@/features/cta";
-import { CopyrightSection } from "@/features/copyright";
-
 export default function HomePage() {
   return (
     <div className={styles.homeContainer}>
@@ -35,7 +33,6 @@ export default function HomePage() {
         <HoroscopesSection />
         <TrustSection />
         <CTASection />
-        <CopyrightSection />
       </main>
     </div>
   );

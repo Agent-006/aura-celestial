@@ -89,3 +89,14 @@
     padding: 2rem 0;
   }
 }
+
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, $color-background);
+  z-index: 5;
+  pointer-events: none;
+}

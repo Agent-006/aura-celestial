@@ -20,6 +20,9 @@ export function CTASection() {
           </AstrologyFrame>
         </div>
       </div>
+      
+      {/* Blend seamlessly into the footer below */}
+      <div className={styles.bottomFade} />
     </section>
   );
 }

@@ -9,11 +9,11 @@ export function CopyrightSection() {
       <div className={styles.container}>
         <div className={styles.brand}>
           <Atom className={styles.icon} size={20} strokeWidth={1.5} />
-          <span className={styles.brandName}>Aura Celestial</span>
+          <span className={styles.brandName}>Jyotishaastro</span>
         </div>
         <div className={styles.text}>
-          © {currentYear} Aura Celestial Instruments Inc. All rights reserved.
-          3D Ephemeris Trajectory Edition.
+          &copy; {currentYear} Jyotishaastro Inc. All rights reserved. 3D
+          Ephemeris Trajectory Edition.
         </div>
       </div>
     </div>
