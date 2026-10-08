@@ -16,19 +16,6 @@ export const ChakraCanvas = () => {
     let height = 0;
     let time = 0;
 
-    // Generate stars clustered towards bottom-left
-    const stars = Array.from({ length: 80 }).map(() => {
-      // Math.pow shapes the random distribution to cluster near 0 for X, and near 1 for Y
-      const rx = Math.pow(Math.random(), 1.5);
-      const ry = Math.pow(Math.random(), 1.5);
-      return {
-        x: rx * 0.6, // spans 0% to 60% of width from the left
-        y: 1 - (ry * 0.8), // spans 20% to 100% of height towards the bottom
-        size: Math.random() * 1.5 + 0.5,
-        blinkSpeed: Math.random() * 2 + 1,
-        offset: Math.random() * Math.PI * 2,
-      };
-    });
 
     const resize = () => {
       width = canvas.clientWidth;
@@ -99,31 +86,6 @@ export const ChakraCanvas = () => {
       
       ctx.fillStyle = bottomLeftGradient;
       ctx.fillRect(0, 0, width, height);
-
-      // Draw Twinkling Stars in Bottom Left
-      stars.forEach(star => {
-         const sx = star.x * width;
-         const sy = star.y * height;
-         // Pulsate opacity smoothly
-         const opacity = 0.2 + Math.abs(Math.sin(time * star.blinkSpeed + star.offset)) * 0.8;
-         
-         ctx.beginPath();
-         ctx.arc(sx, sy, star.size, 0, Math.PI * 2);
-         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-         ctx.fill();
-         
-         // Add a subtle cross glare to the brightest/largest stars
-         if (star.size > 1.2) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.3})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(sx - star.size * 3, sy);
-            ctx.lineTo(sx + star.size * 3, sy);
-            ctx.moveTo(sx, sy - star.size * 3);
-            ctx.lineTo(sx, sy + star.size * 3);
-            ctx.stroke();
-         }
-      });
 
       // ---- Draw the Chakra (Top Right) ----
       ctx.save();
