@@ -5,6 +5,7 @@ import { AstrologersSection } from "@/features/astrologers";
 import { CalculatorsSection } from "@/features/calculators";
 import { ServicesSection } from "@/features/services";
 import { TrustSection } from "@/features/trust";
+import { FaqSection } from "@/features/faq";
 import styles from "./page.module.scss";
 import { CTASection } from "@/features/cta";
 export default function HomePage() {
@@ -31,6 +32,7 @@ export default function HomePage() {
         <TelemetrySection />
         <CalculatorsSection />
         <HoroscopesSection />
+        <FaqSection />
         <TrustSection />
         <CTASection />
       </main>

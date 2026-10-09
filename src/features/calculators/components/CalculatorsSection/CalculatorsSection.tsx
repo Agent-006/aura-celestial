@@ -1,12 +1,17 @@
 import { CALCULATORS_DATA } from "../../data/calculatorsData";
+import { StarfieldCanvas } from "@/components/ui/StarfieldCanvas/StarfieldCanvas";
+import { SectionSeparator } from "@/components/ui/SectionSeparator/SectionSeparator";
 import { CalculatorCard } from "../CalculatorCard/CalculatorCard";
-import { CalculatorsBackground } from "../CalculatorsBackground/CalculatorsBackground";
 import styles from "./calculators-section.module.scss";
 
 export function CalculatorsSection() {
   return (
     <section className={styles.section}>
-      <CalculatorsBackground />
+      {/* Background Elements */}
+      <div className={styles.topSeparator}><SectionSeparator position="top" /></div>
+      <StarfieldCanvas className={styles.starfield} />
+      <div className={styles.glowOverlay} />
+      <div className={styles.bottomSeparator}><SectionSeparator position="bottom" /></div>
       <div className={styles.container}>
         {/* --- Header --- */}
         <div className={styles.header}>

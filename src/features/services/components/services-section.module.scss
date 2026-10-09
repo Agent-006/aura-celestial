@@ -6,56 +6,13 @@
   position: relative;
   width: 100%;
   @include section-spacing;
-  // A bright, vibrant celestial aura that maintains dark-mode contrast
   background: radial-gradient(
     120% 100% at 50% 0%,
-    rgba($color-gold-primary, 0.2) 0%,
-    rgba(45, 30, 15, 0.8) 40%,
+    rgba($color-gold-primary, 0.4) 0%,
+    rgba(80, 50, 20, 0.6) 40%,
     $color-background 100%
   );
-  z-index: 2; // Above the 3D canvas (z:0), but below the fixed Header (z:20)
-
-  // Tiling pure-CSS starfield to seamlessly blend with the Hero section above
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1; // Keep it behind the grid content
-    opacity: 0.6;
-    pointer-events: none;
-    background-image:
-      radial-gradient(
-        0.0625rem 0.0625rem at 15% 15%,
-        rgba(255, 255, 255, 0.9) 100%,
-        transparent
-      ),
-      radial-gradient(
-        0.09375rem 0.09375rem at 45% 85%,
-        rgba($color-gold-primary, 0.8) 100%,
-        transparent
-      ),
-      radial-gradient(
-        0.0625rem 0.0625rem at 65% 25%,
-        rgba(255, 255, 255, 0.6) 100%,
-        transparent
-      ),
-      radial-gradient(
-        0.125rem 0.125rem at 85% 65%,
-        rgba(255, 255, 255, 0.4) 100%,
-        transparent
-      ),
-      radial-gradient(
-        0.0625rem 0.0625rem at 25% 65%,
-        rgba($color-gold-primary, 0.5) 100%,
-        transparent
-      ),
-      radial-gradient(
-        0.09375rem 0.09375rem at 75% 15%,
-        rgba(255, 255, 255, 0.7) 100%,
-        transparent
-      );
-    background-size: 21.875rem 21.875rem;
-  }
+  z-index: 2;
 }
 
 .container {
@@ -63,6 +20,53 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-2xl;
+  position: relative;
+  z-index: 1;
+}
+
+// --- Background Elements ---
+.starfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.topSeparator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bottomSeparator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glowOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  height: 150vw;
+  max-width: 1200px;
+  max-height: 1200px;
+  background: radial-gradient(
+    circle,
+    rgba($color-gold-primary, 0.15) 0%,
+    rgba($color-background, 0) 70%
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
 // --- Top Header Area ---
@@ -83,14 +87,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $spacing-lg;
 
   .eyebrow {
     font-family: $font-technical;
-    font-size: $ui-xs;
-    color: $color-gold-primary;
+    font-size: $ui-md;
+    color: $color-gold-hover;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
   }
 
   .title {
@@ -99,7 +104,7 @@
     font-weight: $weight-regular;
     color: $color-text-primary;
     line-height: $leading-tight;
-    margin: $spacing-xl 0;
+    margin: 0;
   }
 }
 

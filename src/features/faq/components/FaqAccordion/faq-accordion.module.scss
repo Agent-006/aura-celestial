@@ -1,0 +1,119 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.item {
+  border-bottom: 1px solid rgba($color-white, 0.05);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-white, 0.05);
+  }
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-xl 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: $spacing-md;
+
+  @media (hover: hover) {
+    &:hover .question {
+      color: $color-gold-hover;
+    }
+  }
+}
+
+.question {
+  font-family: $font-inter;
+  font-size: $paragraph-md;
+  color: $color-text-primary;
+  transition: color 0.2s ease;
+  font-weight: $weight-medium;
+  line-height: $leading-snug;
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+// Collapsed state
+.iconOpen {
+  color: $color-text-secondary;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-family: sans-serif;
+  font-weight: $weight-light;
+}
+
+// Expanded state
+.item:not(.expanded) .iconWrapper {
+  background-color: rgba($color-white, 0.05);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba($color-white, 0.1);
+    }
+  }
+}
+
+.item.expanded {
+  .iconWrapper {
+    background-color: $color-gold-primary;
+  }
+
+  .iconClose {
+    color: $color-background;
+    font-size: 1.25rem;
+    line-height: 1;
+    font-family: sans-serif;
+    font-weight: $weight-medium;
+  }
+
+  .question {
+    color: $color-white;
+  }
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.item.expanded .contentWrapper {
+  grid-template-rows: 1fr;
+}
+
+.content {
+  overflow: hidden;
+
+  p {
+    margin: 0;
+    padding-bottom: $spacing-xl;
+    font-family: $font-inter;
+    font-size: $paragraph-sm;
+    color: $color-text-secondary;
+    line-height: $leading-relaxed;
+    max-width: 90%;
+  }
+}

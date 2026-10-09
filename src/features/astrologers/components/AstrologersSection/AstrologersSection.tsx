@@ -8,7 +8,8 @@ import {
   MOCK_ASTROLOGERS,
   FILTER_CATEGORIES,
 } from "../../data/mockAstrologers";
-import { AstrologersBackground } from "../AstrologersBackground/AstrologersBackground";
+import { StarfieldCanvas } from "@/components/ui/StarfieldCanvas/StarfieldCanvas";
+import { SectionSeparator } from "@/components/ui/SectionSeparator/SectionSeparator";
 import styles from "./astrologers-section.module.scss";
 
 export function AstrologersSection() {
@@ -18,7 +19,12 @@ export function AstrologersSection() {
 
   return (
     <section className={styles.section}>
-      <AstrologersBackground />
+      {/* Background Elements */}
+      <div className={styles.topSeparator}><SectionSeparator /></div>
+      <StarfieldCanvas className={styles.starfield} />
+      <div className={styles.glowOverlay} />
+      <div className={styles.bottomSeparator}><SectionSeparator /></div>
+
       <div className={styles.container}>
         {/* --- Header Area --- */}
         <div className={styles.header}>

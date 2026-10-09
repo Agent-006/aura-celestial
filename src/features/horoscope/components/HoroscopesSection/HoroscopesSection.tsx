@@ -1,12 +1,21 @@
 import { RASHI_DATA } from "../../data/rashiData";
-import { HoroscopesBackground } from "../HoroscopesBackground/HoroscopesBackground";
+import { StarfieldCanvas } from "@/components/ui/StarfieldCanvas/StarfieldCanvas";
+import { SectionSeparator } from "@/components/ui/SectionSeparator/SectionSeparator";
 import { HoroscopesCarousel } from "../HoroscopesCarousel/HoroscopesCarousel";
 import styles from "./horoscopes-section.module.scss";
 
 export function HoroscopesSection() {
   return (
     <section className={styles.section}>
-      <HoroscopesBackground />
+      {/* Background Elements */}
+      <div className={styles.topSeparator}>
+        <SectionSeparator position="top" />
+      </div>
+      <StarfieldCanvas className={styles.starfield} />
+      <div className={styles.glowOverlay} />
+      <div className={styles.bottomSeparator}>
+        <SectionSeparator position="bottom" />
+      </div>
       <div className={styles.container}>
         {/* --- Header --- */}
         <div className={styles.header}>

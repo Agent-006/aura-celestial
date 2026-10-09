@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { TelemetryFormValues } from "../../schemas/telemetry.schema";
-import { TelemetryBackground } from "../TelemetryBackground/TelemetryBackground";
+import { StarfieldCanvas } from "@/components/ui/StarfieldCanvas/StarfieldCanvas";
+import { SectionSeparator } from "@/components/ui/SectionSeparator/SectionSeparator";
 import { TelemetryContentLeft } from "../TelemetryContentLeft/TelemetryContentLeft";
 import { TelemetryContentRight } from "../TelemetryContentRight/TelemetryContentRight";
 import styles from "./telemetry-section.module.scss";
@@ -20,7 +21,13 @@ export function TelemetrySection() {
 
   return (
     <section className={styles.section}>
-      <TelemetryBackground />
+      {/* Background Elements */}
+      <div className={styles.topSeparator}><SectionSeparator position="top" /></div>
+      <StarfieldCanvas className={styles.starfield} count={400} />
+      <div className={styles.glowTopLeft} />
+      <div className={styles.glowBottomRight} />
+      <div className={styles.bottomSeparator}><SectionSeparator position="bottom" /></div>
+
       <div className={styles.container}>
         <TelemetryContentLeft onSubmit={handleCompute} isLoading={isComputing} />
         <TelemetryContentRight />

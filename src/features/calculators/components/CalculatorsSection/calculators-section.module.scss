@@ -6,7 +6,13 @@
   position: relative;
   width: 100%;
   @include section-spacing;
-  background-color: $color-background;
+  background: radial-gradient(
+    120% 100% at 50% 0%,
+    rgba($color-gold-primary, 0.4) 0%,
+    rgba(80, 50, 20, 0.6) 40%,
+    $color-background 100%
+  );
+  z-index: 2;
 }
 
 .container {
@@ -41,6 +47,7 @@
     color: $color-gold-primary;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
   }
 
   .title {

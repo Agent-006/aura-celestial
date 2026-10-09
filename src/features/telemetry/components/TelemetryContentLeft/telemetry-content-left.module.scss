@@ -14,9 +14,10 @@
   .eyebrow {
     font-family: $font-technical;
     font-size: $ui-md;
-    color: $color-gold-primary;
+    color: $color-gold-hover;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
   }
 
   .title {
