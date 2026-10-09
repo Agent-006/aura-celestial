@@ -8,6 +8,7 @@ import {
   MOCK_ASTROLOGERS,
   FILTER_CATEGORIES,
 } from "../../data/mockAstrologers";
+import { AstrologersBackground } from "../AstrologersBackground/AstrologersBackground";
 import styles from "./astrologers-section.module.scss";
 
 export function AstrologersSection() {
@@ -17,6 +18,7 @@ export function AstrologersSection() {
 
   return (
     <section className={styles.section}>
+      <AstrologersBackground />
       <div className={styles.container}>
         {/* --- Header Area --- */}
         <div className={styles.header}>

@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .section {
   position: relative;
@@ -36,21 +37,21 @@
   gap: $spacing-sm;
 
   .eyebrow {
-    font-family: var(--font-space-mono);
-    font-size: 0.65rem;
+    font-family: $font-technical;
+    font-size: $ui-xs;
     color: $color-gold-muted;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
 
   .title {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-headings;
     font-size: $heading-lg;
-    font-weight: 400;
+    font-weight: $weight-regular;
     font-style: italic;
     color: $color-text-primary;
     margin: 0;
-    line-height: 1.1;
+    line-height: $leading-tight;
   }
 }
 
@@ -58,8 +59,8 @@
   display: flex;
   align-items: center;
   gap: $spacing-xs;
-  font-family: var(--font-space-mono);
-  font-size: 0.7rem;
+  font-family: $font-technical;
+  font-size: $ui-xs;
   color: $color-gold-primary;
   text-decoration: none;
   letter-spacing: 0.1em;

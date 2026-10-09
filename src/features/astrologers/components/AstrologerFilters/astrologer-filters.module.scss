@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .filtersWrapper {
   width: 100%;
@@ -40,8 +41,8 @@
   background: transparent;
   border: 1px solid rgba($color-gold-primary, 0.2);
   color: $color-text-secondary;
-  font-family: var(--font-space-mono);
-  font-size: 0.75rem;
+  font-family: $font-technical;
+  font-size: $ui-sm;
   padding: $spacing-xs $spacing-md;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -55,6 +56,6 @@
     background: $color-gold-primary;
     color: $color-background; // Dark text on gold background
     border-color: $color-gold-primary;
-    font-weight: bold;
+    font-weight: $weight-bold;
   }
 }

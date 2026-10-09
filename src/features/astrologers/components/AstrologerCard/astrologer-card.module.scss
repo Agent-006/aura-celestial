@@ -1,5 +1,6 @@
 @use "@/styles/_variables" as *;
 @use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
 
 .card {
   @include flex-column;
@@ -44,8 +45,8 @@
   backdrop-filter: blur(4px);
   border: 1px solid $color-gold-muted;
   color: $color-gold-primary;
-  font-family: var(--font-space-mono);
-  font-size: 0.6rem;
+  font-family: $font-technical;
+  font-size: $ui-2xs;
   letter-spacing: 0.1em;
   padding: $spacing-2xs $spacing-xs;
   text-transform: uppercase;
@@ -62,8 +63,8 @@
   backdrop-filter: blur(4px);
   border: 1px solid rgba($color-white, 0.1);
   padding: $spacing-2xs $spacing-sm;
-  font-family: var(--font-space-mono);
-  font-size: 0.6rem;
+  font-family: $font-technical;
+  font-size: $ui-2xs;
   color: $color-text-primary;
 
   .dot {
@@ -95,9 +96,9 @@
   align-items: flex-start;
 
   h3 {
-    font-family: var(--font-cormorant-garamond);
+    font-family: $font-headings;
     font-size: $heading-xs;
-    font-weight: 500;
+    font-weight: $weight-medium;
     font-style: italic;
     color: $color-text-primary;
     margin: 0;
@@ -108,8 +109,8 @@
     align-items: center;
     gap: 4px;
     color: $color-gold-primary;
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
+    font-family: $font-technical;
+    font-size: $ui-xs;
 
     .starIcon {
       width: 12px;
@@ -119,8 +120,8 @@
 }
 
 .subtitle {
-  font-family: var(--font-space-mono);
-  font-size: 0.65rem;
+  font-family: $font-technical;
+  font-size: $ui-xs;
   color: $color-text-secondary;
   margin: 0;
 }
@@ -132,8 +133,8 @@
   margin-top: $spacing-xs;
 
   .pill {
-    font-family: var(--font-space-mono);
-    font-size: 0.55rem;
+    font-family: $font-technical;
+    font-size: $ui-2xs;
     color: $color-text-secondary;
     border: 1px solid rgba($color-text-secondary, 0.3);
     padding: 2px 6px;
@@ -142,8 +143,8 @@
 }
 
 .languages {
-  font-family: var(--font-cormorant-garamond);
-  font-size: 0.85rem;
+  font-family: $font-headings;
+  font-size: $paragraph-sm;
   font-style: italic;
   color: $color-text-tertiary;
   margin: $spacing-xs 0 0 0;
@@ -162,8 +163,8 @@
   gap: 2px;
 
   .label {
-    font-family: var(--font-space-mono);
-    font-size: 0.55rem;
+    font-family: $font-technical;
+    font-size: $ui-2xs;
     color: $color-text-tertiary;
     letter-spacing: 0.1em;
   }
@@ -175,15 +176,15 @@
     gap: 2px;
 
     .currency {
-      font-size: 0.75rem;
+      font-size: $ui-sm;
     }
     .amount {
-      font-family: var(--font-space-mono);
-      font-size: 1.1rem;
-      font-weight: bold;
+      font-family: $font-technical;
+      font-size: $ui-xl;
+      font-weight: $weight-bold;
     }
     .unit {
-      font-size: 0.65rem;
+      font-size: $ui-xs;
       color: $color-text-secondary;
     }
   }
@@ -199,8 +200,8 @@
     align-items: center;
     justify-content: center;
     gap: $spacing-xs;
-    font-family: var(--font-space-mono);
-    font-size: 0.65rem;
+    font-family: $font-technical;
+    font-size: $ui-xs;
     letter-spacing: 0.1em;
     height: 32px;
     transition: all 0.2s ease;
@@ -226,7 +227,7 @@
     );
     border: none;
     color: $color-background;
-    font-weight: bold;
+    font-weight: $weight-bold;
 
     &:hover {
       filter: brightness(1.1);
