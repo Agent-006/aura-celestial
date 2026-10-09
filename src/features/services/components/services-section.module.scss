@@ -107,11 +107,12 @@
   flex: 0 1 28.125rem;
 
   p {
-    font-family: $font-paragraphs;
-    font-size: $paragraph-sm;
-    color: $color-gold-hover;
+    font-family: $font-headings;
+    font-size: $paragraph-lg;
+    color: $color-text-secondary;
     font-style: italic;
     line-height: $leading-relaxed;
+    margin: 0;
   }
 }
 

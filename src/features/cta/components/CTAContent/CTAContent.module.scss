@@ -18,7 +18,7 @@
 
 .title {
   font-family: $font-headings;
-  font-size: $heading-xl;
+  font-size: $heading-lg;
   font-weight: $weight-regular;
   color: $color-text-primary;
   font-style: italic;
@@ -27,10 +27,11 @@
 }
 
 .description {
-  font-family: $font-paragraphs;
-  font-size: 1.25rem;
+  font-family: $font-headings;
+  font-size: $paragraph-lg;
   color: $color-text-secondary;
   font-style: italic;
+  line-height: $leading-relaxed;
   margin: 0;
   max-width: 600px;
 }

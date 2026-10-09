@@ -45,7 +45,7 @@
 
   .title {
     font-family: $font-headings;
-    font-size: $heading-xl;
+    font-size: $heading-lg;
     font-weight: $weight-regular;
     font-style: italic;
     color: $color-text-primary;
@@ -58,10 +58,10 @@
 
   .description {
     font-family: $font-headings;
-    font-size: $paragraph-md;
+    font-size: $paragraph-lg;
     color: $color-text-secondary;
     font-style: italic;
-    line-height: $leading-normal;
+    line-height: $leading-relaxed;
     margin: 0;
   }
 

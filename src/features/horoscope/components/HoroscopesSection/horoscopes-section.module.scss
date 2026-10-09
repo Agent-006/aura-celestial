@@ -46,7 +46,7 @@
 
   .title {
     font-family: $font-headings;
-    font-size: $heading-xl;
+    font-size: $heading-lg;
     font-weight: $weight-regular;
     font-style: italic;
     color: $color-text-primary;
@@ -62,9 +62,12 @@
   opacity: 0.8;
 
   .epochText {
-    font-size: $ui-md;
-    letter-spacing: 0.1em;
-    font-family: $font-technical;
+    font-family: $font-headings;
+    font-size: $paragraph-lg;
+    color: $color-text-secondary;
+    font-style: italic;
+    line-height: $leading-relaxed;
+    margin: 0;
   }
 }
 
