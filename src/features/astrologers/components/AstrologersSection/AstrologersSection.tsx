@@ -24,16 +24,12 @@ export function AstrologersSection() {
         <div className={styles.header}>
           <div className={styles.titleArea}>
             <span className={styles.eyebrow}>
-              &mdash; VERIFIED VEDIC FACULTY
+              - VERIFIED VEDIC FACULTY -
             </span>
             <h2 className={styles.title}>
               Connect With an Astrologer Who Understands You
             </h2>
           </div>
-
-          <a href="/astrologers" className={styles.viewAllLink}>
-            VIEW ALL 240+ VERIFIED SCHOLARS <ArrowUpRight size={16} />
-          </a>
         </div>
         {/* --- Interactive Filters --- */}
         <AstrologerFilters

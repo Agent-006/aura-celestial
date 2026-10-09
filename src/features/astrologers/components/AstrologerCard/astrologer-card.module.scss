@@ -46,7 +46,7 @@
   border: 1px solid $color-gold-muted;
   color: $color-gold-primary;
   font-family: $font-technical;
-  font-size: $ui-2xs;
+  font-size: $ui-xs;
   letter-spacing: 0.1em;
   padding: $spacing-2xs $spacing-xs;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
   border: 1px solid rgba($color-white, 0.1);
   padding: $spacing-2xs $spacing-sm;
   font-family: $font-technical;
-  font-size: $ui-2xs;
+  font-size: $ui-xs;
   color: $color-text-primary;
 
   .dot {
@@ -134,7 +134,7 @@
 
   .pill {
     font-family: $font-technical;
-    font-size: $ui-2xs;
+    font-size: $ui-xs;
     color: $color-text-secondary;
     border: 1px solid rgba($color-text-secondary, 0.3);
     padding: 2px 6px;
@@ -164,7 +164,7 @@
 
   .label {
     font-family: $font-technical;
-    font-size: $ui-2xs;
+    font-size: $ui-xs;
     color: $color-text-tertiary;
     letter-spacing: 0.1em;
   }
@@ -180,7 +180,7 @@
     }
     .amount {
       font-family: $font-technical;
-      font-size: $ui-xl;
+      font-size: $heading-xs;
       font-weight: $weight-bold;
     }
     .unit {
