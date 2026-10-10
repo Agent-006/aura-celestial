@@ -40,6 +40,7 @@
   // When scrolled, remove the TopBar gap
   &.scrolled {
     top: 0;
+    position: sticky;
     background: rgba(
       20,
       15,
