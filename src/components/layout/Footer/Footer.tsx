@@ -5,7 +5,7 @@ import { FooterFeatures } from "./components/FooterFeatures/FooterFeatures";
 import { FooterLegal } from "./components/FooterLegal/FooterLegal";
 import { FooterCorporate } from "./components/FooterCorporate/FooterCorporate";
 import { FooterBackground } from "./components/FooterBackground/FooterBackground";
-// import { FooterTelemetry } from "./components/FooterTelemetry/FooterTelemetry";
+import { FooterTelemetry } from "./components/FooterTelemetry/FooterTelemetry";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -23,7 +23,7 @@ export const Footer = () => {
 
         <FooterCorporate />
 
-        <FooterFeatures />
+        {/* <FooterFeatures /> */}
 
         {/* <FooterTelemetry /> */}
 

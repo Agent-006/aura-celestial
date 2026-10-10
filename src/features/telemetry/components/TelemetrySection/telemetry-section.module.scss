@@ -6,27 +6,69 @@
   @include section-spacing;
   width: 100%;
   position: relative;
-  background: radial-gradient(
-    120% 100% at 50% 0%,
-    rgba($color-gold-primary, 0.4) 0%,
-    rgba(80, 50, 20, 0.6) 40%,
-    $color-background 100%
-  );
+  isolation: isolate;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 0%,
+      rgba(180, 115, 28, 0.2),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 75% 30%,
+      rgba(180, 145, 35, 0.12),
+      transparent 38%
+    ),
+    #0b0907;
+  z-index: 2;
 }
 
 .container {
   @include container;
   position: relative;
   z-index: 10;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-2xl;
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $spacing-3xl;
   align-items: center;
+  
+  @include glass-card(0.78, 28px);
+  border-radius: $radius-none;
+  padding: $spacing-3xl;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   // Stacks vertically on tablets and mobile
   @media (max-width: 64rem) {
     grid-template-columns: 1fr;
     gap: $spacing-2xl;
+    padding: $spacing-2xl;
   }
 }
 
@@ -57,36 +99,25 @@
   pointer-events: none;
 }
 
-.glowTopLeft {
+.glow {
   position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(
-    circle at center,
-    rgba(#3b82f6, 0.04) 0%,
-    transparent 70%
-  );
-  filter: blur(80px);
-  z-index: 0;
+  inset: -10%;
+  z-index: -1;
   pointer-events: none;
-}
 
-.glowBottomRight {
-  position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(
-    circle at center,
-    rgba($color-gold-primary, 0.04) 0%,
-    transparent 70%
-  );
-  filter: blur(80px);
-  z-index: 0;
-  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(218, 174, 65, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(218, 174, 65, 0.12),
+      transparent 30%
+    );
+
+  filter: blur(45px);
 }
 
 .rightColumn {

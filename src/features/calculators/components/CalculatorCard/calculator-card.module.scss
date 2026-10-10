@@ -3,21 +3,49 @@
 @use "@/styles/_typography" as *;
 
 .card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   @include flex-column;
-  @include glass-panel(0.01, $spacing-xs, rgba($color-gold-primary, 0.2));
+  @include glass-card(0.78, 28px);
+  border-radius: $radius-none;
   padding: $spacing-2xl $spacing-xl;
   gap: $spacing-md;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
 
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   &:hover {
-    background: rgba($color-gold-primary, 0.04);
-    border-color: rgba($color-gold-primary, 0.5);
-    transform: translateY(-4px);
+    background: rgba(28, 24, 15, 0.84);
+    border-color: rgba($color-gold-primary, 0.36);
     box-shadow:
-      0 $spacing-sm 40px rgba(0, 0, 0, 0.4),
-      inset 0 0 20px rgba($color-gold-primary, 0.05);
+      0 16px 42px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 0 24px rgba($color-gold-primary, 0.06);
+
+    transform: translateY(-0.25rem);
 
     .iconBox {
       border-color: $color-gold-hover;

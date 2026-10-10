@@ -12,7 +12,7 @@ export function ServicesSection() {
       {/* Background Elements */}
       <div className={styles.topSeparator}><SectionSeparator /></div>
       <StarfieldCanvas className={styles.starfield} />
-      <div className={styles.glowOverlay} />
+      <div className={styles.glow} aria-hidden="true" />
       <div className={styles.bottomSeparator}><SectionSeparator /></div>
 
       <div className={styles.container}>

@@ -44,16 +44,39 @@
 }
 
 .dashboardPanel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  @include glass-morphism-surface;
-  padding: $spacing-lg;
-  gap: $spacing-md;
-  border-radius: $radius-lg;
+  @include glass-card(0.78, 28px);
+  padding: $spacing-2xl;
+  gap: $spacing-2xl;
+  border-radius: $radius-none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   @include respond-to("lg") {
     flex-direction: row;
     justify-content: space-between;
-    gap: $spacing-xl;
+    gap: $spacing-3xl;
+    padding: $spacing-3xl;
   }
 }

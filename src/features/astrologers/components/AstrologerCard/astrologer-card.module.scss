@@ -3,19 +3,41 @@
 @use "@/styles/_typography" as *;
 
 .card {
-  @include flex-column;
-  @include glass-panel(0.4, 1rem, rgba($color-gold-primary, 0.15));
-  border-radius: $radius-none; // Matches the boxy, sharp premium look
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  @include flex-column;
+  @include glass-card(0.78, 28px);
+  border-radius: $radius-none; // Keep the sharp premium look
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Subtle reflective layer over the glass
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
 
   &:hover {
-    transform: translateY(-4px);
+    background: rgba(28, 24, 15, 0.84);
+    border-color: rgba($color-gold-primary, 0.36);
     box-shadow:
-      0 12px 32px rgba(0, 0, 0, 0.5),
-      0 0 0 1px rgba($color-gold-primary, 0.3);
+      0 16px 42px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 0 24px rgba($color-gold-primary, 0.06);
+
+    transform: translateY(-0.25rem);
   }
 }
 

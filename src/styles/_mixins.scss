@@ -106,25 +106,27 @@ $breakpoints: (
 }
 
 // Premium Dark Frosted Acrylic (Used by Cards)
-@mixin glass-card($opacity: 0.5, $blur: 1.5rem) {
-  // Smooth dark translucent gradient
-  background: linear-gradient(
-    135deg,
-    rgba(30, 30, 35, $opacity) 0%,
-    rgba(10, 10, 12, $opacity * 1.5) 100%
-  );
+@mixin glass-card($opacity: 0.78, $blur: 28px) {
+  position: relative;
 
-  backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
+  // Dark smoked-glass surface
+  background: rgba(23, 20, 14, $opacity);
 
-  // Outer rim
-  border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  // Stronger frosted-glass effect
+  -webkit-backdrop-filter: blur($blur) saturate(145%);
+  backdrop-filter: blur($blur) saturate(145%);
 
-  // Acrylic 3D edge: top-left highlight, bottom-right shadow + drop shadow
+  // Subtle warm-gold glass edge
+  border: 1px solid rgba($color-gold-primary, 0.2);
+
+  // Depth, soft edge lighting, and inner reflection
   box-shadow:
-    inset 0.0625rem 0.0625rem 0.125rem rgba(255, 255, 255, 0.15),
-    inset -0.0625rem -0.0625rem 0.125rem rgba(0, 0, 0, 0.5),
-    0 0.75rem 2.5rem rgba(0, 0, 0, 0.4);
+    0 12px 36px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 0 24px rgba($color-gold-primary, 0.025);
+
+  // Fallback remains dark if backdrop-filter is unsupported
+  color: $color-text-primary;
 }
 
 // Glassmorphism - Dark translucent effect (Astrotalk style)

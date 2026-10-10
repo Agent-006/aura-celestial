@@ -24,13 +24,14 @@ export function TelemetrySection() {
       {/* Background Elements */}
       <div className={styles.topSeparator}><SectionSeparator position="top" /></div>
       <StarfieldCanvas className={styles.starfield} count={400} />
-      <div className={styles.glowTopLeft} />
-      <div className={styles.glowBottomRight} />
+      <div className={styles.glow} aria-hidden="true" />
       <div className={styles.bottomSeparator}><SectionSeparator position="bottom" /></div>
 
       <div className={styles.container}>
-        <TelemetryContentLeft onSubmit={handleCompute} isLoading={isComputing} />
-        <TelemetryContentRight />
+        <div className={styles.card}>
+          <TelemetryContentLeft onSubmit={handleCompute} isLoading={isComputing} />
+          <TelemetryContentRight />
+        </div>
       </div>
     </section>
   );

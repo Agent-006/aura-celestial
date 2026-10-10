@@ -10,7 +10,7 @@ export function CalculatorsSection() {
       {/* Background Elements */}
       <div className={styles.topSeparator}><SectionSeparator position="top" /></div>
       <StarfieldCanvas className={styles.starfield} />
-      <div className={styles.glowOverlay} />
+      <div className={styles.glow} aria-hidden="true" />
       <div className={styles.bottomSeparator}><SectionSeparator position="bottom" /></div>
       <div className={styles.container}>
         {/* --- Header --- */}

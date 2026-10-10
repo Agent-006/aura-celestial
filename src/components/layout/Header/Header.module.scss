@@ -2,25 +2,50 @@
 @use "@/styles/_mixins" as *;
 
 .header {
-  position: fixed;
-  top: $spacing-xl; // Sits just below the 32px TopBar
+  position: sticky;
+  top: 0;
+  margin-top: $spacing-xl; // Sits just below the 32px TopBar initially
   left: 0;
   width: 100%;
-  z-index: z("header");
-
-  // Initial state at the top is completely transparent except for top/bottom borders
-  background: transparent;
-  border-top: 1px solid rgba($color-gold-primary, 0.3);
-  border-bottom: 1px solid rgba($color-gold-primary, 0.3);
-  @include transition-standard;
-
+  z-index: 100; // Increased to ensure it sits above all page content
   transition: all 0.3s ease;
 
-  // When scrolled, true glassmorphism: page bleeds through the blur
+  // Standard premium glass effect
+  @include glass-card(0.78, 28px);
+  border-radius: $radius-none;
+  border-left: none;
+  border-right: none;
+
+  // Reflective layer
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
+
+  // Ensure content is above the reflective layer
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // When scrolled, remove the TopBar gap
   &.scrolled {
-    @include glass-morphism-dark(16px, 0.85);
-    border-right: none;
     top: 0;
+    background: rgba(
+      20,
+      15,
+      10,
+      0.95
+    ); // Slightly darker when scrolled for readability
   }
 }
 
