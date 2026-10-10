@@ -54,4 +54,163 @@
   @include container;
   @include flex-between;
   padding: $spacing-md $spacing-lg;
+  position: relative;
+  z-index: 10; // Keep above overlay
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    // 1024px
+    display: none;
+  }
+}
+
+// Mobile Hamburger Button
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs;
+  z-index: 160;
+
+  @media (max-width: 64rem) {
+    display: block;
+  }
+}
+
+.hamburger {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-gold-primary;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+// Mobile Menu Overlay
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 8, 5, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 90;
+  padding: 0; // padding will be handled inside
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 64rem) {
+    display: none;
+  }
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid rgba($color-gold-primary, 0.1);
+  margin-bottom: $spacing-2xl;
+  background: rgba(15, 12, 8, 0.5);
+}
+
+.closeMenuBtn {
+  background: none;
+  border: none;
+  color: $color-gold-primary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.mobileMenuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2xl;
+  width: 100%;
+  padding: 0 $spacing-lg $spacing-3xl;
+
+  // Override desktop styling inside mobile menu
+  :global(.nav) {
+    flex-direction: column !important;
+    gap: $spacing-lg !important;
+  }
+
+  :global(.dropdownMenu) {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    padding: $spacing-sm 0 !important;
+    min-width: 100% !important;
+    align-items: center !important;
+  }
+
+  :global(.gridMenu) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  :global(.dropdownItem) {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  :global(.separator) {
+    display: none !important;
+  }
 }

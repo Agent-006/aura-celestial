@@ -1,0 +1,179 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+@use "@/styles/_typography" as *;
+
+.mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    width: 100%;
+    padding: $spacing-md 0;
+}
+
+.userCard {
+    display: flex;
+    align-items: center;
+    background: rgba(28, 24, 20, 0.95);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: $radius-lg;
+    padding: $spacing-md $spacing-lg;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        background: rgba(35, 30, 25, 0.95);
+    }
+}
+
+.avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: linear-gradient(135deg, $color-gold-primary 0%, #D4AF37 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-inter;
+    font-weight: 700;
+    color: #1A1A1A;
+    font-size: 1.25rem;
+    margin-right: $spacing-lg;
+    box-shadow: 0 0 15px rgba($color-gold-primary, 0.3);
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.userName {
+    font-family: $font-inter;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $color-text-primary;
+    letter-spacing: 0.02em;
+}
+
+.userPhone {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-tertiary;
+    margin-top: 4px;
+}
+
+.chevronIcon {
+    color: $color-text-tertiary;
+    opacity: 0.7;
+}
+
+.menuSection {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+}
+
+.sectionTitle {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    font-weight: 600;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding-left: $spacing-xs;
+}
+
+.cardGroup {
+    display: flex;
+    flex-direction: column;
+    background: rgba(18, 16, 14, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: $radius-lg;
+    overflow: hidden;
+}
+
+.menuItemWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $spacing-lg;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+
+    &:hover, &:focus-visible, &.isOpen {
+        background: rgba(255, 255, 255, 0.03);
+    }
+}
+
+.itemLeft {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+}
+
+.iconBox {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-secondary;
+}
+
+.itemLabel {
+    font-family: $font-inter;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: $color-text-primary;
+    letter-spacing: 0.02em;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0 $spacing-lg;
+}
+
+// Accordion Submenu
+.dropdownList {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(10, 9, 8, 0.4);
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &.show {
+        max-height: 2000px; // Large enough to show all items
+        padding: $spacing-md 0;
+    }
+}
+
+.dropdownItem {
+    font-family: $font-inter;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    text-decoration: none;
+    padding: $spacing-md $spacing-2xl;
+    padding-left: 5rem; // Align with label above (account for larger icon box)
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $color-gold-primary;
+        background: rgba(255, 215, 0, 0.05);
+    }
+}
