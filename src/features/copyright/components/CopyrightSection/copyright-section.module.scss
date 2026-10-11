@@ -1,0 +1,51 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.copyrightBar {
+  width: 100%;
+  background-color: $color-background; // Very dark background
+  border-top: 1px solid rgba($color-gold-primary, 0.1);
+  padding: $spacing-lg 0;
+}
+
+.container {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.icon {
+  color: $color-gold-primary;
+}
+
+.brandName {
+  font-family: var(--font-cinzel-decorative);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: $color-gold-primary;
+  text-transform: uppercase;
+  margin-top: 2px; // optical alignment
+}
+
+.text {
+  font-family: var(--font-cormorant-garamond);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba($color-text-secondary, 0.7);
+}

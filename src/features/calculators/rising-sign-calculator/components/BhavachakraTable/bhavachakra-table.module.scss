@@ -1,0 +1,95 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.tableSection {
+  @include glass-card;
+  margin-top: $spacing-2xl;
+  padding: $spacing-xl;
+  border-top: 1px solid rgba($color-text-tertiary, 0.3);
+}
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-sm;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-2xs 0;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+
+  .systemLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    letter-spacing: 0.1em;
+    color: $color-cyan-primary;
+    background: rgba($color-surface, 0.5);
+    padding: $spacing-2xs $spacing-sm;
+    border-radius: $radius-sm;
+    border: 1px solid rgba($color-cyan-primary, 0.3);
+  }
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.bhavachakraTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  
+  th, td {
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.15);
+    white-space: nowrap;
+  }
+
+  th {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    letter-spacing: 0.1em;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  td {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+
+    &:first-child {
+      font-family: $font-mono;
+      color: $color-text-primary;
+      font-weight: 600;
+    }
+
+    &.degreeCell {
+      font-family: $font-mono;
+      color: $color-cyan-primary;
+    }
+
+    &.occupantsCell {
+      color: $color-gold-primary;
+    }
+  }
+
+  tbody tr {
+    transition: background 0.3s ease;
+    
+    &:hover {
+      background: rgba($color-surface, 0.4);
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@use "@/styles/_variables" as *;
+
+.bgContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; // Behind everything in the footer
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.celestialSvg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  .chartLinesSolid, .chartLinesDashed, .chartLinesDashedAlt, .chartLinesDashedFaint {
+    stroke: rgba($color-gold-primary, 0.12);
+    stroke-width: 1px;
+    fill: none;
+  }
+
+  .chartLinesDashedFaint {
+    stroke: rgba($color-gold-primary, 0.05);
+    stroke-dasharray: 2 10;
+  }
+
+  .chartLinesDashed {
+    stroke-dasharray: 4 8;
+  }
+
+  .chartLinesDashedAlt {
+    stroke-dasharray: 1 4;
+  }
+
+  .nodes {
+    fill: rgba(255, 255, 255, 0.7);
+
+    .nodeGold {
+      fill: $color-gold-primary;
+    }
+
+    .nodeGreen {
+      fill: $color-success;
+    }
+  }
+
+  // Animations
+  .rotateSlow, .rotateSlowReverse, .rotateVerySlow {
+    transform-origin: 0px 0px; // Center of the translated <g> tag
+  }
+
+  .rotateSlow {
+    animation: rotateCW 120s linear infinite;
+  }
+
+  .rotateSlowReverse {
+    animation: rotateCCW 180s linear infinite;
+  }
+
+  .rotateVerySlow {
+    animation: rotateCW 240s linear infinite;
+  }
+
+  .pulseFast {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulseNode 2s ease-in-out infinite alternate;
+  }
+
+  .pulseNormal {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulseNode 4s ease-in-out infinite alternate;
+  }
+
+  .pulseSlow {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: pulseNode 6s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes rotateCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes pulseNode {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}

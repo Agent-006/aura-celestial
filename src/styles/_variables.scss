@@ -4,14 +4,23 @@ $color-surface: #12100d; // Slightly lighter for cards/panels
 $color-surface-hover: #1c1a17;
 
 // Text Colors
-$color-text-primary: #F0EEE9; // Off-white for high contrast
-$color-text-secondary: #A19C93; // Muted warm gray for descriptions
-$color-text-tertiary: #6E6A63; // De-emphasized text
+$color-text-primary: #f0eee9; // Off-white for high contrast
+$color-text-secondary: #dddbd6; // Muted warm gray for descriptions
+$color-text-tertiary: #6e6a63; // De-emphasized text
 
 // Brand / Accent (Gold)
-$color-gold-primary: #E6B553; // Bright golden
-$color-gold-hover: #F9D06A; // Even brighter for hover
-$color-gold-muted: #C6983A; // Used for borders or dimmed elements
+$color-gold-primary: #e6b553; // Bright golden
+$color-gold-hover: #f9d06a; // Even brighter for hover
+$color-gold-muted: #c6983a; // Used for borders or dimmed elements
+
+// Secondary Accent (Cyan - Calculators)
+$color-cyan-primary: #48e5c2;
+$color-cyan-hover: #6df0d5;
+$color-cyan-muted: #2f9d84;
+
+// Semantic / Status
+$color-error: #ff4a4a;
+$color-success: #4ade80;
 
 // UI Elements
 $color-white: #fff;
@@ -38,7 +47,7 @@ $spacing-4xl: 6rem; // 96px
 
 // Font Sizes (Fluid using clamp)
 // Headings
-$heading-xl: clamp(2.5rem, 5vw + 1rem, 5rem);
+$heading-xl: clamp(2.2rem, 5vw + 1rem, 4.5rem);
 $heading-lg: clamp(2rem, 4vw + 1rem, 3.5rem);
 $heading-md: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
 $heading-sm: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
@@ -47,6 +56,7 @@ $heading-xs: clamp(1rem, 1vw + 0.25rem, 1.5rem);
 // Subheadings
 $subheading-lg: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
 $subheading-md: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+$subheading-sm: clamp(0.875rem, 1vw + 0.25rem, 1rem);
 
 // Paragraphs
 $paragraph-lg: clamp(1.125rem, 1.5vw + 0.25rem, 1.25rem);
@@ -56,7 +66,7 @@ $paragraph-sm: clamp(0.875rem, 1vw + 0.25rem, 1rem);
 // UI / Technical
 $ui-lg: clamp(0.875rem, 1vw + 0.25rem, 1rem);
 $ui-md: clamp(0.75rem, 0.8vw + 0.25rem, 0.875rem);
-$ui-sm: clamp(0.65rem, 0.6vw + 0.20rem, 0.875rem);
+$ui-sm: clamp(0.65rem, 0.6vw + 0.2rem, 0.875rem);
 $ui-xs: clamp(0.65rem, 0.5vw + 0.25rem, 0.75rem);
 
 :root {
@@ -72,6 +82,13 @@ $ui-xs: clamp(0.65rem, 0.5vw + 0.25rem, 0.75rem);
   --color-gold-primary: #{$color-gold-primary};
   --color-gold-hover: #{$color-gold-hover};
   --color-gold-muted: #{$color-gold-muted};
+
+  --color-cyan-primary: #{$color-cyan-primary};
+  --color-cyan-hover: #{$color-cyan-hover};
+  --color-cyan-muted: #{$color-cyan-muted};
+
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
 
   --color-border: #{$color-border};
   --color-overlay: #{$color-overlay};

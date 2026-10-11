@@ -56,3 +56,25 @@
         box-shadow: 0 0 0.75rem rgba($color-gold-primary, 0.4);
     }
 }
+
+// Mobile overrides
+@media (max-width: 64rem) {
+    .actions {
+        flex-direction: column;
+        width: 100%;
+        gap: $spacing-xl;
+        margin-top: $spacing-lg;
+    }
+
+    .iconGroup {
+        width: 100%;
+        justify-content: center;
+        gap: $spacing-lg;
+    }
+
+    .iconBtn, .userBtn {
+        width: 3rem;
+        height: 3rem;
+        font-size: $ui-lg;
+    }
+}

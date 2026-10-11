@@ -1,0 +1,170 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.comparisonSection {
+  margin-top: $spacing-2xl;
+
+  .sectionHeader {
+    margin-bottom: $spacing-xl;
+
+    .sectionLabel {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      letter-spacing: 0.1em;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-gold-primary;
+      margin: 0 0 $spacing-sm 0;
+    }
+
+    .subtitle {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+      line-height: 1.5;
+    }
+  }
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resultCard {
+  @include glass-card;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-xl;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  &.tropical {
+    &::before {
+      background: $color-gold-primary;
+    }
+    border-top: 1px solid rgba($color-gold-primary, 0.3);
+  }
+
+  &.sidereal {
+    &::before {
+      background: $color-cyan-primary;
+    }
+    border-top: 1px solid rgba($color-cyan-primary, 0.3);
+  }
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  .cardType {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    letter-spacing: 0.1em;
+    color: $color-text-tertiary;
+    background: rgba($color-surface, 0.5);
+    padding: $spacing-2xs $spacing-sm;
+    border-radius: $radius-sm;
+    border: 1px solid rgba($color-text-tertiary, 0.2);
+  }
+
+  .degrees {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+  }
+}
+
+.signDisplay {
+  margin-bottom: $spacing-xl;
+
+  .signTitle {
+    font-family: $font-playfair;
+    font-size: $heading-md;
+    margin: 0 0 $spacing-2xs 0;
+
+    &.tropicalTitle {
+      color: $color-gold-primary;
+    }
+    &.siderealTitle {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .signDesc {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin-top: $spacing-md;
+  }
+}
+
+.attributesList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+
+  .attribute {
+    @include flex-between;
+
+    .attrLabel {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+    }
+
+    .attrValue {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-primary;
+      font-weight: 500;
+      text-align: right;
+    }
+  }
+}
+
+.cardFooter {
+  @include flex-between;
+
+  .footerLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+  }
+
+  .footerLink {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

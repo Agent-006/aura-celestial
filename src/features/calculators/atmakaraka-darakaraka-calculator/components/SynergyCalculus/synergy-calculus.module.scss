@@ -1,0 +1,111 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.container {
+  margin-bottom: $spacing-3xl;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+
+  .title {
+    font-family: $font-playfair;
+    font-size: 1.6rem;
+    color: $color-gold-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .subtitle {
+    font-family: $font-inter;
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-panel(0.02, $spacing-sm, rgba($color-white, 0.02));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-cyan-primary, 0.3);
+    background: rgba($color-white, 0.04);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.iconBox {
+  width: $spacing-xl;
+  height: $spacing-xl;
+  border-radius: 6px;
+  background: rgba($color-gold-primary, 0.1);
+  color: $color-gold-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreBox {
+  .score {
+    font-family: $font-mono;
+    font-size: 1.4rem;
+    color: $color-cyan-primary;
+    font-weight: 700;
+  }
+
+  .max {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $color-text-secondary;
+  }
+}
+
+.cardTitle {
+  font-family: $font-inter;
+  font-size: 1.1rem;
+  color: $color-white;
+  margin-bottom: $spacing-xs;
+}
+
+.cardDesc {
+  font-family: $font-inter;
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  line-height: 1.5;
+  margin-bottom: $spacing-lg;
+  min-height: 60px;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: $spacing-2xs;
+  background: rgba($color-white, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-cyan-primary, $color-gold-primary);
+  border-radius: 2px;
+  transition: width 1.5s ease-out;
+}

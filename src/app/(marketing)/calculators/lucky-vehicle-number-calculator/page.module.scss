@@ -1,0 +1,8 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.pageContainer {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-3xl;
+}

@@ -1,0 +1,26 @@
+@use "@/styles/_variables" as *;
+
+.calculatorWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  width: 100%;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

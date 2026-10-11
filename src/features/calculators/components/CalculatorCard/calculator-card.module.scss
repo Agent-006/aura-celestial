@@ -1,0 +1,103 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  @include flex-column;
+  @include glass-card(0.78, 28px);
+  border-radius: $radius-none;
+  padding: $spacing-2xl $spacing-xl;
+  gap: $spacing-md;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045) 0%,
+      transparent 40%,
+      rgba($color-gold-primary, 0.035) 100%
+    );
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover {
+    background: rgba(28, 24, 15, 0.84);
+    border-color: rgba($color-gold-primary, 0.36);
+    box-shadow:
+      0 16px 42px rgba(0, 0, 0, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 0 24px rgba($color-gold-primary, 0.06);
+
+    transform: translateY(-0.25rem);
+
+    .iconBox {
+      border-color: $color-gold-hover;
+      box-shadow: 0 0 $spacing-md rgba($color-gold-primary, 0.2);
+    }
+
+    .cta {
+      color: $color-gold-hover;
+      text-shadow: 0 0 $spacing-xs rgba($color-gold-primary, 0.4);
+    }
+  }
+}
+
+.iconBox {
+  width: $spacing-2xl;
+  height: $spacing-2xl;
+  border: 1px solid rgba($color-gold-primary, 0.3);
+  @include flex-center;
+  margin-bottom: $spacing-md;
+  transition: all 0.3s ease;
+
+  .icon {
+    color: $color-gold-primary;
+  }
+}
+
+.title {
+  font-family: $font-headings;
+  font-size: $heading-sm;
+  font-weight: $weight-medium;
+  color: $color-text-primary;
+  margin: 0;
+  font-style: italic; // Matches the mockup's italic headers
+  letter-spacing: 0.02em;
+}
+
+.description {
+  font-family: $font-headings;
+  font-size: $paragraph-md;
+  color: $color-text-secondary;
+  line-height: $leading-relaxed;
+  margin: 0;
+  flex-grow: 1; // Pushes the CTA to the bottom so all buttons align
+}
+
+.cta {
+  font-family: $font-technical;
+  font-size: $ui-md;
+  font-weight: $weight-bold;
+  color: $color-gold-primary;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: $spacing-md;
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,74 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.copyrightBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+  padding-top: $spacing-md;
+  font-size: $ui-md;
+  color: $color-text-tertiary;
+
+  @include respond-to("lg") {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .copyrightText {
+    a {
+      color: $color-gold-primary;
+      text-decoration: none;
+      @include transition-standard;
+
+      &:hover {
+        color: $color-gold-hover;
+      }
+    }
+  }
+
+  .copyrightText strong {
+    color: $color-white;
+    font-weight: 500;
+  }
+
+  .legalLinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm;
+
+    a {
+      color: $color-text-tertiary;
+      text-decoration: none;
+      @include transition-standard;
+
+      &:hover {
+        color: $color-gold-primary;
+      }
+    }
+
+    .dotDivider {
+      color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .socialBox {
+    display: flex;
+    gap: $spacing-xs;
+
+    .socialIcon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-md;
+      background: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      @include transition-standard;
+
+      &:hover {
+        border-color: $color-gold-primary;
+      }
+    }
+  }
+}

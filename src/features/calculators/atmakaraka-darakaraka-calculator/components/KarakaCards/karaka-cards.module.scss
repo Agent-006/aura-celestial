@@ -1,0 +1,173 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-panel(0.02, $spacing-sm, rgba($color-white, 0.03));
+  border: 1px solid rgba($color-white, 0.05);
+  padding: $spacing-xl;
+  position: relative;
+  overflow: hidden;
+
+  &.akCard {
+    border-top: 3px solid $color-gold-primary;
+    background: linear-gradient(
+      180deg,
+      rgba($color-gold-primary, 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  &.dkCard {
+    border-top: 3px solid $color-cyan-primary;
+    background: linear-gradient(
+      180deg,
+      rgba($color-cyan-primary, 0.05) 0%,
+      transparent 100%
+    );
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-lg;
+}
+
+.titleArea {
+  @include flex-column;
+  gap: $spacing-2xs;
+}
+
+.roleTag {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-family: $font-playfair;
+  font-size: 1.8rem;
+  color: $color-white;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.planetValue {
+  font-family: $font-inter;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  .akCard & {
+    color: $color-gold-primary;
+  }
+  .dkCard & {
+    color: $color-cyan-primary;
+  }
+}
+
+.iconBox {
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+  border-radius: $spacing-xs;
+  font-size: 1.2rem;
+  background: rgba($color-white, 0.05);
+  border: 1px solid rgba($color-white, 0.1);
+}
+
+.description {
+  font-family: $font-inter;
+  font-size: 0.95rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-xl;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+
+  .stat {
+    @include flex-column;
+    gap: $spacing-2xs;
+
+    .label {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      color: $color-text-secondary;
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-family: $font-inter;
+      font-size: 1rem;
+      color: $color-white;
+      font-weight: 500;
+    }
+  }
+}
+
+.degreeSection {
+  width: 100%;
+}
+
+.degreeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-xs;
+
+  .label {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+  }
+
+  .value {
+    font-family: $font-inter;
+    font-size: 0.85rem;
+    color: $color-white;
+    font-weight: 600;
+  }
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background: rgba($color-white, 0.1);
+  border-radius: $spacing-2xs;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: $spacing-2xs;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .akCard & {
+    background: $color-gold-primary;
+  }
+  .dkCard & {
+    background: $color-cyan-primary;
+  }
+}

@@ -1,0 +1,153 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.section {
+  padding: $spacing-2xl 0;
+}
+
+.header {
+  margin-bottom: $spacing-2xl;
+  max-width: 800px;
+  
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.1em;
+  }
+  
+  .title {
+    font-family: $font-playfair;
+    font-size: $heading-lg;
+    color: $color-gold-primary;
+    margin: 0 0 $spacing-md;
+  }
+  
+  .description {
+    font-family: $font-inter;
+    font-size: $ui-md;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-card;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba($color-gold-primary, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-top-color: $color-gold-primary;
+  }
+  
+  .cardHeader {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+    
+    .vantage {
+      font-family: $font-mono;
+      font-size: 10px;
+      color: $color-text-tertiary;
+      letter-spacing: 0.1em;
+    }
+    
+    .badge {
+      font-family: $font-mono;
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: $radius-sm;
+      background: rgba($color-cyan-primary, 0.1);
+      color: $color-cyan-primary;
+      border: 1px solid rgba($color-cyan-primary, 0.3);
+      
+      &.mild {
+        background: rgba($color-gold-primary, 0.1);
+        color: $color-gold-primary;
+        border-color: rgba($color-gold-primary, 0.3);
+      }
+      
+      &.moderate {
+        background: rgba(#ff9800, 0.1);
+        color: #ff9800;
+        border-color: rgba(#ff9800, 0.3);
+      }
+      
+      &.severe {
+        background: rgba(#ff5252, 0.1);
+        color: #ff5252;
+        border-color: rgba(#ff5252, 0.3);
+      }
+    }
+  }
+  
+  .cardTitle {
+    font-family: $font-playfair;
+    font-size: $heading-sm;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-xs;
+  }
+  
+  .cardVantagePoint {
+    font-family: $font-mono;
+    font-size: 10px;
+    color: $color-cyan-primary;
+    margin-bottom: $spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .cardDesc {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin: 0 0 $spacing-xl;
+    flex: 1;
+  }
+  
+  .cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba($color-text-tertiary, 0.2);
+    padding-top: $spacing-md;
+    
+    span:first-child {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+    }
+    
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-cyan-primary;
+      text-align: right;
+    }
+  }
+}

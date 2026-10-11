@@ -1,0 +1,180 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.tableSection {
+  margin-top: $spacing-2xl;
+}
+
+.sectionHeader {
+  @include flex-between;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  .titleBlock {
+    .sectionLabel {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      letter-spacing: 0.1em;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-gold-primary;
+      margin: 0;
+    }
+  }
+
+  .systemTags {
+    display: flex;
+    gap: $spacing-sm;
+
+    span {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-secondary;
+      background: rgba($color-surface, 0.5);
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-sm;
+    }
+  }
+}
+
+.tableWrapper {
+  @include glass-card;
+  overflow-x: auto;
+}
+
+.ephemerisTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.2);
+    white-space: nowrap;
+  }
+
+  td {
+    font-family: $font-inter;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+    padding: $spacing-md;
+    border-bottom: 1px solid rgba($color-text-tertiary, 0.1);
+    vertical-align: middle;
+  }
+
+  .rowActive {
+    background: rgba($color-gold-primary, 0.05);
+    position: relative;
+
+    td {
+      color: $color-text-primary;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: $color-gold-primary;
+    }
+
+    .lordCell {
+      color: $color-gold-primary;
+      font-size: $heading-xs;
+      font-family: $font-playfair;
+    }
+
+    .dignityCell {
+      color: $color-cyan-primary;
+    }
+  }
+
+  .lordCell {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $color-text-primary;
+    font-family: $font-playfair;
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-text-tertiary;
+    }
+  }
+
+  .rowActive .lordCell .dot {
+    background: $color-gold-primary;
+    box-shadow: 0 0 5px $color-gold-primary;
+  }
+
+  .spanCell {
+    color: $color-cyan-primary;
+    font-family: $font-mono;
+  }
+
+  .karmicCell {
+    max-width: 250px;
+    line-height: 1.5;
+  }
+
+  .statusCell {
+    .statusBadge {
+      font-family: $font-mono;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: $radius-sm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+
+      &.past {
+        color: $color-text-tertiary;
+        border: 1px solid rgba($color-text-tertiary, 0.3);
+      }
+
+      &.active {
+        color: $color-background;
+        background: $color-gold-primary;
+        box-shadow: 0 0 10px rgba($color-gold-primary, 0.3);
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
+      &.subtext {
+        color: $color-gold-primary;
+        background: transparent;
+        border: 1px solid $color-gold-primary;
+        display: block;
+        text-align: center;
+      }
+
+      &.future {
+        color: $color-cyan-primary;
+        border: 1px solid rgba($color-cyan-primary, 0.3);
+      }
+    }
+  }
+}

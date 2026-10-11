@@ -1,0 +1,55 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.leftColumn {
+  @include flex-column;
+  gap: $spacing-2xl;
+}
+
+.textContent {
+  @include flex-column;
+  gap: $spacing-md;
+
+  .eyebrow {
+    font-family: $font-technical;
+    font-size: 0.75rem;
+    color: $color-gold-primary; // Make it pop more
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+
+    @include respond-to('md') {
+      font-size: $ui-md;
+    }
+  }
+
+  .title {
+    font-family: $font-headings;
+    font-size: 2.25rem;
+    font-weight: $weight-regular;
+    font-style: italic;
+    color: $color-text-primary;
+    line-height: $leading-tight;
+    margin: 0;
+
+    @include respond-to('md') {
+      font-size: $heading-lg;
+    }
+  }
+
+  .description {
+    font-family: $font-headings;
+    font-size: 1.05rem;
+    color: $color-text-secondary;
+    font-style: italic;
+    line-height: $leading-relaxed;
+    max-width: 100%;
+    margin: 0;
+
+    @include respond-to('md') {
+      font-size: $paragraph-lg;
+      max-width: 90%;
+    }
+  }
+}

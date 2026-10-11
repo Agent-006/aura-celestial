@@ -1,0 +1,120 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.analysisSection {
+  @include glass-card;
+  margin-top: $spacing-2xl;
+  padding: $spacing-xl;
+  border-top: 2px solid rgba($color-cyan-primary, 0.3);
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+  
+  .sectionLabel {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    letter-spacing: 0.1em;
+    color: $color-gold-primary;
+  }
+
+  .accent {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+  }
+}
+
+.title {
+  font-family: $font-playfair;
+  font-size: $heading-sm;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  .colTitle {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    color: $color-gold-primary;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-sm;
+    display: block;
+  }
+
+  .colText {
+    font-family: $font-inter;
+    font-size: $ui-lg;
+    color: $color-text-secondary;
+    line-height: 1.6;
+  }
+}
+
+.visualTimeline {
+  margin-top: $spacing-xl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .timelineBar {
+    flex: 1;
+    height: 4px;
+    background: linear-gradient(90deg, $color-gold-primary 0%, $color-cyan-primary 100%);
+    border-radius: $radius-sm;
+    margin: 0 $spacing-lg;
+    position: relative;
+    
+    .timelineNode {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: $color-surface;
+      border: 2px solid;
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-sm;
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      
+      &.left {
+        left: 0;
+        border-color: $color-gold-primary;
+        color: $color-gold-primary;
+      }
+      
+      &.right {
+        right: 0;
+        border-color: $color-cyan-primary;
+        color: $color-cyan-primary;
+      }
+    }
+    
+    .timelineCenter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: $font-mono;
+      font-size: $ui-md;
+      color: $color-text-primary;
+      background: $color-surface;
+      padding: $spacing-xs $spacing-md;
+      border: 1px solid rgba($color-text-tertiary, 0.3);
+      border-radius: $radius-md;
+    }
+  }
+}

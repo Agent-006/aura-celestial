@@ -1,0 +1,59 @@
+@use "@/styles/_variables" as *;
+
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 150px;
+  pointer-events: none;
+  z-index: 5;
+
+  &.top {
+    top: 0;
+    
+    .blend {
+      background: linear-gradient(
+        to bottom,
+        $color-background 0%,
+        transparent 100%
+      );
+    }
+    .line {
+      top: 0;
+    }
+  }
+
+  &.bottom {
+    bottom: 0;
+    
+    .blend {
+      background: linear-gradient(
+        to top,
+        $color-background 0%,
+        transparent 100%
+      );
+    }
+    .line {
+      bottom: 0;
+    }
+  }
+}
+
+.blend {
+  position: absolute;
+  inset: 0;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(230, 181, 83, 1) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 15px rgba(230, 181, 83, 0.6);
+}

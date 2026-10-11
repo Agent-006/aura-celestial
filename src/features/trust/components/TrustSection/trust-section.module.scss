@@ -1,0 +1,32 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl; // <--- The gap between the independent cards
+
+  @media (max-width: 64rem) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+

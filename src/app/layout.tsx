@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Space_Mono, Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+import {
+  Playfair_Display,
+  Inter,
+  Space_Mono,
+  Cinzel_Decorative,
+  Cormorant_Garamond,
+} from "next/font/google";
 import "@/styles/globals.scss";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import styles from "./layout.module.scss";
+import { QueryProvider } from "@/providers/QueryProvider";
 
 const cinzelDecorative = Cinzel_Decorative({
   variable: "--font-cinzel-decorative",
@@ -39,19 +47,40 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "Aura Celestial",
   description: "A premium, celestial web experience.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "none",
+      "max-snippet": -1,
+    },
+  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable}`}>
-      <body>
-        <TopBar />
-        <Header />
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable}`}
+    >
+      <body suppressHydrationWarning>
+        <QueryProvider>
+          <TopBar />
+          <Header />
 
-        {/* The main content area where the 3D canvas will eventually go */}
-        <main className={styles.mainContent}>
-          {children}
-        </main>
+          {/* The main content area where the 3D canvas will eventually go */}
+          <main className={styles.mainContent}>{children}</main>
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );

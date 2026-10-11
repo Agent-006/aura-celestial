@@ -1,0 +1,187 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.formContainer {
+  @include glass-panel(0.02, $spacing-sm, rgba($color-white, 0.05));
+  border: 1px solid rgba($color-gold-primary, 0.1);
+  padding: $spacing-2xl;
+  max-width: 800px;
+  margin: 0 auto $spacing-3xl;
+}
+
+.formTitle {
+  @include flex-center;
+  gap: $spacing-sm;
+  font-family: $font-playfair;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $color-gold-primary;
+  margin: 0 0 $spacing-2xl 0;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid rgba($color-white, 0.05);
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background-color: $color-cyan-primary;
+    border-radius: 50%;
+  }
+
+  .moon {
+    color: $color-white;
+  }
+}
+
+.form {
+  @include flex-column;
+  gap: $spacing-xl;
+}
+
+.fieldGroup {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $color-cyan-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  .asterisk {
+    color: #ef4444;
+  }
+}
+
+.input,
+.select {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($color-white, 0.1);
+  border-radius: 6px;
+  padding: $spacing-sm $spacing-md;
+  color: $color-white;
+  font-family: $font-inter;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    border-color: $color-cyan-primary;
+    box-shadow: 0 0 0 1px rgba($color-cyan-primary, 0.2);
+  }
+
+  &::placeholder {
+    color: rgba($color-white, 0.3);
+  }
+
+  option {
+    background: #111;
+    color: $color-white;
+  }
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: "▼";
+    font-size: 0.7rem;
+    color: rgba($color-white, 0.5);
+    position: absolute;
+    right: $spacing-md;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+.tripleSelectGroup {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: $spacing-md;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-family: $font-inter;
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  cursor: pointer;
+  margin-bottom: $spacing-xs;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($color-white, 0.1);
+  border-radius: $spacing-2xs;
+  cursor: pointer;
+  accent-color: $color-gold-primary;
+}
+
+.inputWithClear {
+  position: relative;
+
+  .clearBtn {
+    position: absolute;
+    right: $spacing-sm;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 1.2rem;
+    cursor: pointer;
+    @include flex-center;
+
+    &:hover {
+      color: $color-error;
+    }
+  }
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-family: $font-inter;
+  margin-top: $spacing-2xs;
+}
+
+.submitBtn {
+  margin-top: $spacing-md;
+  background: $color-gold-primary;
+  color: #000;
+  border: none;
+  padding: $spacing-md;
+  border-radius: 6px;
+  font-family: $font-inter;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  @include flex-center;
+  gap: $spacing-sm;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 $spacing-2xs 20px rgba($color-gold-primary, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

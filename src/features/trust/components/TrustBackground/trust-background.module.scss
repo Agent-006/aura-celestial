@@ -1,0 +1,60 @@
+@use "@/styles/_variables" as *;
+
+.background {
+  position: absolute;
+  inset: 0;
+  // Deep golden background with radial ambient light
+  background: radial-gradient(
+    circle at center,
+    rgba(230, 181, 83, 0.08) 0%,
+    $color-background 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.nebulaLeft {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(230, 181, 83, 0.15) 0%,
+    transparent 60%
+  );
+  filter: blur(80px);
+}
+
+.nebulaRight {
+  position: absolute;
+  bottom: -20%;
+  right: -20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(230, 181, 83, 0.15) 0%,
+    transparent 60%
+  );
+  filter: blur(80px);
+}
+
+.glowCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 50vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(230, 181, 83, 0.12) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+}
+
+

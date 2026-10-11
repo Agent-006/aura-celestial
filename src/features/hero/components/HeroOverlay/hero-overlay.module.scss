@@ -1,0 +1,164 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use '@/styles/typography' as *;
+@use "@/styles/_typography" as *;
+
+.overlayContainer {
+    @include absolute-fill;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: z('hud');
+    // Warm golden radial glow from the left (sun side) over a linear dark fade for text legibility
+    background:
+        radial-gradient(ellipse at 0% 50%, rgba(255, 200, 100, 0.25) 0%, rgba(255, 120, 40, 0.15) 40%, rgba(40, 10, 30, 0.08) 75%, rgba(0, 0, 0, 0) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.container {
+    @include container;
+    width: 100%;
+    padding: 0 $spacing-xl;
+}
+
+.contentWrapper {
+    max-width: 800px;
+    pointer-events: auto;
+    padding-bottom: 15vh; // Reduced from 25vh so it doesn't cut off at the top
+    padding-top: 10vh; // Ensure it clears the header area
+
+    @include respond-to('md') {
+        padding-bottom: 13vh;
+        padding-top: 0;
+    }
+}
+
+.headline {
+    font-size: 3.25rem; // Much bigger for mobile
+    line-height: 1.1;
+    font-family: $font-headings; // Changed from $font-display to support normal case
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    font-weight: $weight-regular;
+    text-shadow: 0 4px 34px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.8); // Adds pop
+
+    @include respond-to('md') {
+        font-size: $heading-xl; // Scale up on tablet/desktop
+        line-height: $leading-tight;
+    }
+
+    .highlight {
+        color: $color-gold-primary;
+        font-style: italic;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: $color-gold-primary;
+        }
+    }
+}
+
+.subheadWrapper {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    .accentLine {
+        width: 0.2rem;
+        background-color: $color-gold-primary;
+        flex-shrink: 0;
+    }
+
+    .subheadline {
+        font-family: $font-paragraphs;
+        font-size: 1.1rem; // Bigger for mobile
+        font-style: italic;
+        color: $color-text-secondary;
+        line-height: $leading-relaxed;
+        max-width: 650px;
+        margin: 0;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+
+        @include respond-to('md') {
+            font-size: $subheading-sm;
+        }
+    }
+}
+
+.ctaGroup {
+    display: flex;
+    flex-direction: column !important; // Force stack vertically on mobile
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+    width: 100%;
+    
+    @include respond-to('md') {
+        flex-direction: row !important; // Side by side on tablet/desktop
+        gap: $spacing-lg;
+        width: auto;
+    }
+    
+    .heroButton {
+        width: 100% !important; // Force full width on mobile
+        font-size: 1.05rem !important; // Bigger font for mobile
+        height: 3.5rem !important;
+        
+        @include respond-to('md') {
+            width: auto !important; // Auto width on tablet/desktop
+            font-size: $ui-md !important;
+            height: 3rem !important;
+        }
+    }
+}
+
+.trustMarkers {
+    display: flex;
+    flex-direction: column; // Stack vertically on mobile
+    align-items: flex-start;
+    gap: $spacing-md; // Increase gap on mobile
+    font-family: $font-technical;
+    font-size: 1rem; // Bigger font
+    color: $color-text-secondary;
+    letter-spacing: 0.05em;
+
+    @include respond-to('md') {
+        flex-direction: row;
+        align-items: center;
+        gap: $spacing-lg;
+        font-size: $ui-sm;
+    }
+
+    .stars {
+        color: $color-gold-primary;
+        font-size: 1.2rem; // Bigger
+        letter-spacing: 0.2em;
+
+        @include respond-to('md') {
+            font-size: $ui-lg;
+        }
+    }
+
+    .separator {
+        display: none; // Hide separator on mobile
+        
+        @include respond-to('md') {
+            display: inline;
+            color: $color-text-tertiary;
+        }
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        color: $color-gold-primary;
+    }
+}

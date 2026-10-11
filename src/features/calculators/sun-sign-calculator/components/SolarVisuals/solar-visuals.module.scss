@@ -1,0 +1,106 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.visualsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  height: 100%;
+}
+
+.visualCard {
+  @include glass-card;
+  padding: $spacing-lg;
+  border-top: 1px solid rgba($color-cyan-primary, 0.3);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+
+  .cardTitle {
+    font-family: $font-mono;
+    font-size: $ui-md;
+    letter-spacing: 0.1em;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+  }
+
+  .cardAccent {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-cyan-primary;
+    letter-spacing: 0.05em;
+  }
+}
+
+.visualContent {
+  @include flex-center;
+  flex: 1;
+  min-height: 200px;
+  position: relative;
+
+  .placeholderCircle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px dashed rgba($color-gold-primary, 0.3);
+    position: relative;
+    @include flex-center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba($color-cyan-primary, 0.2);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background: rgba($color-cyan-primary, 0.2);
+    }
+
+    .placeholderIcon {
+      color: $color-gold-primary;
+      opacity: 0.8;
+      z-index: 2;
+    }
+  }
+}
+
+.visualFooter {
+  @include flex-between;
+  margin-top: $spacing-lg;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+
+  .footerItem {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+
+    .itemLabel {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      color: $color-text-tertiary;
+    }
+
+    .itemValue {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-gold-primary;
+
+      &.cyan {
+        color: $color-cyan-primary;
+      }
+    }
+  }
+}

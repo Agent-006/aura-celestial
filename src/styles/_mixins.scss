@@ -1,20 +1,20 @@
-@use '@/styles/variables' as *;
-@use 'sass:math';
-@use 'sass:map';
+@use "@/styles/variables" as *;
+@use "sass:math";
+@use "sass:map";
 
 // ==========================================================================
 // Breakpoints
 // ==========================================================================
 $breakpoints: (
-  'sm': 40rem,
+  "sm": 40rem,
   // 640px
-  'md': 48rem,
+  "md": 48rem,
   // 768px
-  'lg': 64rem,
+  "lg": 64rem,
   // 1024px
-  'xl': 80rem,
+  "xl": 80rem,
   // 1280px
-  '2xl': 96rem // 1536px
+  "2xl": 96rem, // 1536px
 );
 
 @mixin respond-to($breakpoint) {
@@ -22,9 +22,7 @@ $breakpoints: (
     @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
@@ -58,9 +56,29 @@ $breakpoints: (
   height: 100%;
 }
 
-@mixin container($max-width: 90rem) {
+@mixin container($max-width: 1380px) {
+  width: 100%;
   max-width: $max-width;
   margin: 0 auto;
+  padding-left: $spacing-lg;
+  padding-right: $spacing-lg;
+
+  @include respond-to("md") {
+    padding-left: $spacing-2xl;
+    padding-right: $spacing-2xl;
+  }
+}
+
+@mixin section-spacing {
+  padding: $spacing-xl 0; // Default (Mobile)
+
+  @include respond-to("md") {
+    padding: $spacing-2xl 0; // Tablet
+  }
+
+  @include respond-to("lg") {
+    padding: $spacing-3xl 0; // Desktop
+  }
 }
 
 // ==========================================================================
@@ -68,24 +86,129 @@ $breakpoints: (
 // ==========================================================================
 
 // Standard glass effect used for HUD, Header, and telemetry panels
-@mixin glass-panel($opacity: 0.8, $blur: $spacing-sm, $border-color: rgba($color-white, 0.08)) {
+@mixin glass-panel(
+  $opacity: 0.8,
+  $blur: $spacing-sm,
+  $border-color: rgba($color-white, 0.08)
+) {
   background: rgba(7, 11, 20, $opacity); // Deep cosmic blue-black
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
   border: 1px solid $border-color;
 }
 
-// Liquid Glass with Golden Tint
-@mixin liquid-glass-gold($opacity: 0.1, $blur: 16px, $border-color: rgba($color-gold-primary, 0.2), $base-bg: transparent) {
+// Translucent Glassmorphism (Ideal for dashboard panels and cards)
+@mixin glass-morphism-surface($opacity: 0.6, $blur: 12px) {
+  background: rgba(15, 17, 21, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+// Premium Dark Frosted Acrylic (Used by Cards)
+@mixin glass-card($opacity: 0.78, $blur: 28px) {
+  position: relative;
+
+  // Dark smoked-glass surface
+  background: rgba(23, 20, 14, $opacity);
+
+  // Stronger frosted-glass effect
+  -webkit-backdrop-filter: blur($blur) saturate(145%);
+  backdrop-filter: blur($blur) saturate(145%);
+
+  // Subtle warm-gold glass edge
+  border: 1px solid rgba($color-gold-primary, 0.2);
+
+  // Depth, soft edge lighting, and inner reflection
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 0 24px rgba($color-gold-primary, 0.025);
+
+  // Fallback remains dark if backdrop-filter is unsupported
+  color: $color-text-primary;
+}
+
+// Glassmorphism - Dark translucent effect (Astrotalk style)
+// High opacity dark background with blur, no bright white rims
+@mixin glass-morphism-dark($blur: 24px, $opacity: 0.85) {
+  // Depth shadow applied to the parent
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.5);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1; // Sit behind the content
+    pointer-events: none;
+
+    // Dark tint
+    background: rgba(10, 10, 12, $opacity);
+
+    // Strong blur
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    will-change: transform, backdrop-filter;
+
+    // Very subtle bottom border to define the edge
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+// Liquid Glass with Golden Tint (Used by Header)
+@mixin liquid-glass-gold(
+  $opacity: 0.1,
+  $blur: 16px,
+  $border-color: rgba($color-gold-primary, 0.2),
+  $base-bg: transparent
+) {
   // If a base background is provided, stack it behind the gold gradient
-  background: linear-gradient(135deg, rgba($color-gold-primary, $opacity) 0%, rgba($color-gold-primary, 0.01) 100%), $base-bg;
+  background:
+    linear-gradient(
+      135deg,
+      rgba($color-gold-primary, $opacity) 0%,
+      rgba($color-gold-primary, 0.01) 100%
+    ),
+    $base-bg;
   backdrop-filter: blur($blur);
   -webkit-backdrop-filter: blur($blur);
   border: 1px solid $border-color;
-  box-shadow: 0 4px 24px rgba($color-gold-primary, 0.1), inset 0 0 0 1px rgba($color-white, 0.05);
+  box-shadow:
+    0 4px 24px rgba($color-gold-primary, 0.1),
+    inset 0 0 0 1px rgba($color-white, 0.05);
 }
 
-// Metallic / Gold text gradient 
+// Ultra Glossy Liquid Glass Effect
+@mixin liquid-glass($opacity: 0.15, $blur: 16px, $color: $color-gold-primary) {
+  // Dual gradient: Specular highlight wash + base color wash
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0) 65%,
+      rgba(255, 255, 255, 0.05) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba($color, $opacity) 0%,
+      rgba($color, $opacity * 0.3) 100%
+    );
+
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  // 3D Bevel: Top white highlight, bottom dark shadow, inner glow, outer shadow
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 24px 32px -12px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.6),
+    inset 0 -12px 24px -12px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+// Metallic / Gold text gradient
 @mixin text-gradient($start: $color-gold-hover, $end: $color-gold-primary) {
   background: linear-gradient(90deg, $start 0%, $end 100%);
   -webkit-background-clip: text;
@@ -121,12 +244,12 @@ $breakpoints: (
 // Z-Index Management (SDE3 Principle: Predictable Stacking Contexts)
 // ==========================================================================
 $z-layers: (
-  'base': 1,
-  'hud': 10,
-  'header': 20,
-  'dropdown': 30,
-  'modal': 40,
-  'tooltip': 50
+  "base": 1,
+  "hud": 10,
+  "header": 20,
+  "dropdown": 30,
+  "modal": 40,
+  "tooltip": 50,
 );
 
 @function z($layer) {

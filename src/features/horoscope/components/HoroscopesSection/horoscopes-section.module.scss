@@ -1,0 +1,91 @@
+@use "@/styles/_mixins" as *;
+@use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
+
+.section {
+  @include section-spacing;
+  position: relative;
+  width: 100%;
+  background: radial-gradient(
+    120% 100% at 50% 0%,
+    rgba($color-gold-primary, 0.4) 0%,
+    rgba(80, 50, 20, 0.6) 40%,
+    $color-background 100%
+  );
+  z-index: 2;
+}
+
+.container {
+  @include container;
+  @include flex-column;
+  position: relative;
+  z-index: 10;
+  gap: $spacing-2xl;
+  max-width: 1400px; // Slightly wider to accommodate 6 columns elegantly
+}
+
+// --- Header Area ---
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @media (max-width: 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.titleInfo {
+  @include flex-column;
+  gap: $spacing-sm;
+
+  .eyebrow {
+    font-size: $ui-md;
+    font-family: $font-technical;
+    color: $color-gold-primary;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+  }
+
+  .title {
+    font-family: $font-headings;
+    font-size: $heading-lg;
+    font-weight: $weight-regular;
+    font-style: italic;
+    color: $color-text-primary;
+    margin: 0;
+  }
+}
+
+.epochInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $color-gold-primary;
+  opacity: 0.8;
+
+  .epochText {
+    font-family: $font-headings;
+    font-size: $paragraph-lg;
+    color: $color-text-secondary;
+    font-style: italic;
+    line-height: $leading-relaxed;
+    margin: 0;
+  }
+}
+
+.horoscopes-carousel-wrapper {
+  :global(.swiper) {
+    padding: 2rem 0; // Increased to 2rem to give plenty of room for hover translation and shadow
+    margin: -2rem 0; // Offset the padding so the visual layout doesn't shift
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

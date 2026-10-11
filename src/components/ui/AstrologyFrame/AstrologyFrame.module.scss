@@ -1,0 +1,100 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+
+.frameWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: $color-gold-primary; // Base color for SVGs
+  padding: $spacing-2xl; // More padding for massive corners
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+/* Base Border Lines */
+.borderTop,
+.borderBottom,
+.borderLeft,
+.borderRight {
+  position: absolute;
+  background-color: currentColor;
+  opacity: 0.5;
+}
+
+/* All 6 variants are single line frames. */
+/* The corner is 96x96. The SVG anchor is 50, 50. */
+/* So the borders start exactly 48px from the edges. */
+.borderTop,
+.borderBottom {
+  height: 1px;
+  left: 96px;
+  right: 96px;
+}
+
+.borderLeft,
+.borderRight {
+  width: 1px;
+  top: 96px;
+  bottom: 96px;
+}
+
+.borderTop { top: 48px; }
+.borderBottom { bottom: 48px; }
+.borderLeft { left: 48px; }
+.borderRight { right: 48px; }
+
+/* Corner Positioning */
+.corner {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+    color: currentColor;
+  }
+}
+
+.topLeft {
+  top: 0;
+  left: 0;
+}
+
+.topRight {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.bottomLeft {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.bottomRight {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+/* Base style for all variants, they all use the exact same structural math! */
+.variant-1,
+.variant-2,
+.variant-3,
+.variant-4,
+.variant-5,
+.variant-6 {
+  // Common math, no overrides needed since they all share the 50,50 anchor center!
+}

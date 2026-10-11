@@ -1,11 +1,11 @@
-@use '@/styles/variables' as *;
+@use "@/styles/variables" as *;
 
 // Fonts (referencing Next.js CSS variables from layout.tsx)
-$font-cinzel: var(--font-cinzel-decorative), 'Georgia', serif;
-$font-cormorant: var(--font-cormorant-garamond), 'Georgia', serif;
-$font-playfair: var(--font-playfair), 'Georgia', serif;
-$font-inter: var(--font-inter), 'Helvetica Neue', sans-serif;
-$font-mono: var(--font-space-mono), 'Courier New', monospace;
+$font-cinzel: var(--font-cinzel-decorative), "Georgia", serif;
+$font-cormorant: var(--font-cormorant-garamond), "Georgia", serif;
+$font-playfair: var(--font-playfair), "Georgia", serif;
+$font-inter: var(--font-inter), "Helvetica Neue", sans-serif;
+$font-mono: var(--font-space-mono), "Courier New", monospace;
 
 // Semantic Font Mapping
 $font-display: $font-cinzel; // For massive hero text & logo

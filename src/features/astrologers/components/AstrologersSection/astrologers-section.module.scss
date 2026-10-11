@@ -1,0 +1,202 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  isolation: isolate;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 0%,
+      rgba(180, 115, 28, 0.2),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 75% 30%,
+      rgba(180, 145, 35, 0.12),
+      transparent 38%
+    ),
+    #0b0907;
+  z-index: 2;
+}
+
+.container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl; // Reduced gap on mobile
+  position: relative;
+  z-index: 5; // Elevated z-index to sit above the top separator
+
+  @include respond-to('md') {
+      gap: $spacing-2xl;
+  }
+}
+
+// --- Background Elements ---
+.starfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.topSeparator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bottomSeparator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(218, 174, 65, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(218, 174, 65, 0.12),
+      transparent 30%
+    );
+
+  filter: blur(45px);
+}
+
+// --- Header Area ---
+.header {
+  @include flex-between;
+  align-items: flex-end; // Align bottom so the view link sits nicely aligned with the title
+  gap: $spacing-xl;
+
+  // On smaller screens, stack them
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.titleArea {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm; // Tighter gap on mobile
+  flex: 1;
+
+  @include respond-to('md') {
+      gap: $spacing-md;
+  }
+
+  .eyebrow {
+    font-family: $font-technical;
+    font-size: 0.85rem; // Mobile size
+    color: $color-gold-primary; // Brighter gold for visibility
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+
+    @include respond-to('md') {
+        font-size: $ui-md; // Desktop size
+    }
+  }
+
+  .title {
+    font-family: $font-headings;
+    font-size: 2.25rem; // Mobile size
+    font-weight: $weight-regular;
+    font-style: italic;
+    color: $color-text-primary;
+    margin: 0;
+    line-height: $leading-tight;
+
+    @include respond-to('md') {
+        font-size: $heading-lg; // Desktop size
+    }
+  }
+}
+
+.viewAllLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-family: $font-technical;
+  font-size: $ui-xs;
+  color: $color-gold-primary;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// --- Carousel ---
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: $spacing-2xl; // Space for pagination
+
+  // Swiper overrides
+  :global(.swiper) {
+    width: 100%;
+    overflow: visible; // Show partial next slides
+  }
+  
+  :global(.swiper-slide) {
+    height: auto;
+  }
+}
+
+.swiperPagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-xs;
+
+  :global(.swiper-pagination-bullet) {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba($color-gold-primary, 0.3);
+    opacity: 1;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background: $color-gold-primary;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba($color-gold-primary, 0.6);
+  }
+}

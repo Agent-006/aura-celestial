@@ -1,0 +1,154 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+.fieldGroup {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    font-family: $font-technical;
+    font-size: $ui-xs;
+    color: $color-text-secondary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba($color-gold-primary, 0.2);
+    color: $color-text-primary;
+    font-family: $font-headings;
+    font-size: $paragraph-md;
+    padding: $spacing-sm 2.5rem $spacing-sm $spacing-md;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: rgba($color-text-secondary, 0.5);
+      font-style: italic;
+    }
+
+    &:focus {
+      border-color: $color-gold-primary;
+      box-shadow: 0 0 12px rgba($color-gold-primary, 0.1);
+    }
+  }
+
+  .errorInput {
+    border-color: #ef4444;
+  }
+
+  .icon {
+    position: absolute;
+    right: $spacing-md;
+    color: $color-text-tertiary;
+    pointer-events: none;
+  }
+}
+
+.errorMessage {
+  font-family: $font-technical;
+  font-size: $ui-xs;
+  color: #ef4444;
+}
+
+// --- Custom Radio Buttons ---
+.radioGroup {
+  display: flex;
+  gap: $spacing-xl;
+  margin-top: $spacing-xs;
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $font-technical;
+  font-size: $ui-md;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none; // Hide the native element
+  }
+
+  &:hover .customRadio {
+    border-color: $color-white;
+  }
+}
+
+.customRadio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-white, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  .radioDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $color-gold-primary; 
+    box-shadow: 0 0 8px rgba($color-gold-primary, 0.8);
+  }
+}
+
+input[type="radio"]:checked + .customRadio {
+  border-color: $color-white;
+}
+
+.btnPrefix {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.boxIcon {
+  font-size: 1rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.submitBtn {
+  flex-wrap: wrap;
+  height: auto !important;
+  min-height: 3rem;
+  padding: $spacing-sm $spacing-md !important;
+  text-align: center;
+  line-height: 1.4;
+  gap: $spacing-xs $spacing-sm;
+}

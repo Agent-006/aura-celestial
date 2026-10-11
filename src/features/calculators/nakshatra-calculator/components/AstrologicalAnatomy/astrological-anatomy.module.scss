@@ -1,0 +1,97 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.section {
+  margin-top: $spacing-3xl;
+}
+
+.header {
+  margin-bottom: $spacing-xl;
+
+  .eyebrow {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: #00e5ff;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+
+  .title {
+    font-family: $font-cormorant;
+    font-size: 2rem;
+    color: $color-gold-primary;
+    margin: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $spacing-md;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 48rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 30rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  @include glass-panel(0.01, $spacing-xs, rgba(#00e5ff, 0.03));
+  padding: $spacing-lg;
+  border-radius: $spacing-xs;
+  @include flex-column;
+  gap: $spacing-xs;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 229, 255, 0.05);
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-2xs;
+
+  .icon {
+    color: #00e5ff;
+    width: $spacing-md;
+    height: $spacing-md;
+  }
+
+  .label {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: $color-text-tertiary;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+}
+
+.value {
+  font-family: $font-inter;
+  font-size: 1.1rem;
+  color: $color-text-primary;
+  font-weight: 500;
+}
+
+.desc {
+  font-family: $font-inter;
+  font-size: 0.8rem;
+  color: $color-text-secondary;
+  line-height: 1.4;
+  margin: 0;
+}

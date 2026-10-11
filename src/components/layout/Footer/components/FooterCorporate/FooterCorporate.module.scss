@@ -1,0 +1,111 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.corporateSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  padding: $spacing-2xl 0;
+
+  @include respond-to("md") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-family: $font-display;
+    font-size: $subheading-sm;
+    color: $color-gold-primary;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+  }
+
+  .contactTitle {
+    margin-top: $spacing-xl;
+  }
+
+  .linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+
+    li a {
+      text-decoration: none;
+      font-family: $font-inter;
+      font-size: $paragraph-sm;
+      color: rgba($color-white, 0.6);
+      @include transition-standard;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: -$spacing-xs;
+    font-family: $font-inter;
+    font-size: $paragraph-sm;
+    color: rgba($color-white, 0.6);
+  }
+
+  .secureList {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+
+    .secureBadge {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-family: $font-inter;
+      font-size: $paragraph-sm;
+      color: rgba($color-white, 0.6);
+      font-weight: $weight-medium;
+
+      .iconBox {
+        @include glass-morphism-surface(0.4);
+        padding: $spacing-xs;
+        border-radius: $radius-md;
+        color: rgba($color-white, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .socialBox {
+    display: flex;
+    gap: $spacing-md;
+
+    .socialIcon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba($color-white, 0.1);
+      border-radius: 50%;
+      background: transparent;
+      color: rgba($color-white, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include transition-standard;
+
+      &:hover {
+        border-color: $color-gold-hover;
+        color: $color-gold-hover;
+      }
+    }
+  }
+}

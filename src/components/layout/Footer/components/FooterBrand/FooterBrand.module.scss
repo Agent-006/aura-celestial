@@ -1,0 +1,145 @@
+@use "@/styles/_mixins" as *;
+@use "@/styles/_variables" as *;
+@use "@/styles/_typography" as *;
+
+.brandSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  .logoHeader {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .logoBox {
+      width: 48px;
+      height: 48px;
+      border-radius: $radius-lg;
+      border: 1px solid rgba($color-gold-primary, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.05);
+      flex-shrink: 0;
+    }
+
+    .brandTitle {
+      font-family: $font-display;
+      font-size: clamp(1.1rem, 4vw, #{$heading-sm});
+      color: $color-gold-primary;
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      flex-wrap: wrap;
+
+      .badgeSidereal {
+        font-family: $font-mono;
+        font-size: $ui-xs;
+        padding: 2px 6px;
+        background: rgba($color-success, 0.1);
+        color: $color-success;
+        border: 1px solid rgba($color-success, 0.3);
+        border-radius: $radius-md;
+        letter-spacing: 1px;
+      }
+    }
+
+    .brandSub {
+      font-family: $font-mono;
+      font-size: clamp(0.7rem, 2.5vw, #{$ui-md});
+      color: $color-text-secondary;
+      opacity: 0.7;
+      word-break: break-word;
+
+      a {
+        color: $color-gold-primary;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-gold-hover;
+        }
+      }
+    }
+  }
+
+  .brandDesc {
+    font-family: $font-inter;
+    font-size: $paragraph-sm;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    max-width: 100%;
+
+    @include respond-to("lg") {
+      max-width: 90%;
+    }
+
+    .highlight {
+      color: $color-success;
+      font-weight: 500;
+    }
+  }
+
+  .statusBadges {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    margin-top: $spacing-xs;
+    width: 100%;
+
+    @include respond-to("sm") {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      width: auto;
+    }
+
+    .statusTag {
+      font-family: $font-mono;
+      font-size: $ui-sm;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-md;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-xs;
+      color: $color-text-secondary;
+      width: 100%;
+
+      @include respond-to("sm") {
+        width: auto;
+        padding: $spacing-2xs $spacing-sm;
+        justify-content: flex-start;
+        gap: $spacing-2xs;
+      }
+
+      .tagLabel {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2xs;
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-success;
+        box-shadow: 0 0 8px rgba($color-success, 0.5);
+        flex-shrink: 0;
+      }
+
+      .tagValue {
+        color: $color-gold-primary;
+        white-space: nowrap;
+      }
+      .tagValueGreen {
+        color: $color-success;
+        white-space: nowrap;
+      }
+    }
+  }
+}

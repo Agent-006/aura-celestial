@@ -1,0 +1,179 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.comparisonSection {
+  margin-top: $spacing-2xl;
+
+  .sectionHeader {
+    margin-bottom: $spacing-xl;
+
+    .sectionLabel {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      letter-spacing: 0.1em;
+      color: $color-cyan-primary;
+      text-transform: uppercase;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+
+    .title {
+      font-family: $font-playfair;
+      font-size: $heading-sm;
+      color: $color-gold-primary;
+      margin: 0 0 $spacing-sm 0;
+    }
+
+    .subtitle {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-secondary;
+      line-height: 1.5;
+    }
+  }
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resultCard {
+  @include glass-card;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  &.tropical {
+    &::before {
+      background: rgba($color-text-tertiary, 0.5);
+    }
+  }
+
+  &.sidereal {
+    &::before {
+      background: $color-gold-primary;
+    }
+    border: 1px solid rgba($color-gold-primary, 0.4);
+    box-shadow: 0 0 20px rgba($color-gold-primary, 0.05);
+  }
+}
+
+.cardHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+
+  .cardType {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    letter-spacing: 0.1em;
+    color: $color-text-tertiary;
+
+    &.gold {
+      color: $color-gold-primary;
+      background: rgba($color-gold-primary, 0.1);
+      padding: $spacing-2xs $spacing-sm;
+      border-radius: $radius-sm;
+      border: 1px solid rgba($color-gold-primary, 0.3);
+    }
+  }
+
+  .degrees {
+    font-family: $font-mono;
+    font-size: $ui-sm;
+    color: $color-text-secondary;
+
+    &.gold {
+      color: $color-gold-primary;
+    }
+  }
+}
+
+.signTitle {
+  font-family: $font-playfair;
+  font-size: $heading-xs;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.attributesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  .attribute {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-2xs;
+
+    .attrLabel {
+      font-family: $font-mono;
+      font-size: $ui-xs;
+      color: $color-text-tertiary;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .attrValue {
+      font-family: $font-inter;
+      font-size: $ui-md;
+      color: $color-text-primary;
+      font-weight: 500;
+
+      &.cyan {
+        color: $color-cyan-primary;
+      }
+    }
+  }
+}
+
+.signDesc {
+  font-family: $font-inter;
+  font-size: $ui-sm;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  padding-top: $spacing-md;
+  border-top: 1px solid rgba($color-text-tertiary, 0.2);
+  margin-bottom: $spacing-xl;
+  flex-grow: 1;
+}
+
+.cardFooter {
+  @include flex-between;
+  margin-top: auto;
+
+  .footerLabel {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-text-tertiary;
+  }
+
+  .footerLink {
+    font-family: $font-mono;
+    font-size: $ui-xs;
+    color: $color-cyan-primary;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

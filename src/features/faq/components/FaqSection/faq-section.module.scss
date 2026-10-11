@@ -1,0 +1,107 @@
+@use "@/styles/_variables" as *;
+@use "@/styles/_mixins" as *;
+@use "@/styles/_typography" as *;
+
+.section {
+  position: relative;
+  width: 100%;
+  @include section-spacing;
+  background-color: $color-background;
+  z-index: 2;
+}
+
+.topSeparator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.starfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glowOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150vw;
+  height: 150vw;
+  max-width: 1200px;
+  max-height: 1200px;
+  background: radial-gradient(
+    circle,
+    rgba($color-gold-primary, 0.15) 0%,
+    rgba($color-background, 0) 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bottomSeparator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.container {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: $spacing-xl;
+  position: relative;
+  z-index: 10;
+
+  @media (max-width: 64rem) {
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+  }
+}
+
+.leftColumn {
+  @include flex-column;
+  gap: $spacing-md;
+
+  // Make the column sticky on desktop so it stays in view while scrolling through long FAQs
+  @media (min-width: 64.0625rem) {
+    position: sticky;
+    top: 20%;
+    align-self: flex-start;
+  }
+}
+
+.eyebrow {
+  font-family: $font-technical;
+  font-size: $ui-md;
+  color: $color-gold-hover;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  font-family: $font-headings;
+  font-size: $heading-xl;
+  font-weight: $weight-regular;
+  color: $color-text-primary;
+  line-height: $leading-tight;
+  margin: 0;
+
+  .highlight {
+    color: $color-gold-primary;
+  }
+}
+
+.rightColumn {
+  width: 100%;
+}
