@@ -10,6 +10,10 @@ import {
 } from "../../data/mockAstrologers";
 import { StarfieldCanvas } from "@/components/ui/StarfieldCanvas/StarfieldCanvas";
 import { SectionSeparator } from "@/components/ui/SectionSeparator/SectionSeparator";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import styles from "./astrologers-section.module.scss";
 
 export function AstrologersSection() {
@@ -43,11 +47,34 @@ export function AstrologersSection() {
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
         />
-        {/* --- Cards Grid --- */}
-        <div className={styles.grid}>
-          {astrologers.map((astrologer) => (
-            <AstrologerCard key={astrologer.id} astrologer={astrologer} />
-          ))}
+        {/* --- Cards Carousel --- */}
+        <div className={styles.carouselContainer}>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={24}
+            slidesPerView={1.15}
+            loop={true}
+            speed={700}
+            autoplay={{
+              delay: 3200,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            grabCursor={true}
+            pagination={{ clickable: true, el: `.${styles.swiperPagination}` }}
+            breakpoints={{
+              540: { slidesPerView: 2.15, spaceBetween: 24 },
+              768: { slidesPerView: 3.15, spaceBetween: 24 },
+              1024: { slidesPerView: 4, spaceBetween: 32 },
+            }}
+          >
+            {astrologers.map((astrologer) => (
+              <SwiperSlide key={astrologer.id} style={{ height: 'auto' }}>
+                <AstrologerCard astrologer={astrologer} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className={styles.swiperPagination} />
         </div>
       </div>
     </section>

@@ -23,15 +23,17 @@
       justify-content: center;
       color: $color-gold-primary;
       background: rgba($color-gold-primary, 0.05);
+      flex-shrink: 0;
     }
 
     .brandTitle {
       font-family: $font-display;
-      font-size: $heading-sm;
+      font-size: clamp(1.1rem, 4vw, #{$heading-sm});
       color: $color-gold-primary;
       display: flex;
       align-items: center;
-      gap: $spacing-sm;
+      gap: $spacing-xs;
+      flex-wrap: wrap;
 
       .badgeSidereal {
         font-family: $font-mono;
@@ -47,9 +49,10 @@
 
     .brandSub {
       font-family: $font-mono;
-      font-size: $ui-md;
+      font-size: clamp(0.7rem, 2.5vw, #{$ui-md});
       color: $color-text-secondary;
       opacity: 0.7;
+      word-break: break-word;
 
       a {
         color: $color-gold-primary;
@@ -67,7 +70,11 @@
     font-size: $paragraph-sm;
     color: $color-text-secondary;
     line-height: 1.6;
-    max-width: 90%;
+    max-width: 100%;
+
+    @include respond-to("lg") {
+      max-width: 90%;
+    }
 
     .highlight {
       color: $color-success;
@@ -77,20 +84,44 @@
 
   .statusBadges {
     display: flex;
-    gap: $spacing-sm;
+    flex-direction: column;
+    gap: $spacing-xs;
     margin-top: $spacing-xs;
+    width: 100%;
+
+    @include respond-to("sm") {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      width: auto;
+    }
 
     .statusTag {
       font-family: $font-mono;
       font-size: $ui-sm;
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: $spacing-2xs $spacing-sm;
+      padding: $spacing-xs $spacing-sm;
       border-radius: $radius-md;
       display: flex;
       align-items: center;
-      gap: $spacing-2xs;
+      justify-content: space-between;
+      gap: $spacing-xs;
       color: $color-text-secondary;
+      width: 100%;
+
+      @include respond-to("sm") {
+        width: auto;
+        padding: $spacing-2xs $spacing-sm;
+        justify-content: flex-start;
+        gap: $spacing-2xs;
+      }
+
+      .tagLabel {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2xs;
+      }
 
       .dot {
         width: 6px;
@@ -98,13 +129,16 @@
         border-radius: 50%;
         background: $color-success;
         box-shadow: 0 0 8px rgba($color-success, 0.5);
+        flex-shrink: 0;
       }
 
       .tagValue {
         color: $color-gold-primary;
+        white-space: nowrap;
       }
       .tagValueGreen {
         color: $color-success;
+        white-space: nowrap;
       }
     }
   }

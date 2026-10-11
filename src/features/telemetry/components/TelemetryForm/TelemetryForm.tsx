@@ -132,6 +132,7 @@ export function TelemetryForm({ onSubmit, isLoading }: TelemetryFormProps) {
         variant="solid" 
         fullWidth 
         disabled={isLoading}
+        className={styles.submitBtn}
         leftIcon={
           <span className={styles.btnPrefix}>
             ASTRO<span className={styles.boxIcon}>▣</span>GRAPHY_ /

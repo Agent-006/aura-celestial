@@ -119,11 +119,15 @@
 
   h3 {
     font-family: $font-headings;
-    font-size: $heading-xs;
+    font-size: 1.25rem; // Mobile bump
     font-weight: $weight-medium;
     font-style: italic;
     color: $color-text-primary;
     margin: 0;
+
+    @include respond-to('md') {
+      font-size: $heading-xs;
+    }
   }
 
   .rating {
@@ -132,11 +136,20 @@
     gap: 4px;
     color: $color-gold-primary;
     font-family: $font-technical;
-    font-size: $ui-xs;
+    font-size: 0.85rem; // Mobile bump
+
+    @include respond-to('md') {
+      font-size: $ui-xs;
+    }
 
     .starIcon {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
+
+      @include respond-to('md') {
+        width: 12px;
+        height: 12px;
+      }
     }
   }
 }

@@ -59,10 +59,10 @@ export function HeroOverlay() {
                     </div>
 
                     <div className={`${styles.ctaGroup} animate-item`}>
-                        <Button variant="solid" size="lg" leftIcon={<Phone size={16} strokeWidth={2} />}>
+                        <Button className={styles.heroButton} variant="solid" size="lg" leftIcon={<Phone size={16} strokeWidth={2} />}>
                             Talk To An Astrologer
                         </Button>
-                        <Button variant="outline" size="lg" leftIcon={<Sparkles size={16} strokeWidth={2} />}>
+                        <Button className={styles.heroButton} variant="outline" size="lg" leftIcon={<Sparkles size={16} strokeWidth={2} />}>
                             Generate Free Kundli
                         </Button>
                     </div>

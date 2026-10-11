@@ -26,13 +26,16 @@ export const FooterBrand = () => {
       </p>
       <div className={styles.statusBadges}>
         <div className={styles.statusTag}>
-          <span className={styles.dot}></span> AYANAMSHA:{" "}
+          <span className={styles.tagLabel}>
+            <span className={styles.dot}></span> AYANAMSHA:
+          </span>
           <span className={styles.tagValue}>
             Lahiri 24&deg; 12&lsquo; 40&quot;
           </span>
         </div>
         <div className={styles.statusTag}>
-          PRECISION: <span className={styles.tagValueGreen}>Sub-Arcsecond</span>
+          <span className={styles.tagLabel}>PRECISION:</span>
+          <span className={styles.tagValueGreen}>Sub-Arcsecond</span>
         </div>
       </div>
     </div>

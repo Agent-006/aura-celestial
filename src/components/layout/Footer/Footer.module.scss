@@ -50,8 +50,8 @@
   display: flex;
   flex-direction: column;
   @include glass-card(0.78, 28px);
-  padding: $spacing-2xl;
-  gap: $spacing-2xl;
+  padding: $spacing-lg $spacing-md;
+  gap: $spacing-xl;
   border-radius: $radius-none;
 
   &::before {
@@ -71,6 +71,11 @@
   > * {
     position: relative;
     z-index: 1;
+  }
+
+  @include respond-to("md") {
+    padding: $spacing-2xl;
+    gap: $spacing-2xl;
   }
 
   @include respond-to("lg") {

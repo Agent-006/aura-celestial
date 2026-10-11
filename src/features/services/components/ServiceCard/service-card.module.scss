@@ -120,29 +120,37 @@
 
 .cardContent {
   @include flex-column;
-  gap: $spacing-xs;
+  gap: $spacing-sm;
   flex-grow: 1;
 
   h3 {
     font-family: $font-headings;
-    font-size: $heading-sm;
+    font-size: 1.25rem; // Good readable mobile size
     font-style: italic;
     color: $color-text-primary;
     font-weight: $weight-regular;
     margin: $spacing-md 0 0 0;
+
+    @include respond-to('md') {
+      font-size: $heading-sm;
+    }
   }
 
   p {
     font-family: $font-inter;
-    font-size: $ui-sm;
+    font-size: 0.95rem; // Readable body text
     color: $color-text-secondary;
     line-height: $leading-normal;
+
+    @include respond-to('md') {
+      font-size: $ui-sm;
+    }
   }
 }
 
 .cardFooter {
   font-family: $font-technical;
-  font-size: $ui-xs;
+  font-size: 0.85rem; // Readable mobile size
   color: $color-gold-primary;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -150,4 +158,8 @@
   align-items: center;
   gap: $spacing-xs;
   margin-top: auto;
+
+  @include respond-to('md') {
+    font-size: $ui-xs;
+  }
 }

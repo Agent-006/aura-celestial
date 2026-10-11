@@ -25,17 +25,28 @@
 .contentWrapper {
     max-width: 800px;
     pointer-events: auto;
-    padding-bottom: 13vh;
+    padding-bottom: 15vh; // Reduced from 25vh so it doesn't cut off at the top
+    padding-top: 10vh; // Ensure it clears the header area
+
+    @include respond-to('md') {
+        padding-bottom: 13vh;
+        padding-top: 0;
+    }
 }
 
 .headline {
-    font-size: $heading-xl;
-    line-height: $leading-tight;
+    font-size: 3.25rem; // Much bigger for mobile
+    line-height: 1.1;
     font-family: $font-headings; // Changed from $font-display to support normal case
     color: $color-text-primary;
     margin-bottom: $spacing-md;
     font-weight: $weight-regular;
     text-shadow: 0 4px 34px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.8); // Adds pop
+
+    @include respond-to('md') {
+        font-size: $heading-xl; // Scale up on tablet/desktop
+        line-height: $leading-tight;
+    }
 
     .highlight {
         color: $color-gold-primary;
@@ -68,39 +79,80 @@
 
     .subheadline {
         font-family: $font-paragraphs;
-        font-size: $subheading-sm;
+        font-size: 1.1rem; // Bigger for mobile
         font-style: italic;
         color: $color-text-secondary;
         line-height: $leading-relaxed;
         max-width: 650px;
         margin: 0;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+
+        @include respond-to('md') {
+            font-size: $subheading-sm;
+        }
     }
 }
 
 .ctaGroup {
     display: flex;
-    gap: $spacing-lg;
+    flex-direction: column !important; // Force stack vertically on mobile
+    gap: $spacing-md;
     margin-bottom: $spacing-xl;
+    width: 100%;
+    
+    @include respond-to('md') {
+        flex-direction: row !important; // Side by side on tablet/desktop
+        gap: $spacing-lg;
+        width: auto;
+    }
+    
+    .heroButton {
+        width: 100% !important; // Force full width on mobile
+        font-size: 1.05rem !important; // Bigger font for mobile
+        height: 3.5rem !important;
+        
+        @include respond-to('md') {
+            width: auto !important; // Auto width on tablet/desktop
+            font-size: $ui-md !important;
+            height: 3rem !important;
+        }
+    }
 }
 
 .trustMarkers {
     display: flex;
-    align-items: center;
-    gap: $spacing-lg;
+    flex-direction: column; // Stack vertically on mobile
+    align-items: flex-start;
+    gap: $spacing-md; // Increase gap on mobile
     font-family: $font-technical;
-    font-size: $ui-sm;
+    font-size: 1rem; // Bigger font
     color: $color-text-secondary;
     letter-spacing: 0.05em;
 
+    @include respond-to('md') {
+        flex-direction: row;
+        align-items: center;
+        gap: $spacing-lg;
+        font-size: $ui-sm;
+    }
+
     .stars {
         color: $color-gold-primary;
-        font-size: $ui-lg;
+        font-size: 1.2rem; // Bigger
         letter-spacing: 0.2em;
+
+        @include respond-to('md') {
+            font-size: $ui-lg;
+        }
     }
 
     .separator {
-        color: $color-text-tertiary;
+        display: none; // Hide separator on mobile
+        
+        @include respond-to('md') {
+            display: inline;
+            color: $color-text-tertiary;
+        }
     }
 
     .feature {

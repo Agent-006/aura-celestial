@@ -24,14 +24,17 @@
 
     .subscribeTitle {
       font-family: $font-display;
-      font-size: $subheading-md;
+      font-size: clamp(1.05rem, 3vw, #{$subheading-md});
       color: $color-white;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: $spacing-xs;
+      line-height: 1.35;
 
       .sparkle {
         color: $color-gold-primary;
+        margin-top: 3px;
+        flex-shrink: 0;
       }
     }
 
@@ -52,20 +55,69 @@
 
   .inputGroup {
     display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: $radius-lg;
-    padding: $spacing-2xs;
+    flex-direction: column;
+    gap: $spacing-sm;
     margin-top: auto;
+    width: 100%;
+
+    @include respond-to("sm") {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-lg;
+      padding: $spacing-2xs;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:focus-within {
+        border-color: rgba($color-gold-primary, 0.4);
+        box-shadow: 0 0 12px rgba($color-gold-primary, 0.15);
+      }
+    }
+
+    .inputWrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: $radius-lg;
+      padding: 0;
+      width: 100%;
+      min-width: 0;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:focus-within {
+        border-color: rgba($color-gold-primary, 0.4);
+        box-shadow: 0 0 12px rgba($color-gold-primary, 0.15);
+      }
+
+      @include respond-to("sm") {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        flex: 1;
+
+        &:focus-within {
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+    }
 
     .inputIcon {
       color: $color-text-secondary;
-      margin-left: $spacing-sm;
+      margin-left: $spacing-md;
+      flex-shrink: 0;
+
+      @include respond-to("sm") {
+        margin-left: $spacing-sm;
+      }
     }
 
     .input {
       flex: 1;
+      min-width: 0;
       background: transparent;
       border: none;
       padding: $spacing-sm;
@@ -75,7 +127,8 @@
       outline: none;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.35);
+        font-size: clamp(0.75rem, 2.5vw, #{$ui-md});
       }
 
       &:disabled {
@@ -88,24 +141,34 @@
       color: #000;
       border: none;
       border-radius: $radius-md;
-      padding: 0 $spacing-md;
-      height: 36px;
+      padding: 0 $spacing-lg;
+      height: 42px;
       font-family: $font-mono;
       font-size: $ui-md;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
+      width: 100%;
+      white-space: nowrap;
       @include transition-standard;
 
       &:hover:not(:disabled) {
         background: $color-gold-hover;
+        box-shadow: 0 0 16px rgba($color-gold-primary, 0.3);
       }
 
       &:disabled {
         opacity: 0.7;
         cursor: not-allowed;
+      }
+
+      @include respond-to("sm") {
+        width: auto;
+        height: 36px;
+        padding: 0 $spacing-md;
       }
     }
   }

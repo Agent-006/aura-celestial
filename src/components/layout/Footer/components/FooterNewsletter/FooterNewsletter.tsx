@@ -25,14 +25,16 @@ export const FooterNewsletter = () => {
         onSubmit={form.handleSubmit(subscribe)}
         className={styles.inputGroup}
       >
-        <Atom size={16} className={styles.inputIcon} />
-        <input
-          type="text"
-          placeholder="Enter coordinate or email..."
-          className={styles.input}
-          disabled={isLoading}
-          {...form.register("contact")}
-        />
+        <div className={styles.inputWrapper}>
+          <Atom size={16} className={styles.inputIcon} />
+          <input
+            type="text"
+            placeholder="Enter coordinate or email..."
+            className={styles.input}
+            disabled={isLoading}
+            {...form.register("contact")}
+          />
+        </div>
         <button
           type="submit"
           disabled={isLoading}

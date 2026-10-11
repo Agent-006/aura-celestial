@@ -28,9 +28,13 @@
   @include container;
   display: flex;
   flex-direction: column;
-  gap: $spacing-2xl;
+  gap: $spacing-xl; // Reduce gap slightly on mobile
   position: relative;
-  z-index: 1;
+  z-index: 5; // Raised z-index so it sits above topSeparator
+
+  @include respond-to('md') {
+      gap: $spacing-2xl;
+  }
 }
 
 // --- Background Elements ---
@@ -85,12 +89,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: $spacing-xl;
+
+  @include respond-to('md') {
+      align-items: flex-end; // tablet and up
+  }
 
   @media (max-width: 64rem) {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: $spacing-md;
   }
 }
@@ -99,37 +107,58 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $spacing-sm;
+
+  @include respond-to('md') {
+      gap: $spacing-lg;
+  }
 
   .eyebrow {
     font-family: $font-technical;
-    font-size: $ui-md;
-    color: $color-gold-hover;
+    font-size: 0.85rem;
+    color: $color-gold-primary; // Changed to brighter primary gold for better visibility
     text-transform: uppercase;
     letter-spacing: 0.15em;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+    @include respond-to('md') {
+        font-size: $ui-md;
+    }
   }
 
   .title {
     font-family: $font-headings;
-    font-size: $heading-lg;
+    font-size: 2.25rem; // Mobile size
     font-weight: $weight-regular;
     color: $color-text-primary;
     line-height: $leading-tight;
     margin: 0;
+
+    @include respond-to('md') {
+        font-size: $heading-lg; // Tablet/Desktop
+    }
   }
 }
 
 .descArea {
-  flex: 0 1 28.125rem;
+  flex: none; // Fixes huge vertical gap on mobile
+  width: 100%; // Ensure it doesn't overflow
+
+  @include respond-to('md') {
+      flex: 0 1 28.125rem; // Only apply flex-basis on tablet/desktop row layout
+  }
 
   p {
-    font-family: $font-headings;
-    font-size: $paragraph-lg;
+    font-family: $font-paragraphs; // Switch to paragraphs font for readability
+    font-size: 1.05rem; // Mobile size
     color: $color-text-secondary;
     font-style: italic;
     line-height: $leading-relaxed;
     margin: 0;
+
+    @include respond-to('md') {
+        font-size: $paragraph-lg; // Tablet/Desktop
+    }
   }
 }
 
@@ -143,11 +172,12 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 48rem) {
+  @media (max-width: 64rem) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 30rem) {
+  @media (max-width: 40rem) { // 640px and below (mobile)
     grid-template-columns: 1fr;
+    gap: $spacing-lg; // Give more breathing room between cards on mobile
   }
 }

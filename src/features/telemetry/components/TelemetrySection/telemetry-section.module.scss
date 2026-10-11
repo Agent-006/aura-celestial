@@ -70,6 +70,11 @@
     gap: $spacing-2xl;
     padding: $spacing-2xl;
   }
+
+  @media (max-width: 48rem) {
+    padding: $spacing-xl $spacing-md;
+    gap: $spacing-xl;
+  }
 }
 
 // --- Background Elements ---

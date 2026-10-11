@@ -40,8 +40,12 @@
 .badges {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: $spacing-sm;
+
+  @include respond-to('md') {
+    justify-content: flex-end;
+  }
 
   .badge {
     display: inline-flex;
