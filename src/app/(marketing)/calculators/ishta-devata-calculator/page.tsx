@@ -4,7 +4,7 @@ import { IshtaDevataCalculator } from "@/features/calculators/ishta-devata-calcu
 import styles from "./page.module.scss";
 
 export const metadata = {
-  title: "Ishta Devata Calculator | Aura Celestial",
+  title: "Ishta Devata Calculator | JYOTISHAASTRO",
   description:
     "Sub-arcsecond Jaimini sutra logic computing your soul's tutelary deity (Ishta Devata) based on the planetary lord of the 12th house from your Atmakaraka in the Navamsha (D9) chart.",
 };

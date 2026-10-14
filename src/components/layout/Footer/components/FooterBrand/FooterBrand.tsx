@@ -21,8 +21,8 @@ export const FooterBrand = () => {
       </div>
       <p className={styles.brandDesc}>
         Bridging 5,000 years of classical Vedic Parashari & Jaimini principles
-        with modern <span className={styles.highlight}>NASA JPL DE441</span>{" "}
-        sub-arcsecond planetary kinematics and IAU SOFA algorithms.
+        with high-precision <span className={styles.highlight}>Surya Siddhanta & Drik Ganita</span>{" "}
+        sub-arcsecond planetary kinematics and sidereal astronomical algorithms.
       </p>
       <div className={styles.statusBadges}>
         <div className={styles.statusTag}>

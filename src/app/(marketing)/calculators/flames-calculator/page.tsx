@@ -5,7 +5,7 @@ import { FlamesCalculator } from "@/features/calculators/flames-calculator/compo
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "FLAMES Calculator (Astral Matrix & Affinity Calculus) | Aura Celestial",
+  title: "FLAMES Calculator (Astral Matrix & Affinity Calculus) | JYOTISHAASTRO",
   description:
     "A high-precision ephemeris and astrological harmonization engine synthesizing phoneme/letter frequency cancellation, planetary relation names, and bi-dimensional over-archip vectors.",
 };

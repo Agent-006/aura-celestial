@@ -53,7 +53,7 @@ export function HeroOverlay() {
                     <div className={`${styles.subheadWrapper} animate-item`}>
                         <div className={`${styles.accentLine} animate-line`}></div>
                         <p className={styles.subheadline}>
-                            Sidereal cosmic intelligence powered by sub-arcsecond NASA JPL mechanics.<br />
+                            Sidereal cosmic intelligence powered by authentic Vedic astronomical mechanics.<br />
                             Explore orbital manifolds, consult verified Vedic masters, and decode your karmic destiny.
                         </p>
                     </div>

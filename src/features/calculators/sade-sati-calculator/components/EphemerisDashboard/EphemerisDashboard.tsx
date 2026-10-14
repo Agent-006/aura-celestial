@@ -21,7 +21,7 @@ export function EphemerisDashboard() {
       <div className={styles.headerRow}>
         <div className={styles.titleBlock}>
           <span className={styles.eyebrow}>
-            AURA CELESTIAL ALGORITHM | V1.2.0-STABLE
+            JYOTISHAASTRO ALGORITHM | V1.2.0-STABLE
           </span>
           <h2 className={styles.title}>
             Native Natal Ingress & Saturnian Ephemeris Parameters

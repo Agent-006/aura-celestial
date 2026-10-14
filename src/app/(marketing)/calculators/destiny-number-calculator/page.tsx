@@ -6,7 +6,7 @@ export default function DestinyNumberCalculatorPage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageHeader}>
         <div className={styles.eyebrow}>
-          AURA OBSERVATORY ALGORITHM | DESTINY NUMBER MODULE
+          JYOTISHAASTRO ALGORITHM | DESTINY NUMBER MODULE
         </div>
         <h1 className={styles.title}>
           Bhagyank Calculator & Sacred Destiny Number Cockpit

@@ -5,7 +5,7 @@ import { LuckyVehicleCalculator } from "@/features/calculators/lucky-vehicle-num
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Lucky Vehicle Number Calculator | Aura Celestial",
+  title: "Lucky Vehicle Number Calculator | JYOTISHAASTRO",
   description: "A specialized Vedic numerology and automotive ephemeris engine synthesizing vehicle license registrations and core numerology.",
 };
 

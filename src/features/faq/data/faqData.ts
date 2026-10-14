@@ -23,12 +23,12 @@ export const FAQ_DATA: FaqItem[] = [
   },
   {
     id: "reliability",
-    question: "How reliable is the Jyotishaastro app?",
-    answer: "Our platform is built on sub-arcsecond astronomical calculations using NASA JPL Ephemeris data. Combined with our vetted Vedic faculty, we ensure the highest degree of reliability in every consultation."
+    question: "How reliable is the JYOTISHAASTRO platform?",
+    answer: "Our platform is built on sub-arcsecond astronomical calculations using authentic Vedic Drik Ganita and Surya Siddhanta principles. Combined with our vetted Vedic faculty, we ensure the highest degree of reliability in every consultation."
   },
   {
     id: "cost",
-    question: "How much does Jyotishaastro cost?",
+    question: "How much does JYOTISHAASTRO cost?",
     answer: "We offer various consultation models, starting with a free initial evaluation. Subsequent detailed readings and premium reports are priced transparently, ensuring you only pay for the profound value you receive."
   }
 ];

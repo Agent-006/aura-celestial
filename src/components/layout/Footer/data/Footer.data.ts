@@ -67,8 +67,8 @@ export const FOOTER_LINKS: FooterLinkColumn[] = [
 export const FOOTER_FEATURES: FooterFeature[] = [
   {
     icon: Globe,
-    title: "NASA JPL DE441 Ephemeris",
-    desc: "Calibrated against NASA Jet Propulsion Laboratory dynamical models with sub-arcsecond sidereal precision.",
+    title: "Classical Drik Ganita Ephemeris",
+    desc: "Calibrated against authentic astronomical Vedic principles with sub-arcsecond sidereal precision.",
   },
   {
     icon: ShieldCheck,

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Atmakaraka & Darakaraka Calculator | Aura Celestial",
+  title: "Atmakaraka & Darakaraka Calculator | JYOTISHAASTRO",
   description:
     "Discover your soul's purpose (Atmakaraka) and destined partner (Darakaraka) through Jaimini Astrology.",
 };

@@ -54,7 +54,7 @@ export const RashiForm: React.FC<RashiFormProps> = ({
               <User className={styles.inputIcon} size={16} />
               <input
                 type="text"
-                placeholder="Aura Celestial"
+                placeholder="JYOTISHAASTRO"
                 className={styles.withIcon}
                 {...register("fullName")}
               />
@@ -163,7 +163,7 @@ export const RashiForm: React.FC<RashiFormProps> = ({
         <div className={styles.footerMetrics}>
           <div className={styles.metric}>
             <span className={styles.metricLabel}>EPHEMERIS STANDARD</span>
-            <span className={styles.metricValue}>NASA JPL DE431</span>
+            <span className={styles.metricValue}>DRIK SIDEREAL EPHEMERIS</span>
           </div>
           <div className={styles.metric}>
             <span className={styles.metricLabel}>AYANAMSHA VARIANT</span>

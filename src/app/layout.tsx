@@ -45,8 +45,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Celestial",
-  description: "A premium, celestial web experience.",
+  title: "JYOTISHAASTRO | Authentic Vedic Astrology & Sidereal Horology",
+  description:
+    "JYOTISHAASTRO - Bridging classical Vedic Parashari & Jaimini principles with precision astronomical horology.",
   robots: {
     index: false,
     follow: false,

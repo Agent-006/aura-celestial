@@ -45,7 +45,7 @@ export function ShantiProtocols() {
       <div className={styles.actionRow}>
         <button className={styles.downloadBtn}>
           <Download size={18} />
-          Download Aura&apos;s 21-Day Shanti Recovery Docket
+          Download JYOTISHAASTRO&apos;s 21-Day Shanti Recovery Docket
         </button>
       </div>
     </section>

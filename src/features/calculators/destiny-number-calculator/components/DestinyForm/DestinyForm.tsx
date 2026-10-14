@@ -34,7 +34,7 @@ export const DestinyForm: React.FC<DestinyFormProps> = ({
           <Database size={12} />
           <span>Sacred Nativity Ingress Chassis</span>
           <span className={styles.subtitle}>
-            AURA OBSERVATORY CHRONOMETRY MODULE
+            JYOTISHAASTRO CHRONOMETRY MODULE
           </span>
         </div>
         <div className={styles.right}>

@@ -16,9 +16,9 @@ export function TelemetryContentLeft({ onSubmit, isLoading }: TelemetryContentLe
         </span>
         <h2 className={styles.title}>Astrology, Personalized Around You</h2>
         <p className={styles.description}>
-          Enter your coordinate points. Aura executes NASA JPL algorithms to
-          render your sidereal Vedic Lagna (D1) chart with live Mahadasha
-          timers.
+          Enter your coordinate points. JYOTISHAASTRO executes high-precision
+          Vedic algorithms to render your sidereal Vedic Lagna (D1) chart with
+          live Mahadasha timers.
         </p>
       </div>
 

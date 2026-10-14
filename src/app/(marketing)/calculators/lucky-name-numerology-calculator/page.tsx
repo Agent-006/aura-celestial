@@ -6,7 +6,7 @@ export default function LuckyNameCalculatorPage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageHeader}>
         <div className={styles.eyebrow}>
-          AURA OBSERVATORY ALGORITHM | ONOMASTIC NAME ALGORITHMS
+          JYOTISHAASTRO ALGORITHM | ONOMASTIC NAME ALGORITHMS
         </div>
         <h1 className={styles.title}>
           Lucky Name Numerology Calculator & Onomastic Vibrational Cockpit

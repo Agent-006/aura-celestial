@@ -3,7 +3,7 @@ import { NumerologyCalculator } from "@/features/calculators/numerology-calculat
 import styles from "./page.module.scss";
 
 export const metadata = {
-  title: "Numerology Calculator | Aura Celestial",
+  title: "Numerology Calculator | JYOTISHAASTRO",
   description:
     "Synthesize your sacred vibrational matrix and energetic blueprint.",
 };

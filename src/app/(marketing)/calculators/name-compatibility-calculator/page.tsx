@@ -3,7 +3,7 @@ import { NameCompatibilityCalculator } from "@/features/calculators/name-compati
 import styles from "./page.module.scss";
 
 export const metadata = {
-  title: "Name Compatibility Calculator | Aura Celestial",
+  title: "Name Compatibility Calculator | JYOTISHAASTRO",
   description:
     "Sub-arcsecond numerological and phonetic synergy tracking for relationships, utilizing Chaldean and Pythagorean algorithms to measure vibrational concordance.",
 };

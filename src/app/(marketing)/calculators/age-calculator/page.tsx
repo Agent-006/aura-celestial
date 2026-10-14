@@ -3,7 +3,7 @@ import { AgeCalculator } from "@/features/calculators/age-calculator/components/
 import styles from "./page.module.scss";
 
 export const metadata = {
-  title: "Age Calculator & Vedic Chronometry Cockpit | Aura Celestial",
+  title: "Age Calculator & Vedic Chronometry Cockpit | JYOTISHAASTRO",
   description:
     "Multi-dimensional temporal ephemeris measuring biological chronological age, Vedic Ghati-Pala-Vipala cycles, sidereal Solar returns, and lunar tithi age.",
 };
@@ -13,7 +13,7 @@ export default function AgeCalculatorPage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageHeader}>
         <div className={styles.eyebrow}>
-          AURA OBSERVATORY CHRONOMETRY MODULE | BUILD 4.2
+          JYOTISHAASTRO CHRONOMETRY MODULE | BUILD 4.2
         </div>
         <h1 className={styles.title}>
           Age Calculator & Vedic Chronometry Cockpit

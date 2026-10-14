@@ -6,7 +6,7 @@ export default function MobileNumberCalculatorPage() {
     <div className={styles.pageContainer}>
       <div className={styles.pageHeader}>
         <div className={styles.eyebrow}>
-          AURA OBSERVATORY CELLULAR METRICS | MOBILE FREQUENCY HARMONIZER HUB-8
+          JYOTISHAASTRO CELLULAR METRICS | MOBILE FREQUENCY HARMONIZER HUB-8
         </div>
         <h1 className={styles.title}>
           Mobile Number Numerology Calculator & Cellular Frequency Cockpit

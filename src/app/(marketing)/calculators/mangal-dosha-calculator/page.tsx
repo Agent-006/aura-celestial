@@ -7,7 +7,7 @@ import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
   title:
-    "Mangal Dosha Calculator (Kuja Dosha & Anshik Mars Analysis) | Aura Celestial",
+    "Mangal Dosha Calculator (Kuja Dosha & Anshik Mars Analysis) | JYOTISHAASTRO",
   description:
     "Continuous Vedic Martian trajectory ephemeris computing natal Mars placement across Houses 1, 2, 4, 7, 8, and 12, evaluating 16 classical Parashari cancellation (Nivarana) yogas.",
 };

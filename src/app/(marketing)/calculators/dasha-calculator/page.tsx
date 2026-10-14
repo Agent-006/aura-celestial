@@ -6,7 +6,7 @@ import { CalculatorHeader } from "@/features/calculators/components/shared";
 
 export const metadata: Metadata = {
   title:
-    "Vimshottari Dasha Calculator (120-Year Planetary Chronology) | Aura Celestial",
+    "Vimshottari Dasha Calculator (120-Year Planetary Chronology) | JYOTISHAASTRO",
   description:
     "Calculate your Vedic life-cycle ephemeris detailing the exact unfoldment of karmic frequencies, Mahadashas, Antardashas, and Pratyantardashas tied to your natal Moon's Nakshatra.",
 };

@@ -4,9 +4,9 @@ export const TRUST_DATA = [
   {
     id: "trust-precision",
     icon: Target,
-    title: "NASA JPL Ephemeris Precision",
+    title: "Classical Drik Ganita Precision",
     description:
-      "Computed using Swiss Ephemeris DE431 integration, accurate to 0.001 arcseconds.",
+      "Computed using high-precision astronomical Vedic horology algorithms, accurate to 0.001 arcseconds.",
   },
   {
     id: "trust-privacy",

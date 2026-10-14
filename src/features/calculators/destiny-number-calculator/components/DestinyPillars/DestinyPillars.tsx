@@ -12,7 +12,7 @@ export const DestinyPillars: React.FC<DestinyPillarsProps> = ({ pillars }) => {
     <div className={styles.pillarsContainer}>
       <div className={styles.header}>
         <span className={styles.eyebrow}>
-          AURA OBSERVATORY ALGORITHM [V 1.0]
+          JYOTISHAASTRO ALGORITHM [V 1.0]
         </span>
         <h3 className={styles.title}>The 4 Sacred Pillars of Destiny Architecture</h3>
       </div>

@@ -13,7 +13,6 @@ export const Logo = () => {
 
       <div className={styles.textContainer}>
         <span className={styles.aura}>JYOTISHAASTRO</span>
-        {/* <span className={styles.celestial}>CELESTIAL</span> */}
       </div>
     </Link>
   );

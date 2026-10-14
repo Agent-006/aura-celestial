@@ -14,7 +14,7 @@ export default function LoveCalculatorPage() {
   return (
     <div className={styles.pageContainer}>
       <CalculatorHeader
-        eyebrow="AURA CELESTIAL // OBSERVATORY SUITE 04 | SWISS EPHEMERIS DE431 INTEGRATED"
+        eyebrow="JYOTISHAASTRO // OBSERVATORY SUITE 04 | DRIK SIDEREAL EPHEMERIS"
         title="Love Calculator & Astrological Synastry Cockpit"
         description="Sub-arcsecond dual natal vector synthesis computing classical Ashtakoota 36-Gunas love compatibility, Venus-Mars magnetic polarity, planetary cross-aspects, and karmic union longevity."
         badge={

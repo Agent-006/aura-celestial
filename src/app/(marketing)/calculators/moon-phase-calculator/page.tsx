@@ -16,7 +16,7 @@ export default function MoonPhasePage() {
   return (
     <div className={styles.pageContainer}>
       <CalculatorHeader
-        eyebrow="AURA CELESTIAL // OBSERVATORY SUITE 02 | LUNAR EPHEMERIS ENGINE"
+        eyebrow="JYOTISHAASTRO // OBSERVATORY SUITE 02 | LUNAR EPHEMERIS ENGINE"
         title="Moon Phase & Sacred Tithi Cockpit"
         description="High-precision computation of Chandra (Moon) illumination, exact Tithi boundaries, and lunar phase chronometry."
         badge={
@@ -32,7 +32,7 @@ export default function MoonPhasePage() {
             [TOPOCENTRIC CALIBRATION]
           </span>
         }
-        footerLeft="● Ephemeris engine synchronized with NASA JPL Horizons data."
+        footerLeft="● Ephemeris engine synchronized with classical Vedic Drik Ganita planetary models."
         footerRight={
           <Button type="submit" form="moon-phase-form" variant="solid">
             Calculate Moon Phase ✦

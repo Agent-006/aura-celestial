@@ -5,7 +5,7 @@ import { FriendshipCalculator } from "@/features/calculators/friendship-calculat
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Friendship Calculator | Aura Celestial",
+  title: "Friendship Calculator | JYOTISHAASTRO",
   description: "Astrological Friendship Calculator & Platonic Concordance Cockpit. Dual-chart second-world synastry analyzing the 11th House.",
 };
 

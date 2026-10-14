@@ -5,9 +5,9 @@ import { CalculatorHeader } from "@/features/calculators/components/shared/Calcu
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Sun Sign Calculator | Tropical & Sidereal Ephemeris | Aura Celestial",
+  title: "Sun Sign Calculator | Tropical & Sidereal Ephemeris | JYOTISHAASTRO",
   description:
-    "Calculate your exact Sun Sign in both Western Tropical and Vedic Sidereal systems with high-precision NASA JPL ephemeris data.",
+    "Calculate your exact Sun Sign in both Western Tropical and Vedic Sidereal systems with high-precision astronomical Vedic ephemeris data.",
 };
 
 export default function SunSignCalculatorPage() {

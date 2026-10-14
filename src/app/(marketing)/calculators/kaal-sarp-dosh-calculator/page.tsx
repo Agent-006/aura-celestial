@@ -5,7 +5,7 @@ import { KaalSarpCalculator } from "@/features/calculators/kaal-sarp-dosh-calcul
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Kaal Sarp Dosha Diagnostic | Aura Celestial",
+  title: "Kaal Sarp Dosha Diagnostic | JYOTISHAASTRO",
   description:
     "Sub-arcsecond Vedic astrometry comparing planetary encasement between the Lunar Ascending (Rahu) and Descending (Ketu) nodes.",
 };

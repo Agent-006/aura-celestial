@@ -5,7 +5,7 @@ import { CalculatorHeader } from "@/features/calculators/components/shared/Calcu
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Rising Sign Calculator | Ascendant Lagna | Aura Celestial",
+  title: "Rising Sign Calculator | Ascendant Lagna | JYOTISHAASTRO",
   description:
     "Calculate your exact Rising Sign (Lagna) in both Western Tropical and Vedic Sidereal systems. Understand your psychological persona and spiritual path.",
 };

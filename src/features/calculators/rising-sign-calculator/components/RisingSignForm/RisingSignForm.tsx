@@ -60,7 +60,7 @@ export const RisingSignForm: React.FC<RisingSignFormProps> = ({
               <User className={styles.inputIcon} size={16} />
               <input
                 type="text"
-                placeholder="Aura Celestial"
+                placeholder="JYOTISHAASTRO"
                 className={styles.withIcon}
                 {...register("fullName")}
               />

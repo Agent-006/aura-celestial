@@ -6,7 +6,7 @@ import { BirthChartCalculator } from "@/features/calculators/birth-chart-calcula
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Birth Chart Calculator | Janam Kundli & Natal Ephemeris | Aura Celestial",
+  title: "Birth Chart Calculator | Janam Kundli & Natal Ephemeris | JYOTISHAASTRO",
   description:
     "Generate your precise 12-house Vedic birth chart (Rashi Chakra), detailing planetary coordinates, dignities, divisional charts (Vargas), and core karmic significators based on exact birth telemetry.",
 };
